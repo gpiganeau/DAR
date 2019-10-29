@@ -15,14 +15,20 @@ public class DrawWithMouse : MonoBehaviour
     private RenderTexture _splatmap;
     private Material _snowMaterial, _drawMaterial;
     private RaycastHit _hit;
+    private Material _snowPrivateMaterial;
+    private RenderTexture _splatmapModel;
 
         // Start is called before the first frame update
     void Start(){
         _drawMaterial = new Material(_drawShader);
         //_drawMaterial.SetVector("_Color", Color.red);
 
-        _snowMaterial = GetComponent<MeshRenderer>().material;
-        _splatmap = new RenderTexture(1024, 1024, 0, RenderTextureFormat.ARGBFloat);
+        _snowPrivateMaterial = GetComponent<MeshRenderer>().material;
+        _snowMaterial = Material.Instantiate(_snowPrivateMaterial);
+
+        _splatmapModel = new RenderTexture(1024, 1024, 0, RenderTextureFormat.ARGBFloat);
+        _splatmap = RenderTexture.Instantiate(_splatmapModel);
+        //_splatmap = new RenderTexture(1024, 1024, 0, RenderTextureFormat.ARGBFloat);
         _snowMaterial.SetTexture("_Splat", _splatmap);
         _brushSize = 10;
         _brushStrength = 0.3f;
