@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayerTrailOnTerrain : MonoBehaviour
 {
     private Vector2Int playerPositionOnTerrain;
-    Terrain terr; //the terrain on which the script is
-    int hmWidth; // heightmap width
-    int hmHeight; // heightmap height
-
+    private Terrain terr; //the terrain on which the script is
+    private int hmWidth; // heightmap width
+    private int hmHeight; // heightmap height
+    private int mapResolution; //heightmap resolution
     private int posXInTerrain; // position of the game object in terrain width (x axis)
     private int posYInTerrain; // position of the game object in terrain height (z axis)
     private bool[,] playerHasPassed;
@@ -23,12 +23,12 @@ public class PlayerTrailOnTerrain : MonoBehaviour
         if(playerObj == null) {
             playerObj = GameObject.Find("FPS_Character");
         }
-        playerHasPassed = new bool[513, 513];
-        Debug.Log(playerHasPassed[0,0]);
         terr = this.gameObject.GetComponent<Terrain>();
         td = terr.terrainData;
         hmWidth = td.heightmapWidth;
         hmHeight = td.heightmapHeight;
+        mapResolution = td.heightmapResolution;
+        playerHasPassed = new bool[mapResolution, mapResolution];
     }
 
     // Update is called once per frame
@@ -37,29 +37,28 @@ public class PlayerTrailOnTerrain : MonoBehaviour
         playerPositionOnTerrain = FindPlayerPosition();
         Debug.Log(playerPositionOnTerrain.ToString());
         ModifyPassedArray(playerPositionOnTerrain);
-        UpdateVisibleTrail();
     }
 
-    private void UpdateVisibleTrail() {
-        float[,,] map = new float[512, 512, 2];
-        for (int i = 0; i <= 511; i++) {
-            for (int j = 0; j <= 511; j++) {
-                if (playerHasPassed[i, j]) {
-                    Debug.Log(i + j);
-                    map[j, i, 0] = 1f;
-                    map[j, i, 1] = 0f;
-                }
-                else {
-                    map[j, i, 0] = 0f;
-                    map[j, i, 1] = 1f;
-                }
+    private void UpdateVisibleTrail(int x, int y) {
+        int brushSize = 4;
+        int offset = brushSize / 2;
+        float[,,] map = new float[brushSize, brushSize, 2];
+        for (int i = 0; i < brushSize; i++) {
+            for (int j = 0; j < brushSize; j++) {
+                map[i, j, 0] = 1f;
+                map[i, j, 1] = 0f;
             }
         }
-        td.SetAlphamaps(0, 0, map);
+        td.SetAlphamaps(x - offset, y - offset, map);
     }
 
     private void ModifyPassedArray(Vector2Int playerPositionOnTerrain) {
-        playerHasPassed[playerPositionOnTerrain.x,playerPositionOnTerrain.y] = true;
+        if (!playerHasPassed[playerPositionOnTerrain.x, playerPositionOnTerrain.y]) {
+            if(playerObj.GetComponent<PlayerMovement>().AmIGrounded()){
+                playerHasPassed[playerPositionOnTerrain.x, playerPositionOnTerrain.y] = true;
+                UpdateVisibleTrail(playerPositionOnTerrain.x, playerPositionOnTerrain.y);
+            }
+        }
     }
 
     private Vector2Int FindPlayerPosition() {

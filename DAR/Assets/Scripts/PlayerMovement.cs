@@ -43,4 +43,8 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
     }
+
+    public bool AmIGrounded() {
+        return isGrounded;
+    }
 }
