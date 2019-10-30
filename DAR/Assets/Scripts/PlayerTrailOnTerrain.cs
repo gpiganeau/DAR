@@ -37,27 +37,25 @@ public class PlayerTrailOnTerrain : MonoBehaviour
         playerPositionOnTerrain = FindPlayerPosition();
         Debug.Log(playerPositionOnTerrain.ToString());
         ModifyPassedArray(playerPositionOnTerrain);
-        //UpdateVisibleTrail();
+        UpdateVisibleTrail();
     }
 
     private void UpdateVisibleTrail() {
-        for(int i = 0; i <= 512; i++) {
-            Debug.Log("Hello_0");
-            for(int j = 0; j <= 512; j++) {
-                Debug.Log("Hello_1");
-                if (playerHasPassed[i,j]) {
-                    Debug.Log("Hello_2");
-                    splatmapData = td.GetAlphamaps(i, j, 1, 1);
-                    //Set OFF all textures en coord (x,y)
-                    for (int k = 0; k < td.alphamapLayers; k++) {
-                        splatmapData[0, 0, k] = 0;
-                    }
-                    //Set ON
-                    splatmapData[0, 0, 0] = 1;
-                    td.SetAlphamaps(i, j, splatmapData);
+        float[,,] map = new float[512, 512, 2];
+        for (int i = 0; i <= 511; i++) {
+            for (int j = 0; j <= 511; j++) {
+                if (playerHasPassed[i, j]) {
+                    Debug.Log(i + j);
+                    map[i, j, 0] = 1f;
+                    map[i, j, 1] = 0f;
+                }
+                else {
+                    map[i, j, 0] = 0f;
+                    map[i, j, 1] = 1f;
                 }
             }
         }
+        td.SetAlphamaps(0, 0, map);
     }
 
     private void ModifyPassedArray(Vector2Int playerPositionOnTerrain) {
