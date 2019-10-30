@@ -46,12 +46,12 @@ public class PlayerTrailOnTerrain : MonoBehaviour
             for (int j = 0; j <= 511; j++) {
                 if (playerHasPassed[i, j]) {
                     Debug.Log(i + j);
-                    map[i, j, 0] = 1f;
-                    map[i, j, 1] = 0f;
+                    map[j, i, 0] = 1f;
+                    map[j, i, 1] = 0f;
                 }
                 else {
-                    map[i, j, 0] = 0f;
-                    map[i, j, 1] = 1f;
+                    map[j, i, 0] = 0f;
+                    map[j, i, 1] = 1f;
                 }
             }
         }
