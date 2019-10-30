@@ -34,12 +34,10 @@ public class SculptingTerrainStackOverflow : MonoBehaviour
         // get the position of the terrain heightmap where this game object is
         posXInTerrain = (int)(coord.x * hmWidth);
         posYInTerrain = (int)(coord.z * hmHeight);
-        Debug.Log(posXInTerrain);
-        Debug.Log(posYInTerrain);
+
 
         // we set an offset so that all the raising terrain is under this game object
         int offset = size / 2;
-        Debug.Log(offset);
 
         // get the heights of the terrain under this game object
         //float[,] heights = terr.terrainData.GetHeights(posXInTerrain - offset, posYInTerrain - offset, size, size);
@@ -54,15 +52,13 @@ public class SculptingTerrainStackOverflow : MonoBehaviour
 
 
         // go raising the terrain slowly
-        Debug.Log(baseHeights[0, 0] - heights[0, 0]);
-        Debug.Log(baseHeights[0, 0] - heights[0, 0] < 0.01);
         if (baseHeights[0, 0] - heights[0, 0] < 0.0001) {
             desiredHeight -= Time.deltaTime/1000;
         }
         
 
         // set the new height
-        terr.terrainData.SetHeights(posXInTerrain - offset, posYInTerrain - offset, heights);
+        //terr.terrainData.SetHeights(posXInTerrain - offset, posYInTerrain - offset, heights);
 
     }
 }
