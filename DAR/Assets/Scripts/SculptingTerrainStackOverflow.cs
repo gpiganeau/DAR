@@ -44,14 +44,22 @@ public class SculptingTerrainStackOverflow : MonoBehaviour
         // get the heights of the terrain under this game object
         //float[,] heights = terr.terrainData.GetHeights(posXInTerrain - offset, posYInTerrain - offset, size, size);
         float[,] heights = terr.terrainData.GetHeights(posXInTerrain, posYInTerrain, size, size);
+        float[,] baseHeights = terr.terrainData.GetHeights(posXInTerrain, posYInTerrain, size, size);
 
         // we set each sample of the terrain in the size to the desired height
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
-                heights[i, j] = desiredHeight;
+                    heights[i, j] = desiredHeight;
+
+
 
         // go raising the terrain slowly
-        desiredHeight += Time.deltaTime;
+        Debug.Log(baseHeights[0, 0] - heights[0, 0]);
+        Debug.Log(baseHeights[0, 0] - heights[0, 0] < 0.01);
+        if (baseHeights[0, 0] - heights[0, 0] < 0.0001) {
+            desiredHeight -= Time.deltaTime/1000;
+        }
+        
 
         // set the new height
         terr.terrainData.SetHeights(posXInTerrain - offset, posYInTerrain - offset, heights);
