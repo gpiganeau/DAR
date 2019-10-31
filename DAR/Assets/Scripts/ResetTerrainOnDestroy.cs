@@ -8,18 +8,22 @@ public class ResetTerrainOnDestroy : MonoBehaviour {
     public Terrain Terrain;
 
     private float[,] originalHeights;
+    private float[,,] originalTextureMap;
 
     #endregion
 
     #region Methods
 
     private void OnDestroy() {
-        this.Terrain.terrainData.SetHeights(0, 0, this.originalHeights);
+        Terrain.terrainData.SetHeights(0, 0, originalHeights);
+        Terrain.terrainData.SetAlphamaps(0, 0, originalTextureMap);
     }
 
     private void Start() {
-        this.originalHeights = this.Terrain.terrainData.GetHeights(
-            0, 0, this.Terrain.terrainData.heightmapWidth, this.Terrain.terrainData.heightmapHeight);
+        originalHeights = Terrain.terrainData.GetHeights(
+            0, 0, Terrain.terrainData.heightmapWidth, Terrain.terrainData.heightmapHeight);
+        originalTextureMap = Terrain.terrainData.GetAlphamaps(
+            0, 0, Terrain.terrainData.heightmapResolution - 1, Terrain.terrainData.heightmapResolution - 1);
     }
 
     #endregion
