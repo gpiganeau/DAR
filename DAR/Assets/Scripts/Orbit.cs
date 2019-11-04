@@ -8,6 +8,7 @@ public class Orbit : MonoBehaviour
 
 	public Transform playerBody;
 	public Vector3 offset;
+	public Vector3 rotatedOffset;
 	float xRotation = 0f;  
 	float yRotation = 0f;
 	Rigidbody playerRB;    
@@ -24,10 +25,10 @@ public class Orbit : MonoBehaviour
     void Update()
     {
 		if (playerRB.velocity.sqrMagnitude > 0.1f) { 
-		Quaternion lookR = Quaternion.LookRotation(playerRB.velocity);
-		Vector3 rotatedOffset = lookR * offset;
-		transform.position = playerBody.position + rotatedOffset;
-		transform.LookAt(playerBody);
+			Quaternion lookR = Quaternion.LookRotation(playerRB.velocity);
+			rotatedOffset = new Vector3((lookR * offset).x, (lookR * offset).y, (lookR * offset).z) ;
+			transform.position = playerBody.position + rotatedOffset;
+			transform.LookAt(playerBody);
 		}
 	}
 

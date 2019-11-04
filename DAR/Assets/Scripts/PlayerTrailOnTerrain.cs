@@ -41,17 +41,16 @@ public class PlayerTrailOnTerrain : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        playerPositionOnTerrain = FindPlayerPosition();
-        if (lastPosition != playerPositionOnTerrain) {
-            brush = UpdateBrush(playerPositionOnTerrain, 4);
-            ChangeArray tilesToChange = WhoChanged(brush);
-            UpdateVisibleTrail(tilesToChange);
-            lastPosition = playerPositionOnTerrain;
+    void Update() {
+        if (playerObj.GetComponent<BallController>().AmIGrounded()) { 
+            playerPositionOnTerrain = FindPlayerPosition();
+            if (lastPosition != playerPositionOnTerrain) {
+                brush = UpdateBrush(playerPositionOnTerrain, 4);
+                ChangeArray tilesToChange = WhoChanged(brush);
+                UpdateVisibleTrail(tilesToChange);
+                lastPosition = playerPositionOnTerrain;
+            }
         }
-
-        
     }
 
     private ChangeArray WhoChanged(Vector2Int[] brush) {
@@ -93,10 +92,11 @@ public class PlayerTrailOnTerrain : MonoBehaviour
             int length = Vector2Max("X", tilesToChange.coordinatesArray) - posX + 1;
             int width = Vector2Max("Y", tilesToChange.coordinatesArray) - posY + 1;
             float[,,] map = new float[width, length, 2];
-            foreach (Vector2Int vect in tilesToChange.coordinatesArray) {
-                Debug.Log(length);
-                map[vect.y - posY, vect.x - posX, 0] = 1f;
-                map[vect.y - posY, vect.x - posX, 1] = 0f;
+            for (int i = 0; i < width; i++) {
+                for (int j = 0; j < length; j++) {
+                    map[i, j, 0] = 1f;
+                    map[i, j, 1] = 0f;
+                }
             }
             td.SetAlphamaps(posX, posY, map);
         }

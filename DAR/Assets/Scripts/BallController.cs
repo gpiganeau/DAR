@@ -6,6 +6,11 @@ public class BallController : MonoBehaviour
 {
     public float speed;
 
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    private bool isGrounded;
+
     private Rigidbody rb;
 
     void Start ()
@@ -21,5 +26,10 @@ public class BallController : MonoBehaviour
         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce (movement * speed);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+    }
+
+    public bool AmIGrounded() {
+        return isGrounded;
     }
 }
