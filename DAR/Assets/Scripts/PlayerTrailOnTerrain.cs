@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerTrailOnTerrain : MonoBehaviour
 {
+    public GameObject playerObj = null;
+
     private Vector2Int playerPositionOnTerrain;
     private Terrain terr; //the terrain on which the script is
     private int hmWidth; // heightmap width
@@ -15,7 +17,14 @@ public class PlayerTrailOnTerrain : MonoBehaviour
     private bool[,] playerHasPassed;
     private TerrainData td;
     private float[,,] splatmapData;
-    private GameObject playerObj = null;
+    private Vector2Int[] brush;
+    private Vector2Int lastPosition;
+
+
+    private struct ChangeArray {
+        public int quantity;
+        public Vector2Int[] coordinatesArray;
+    }
 
     void Start()
     {
@@ -28,36 +37,111 @@ public class PlayerTrailOnTerrain : MonoBehaviour
         hmHeight = td.heightmapHeight;
         mapResolution = td.heightmapResolution;
         playerHasPassed = new bool[mapResolution, mapResolution];
+        lastPosition = FindPlayerPosition();
     }
 
     // Update is called once per frame
     void Update()
     {
         playerPositionOnTerrain = FindPlayerPosition();
-        Debug.Log(playerPositionOnTerrain.ToString());
-        ModifyPassedArray(playerPositionOnTerrain);
+        if (lastPosition != playerPositionOnTerrain) {
+            brush = UpdateBrush(playerPositionOnTerrain, 4);
+            ChangeArray tilesToChange = WhoChanged(brush);
+            UpdateVisibleTrail(tilesToChange);
+            lastPosition = playerPositionOnTerrain;
+        }
+
+        
     }
 
-    private void UpdateVisibleTrail(int x, int y) {
-        int brushSize = 4;
-        int offset = brushSize / 2;
-        float[,,] map = new float[brushSize, brushSize, 2];
-        for (int i = 0; i < brushSize; i++) {
-            for (int j = 0; j < brushSize; j++) {
-                map[i, j, 0] = 1f;
-                map[i, j, 1] = 0f;
+    private ChangeArray WhoChanged(Vector2Int[] brush) {
+        ChangeArray retChangeArray;
+        retChangeArray.quantity = 0;
+        retChangeArray.coordinatesArray = new Vector2Int[brush.Length];
+        foreach(Vector2Int coordinate in brush) {
+            if (!playerHasPassed[coordinate.x, coordinate.y]) {
+                playerHasPassed[coordinate.x, coordinate.y] = true;
+                retChangeArray.coordinatesArray[retChangeArray.quantity] = coordinate;
+                retChangeArray.quantity += 1;
             }
         }
-        td.SetAlphamaps(x - offset, y - offset, map);
+        Vector2Int[] temp = new Vector2Int[retChangeArray.quantity];
+        Array.Copy(retChangeArray.coordinatesArray, temp, retChangeArray.quantity);
+        retChangeArray.coordinatesArray = temp;
+        return retChangeArray;
     }
 
-    private void ModifyPassedArray(Vector2Int playerPositionOnTerrain) {
-        if (!playerHasPassed[playerPositionOnTerrain.x, playerPositionOnTerrain.y]) {
-            if(playerObj.GetComponent<PlayerMovement>().AmIGrounded()){
-                playerHasPassed[playerPositionOnTerrain.x, playerPositionOnTerrain.y] = true;
-                UpdateVisibleTrail(playerPositionOnTerrain.x, playerPositionOnTerrain.y);
+    private Vector2Int[] UpdateBrush(Vector2Int position, int size, string type = "Trail") {
+        brush = new Vector2Int[0];
+        if (type == "Trail") {
+            brush = new Vector2Int[size * size];
+            int offset = size / 2;
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    brush[i * size + j] = new Vector2Int(playerPositionOnTerrain.x - offset + i, playerPositionOnTerrain.y - offset + j);
+                }
+            }
+            return brush;
+        }
+        return brush;
+    }
+
+    private void UpdateVisibleTrail(ChangeArray tilesToChange) {
+        if (tilesToChange.coordinatesArray.Length != 0) {
+            int posX = Vector2Min("X", tilesToChange.coordinatesArray);
+            int posY = Vector2Min("Y", tilesToChange.coordinatesArray);
+            int length = Vector2Max("X", tilesToChange.coordinatesArray) - posX + 1;
+            int width = Vector2Max("Y", tilesToChange.coordinatesArray) - posY + 1;
+            float[,,] map = new float[width, length, 2];
+            foreach (Vector2Int vect in tilesToChange.coordinatesArray) {
+                Debug.Log(length);
+                map[vect.y - posY, vect.x - posX, 0] = 1f;
+                map[vect.y - posY, vect.x - posX, 1] = 0f;
+            }
+            td.SetAlphamaps(posX, posY, map);
+        }
+    }
+
+    private int Vector2Max(string v, Vector2Int[] coordinatesArray) {
+        int max = -1;
+        if (v == "X") {
+            max = coordinatesArray[0].x;
+            foreach (Vector2Int vect in coordinatesArray) {
+                if (vect.x > max) {
+                    max = vect.x;
+                }
             }
         }
+        else if (v == "Y") {
+            max = coordinatesArray[0].y;
+            foreach (Vector2Int vect in coordinatesArray) {
+                if (vect.y > max) {
+                    max = vect.y;
+                }
+            }
+        }
+        return max;
+    }
+
+    private int Vector2Min(string v, Vector2Int[] coordinatesArray) {
+        int min = -1;
+        if (v == "X") {
+            min = coordinatesArray[0].x;
+            foreach (Vector2Int vect in coordinatesArray) {
+                if (vect.x < min) {
+                    min = vect.x;
+                }
+            }
+        }
+        else if (v == "Y") {
+            min = coordinatesArray[0].y;
+            foreach (Vector2Int vect in coordinatesArray) {
+                if (vect.y < min) {
+                    min = vect.y;
+                }
+            }
+        }
+        return min;
     }
 
     private Vector2Int FindPlayerPosition() {
