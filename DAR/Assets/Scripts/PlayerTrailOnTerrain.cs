@@ -17,7 +17,6 @@ public class PlayerTrailOnTerrain : MonoBehaviour
     private float[,,] splatmapData;
     private GameObject playerObj = null;
 
-    // Start is called before the first frame update
     void Start()
     {
         if(playerObj == null) {
