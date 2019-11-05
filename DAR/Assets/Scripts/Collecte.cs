@@ -22,7 +22,7 @@ public class Collecte : MonoBehaviour
 	public float poidsMin = 100;
 	public float poidsMax = 200;
 	public float collectBig = 0;
-	public PlayerMovement mouvement;
+	public BallController mouvement;
 
 	[Space]
 	[Header("Lancer la neige")]
@@ -36,20 +36,15 @@ public class Collecte : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		mouvement = GetComponent<PlayerMovement> ();
-		terr =  GameObject.Find("Terrain").GetComponent<Terrain>();
-		td = terr.terrainData;
-		hmWidth = td.heightmapWidth;
-		hmHeight = td.heightmapHeight;
-		mapResolution = td.heightmapResolution;
-		playerHasPassed = new bool[mapResolution, mapResolution];
+		mouvement = GetComponent<BallController> ();
+		PlayerTrailOnTerrain terr =  GameObject.Find("Terrain").GetComponent<PlayerTrailOnTerrain>();
 	}
 
     // Update is called once per frame
     void Update()
     {
 		playerPositionOnTerrain = FindPlayerPosition();
-		Collect ();
+		//Collect ();
 		Velocity ();
 		if (poids > 10 && Input.GetMouseButtonDown (0))
 		{
@@ -81,18 +76,18 @@ public class Collecte : MonoBehaviour
 		return new Vector2Int(posXInTerrain, posYInTerrain);
 	}
 
-	void Collect()
+/*	void Collect()
 	{
 		if (!playerHasPassed[playerPositionOnTerrain.x, playerPositionOnTerrain.y])
 		{
-			if(this.GetComponent<PlayerMovement>().AmIGrounded())
+			if(this.GetComponent<BallController>().AmIGrounded())
 			{
 				playerHasPassed[playerPositionOnTerrain.x, playerPositionOnTerrain.y] = true;
 				collect++;
 				poids++;
 			}
 		}
-	}
+	}*/
 
 	void Velocity()
 	{

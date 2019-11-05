@@ -42,13 +42,15 @@ public class PlayerTrailOnTerrain : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (playerObj.GetComponent<BallController>().AmIGrounded()) { 
+        Debug.Log(playerObj.GetComponent<BallController>().AmIGrounded());
+        if (playerObj.GetComponent<BallController>().AmIGrounded()) {
             playerPositionOnTerrain = FindPlayerPosition();
             if (lastPosition != playerPositionOnTerrain) {
                 brush = UpdateBrush(playerPositionOnTerrain, 4);
                 ChangeArray tilesToChange = WhoChanged(brush);
                 UpdateVisibleTrail(tilesToChange);
                 lastPosition = playerPositionOnTerrain;
+                playerObj.GetComponent<Collecte>().collect += tilesToChange.quantity;
             }
         }
     }

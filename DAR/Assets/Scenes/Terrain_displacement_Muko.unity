@@ -680,12 +680,46 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4330758858391343211}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1819778046 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4330758860202396565, guid: 7c75d75d816b0064085eb10824639783,
+    type: 3}
+  m_PrefabInstance: {fileID: 4330758858391343211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819778045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f091880fe05054eb2bf3adaeeb8a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1819778051 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4330758860202396776, guid: 7c75d75d816b0064085eb10824639783,
     type: 3}
   m_PrefabInstance: {fileID: 4330758858391343211}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1819778052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819778045}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96c0dbd47ca09843934ca043670a70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collect: 0
+  poids: 0
+  poidsMin: 100
+  poidsMax: 200
+  collectBig: 0
+  mouvement: {fileID: 1819778046}
+  firePoint: {fileID: 1819778051}
+  canonBall: {fileID: 1819778045}
+  speed: 5
+  canonBallLifeTime: 10
 --- !u!1 &2044277061
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +924,30 @@ PrefabInstance:
     - target: {fileID: 4330758860202396776, guid: 7c75d75d816b0064085eb10824639783,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330758860202396564, guid: 7c75d75d816b0064085eb10824639783,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330758860202396564, guid: 7c75d75d816b0064085eb10824639783,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330758860202396564, guid: 7c75d75d816b0064085eb10824639783,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330758860202396565, guid: 7c75d75d816b0064085eb10824639783,
+        type: 3}
+      propertyPath: groundDistance
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162323173, guid: 7c75d75d816b0064085eb10824639783, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
