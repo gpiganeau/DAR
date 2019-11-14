@@ -6,7 +6,7 @@
 		_Coordinates ("Coordinates" , Vector) = (0,0,0,0)
 		_Color ("Draw Color", Color) = (1,0,0,0)
 		_Impact ("Impact of the brush", Range(1,500)) = 10
-		_ExactSize("Maximum size of the track", float) = 0.003
+		_ExactSize("Maximum size of the track", float) = 0.01
 		_Strength ("Strength", Range(0,1)) = 0.3
     }
     SubShader

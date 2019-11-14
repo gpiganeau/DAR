@@ -7,6 +7,7 @@ public class FPS_Tracks : MonoBehaviour {
     private RenderTexture _splatmap;
     public Shader _drawShader;
     public GameObject _terrain;
+    public float rayCastDistance;
     public Transform[] characterTransforms;
     [Range(1, 500)]
     public float _brushImpact;
@@ -24,6 +25,7 @@ public class FPS_Tracks : MonoBehaviour {
 
         _brushImpact = 10;
         _brushStrength = 0.3f;
+        rayCastDistance = 0.05f;
 
         _terrain = this.gameObject;
         _snowMaterial = _terrain.GetComponent<MeshRenderer>().material;
@@ -37,7 +39,7 @@ public class FPS_Tracks : MonoBehaviour {
 
         RaycastHit[] _groundHits;
         foreach(Transform characterTransform in characterTransforms) {
-            _groundHits = Physics.RaycastAll(characterTransform.position, Vector3.down, 1f, _layerMask);
+            _groundHits = Physics.RaycastAll(characterTransform.position, Vector3.down, rayCastDistance, _layerMask);
             if (_groundHits.Length != 0) {
                 foreach (RaycastHit _groundHit in _groundHits) {
                     if (_groundHit.collider.gameObject == this.gameObject) {
