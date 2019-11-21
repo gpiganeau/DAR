@@ -82,15 +82,15 @@ MonoBehaviour:
       scale: {x: 2, y: 2, z: 2}
   noiseMask:
     enable: 1
-    speed: 0.1
+    speed: 0.3
     transform:
       space: 0
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
-      scale: {x: 5, y: 5, z: 5}
+      scale: {x: 10, y: 10, z: 10}
   densityInjection:
     enable: 1
-    strength: 30
+    strength: 3.01
     useNoiseMask: 1
     useNoiseMaskLevels: 1
     noiseMaskLevelParameters:
