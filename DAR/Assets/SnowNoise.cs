@@ -18,7 +18,10 @@ public class SnowNoise : MonoBehaviour
     {
         _meshRenderer = GetComponent<MeshRenderer>();
         _snowFallMat = new Material(_snowfallShader);
-        
+        _flakeAmount = 0.003f;
+        _flakeOpacity = 0.1f;
+
+
     }
 
     // Update is called once per frame
