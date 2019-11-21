@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 114830982712403524}
   - {fileID: 114503146375060882}
   - {fileID: 114012481169336284}
+  - {fileID: 114691181042216442}
 --- !u!114 &114012481169336284
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -39,16 +40,16 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.5772517, g: 0.74460876, b: 0.8679245, a: 1}
+    value: {r: 0.66140085, g: 0.7818787, b: 0.8396226, a: 1}
   center:
     overrideState: 0
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.384
+    value: 0.733
   smoothness:
-    overrideState: 0
-    value: 0.2
+    overrideState: 1
+    value: 0.405
   roundness:
     overrideState: 0
     value: 1
@@ -79,7 +80,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   gradingMode:
-    overrideState: 1
+    overrideState: 0
     value: 1
   externalLut:
     overrideState: 0
@@ -1395,10 +1396,47 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.1
+    value: 0.15
   fastMode:
     overrideState: 0
     value: 0
+--- !u!114 &114691181042216442
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
+  m_Name: ScreenSpaceReflections
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  preset:
+    overrideState: 1
+    value: 3
+  maximumIterationCount:
+    overrideState: 0
+    value: 16
+  resolution:
+    overrideState: 0
+    value: 0
+  thickness:
+    overrideState: 0
+    value: 8
+  maximumMarchDistance:
+    overrideState: 1
+    value: 100
+  distanceFade:
+    overrideState: 1
+    value: 0.5
+  vignette:
+    overrideState: 1
+    value: 0.5
 --- !u!114 &114830138494808578
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1438,7 +1476,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1
+    value: 2.75
   directLightingStrength:
     overrideState: 0
     value: 0
