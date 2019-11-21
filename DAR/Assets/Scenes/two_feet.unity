@@ -2536,6 +2536,75 @@ MonoBehaviour:
   _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
   _flakeAmount: 0
   _flakeOpacity: 0
+--- !u!1001 &210849714
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1160676741}
+    m_Modifications:
+    - target: {fileID: 377331909690266188, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_Name
+      value: ExclusionSphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16a2ee1fee9a490459aa4e241d02b848, type: 3}
 --- !u!1 &219979993
 GameObject:
   m_ObjectHideFlags: 0
@@ -16958,7 +17027,7 @@ MonoBehaviour:
   texture3DFiltering: 1
   enableDenoisingFilter: 0
   denoisingFilterRange: 0
-  enableTemporalReprojection: 1
+  enableTemporalReprojection: 0
   temporalReprojectionFactor: 0.95
   enableOcclusionCulling: 1
   occlusionCullingAccuracy: 2
@@ -28640,29 +28709,6 @@ MonoBehaviour:
   _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
   _flakeAmount: 0
   _flakeOpacity: 0
---- !u!114 &1996668197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59306422a2ca4454aabce3daa79c3334, type: 3}
-  m_Name: New Aura Base Settings
-  m_EditorClassIdentifier: 
-  useDensity: 1
-  density: 0.25
-  useScattering: 1
-  scattering: 0.5
-  useAmbientLighting: 1
-  ambientLightingStrength: 1
-  useColor: 0
-  color: {r: 0, g: 0.5, b: 0.5, a: 0.5}
-  colorStrength: 1
-  useExtinction: 0
-  extinction: 0.75
 --- !u!1 &1998994079
 GameObject:
   m_ObjectHideFlags: 0
