@@ -13,6 +13,7 @@
         _Metallic ("Metallic", Range(0,1)) = 0.0
 		_MinDistance("Minimum Distance", float) = 10
 		_MaxDistance("Maximum Distance", float) = 25
+		_NormalMap("Normalmap", 2D) = "bump" {}
     }
     SubShader
     {
@@ -37,6 +38,7 @@
 		float _Tess;
 		float _MinDistance;
 		float _MaxDistance;
+		
 
 		float4 tessDistance(appdata v0, appdata v1, appdata v2) {
 			float minDist = 3;
@@ -50,16 +52,17 @@
 		void disp(inout appdata v)
 		{
 			float d = tex2Dlod(_Splat, float4(v.texcoord.xy,0,0)).r * _Displacement;
-			v.vertex.xyz -= v.normal * d;
-			//v.vertex.y -= d; // vertical displacement only
-			v.vertex.xyz += v.normal * _Displacement;
-			//v.vertex.y += _Displacement;
+			//v.vertex.xyz -= v.normal * d;
+			v.vertex.y -= d; // vertical displacement only
+			//v.vertex.xyz += v.normal * _Displacement;
+			v.vertex.y += _Displacement;
 		}
 
         sampler2D _GroundTex;
 		fixed4 _GroundColor;
 		sampler2D _SnowTex;
 		fixed4 _SnowColor;
+		sampler2D _NormalMap;
 
         struct Input
         {
@@ -89,7 +92,8 @@
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
-            o.Alpha = c.a;
+            o.Alpha = c.a; 
+			o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_SnowTex));
         }
         ENDCG
     }

@@ -47,7 +47,7 @@ MonoBehaviour:
   volumeShape:
     shape: 1
     fading:
-      falloffExponent: 15
+      falloffExponent: 5
       xPositiveCubeFade: 0.25
       xNegativeCubeFade: 0.25
       yPositiveCubeFade: 0.25
@@ -90,7 +90,7 @@ MonoBehaviour:
       scale: {x: 10, y: 10, z: 10}
   densityInjection:
     enable: 1
-    strength: 3.01
+    strength: 5
     useNoiseMask: 1
     useNoiseMaskLevels: 1
     noiseMaskLevelParameters:
@@ -98,7 +98,7 @@ MonoBehaviour:
       levelHiThreshold: 1
       outputLowValue: 0
       outputHiValue: 1
-      contrast: 2.89
+      contrast: 25
     useTexture2DMask: 1
     useTexture2DMaskLevels: 0
     texture2DMaskLevelParameters:
@@ -117,7 +117,7 @@ MonoBehaviour:
       contrast: 1
   scatteringInjection:
     enable: 1
-    strength: 13.1
+    strength: 30
     useNoiseMask: 1
     useNoiseMaskLevels: 1
     noiseMaskLevelParameters:
@@ -125,7 +125,7 @@ MonoBehaviour:
       levelHiThreshold: 1
       outputLowValue: -1
       outputHiValue: 1
-      contrast: 14.7
+      contrast: 15
     useTexture2DMask: 1
     useTexture2DMaskLevels: 0
     texture2DMaskLevelParameters:
