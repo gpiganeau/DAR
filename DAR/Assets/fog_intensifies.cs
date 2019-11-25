@@ -35,6 +35,13 @@ public class fog_intensifies : MonoBehaviour
         ExclusionSphere.GetComponent<Aura2API.AuraVolume>().densityInjection.strength = densityValue;
         ExclusionSphere.transform.localScale = new Vector3(sizeValue, sizeValue, sizeValue);
         timer += Time.deltaTime;
+
+        if (Input.GetButtonDown("CheatResetBrume")) {
+            timer = Breather;
+        }
+        if (Input.GetButtonDown("CheatMaxBrume")) {
+            timer = TotalTime;
+        }
     }
 
     public void Waypoint_Discovered() {
