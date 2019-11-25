@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class DestroyOnEnter : MonoBehaviour
 {
+    GameObject gameControl;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameControl = GameObject.Find("Game_Control");
     }
 
     // Update is called once per frame
@@ -17,7 +18,8 @@ public class DestroyOnEnter : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        GameObject.Find("Game_Control").GetComponent<random_waypoints>().Destroying(this.gameObject);
+        gameControl.GetComponent<fog_intensifies>().Waypoint_Discovered();
+        gameControl.GetComponent<random_waypoints>().Destroying(this.gameObject);    
     }
 
 

@@ -39,14 +39,14 @@ public class random_waypoints : MonoBehaviour
         float z = Random.value;
 
         playerPosition = GameObject.Find("unitychan").gameObject.transform.position;
-        Vector3 WaypointPosition = new Vector3(x * 630 - 315, 1, z * 630 - 315);
-        Vector3 TexturePosition = new Vector3(x * 490 - 245, z * 490 - 245, 0); 
+        Vector3 WaypointPosition = new Vector3(x * 300, 1, z * 210 - 105);
+        Vector3 TexturePosition = new Vector3(x * 653 - 326, z * 430 - 215, 0);
 
-        while ((playerPosition - WaypointPosition).magnitude < 200) {
+        while ((playerPosition - WaypointPosition).magnitude < 100) {
             x = Random.value;
             z = Random.value;
-            WaypointPosition = new Vector3(x * 630 - 315, 1, z * 630 - 315);
-            TexturePosition = new Vector3(x * 490 - 245, z * 490 - 245, 0);
+            WaypointPosition = new Vector3(x * 300, 1, z * 210 - 105);
+            TexturePosition = new Vector3(x * 653 - 326, z * 430 - 215, 0);
         }
         Instantiate(WaypointPrefab, WaypointPosition, new Quaternion(0,0,0,0));
         numberOfWaypoints += 1;
