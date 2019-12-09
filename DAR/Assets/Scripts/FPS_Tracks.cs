@@ -22,12 +22,12 @@ public class FPS_Tracks : MonoBehaviour {
         _drawMaterial = new Material(_drawShader);
         //_drawMaterial.SetVector("_Color", Color.red);
 
-        _brushImpact = 10;
-        _brushStrength = 0.3f;
+        _brushImpact = 500;
+        _brushStrength = 1f;
 
         _terrain = this.gameObject;
         _snowMaterial = _terrain.GetComponent<MeshRenderer>().material;
-        _splatmap = new RenderTexture(1024, 1024, 0, RenderTextureFormat.ARGBFloat);
+        _splatmap = new RenderTexture(4096, 4096, 0, RenderTextureFormat.ARGBFloat);
         _snowMaterial.SetTexture("_Splat", _splatmap);
 
     }

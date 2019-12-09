@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.14760591, g: 0.14760591, b: 0.2924528, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.5
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -2536,6 +2536,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 997307347}
   - {fileID: 1429131100}
   m_Father: {fileID: 1708159356}
   m_RootOrder: 0
@@ -2587,6 +2588,85 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &997307346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997307347}
+  - component: {fileID: 997307349}
+  - component: {fileID: 997307348}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &997307347
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997307346}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 967528436}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -636, y: 487}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &997307348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997307346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 27
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '0
+
+'
+--- !u!222 &997307349
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997307346}
+  m_CullTransparentMesh: 0
 --- !u!1 &1020122340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100030, guid: 122ee1bcc184765439251e3094e04c42,
@@ -2677,17 +2757,17 @@ PrefabInstance:
     - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 377331909690266186, guid: 16a2ee1fee9a490459aa4e241d02b848,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 377331909690266187, guid: 16a2ee1fee9a490459aa4e241d02b848,
         type: 3}
@@ -2737,7 +2817,12 @@ PrefabInstance:
     - target: {fileID: 377331909690266187, guid: 16a2ee1fee9a490459aa4e241d02b848,
         type: 3}
       propertyPath: densityInjection.strength
-      value: -6.4
+      value: -6.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 377331909690266187, guid: 16a2ee1fee9a490459aa4e241d02b848,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16a2ee1fee9a490459aa4e241d02b848, type: 3}
@@ -2848,6 +2933,38 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300012, guid: 122ee1bcc184765439251e3094e04c42, type: 3}
+--- !u!84 &1085567133
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Spot Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 256
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 11
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1088615659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3690,7 +3807,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351334846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc8982cad22c947418556046d10b61b5, type: 3}
   m_Name: 
@@ -3706,7 +3823,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351334846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdd6c962306cd0f4f8d4e5a6b5a5b98d, type: 3}
   m_Name: 
@@ -3896,11 +4013,11 @@ RectTransform:
   m_Children:
   - {fileID: 2098528455}
   m_Father: {fileID: 967528436}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.003946052, y: -0.00042145682}
+  m_AnchoredPosition: {x: 0.000019615298, y: -0.00042145682}
   m_SizeDelta: {x: 774, y: 548}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1429131101
@@ -4324,6 +4441,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brume
       objectReference: {fileID: 0}
+    - target: {fileID: 8489793919187491118, guid: cd6deb9859e88e54cb77d0f6a5bc8c47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8489793919187491120, guid: cd6deb9859e88e54cb77d0f6a5bc8c47,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4429,40 +4551,13 @@ PrefabInstance:
       propertyPath: densityInjection.noiseMaskLevelParameters.levelHiThreshold
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 8489793919187491119, guid: cd6deb9859e88e54cb77d0f6a5bc8c47,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd6deb9859e88e54cb77d0f6a5bc8c47, type: 3}
---- !u!84 &1785828688
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Spot Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 256
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 11
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1859319006 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8429130489634708324, guid: 1ae0c1b0255da484b82b35c244d77469,
