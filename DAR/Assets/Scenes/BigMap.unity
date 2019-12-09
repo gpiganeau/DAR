@@ -4919,7 +4919,7 @@ PrefabInstance:
     - target: {fileID: 4710137532882455749, guid: 2e8d297f5f37f974e8c1e8ffc8201b34,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 254.1
+      value: 177.1
       objectReference: {fileID: 0}
     - target: {fileID: 4710137532882455749, guid: 2e8d297f5f37f974e8c1e8ffc8201b34,
         type: 3}
@@ -4929,7 +4929,7 @@ PrefabInstance:
     - target: {fileID: 4710137532882455749, guid: 2e8d297f5f37f974e8c1e8ffc8201b34,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.5
+      value: 109.8
       objectReference: {fileID: 0}
     - target: {fileID: 4710137532882455749, guid: 2e8d297f5f37f974e8c1e8ffc8201b34,
         type: 3}
@@ -4975,7 +4975,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shadowMapRenderTexture
       value: 
-      objectReference: {fileID: 1584641767}
+      objectReference: {fileID: 860113498}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e8d297f5f37f974e8c1e8ffc8201b34, type: 3}
 --- !u!1 &1669340216 stripped
@@ -6178,12 +6178,12 @@ PrefabInstance:
     - target: {fileID: 7774544507118634320, guid: 991cb8cae8c6e704ea54d62639c56b17,
         type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7774544507118634320, guid: 991cb8cae8c6e704ea54d62639c56b17,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 2
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7774544507118634320, guid: 991cb8cae8c6e704ea54d62639c56b17,
         type: 3}
@@ -6193,6 +6193,11 @@ PrefabInstance:
     - target: {fileID: 7774544507118634320, guid: 991cb8cae8c6e704ea54d62639c56b17,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774041461489417870, guid: 991cb8cae8c6e704ea54d62639c56b17,
+        type: 3}
+      propertyPath: m_MaxParticleSize
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
