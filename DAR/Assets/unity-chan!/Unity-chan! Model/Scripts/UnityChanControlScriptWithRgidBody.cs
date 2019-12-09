@@ -42,10 +42,10 @@ namespace UnityChan
 		private Animator anim;							// キャラにアタッチされるアニメーターへの参照
 		private AnimatorStateInfo currentBaseState;			// base layerで使われる、アニメーターの現在の状態の参照
 
-		private GameObject cameraObject;	// メインカメラへの参照
-		
-		// アニメーター各ステートへの参照
-		static int idleState = Animator.StringToHash ("Base Layer.Idle");
+		private GameObject cameraObject;    // メインカメラへの参照
+
+        // アニメーター各ステートへの参照
+        static int idleState = Animator.StringToHash ("Base Layer.Idle");
 		static int locoState = Animator.StringToHash ("Base Layer.Locomotion");
 		static int jumpState = Animator.StringToHash ("Base Layer.Jump");
 		static int restState = Animator.StringToHash ("Base Layer.Rest");
@@ -69,7 +69,7 @@ namespace UnityChan
 		// 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
 		void FixedUpdate ()
 		{
-			float h = Input.GetAxis ("Horizontal");				// 入力デバイスの水平軸をhで定義
+            float h = Input.GetAxis ("Horizontal");				// 入力デバイスの水平軸をhで定義
 			float v = Input.GetAxis ("Vertical");				// 入力デバイスの垂直軸をvで定義
 			anim.SetFloat ("Speed", v);							// Animator側で設定している"Speed"パラメタにvを渡す
 			anim.SetFloat ("Direction", h); 						// Animator側で設定している"Direction"パラメタにhを渡す
@@ -198,5 +198,9 @@ namespace UnityChan
 			col.height = orgColHight;
 			col.center = orgVectColCenter;
 		}
+
+        public Vector3 getDirection() {
+            return velocity.normalized;
+        } 
 	}
 }

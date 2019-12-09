@@ -18,23 +18,49 @@ public class GroundChecker : MonoBehaviour {
     public float raycastLength = 0.75f;
     public Vector3 rayOriginOffset1 = new Vector3(-0.2f, 0f, 0.16f);
     public Vector3 rayOriginOffset2 = new Vector3(0.2f, 0f, -0.16f);
+    //variables to be able not to use a character controller in GroundChecker Script.
+    bool isGrounded;
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
 
     // Component reference
     private CharacterController controller;
 
+    // These are for speed modulation in the update
+    private Vector3 playerDirectionVector;
+    private float lerpSlopeValue;
+
+
+
     void Awake() {
         // Get component on the same GameObject
-        controller = GetComponent<CharacterController>();
-        if (controller == null) { Debug.LogError("GroundChecker did not find a CharacterController component."); }
+        //controller = GetComponent<CharacterController>();
+        //if (controller == null) { Debug.LogError("GroundChecker did not find a CharacterController component."); }
     }
 
     void FixedUpdate() {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, castingMask);
         // Check ground, with an origin point defaulting to the bottom middle
         // of the char controller's collider. Plus a little higher 
-        if (controller && controller.isGrounded) {
-            CheckGround(new Vector3(transform.position.x, transform.position.y - (controller.height / 2) + startDistanceFromBottom, transform.position.z));
+        if (/*controller && controller.*/isGrounded) {
+            CheckGround(new Vector3(transform.position.x, groundCheck.position.y + startDistanceFromBottom, transform.position.z));
         }
+        playerDirectionVector = gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().getDirection();
+        if (playerDirectionVector.magnitude != 0) {
+            lerpSlopeValue = Mathf.Clamp((Vector3.Dot(playerDirectionVector, groundSlopeDir) * 1.5f + 1) / 2, 0, 1);
+        }
+        else {
+            lerpSlopeValue = 0.5f;
+        }
+        if (lerpSlopeValue < 0.2) {
+            lerpSlopeValue = 0f;
+        }
+        
+        Debug.Log(lerpSlopeValue);
+        gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().forwardSpeed = Mathf.Lerp(0, 10, lerpSlopeValue);
+        gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().backwardSpeed = Mathf.Lerp(0, 4, lerpSlopeValue);
     }
+
 
     /// <summary>
     /// Checks for ground underneath, to determine some info about it, including the slope angle.
