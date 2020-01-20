@@ -23,7 +23,7 @@ public class Adapt_Brume : MonoBehaviour
     void Update()
     {
         height = PlayerCharacter.transform.position.y;
-        lerpValue = 1- (height / 500);
+        lerpValue = 1- (height / 300);
         brumeValue = Mathf.Lerp(minBrumeValue, maxBrumeValue, lerpValue);
 
         gameObject.GetComponent<Aura2API.AuraCamera>().frustumSettings.baseSettings.density = brumeValue;
