@@ -13,17 +13,57 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114055769853729808}
-  - {fileID: 114193218890614648}
+  - {fileID: 114893097319666100}
+  - {fileID: 114038938150114564}
   EditorEvents:
-  - {fileID: 114226287489780186}
+  - {fileID: 114635668745954106}
+  - {fileID: 114235941538687446}
+  - {fileID: 114873737409185812}
+  - {fileID: 114155363851809644}
+  - {fileID: 114418263693561224}
+  - {fileID: 114872774919647860}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 114193218890614648}
+  - {fileID: 114038938150114564}
   StringsBanks:
-  - {fileID: 114055769853729808}
-  stringsBankWriteTime: 637102950883895581
+  - {fileID: 114893097319666100}
+  stringsBankWriteTime: 637152154134168006
   cacheVersion: 3
+--- !u!114 &114038938150114564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/fmod_Final/Build/Desktop/Master Bank.bank
+  SubDir: 
+  lastModified: 637152154134129013
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &114049230065423936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jump & Land/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  Min: 0
+  Max: 4
+  Default: 0
+  Exists: 1
 --- !u!114 &114055769853729808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD Project/Fmod_DAR/Build/Desktop/Master.strings.bank
   SubDir: 
+  lastModified: 637152149136051718
   lastModified: 637102950883895581
   LoadResult: 0
   FileSizes:
@@ -62,6 +103,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &114110193333566022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/fmod_Final/Build/Desktop/Master Bank.bank
+  SubDir: 
+  lastModified: 637152135224471906
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &114116961380595384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +175,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114155363851809644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Flame
+  m_EditorClassIdentifier: 
+  Path: event:/Flame
+  guid: b779d38c65e66f47818e8c3db0d50c15
+  Banks:
+  - {fileID: 114038938150114564}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 22000
 --- !u!114 &114164097472947982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +216,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114167992856561660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  Min: 0
+  Max: 4
+  Default: 0
+  Exists: 1
 --- !u!114 &114172722070896696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +251,7 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
---- !u!114 &114193218890614648
+--- !u!114 &114195802814023742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,15 +260,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jump & Land/Jump Or Land
   m_EditorClassIdentifier: 
-  Path: FMOD Project/Fmod_DAR/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637102950883885608
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
+  Name: Jump Or Land
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &114208257938467050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +301,7 @@ MonoBehaviour:
   Path: event:/Waypoint
   guid: 8619e363fa93e04284d6de4cc773977a
   Banks:
-  - {fileID: 114193218890614648}
+  - {fileID: 114772369102513474}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -229,6 +327,31 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114235941538687446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Jump & Land
+  m_EditorClassIdentifier: 
+  Path: event:/Jump & Land
+  guid: 8647acc5d681594b9e8409046b6512da
+  Banks:
+  - {fileID: 114038938150114564}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114049230065423936}
+  - {fileID: 114909990666736286}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 514
 --- !u!114 &114317978496260118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +424,46 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &114418263693561224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CaveAmbiance
+  m_EditorClassIdentifier: 
+  Path: event:/CaveAmbiance
+  guid: c85a3f85ab782642998565b715aca666
+  Banks:
+  - {fileID: 114038938150114564}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 20000
+--- !u!114 &114444272558690982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Speed Switch
+  m_EditorClassIdentifier: 
+  Name: Speed Switch
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &114487354780362942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +500,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &114538229033423100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jump & Land/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  Min: 0
+  Max: 4
+  Default: 0
+  Exists: 0
 --- !u!114 &114541374499658634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +534,23 @@ MonoBehaviour:
   lastModified: 637105425976555497
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &114620045582101312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Speed Switch
+  m_EditorClassIdentifier: 
+  Name: Speed Switch
+  Min: 0
+  Max: 2
+  Default: 0
   Exists: 1
 --- !u!114 &114632817351082012
 MonoBehaviour:
@@ -373,6 +570,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &114635668745954106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SnowAmbiance
+  m_EditorClassIdentifier: 
+  Path: event:/SnowAmbiance
+  guid: 1d61f487afa4504d96081a70ccce9f90
+  Banks:
+  - {fileID: 114038938150114564}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 20000
 --- !u!114 &114684375762229854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +629,41 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114750088592749172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  Min: 0
+  Max: 4
+  Default: 0
+  Exists: 0
+--- !u!114 &114772369102513474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/Fmod_DAR/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637152149136032220
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114855590574019340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,6 +682,54 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &114872774919647860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Reverb Zone1
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Reverb Zone1
+  guid: fa84fc95497c0c4ba08caee649bda747
+  Banks:
+  - {fileID: 114038938150114564}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &114873737409185812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Footsteps
+  guid: 951e7539d17e3747852524a4cea75b72
+  Banks:
+  - {fileID: 114038938150114564}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114167992856561660}
+  - {fileID: 114620045582101312}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &114887787953953174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +765,43 @@ MonoBehaviour:
   lastModified: 637102950883885608
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &114893097319666100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/fmod_Final/Build/Desktop/Master Bank.strings.bank
+  SubDir: 
+  lastModified: 637152154134168006
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1162
+  Exists: 1
+--- !u!114 &114909990666736286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jump & Land/Jump Or Land
+  m_EditorClassIdentifier: 
+  Name: Jump Or Land
+  Min: 0
+  Max: 2
+  Default: 0
   Exists: 1
 --- !u!114 &114923825421187670
 MonoBehaviour:
