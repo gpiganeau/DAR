@@ -8,6 +8,7 @@ public class Adapt_Brume : MonoBehaviour
     private float height;
     private float lerpValue;
     private float brumeValue;
+    private bool ignore;
 
     public float minBrumeValue;
     public float maxBrumeValue;
@@ -16,16 +17,30 @@ public class Adapt_Brume : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ignore = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        height = PlayerCharacter.transform.position.y;
-        lerpValue = 1- (height / 300);
-        brumeValue = Mathf.Lerp(minBrumeValue, maxBrumeValue, lerpValue);
+        if (!ignore) {
+            height = PlayerCharacter.transform.position.y;
+            lerpValue = 1 - (height / 200);
+            lerpValue = Mathf.Clamp(lerpValue, 0, 1);
+            brumeValue = Mathf.Lerp(minBrumeValue, maxBrumeValue, lerpValue);
 
-        gameObject.GetComponent<Aura2API.AuraCamera>().frustumSettings.baseSettings.density = brumeValue;
+            gameObject.GetComponent<Aura2API.AuraCamera>().frustumSettings.baseSettings.density = brumeValue;
+        }
+        
     }
+
+    public void OverrideBrumeValue(float value) {
+        ignore = true;
+        gameObject.GetComponent<Aura2API.AuraCamera>().frustumSettings.baseSettings.density = value;
+    }
+
+    public void StopOverride() {
+        ignore = false;
+    }
+
 }
