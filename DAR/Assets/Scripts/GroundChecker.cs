@@ -53,10 +53,10 @@ public class GroundChecker : MonoBehaviour {
             lerpSlopeValue = 0.5f;
         }
         if (lerpSlopeValue < 0.2) {
-            lerpSlopeValue = 0f;
+            gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().forwardSpeed = 0f;
         }
         
-        gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().forwardSpeed = Mathf.Lerp(0, 10, lerpSlopeValue);
+        gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().forwardSpeed = Mathf.Lerp(3, 7, lerpSlopeValue);
         gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().backwardSpeed = Mathf.Lerp(0, 4, lerpSlopeValue);
     }
 
