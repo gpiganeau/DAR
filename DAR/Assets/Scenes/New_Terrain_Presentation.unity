@@ -11906,7 +11906,7 @@ Animator:
   m_GameObject: {fileID: 1037493422}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c3fb145251c134c4ba30549b1fe883c7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -15351,6 +15351,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 147152458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1395971494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395971493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b477595e1ba035d479d58f7447c5bffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCamMode: 0
+  views:
+  - {fileID: 291131373}
+  - {fileID: 1614923984}
+  transitionSpeed: 5
+  currentView: {fileID: 0}
 --- !u!114 &1395971495
 MonoBehaviour:
   m_ObjectHideFlags: 0
