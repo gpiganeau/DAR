@@ -7,9 +7,12 @@ public class Interaction_Ladder : MonoBehaviour
     float time;
     float colorValue;
     bool onTop;
+    GameObject[] lights;
+    Animator[] children;
 
-    public Transform top_position;
-    public Transform bottom_position;
+
+    [SerializeField] private Transform top_position;
+    [SerializeField] private Transform bottom_position;
 
     // Start is called before the first frame update
     void Start()
@@ -24,14 +27,28 @@ public class Interaction_Ladder : MonoBehaviour
     }
 
     public void Interact() {
-        if (!onTop) {
-            onTop = true;
-            GameObject.Find("unitychan").transform.position = top_position.position;
+        if (this.gameObject.name == "Ladder_Interaction") {
+            if (!onTop) {
+                onTop = true;
+                GameObject.Find("unitychan").transform.position = top_position.position;
+            }
+            else {
+                onTop = false;
+                GameObject.Find("unitychan").transform.position = bottom_position.position;
+            }
         }
-        else {
-            onTop = false;
-            GameObject.Find("unitychan").transform.position = bottom_position.position;
+        else if (this.gameObject.name == "Crystal") {
+            lights = GameObject.FindGameObjectsWithTag("Light_to_change");
+            this.GetComponent<Animator>().SetBool("isFinale", true);
+            foreach (GameObject light in lights) {
+                children = light.GetComponentsInChildren<Animator>();
+                foreach (Animator child in children) {
+                    child.SetBool("isFinale", true);
+                }
+            }
+            
         }
+        
         
     }
 
