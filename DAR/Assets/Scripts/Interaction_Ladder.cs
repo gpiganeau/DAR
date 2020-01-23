@@ -42,6 +42,7 @@ public class Interaction_Ladder : MonoBehaviour
             }
         }
         else if (this.gameObject.name == "Crystal") {
+            GameObject.Find("Camera_Despo").GetComponent<CameraController>().StartCinematic();
             StartCoroutine(Cinematic());
             
         }
@@ -71,7 +72,17 @@ public class Interaction_Ladder : MonoBehaviour
         foreach (Animator child in children) {
             child.SetBool("isFinale", true);
         }
-        
+
+        //Wait for first lighthouse to be out of sight to remove its light
+        yield return new WaitForSeconds(4);
+        GameObject[] cones = GameObject.FindGameObjectsWithTag("cone_to_remove");
+        foreach (GameObject cone in cones) {
+            cone.SetActive(false);
+        }
+
+        //Wait for empty space to be reached
+        yield return new WaitForSeconds(5);
+        GameObject.Find("Canvas").GetComponent<ShowTitleCard>().Show();
     }
 
 }

@@ -45,6 +45,12 @@ public class CameraController : MonoBehaviour
         }
     }
 
+
+    public void StartCinematic() {
+        ChangeView(views[1], CameraMode.Cinematic);
+    }
+
+
     public void ChangeView(Transform newView, CameraMode newCameraMode)
     {
         if (newCameraMode == CameraMode.Player)
