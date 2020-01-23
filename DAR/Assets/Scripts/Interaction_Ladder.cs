@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interaction_Ladder : MonoBehaviour
 {
-    float time;
+
     float colorValue;
     bool onTop;
     GameObject[] lights;
@@ -14,10 +14,13 @@ public class Interaction_Ladder : MonoBehaviour
     [SerializeField] private Transform top_position;
     [SerializeField] private Transform bottom_position;
 
+    [SerializeField] private GameObject Lumiere1;
+    [SerializeField] private GameObject Lumiere2;
+
     // Start is called before the first frame update
     void Start()
     {
-        time = 0;
+        
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class Interaction_Ladder : MonoBehaviour
     }
 
     public void Interact() {
+
         if (this.gameObject.name == "Ladder_Interaction") {
             if (!onTop) {
                 onTop = true;
@@ -38,17 +42,35 @@ public class Interaction_Ladder : MonoBehaviour
             }
         }
         else if (this.gameObject.name == "Crystal") {
-            lights = GameObject.FindGameObjectsWithTag("Light_to_change");
-            this.GetComponent<Animator>().SetBool("isFinale", true);
-            foreach (GameObject light in lights) {
-                children = light.GetComponentsInChildren<Animator>();
-                foreach (Animator child in children) {
-                    child.SetBool("isFinale", true);
-                }
-            }
+            StartCoroutine(Cinematic());
             
         }
         
+        
+    }
+    private IEnumerator Cinematic() {
+        //Waiting 2 seconds for the cinematic to start
+        yield return new WaitForSeconds(2);
+        //Changing the light of the first Tower
+        children = GetComponentsInChildren<Animator>();
+        //getting all the components that need to be changed in the first tower
+        foreach (Animator child in children) {
+            child.SetBool("isFinale", true);
+        }
+
+        //Waiting for the cinematic to continue a bit and the other towers to show
+        yield return new WaitForSeconds(2);
+        //working on second tower
+        children = Lumiere1.GetComponentsInChildren<Animator>();
+        foreach (Animator child in children) {
+            child.SetBool("isFinale", true);
+        }
+        //Same thing for the third tower
+        yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+        children = Lumiere2.GetComponentsInChildren<Animator>();
+        foreach (Animator child in children) {
+            child.SetBool("isFinale", true);
+        }
         
     }
 
