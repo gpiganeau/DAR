@@ -10,6 +10,8 @@ public class Interaction_Ladder : MonoBehaviour
     GameObject[] lights;
     Animator[] children;
 
+    GameObject[] small_lights;
+
 
     [SerializeField] private Transform top_position;
     [SerializeField] private Transform bottom_position;
@@ -44,6 +46,11 @@ public class Interaction_Ladder : MonoBehaviour
         else if (this.gameObject.name == "Crystal") {
             GameObject.Find("Camera_Despo").GetComponent<CameraController>().StartCinematic();
             StartCoroutine(Cinematic());
+
+            small_lights = GameObject.FindGameObjectsWithTag("small_lights");
+            foreach (GameObject small_light in small_lights) {
+                small_light.GetComponent<twinkleTwinkleLittleStar>().Starting();
+            }
             
         }
         

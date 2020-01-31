@@ -20,14 +20,17 @@ public class twinkleTwinkleLittleStar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myLight = GetComponent<Light>();
-        StartCoroutine(startingLights());   
+        myLight = GetComponent<Light>();   
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void Starting() {
+        StartCoroutine(startingLights());
     }
 
     IEnumerator startingLights()
