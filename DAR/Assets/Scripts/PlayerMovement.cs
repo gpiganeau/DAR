@@ -94,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void RemoveVelocity() {
+        //Resets Velocity to zero
         velocity = new Vector3(0, 0, 0);
     }
 
