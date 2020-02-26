@@ -6,6 +6,7 @@ public class LightIncreaseNearPOI : MonoBehaviour
 {
     [SerializeField] private Light directionalLight;
     [SerializeField] private Transform parentTransform;
+    [SerializeField] private GameObject fogAdjustingCollider;
     private float densityValue;
     private float colliderSizeX;
     private float colliderSizeZ;
@@ -29,6 +30,13 @@ public class LightIncreaseNearPOI : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other) {
+        fogAdjustingCollider.SetActive(false);
+    }
+    private void OnTriggerExit(Collider other) {
+        fogAdjustingCollider.SetActive(true);
+    }
+
     private void OnTriggerStay(Collider other) {
         xDistance = (other.transform.position.x - colliderCenter.x);
         zDistance = (other.transform.position.z - colliderCenter.z);
@@ -37,7 +45,7 @@ public class LightIncreaseNearPOI : MonoBehaviour
         xLerpValue = Mathf.Clamp01((Mathf.Abs(xDistance) - (colliderSizeX / 4)) / (colliderSizeX / 2));
         zLerpValue = Mathf.Clamp01((Mathf.Abs(zDistance) - (colliderSizeZ / 4)) / (colliderSizeZ / 2));
 
-        directionalLight.shadowStrength = Mathf.Lerp(.1f, .50f, 1 - Mathf.Max(xLerpValue, zLerpValue) * 2);
+        directionalLight.shadowStrength = Mathf.Lerp(.1f, .5f, 1 - Mathf.Max(xLerpValue, zLerpValue) * 2);
         directionalLight.intensity = Mathf.Lerp(.4f, .75f, 1 - Mathf.Max(xLerpValue, zLerpValue) * 2);
     }
 }

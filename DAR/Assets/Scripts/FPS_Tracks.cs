@@ -27,7 +27,7 @@ public class FPS_Tracks : MonoBehaviour {
 
         _terrain = this.gameObject;
         _snowMaterial = _terrain.GetComponent<MeshRenderer>().material;
-        _splatmap = new RenderTexture(4096, 4096, 0, RenderTextureFormat.ARGBFloat);
+        _splatmap = new RenderTexture(2048, 2048, 0, RenderTextureFormat.ARGBFloat);
         _snowMaterial.SetTexture("_Splat", _splatmap);
 
     }

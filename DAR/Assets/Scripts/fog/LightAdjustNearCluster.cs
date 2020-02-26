@@ -6,6 +6,7 @@ public class LightAdjustNearCluster : MonoBehaviour
 {
     [SerializeField] private Light directionalLight;
     [SerializeField] private Transform parentTransform;
+    
     private float densityValue;
     private float colliderSizeX;
     private float colliderSizeZ;
@@ -15,7 +16,7 @@ public class LightAdjustNearCluster : MonoBehaviour
     private float xLerpValue;
     private float zLerpValue;
     private float Distance; //selon la norme infinie de R²
-    //private float shadowsValue;
+    // private float shadowsValue;
     // Start is called before the first frame update
     void Start() {
         densityValue = GetComponentInParent<Aura2API.AuraVolume>().densityInjection.strength;
@@ -28,6 +29,8 @@ public class LightAdjustNearCluster : MonoBehaviour
     void Update() {
 
     }
+
+
 
     private void OnTriggerStay(Collider other) {
         xDistance = (other.transform.position.x - colliderCenter.x);
