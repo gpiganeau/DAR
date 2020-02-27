@@ -11,14 +11,19 @@ public class InteractWithItems : MonoBehaviour
     string objectName;
     public Camera player_camera;
     Inventory playerInventory;
+    Inventory HubInventory;
     // Start is called before the first frame update
     void Start()
     {
+        
         x = Screen.width / 2;
         y = Screen.height / 2;
 
-        string playerInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/CurrentDay.json");
+        string playerInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json");
+        string HubInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/HubInventory.json");
         playerInventory = JsonUtility.FromJson<Inventory>(playerInventoryJSON);
+        HubInventory = JsonUtility.FromJson<Inventory>(HubInventoryJSON);
+        Debug.Log(playerInventoryJSON);
     }
 
 
@@ -39,7 +44,7 @@ public class InteractWithItems : MonoBehaviour
     }
 
     void Action(string objectName) {
-        Debug.Log("Touched an item");
+        
         switch (objectName){
             case "mushroom":
                 playerInventory.mushroom += 1;
@@ -64,7 +69,20 @@ public class InteractWithItems : MonoBehaviour
         return;
     }
 
-    private class Inventory {
+    void DepositInventory() {
+        playerInventory.DepositInInventory(HubInventory, "HubInventory.json");
+        playerInventory = new Inventory();
+        string uploadInventory = JsonUtility.ToJson(playerInventory);
+        File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+    }
+
+    public void LoseInventory() {
+        playerInventory = new Inventory();
+        string uploadInventory = JsonUtility.ToJson(playerInventory);
+        File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+    }
+
+    public class Inventory {
         public int mushroom;
         public int fish;
         public int wood;
@@ -76,6 +94,17 @@ public class InteractWithItems : MonoBehaviour
             wood = 0;
             waterRation = 0;
         }
+
+        public void DepositInInventory(Inventory target, string filename) {
+            target.mushroom += mushroom;
+            target.waterRation += waterRation;
+            target.fish += fish;
+            target.wood += wood;
+
+            string uploadInventory = JsonUtility.ToJson(target);
+            File.WriteAllText(Application.dataPath + "/JSONFiles/" + filename, uploadInventory);
+        }
+
     }
 
 }
