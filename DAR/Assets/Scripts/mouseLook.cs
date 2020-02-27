@@ -37,7 +37,7 @@ public class mouseLook : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown("m")) {
+        if (Input.GetKeyDown(KeyCode.Tab)) {
             Debug.Log("1");
             if (Cursor.lockState == CursorLockMode.Locked) {
                 Debug.Log("2");
