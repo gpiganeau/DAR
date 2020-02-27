@@ -37,8 +37,6 @@ public class FogIncreaseIllusion : MonoBehaviour
         Distance = Mathf.Sqrt(Mathf.Pow(xDistance,2) + Mathf.Pow(zDistance, 2));
 
         LerpValue = Mathf.Clamp01((Mathf.Abs(Distance) - (colliderSizeX / 4)) / (colliderSizeX / 2));
-        Debug.Log(Distance);
-        Debug.Log(Mathf.Clamp01((Mathf.Abs(Distance) - (colliderSizeX / 4)) / (colliderSizeX / 2)));
 
 
         GetComponentInParent<Aura2API.AuraVolume>().densityInjection.strength = Mathf.Lerp(1.4f, 0f, LerpValue*2);
