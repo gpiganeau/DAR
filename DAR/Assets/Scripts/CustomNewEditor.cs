@@ -14,7 +14,7 @@ public class CustomNewEditor : Editor
         PlayerInventoryManager manager = (PlayerInventoryManager)target;
         if (GUILayout.Button("Mettre les sprites"))
         {
-            Debug.Log("bite"); 
+            
         }
     }
 

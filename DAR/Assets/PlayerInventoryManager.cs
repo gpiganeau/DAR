@@ -110,6 +110,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     }
 
+    [ExecuteInEditMode]
     public void AssignSprite()
     {
         mush_Img = Resources.Load("Assets/Ressources/Images/inventaire.png") as Sprite;
