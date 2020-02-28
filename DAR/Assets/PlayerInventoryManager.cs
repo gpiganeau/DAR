@@ -6,6 +6,8 @@ using System.IO;
 
 public class PlayerInventoryManager : MonoBehaviour
 {
+
+
     public Text objMush_Count;
     public Image objMush_Img;
 
@@ -31,8 +33,10 @@ public class PlayerInventoryManager : MonoBehaviour
 
     void Start()
     {
+        GameObject.Find("Inventory").SetActive(false);
         string playerInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json");
         playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
+
     }
 
 
@@ -63,6 +67,7 @@ public class PlayerInventoryManager : MonoBehaviour
         else
         {
             objMush_Img.gameObject.SetActive(false);
+            objMush_Img.GetComponent<Image>().sprite = mush_Img;
             objMush_Count.text = playerInventory.mushroom.ToString();
         }
 
@@ -104,4 +109,13 @@ public class PlayerInventoryManager : MonoBehaviour
         }
 
     }
+
+    public void AssignSprite()
+    {
+        mush_Img = Resources.Load("Assets/Ressources/Images/inventaire.png") as Sprite;
+        wood_Img = Resources.Load("Assets/Ressources/Images/wood_img") as Sprite;
+        water_Img = Resources.Load("Assets/Ressources/Images/water_img") as Sprite;
+        fish_Img = Resources.Load("Assets/Ressources/Images/fish_img") as Sprite;
+    }
+    
 }
