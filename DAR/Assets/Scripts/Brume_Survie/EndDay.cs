@@ -11,7 +11,7 @@ public class EndDay : MonoBehaviour
     [SerializeField] Light sun;
 
     InteractWithItems playerInventory;
-
+    [SerializeField] SnowOnTerrainManager snowTracksManager;
     [SerializeField] Canvas canvas;
 
 
@@ -42,6 +42,8 @@ public class EndDay : MonoBehaviour
     IEnumerator EndDayCoroutine(bool isInside) {
         canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", true);
         yield return new WaitForSeconds(3.5f);
+
+        snowTracksManager.ResetTracks();
 
         loadedDay.day += 1;
         string uploadDay = JsonUtility.ToJson(loadedDay);

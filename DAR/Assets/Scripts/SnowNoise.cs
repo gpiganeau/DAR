@@ -7,22 +7,18 @@ public class SnowNoise : MonoBehaviour
     public Shader _snowfallShader;
     private Material _snowFallMat;
     private MeshRenderer _meshRenderer;
-    [Range(0.001f, 0.1f)]
-    public float _flakeAmount;
-    [Range(0f, 1f)]
-    public float _flakeOpacity;
+    private float _flakeAmount;
+    private float _flakeOpacity;
 
 
     // Start is called before the first frame update
     void Start()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
-        _snowFallMat = new Material(_snowfallShader);
-        _flakeAmount = 0.003f;
-        _flakeOpacity = 0.1f;
-
-
+        
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -35,6 +31,11 @@ public class SnowNoise : MonoBehaviour
         Graphics.Blit(temp, snow);
         _meshRenderer.material.SetTexture("_Splat", snow);
         RenderTexture.ReleaseTemporary(temp);
-        
+    }
+
+    public void SetValues(Material mat, float amount, float oppacity) {
+        _snowFallMat = mat;
+        _flakeAmount = amount;
+        _flakeOpacity = oppacity;
     }
 }

@@ -1643,38 +1643,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1810917903}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &334453739
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Sun : Shadow Data Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 32
-  m_Height: 1
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 11
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &353540844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4087,38 +4055,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1227973070}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &771114457
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Sun : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 512
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 11
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!4 &784685053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 018175f12eb8b494cb78620c61121a35,
@@ -5818,6 +5754,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b149371eefaa488409795186a1abac5d, type: 3}
+--- !u!1 &1234073247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6552565303010898702, guid: 45aea52087fe8c744ab7c2c308656d2e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1592499396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1234073248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234073247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c7a8dfa92f9f04aa39b8923e808b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
+  _flakeAmount: 0
+  _flakeOpacity: 0
 --- !u!4 &1234219280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: f855233fdab853c488019773b0d5daf0,
@@ -5842,6 +5799,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1036672465}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1261090074
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Sun : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 512
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 11
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1266348158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7193,6 +7182,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc1e3112d56fcd74a94e52d230154922, type: 3}
+--- !u!84 &1483298275
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Sun : Shadow Data Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 32
+  m_Height: 1
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 11
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &1495573921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d325d656ef8253c4693c17236bb63ff1,
@@ -12336,14 +12357,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115546414781953551}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &216363922956993678 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2559247546278876650, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12375,14 +12394,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216363922956993678}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &490117354022771551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2758970309758011963, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12414,14 +12431,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490117354022771551}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &495786970348235644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2766767480745392664, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12453,14 +12468,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495786970348235644}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &691523044810286287 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2962281453856503211, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12492,14 +12505,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691523044810286287}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1001 &692845763060625553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12620,14 +12631,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731501453661280581}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &1148999008021230275 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3420197221785691047, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12659,14 +12668,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148999008021230275}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &1150183035192210454 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3418987079772546418, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12698,14 +12705,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150183035192210454}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &1163477349897710807 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3504200450115927475, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12737,14 +12742,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163477349897710807}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &1211432413322575993 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3479932992486199581, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12776,14 +12779,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211432413322575993}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &1263446597160730479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3534272643685494283, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12815,14 +12816,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263446597160730479}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &1417742320406008768 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3686265439495078564, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12854,14 +12853,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417742320406008768}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &1417843042366335988 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3686719104958397072, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -12893,14 +12890,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417843042366335988}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1001 &1449607426873018096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13006,14 +13001,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525747460256802596}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1001 &1626127540999122573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13134,14 +13127,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792268991895259773}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &1868065592919509474 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4136653016527345798, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13173,14 +13164,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868065592919509474}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &2066711061803686166 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4335423829801961586, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13212,14 +13201,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066711061803686166}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &2185292050016299808 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4528189417227369028, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13251,14 +13238,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2185292050016299808}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &2236604060249150689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4579853271185294725, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13290,14 +13275,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2236604060249150689}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &2292822777199306024 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4563648256454849612, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13329,14 +13312,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2292822777199306024}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &2300000560182567928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4571106964994552476, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13374,8 +13355,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &2303768879842783243 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4574613050796089711, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13407,14 +13386,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2303768879842783243}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &2308654039835822338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 39713656084011110, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13446,14 +13423,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2308654039835822338}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &2531804009196350452 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 262947755268192912, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13485,14 +13460,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2531804009196350452}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &2719927940874326271 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 377119084275859867, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13524,14 +13497,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2719927940874326271}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &3236219840064745096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 895573173084405740, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13563,14 +13534,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3236219840064745096}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &3316426152336412587 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1045604503923072719, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13602,14 +13571,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3316426152336412587}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &3434014755440525509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1093523669621821857, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13641,14 +13608,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3434014755440525509}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &3504178633092340555 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1163542944046271023, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13680,14 +13645,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3504178633092340555}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1001 &3505376223894132891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13793,14 +13756,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3574343002145876972}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &3596832096705001389 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1256056237446063817, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13832,14 +13793,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3596832096705001389}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &3608252959463676405 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1339817801306884241, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13871,14 +13830,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3608252959463676405}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &3690950672816106671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1422028997671304651, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13910,14 +13867,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3690950672816106671}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &3775671024458291414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1504495883056810418, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13949,14 +13904,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3775671024458291414}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &3906315925068114106 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1635631715807607262, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -13988,14 +13941,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3906315925068114106}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &3919791140714774499 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1648614899803696775, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14027,14 +13978,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3919791140714774499}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &4072087000828839665 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1731104433046181781, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14066,14 +14015,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4072087000828839665}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &4214343898672837917 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1943497511512269945, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14105,14 +14052,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4214343898672837917}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &4465414343941582737 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2124781404014493429, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14144,14 +14089,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4465414343941582737}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &4540272448866789873 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2271681726923372693, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14183,14 +14126,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4540272448866789873}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &4554860546360835801 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2284158762098274237, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14222,14 +14163,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4554860546360835801}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &4594422087852263425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2253560449168922981, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14261,14 +14200,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4594422087852263425}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &4595004639981674960 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2251896149286908084, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14300,14 +14237,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595004639981674960}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &4659294369140450300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6930415617361703576, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14339,14 +14274,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4659294369140450300}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &4747794622962873820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7018690471296230584, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14378,14 +14311,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4747794622962873820}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &4751772898957035344 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7022619818689320500, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14417,14 +14348,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4751772898957035344}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &4972200141858939764 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7315013946188493328, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14456,14 +14385,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4972200141858939764}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &4978988076335186146 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7321727663363363206, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14495,14 +14422,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4978988076335186146}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &5279349375323355987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7620353950518471223, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14534,14 +14459,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5279349375323355987}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &5297026338645616754 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7567800690948307222, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14573,14 +14496,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5297026338645616754}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &5369369064153119670 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7640145065454643922, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14612,14 +14533,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5369369064153119670}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &5533193183912238131 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7803948844244421975, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14651,14 +14570,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5533193183912238131}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &5564166526592984816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7904670823724644244, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14690,14 +14607,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5564166526592984816}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &5647938124605577571 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7990909725769304071, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14729,14 +14644,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5647938124605577571}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &5791152664702701995 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8131993944903418063, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14768,14 +14681,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5791152664702701995}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &5901173392281813198 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8170029096521175466, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14807,14 +14718,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5901173392281813198}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &5905280386530095329 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8176055305428590981, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14846,14 +14755,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5905280386530095329}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &5923373737232793377 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8264359053725183557, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14885,14 +14792,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5923373737232793377}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &5950120295529944852 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8221313561492080240, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14924,14 +14829,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5950120295529944852}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &6001052535385436402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344306711035306390, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -14963,14 +14866,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6001052535385436402}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &6077159960269574717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8417934737467343705, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15002,14 +14903,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6077159960269574717}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &6237207228805698496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8506148712064975524, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15041,14 +14940,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6237207228805698496}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &6300081109423381971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8640870163092442295, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15080,14 +14977,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6300081109423381971}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &6352735860774603323 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8695773965276863327, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15119,14 +15014,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6352735860774603323}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &6408404639727325769 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8677259811325756205, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15158,14 +15051,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6408404639727325769}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &6422698450311333637 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8765950959516096097, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15197,14 +15088,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6422698450311333637}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &6440549287962643849 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8783574765460348141, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15236,14 +15125,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6440549287962643849}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &6468423142099595578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8737158449822097502, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15275,14 +15162,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6468423142099595578}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &6699249880521380763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8970167186182095615, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15314,14 +15199,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6699249880521380763}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &6707471758773558775 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9048103032521772179, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15353,14 +15236,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6707471758773558775}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &6839546584638421983 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9110246186994510523, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15392,14 +15273,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6839546584638421983}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &6892764278765986136 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9163962492801052732, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15431,14 +15310,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6892764278765986136}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &6900351283789464687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9171038774604289291, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15470,14 +15347,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6900351283789464687}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &6990522649601678689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4721945654109490181, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15509,14 +15384,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6990522649601678689}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &7015851559948336568 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4745004072944725212, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15548,14 +15421,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7015851559948336568}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &7061576172050430152 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4718411073753737644, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15587,14 +15458,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061576172050430152}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &7242728919813254431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4902093798040616059, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15626,14 +15495,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7242728919813254431}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &7327058620116639906 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4983825884679369158, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15665,14 +15532,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327058620116639906}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &7406556998786297771 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5065858654828691151, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15704,14 +15569,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7406556998786297771}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &7430434497913443601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5159681569174160501, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15743,14 +15606,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7430434497913443601}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &7479457570553368386 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5136554156290563622, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15782,14 +15643,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7479457570553368386}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1001 &7539169608759839828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15900,14 +15759,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7576765576406418911}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &7619639462970381095 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5276686570619142723, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15939,14 +15796,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7619639462970381095}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &7653503509450227859 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5382469122645643767, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -15978,14 +15833,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7653503509450227859}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &7658651908937200706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5389705494717818150, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16017,14 +15870,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7658651908937200706}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &7662265515054490866 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5391158543577363862, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16056,14 +15907,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7662265515054490866}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &8060013919692195916 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5719008812187572520, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16095,14 +15944,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8060013919692195916}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1001 &8095355504060979179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16203,14 +16050,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8101981178986685079}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &8202626759673823521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5859603498308014149, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16242,14 +16087,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8202626759673823521}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &8299795193160886638 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6028666248695953418, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16281,14 +16124,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8299795193160886638}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &8321336172316265418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6052759743761799854, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16320,14 +16161,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8321336172316265418}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &8582198260177490906 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6313760920177410750, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16359,14 +16198,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8582198260177490906}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &8762261092359359242 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6421330201627564654, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16398,14 +16235,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8762261092359359242}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &8775198500176713906 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6432036683237231062, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16437,14 +16272,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8775198500176713906}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &8788427948398344519 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6445266131389524003, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16476,14 +16309,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8788427948398344519}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &8911612795770396111 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6568644492806163627, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16515,14 +16346,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8911612795770396111}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &8995117523054715069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6652371321711800793, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16554,14 +16383,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8995117523054715069}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
 --- !u!1 &9079777147209855809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6810906049534943781, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16593,14 +16420,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9079777147209855809}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &9178729964948022734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6910084816977540266, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16632,14 +16457,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9178729964948022734}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}
 --- !u!1 &9218858649622894123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6875620983831430991, guid: 45aea52087fe8c744ab7c2c308656d2e,
@@ -16671,11 +16494,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9218858649622894123}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891e5bef97822ca41a81d15bfa505521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowfallShader: {fileID: 0}
-  _flakeAmount: 0
-  _flakeOpacity: 0
+  _snowfallShader: {fileID: 4800000, guid: e4e100b99ad81884389b6340ef4c35c3, type: 3}

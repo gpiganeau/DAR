@@ -32,6 +32,10 @@ public class FPS_Tracks : MonoBehaviour {
 
     }
 
+    public void ResetTracks() {
+        _splatmap = new RenderTexture(2048, 2048, 0, RenderTextureFormat.ARGBFloat);
+    }
+
     // Update is called once per frame
     void Update() {
 
