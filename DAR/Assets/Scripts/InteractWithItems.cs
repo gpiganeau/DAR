@@ -6,18 +6,18 @@ using System.IO;
 
 public class InteractWithItems : MonoBehaviour
 {
-    public Text obj_Count;
+   /* public Text obj_Count;
     public Image obj_Img;
-    public Sprite mush_Img;
+    public Sprite mush_Img; */ 
 
     Vector2 center;
     float x;
     float y;
     string objectName;
     public Camera player_camera;
-    Inventory playerInventory;
-    public GameObject inventoryUI;
-    public GameObject pointerUI;
+    PlayerInventory playerInventory;
+    //public GameObject inventoryUI;
+    //public GameObject pointerUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +25,8 @@ public class InteractWithItems : MonoBehaviour
         x = Screen.width / 2;
         y = Screen.height / 2;
 
-        string playerInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/CurrentDay.json");
-        playerInventory = JsonUtility.FromJson<Inventory>(playerInventoryJSON);
+        string playerInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json");
+        playerInventory = JsonUtility.FromJson<PlayerInventory>(playerInventoryJSON);
     }
 
 
@@ -49,34 +49,29 @@ public class InteractWithItems : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Tab) && inventoryUI.activeSelf == false )
-        {
-
-            pointerUI.SetActive(false);
-            inventoryUI.SetActive(true);
-
-        }
-        else if (Input.GetKeyDown(KeyCode.Tab) && inventoryUI.activeSelf == true)
-        {
-            pointerUI.SetActive(true);
-            inventoryUI.SetActive(false);
-        }
-
-        if (playerInventory.mushroom > 0)
-        {
-            obj_Img.gameObject.SetActive(true);
-            obj_Img.GetComponent<Image>().sprite = mush_Img; 
-            obj_Count.text = playerInventory.mushroom.ToString();
-        }
-        
-
     }
 
     private void DepositInventory()
     {
     }
 
+    public class PlayerInventory
+    {
+
+        public int mushroom;
+        public int fish;
+        public int wood;
+        public int waterRation;
+
+        PlayerInventory()
+        {
+            mushroom = 0;
+            fish = 0;
+            wood = 0;
+            waterRation = 0;
+        }
+
+    }
     void Action(string objectName)
         {
             Debug.Log("Touched an item");
@@ -106,27 +101,7 @@ public class InteractWithItems : MonoBehaviour
         }
     }
 
-public class Inventory
-{
 
-    public int mushroom;
-    public int fish;
-    public int wood;
-    public int waterRation;
-
-    public Inventory()
-    {
-        mushroom = 0;
-        fish = 0;
-        wood = 0;
-        waterRation = 0;
-    }
-
-
-
-
-    
-}
 
 
 
