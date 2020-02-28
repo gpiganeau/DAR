@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemInteraction : MonoBehaviour
 {
     [SerializeField] private string itemName;
+    [SerializeField] private int numberOfUses = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +15,15 @@ public class ItemInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (numberOfUses < 1) {
+            Destroy(this.gameObject);
+        }
     }
 
     public string GetName() {
         return itemName;
+    }
+    public void RemoveOneUse() {
+        numberOfUses -= 1;
     }
 }

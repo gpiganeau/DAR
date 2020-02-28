@@ -13,6 +13,7 @@ public class EndDay : MonoBehaviour
     InteractWithItems playerInventory;
     [SerializeField] SnowOnTerrainManager snowTracksManager;
     [SerializeField] Canvas canvas;
+    private PlayerStatus playerStatus;
 
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class EndDay : MonoBehaviour
         loadedDay = JsonUtility.FromJson<InGameDay>(jsonDay);
         StartDay(loadedDay.day);
         playerInventory = gameObject.GetComponent<InteractWithItems>();
+        playerStatus = gameObject.GetComponent<PlayerStatus>();
     }
 
     public void StartDay(int dayNumber) {
@@ -32,10 +34,12 @@ public class EndDay : MonoBehaviour
 
 
     public void EndThisDayOutside() {
+        sun.GetComponent<CycleJourNuit>().StopDayCoroutine();
         StartCoroutine(EndDayCoroutine(false));
     }
 
     public void EndThisDayInside() {
+        sun.GetComponent<CycleJourNuit>().StopDayCoroutine();
         StartCoroutine(EndDayCoroutine(true));
     }
 
@@ -44,6 +48,8 @@ public class EndDay : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
 
         snowTracksManager.ResetTracks();
+        playerInventory.ConsumeRessources();
+        playerStatus.GoHome();
 
         loadedDay.day += 1;
         string uploadDay = JsonUtility.ToJson(loadedDay);
@@ -60,4 +66,6 @@ public class EndDay : MonoBehaviour
         public bool gameHasStarted;
         public int day;
     }
+
+
 }

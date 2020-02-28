@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class StartGame : MonoBehaviour
 {
     InGameDay loadedDay;
+    InteractWithItems.Inventory playerInventory;
+    InteractWithItems.Inventory hubInventory;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +18,16 @@ public class StartGame : MonoBehaviour
         string uploadDay = JsonUtility.ToJson(loadedDay);
         File.WriteAllText(Application.dataPath + "/JSONFiles/CurrentDay.json", uploadDay);
 
-        //INSERT HERE A RESET ON HUB AND PLAYER INVENTORY
-        //USE THE CONSTRUCTOR FUNCTION
+        //RESET ON HUB AND PLAYER INVENTORY
+        //USING THE CONSTRUCTOR FUNCTION
+        playerInventory = new InteractWithItems.Inventory();
+        hubInventory = new InteractWithItems.Inventory();
 
+        string uploadPlayerInv = JsonUtility.ToJson(playerInventory);
+        File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadPlayerInv);
 
+        string uploadHubInv = JsonUtility.ToJson(hubInventory);
+        File.WriteAllText(Application.dataPath + "/JSONFiles/HubInventory.json", uploadHubInv);
 
 
         SceneManager.LoadScene(1);

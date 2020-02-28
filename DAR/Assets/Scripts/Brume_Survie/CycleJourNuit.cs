@@ -7,6 +7,8 @@ public class CycleJourNuit : MonoBehaviour {
     [SerializeField] private float dayLength;
     [SerializeField] private GameObject player;
     bool playerIsInside;
+    private Coroutine coroutineReference;
+
 
     Quaternion originalRotation;
 
@@ -16,7 +18,12 @@ public class CycleJourNuit : MonoBehaviour {
     }
 
     public void PlayOneDay() {
-        StartCoroutine(OneDayCoroutine());
+        Debug.Log("DayStarting");
+        coroutineReference = StartCoroutine(OneDayCoroutine());
+    }
+
+    public void StopDayCoroutine() {
+        StopCoroutine(coroutineReference);
     }
 
     // Update is called once per frame
