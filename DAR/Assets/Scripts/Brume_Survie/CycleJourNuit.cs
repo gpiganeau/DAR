@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class CycleJourNuit : MonoBehaviour {
     // Start is called before the first frame update
-    [SerializeField] private int dayLength;
-    [SerializeField] private Transform worldLight;
+    [SerializeField] private float dayLength;
     [SerializeField] private GameObject player;
+    bool playerIsInside;
+
+    Quaternion originalRotation;
+
     void Start() {
+        originalRotation = transform.rotation;
+        playerIsInside = player.GetComponent<PlayerStatus>().GetShelteredStatus();
+    }
+
+    public void PlayOneDay() {
         StartCoroutine(OneDayCoroutine());
     }
 
@@ -17,12 +25,19 @@ public class CycleJourNuit : MonoBehaviour {
     }
 
     IEnumerator OneDayCoroutine() {
+        transform.rotation = originalRotation;
         float rotation = 0f;
         while(rotation < 180f) {
-            worldLight.RotateAround(worldLight.position, new Vector3(1,0,0), Time.deltaTime * 180 / (dayLength * 60));
+            transform.RotateAround(transform.position, new Vector3(1,0,0), Time.deltaTime * 180 / (dayLength * 60));
             rotation += (Time.deltaTime * 180) / (dayLength * 60);
             yield return null;
         }
-        player.GetComponent<EndDay>().EndThisDay();
+        if (!player.GetComponent<PlayerStatus>().GetShelteredStatus()) {
+            player.GetComponent<EndDay>().EndThisDayOutside();
+        }
+        else {
+            player.GetComponent<EndDay>().EndThisDayInside();
+        }
+        
     }
 }

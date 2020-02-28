@@ -6,27 +6,25 @@ using System.IO;
 
 public class InteractWithItems : MonoBehaviour
 {
-   /* public Text obj_Count;
-    public Image obj_Img;
-    public Sprite mush_Img; */ 
-
     Vector2 center;
     float x;
     float y;
     string objectName;
     public Camera player_camera;
-    PlayerInventory playerInventory;
-    //public GameObject inventoryUI;
-    //public GameObject pointerUI;
+    Inventory playerInventory;
+    Inventory HubInventory;
     // Start is called before the first frame update
     void Start()
     {
-
+        
         x = Screen.width / 2;
         y = Screen.height / 2;
 
         string playerInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json");
-        playerInventory = JsonUtility.FromJson<PlayerInventory>(playerInventoryJSON);
+        string HubInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/HubInventory.json");
+        playerInventory = JsonUtility.FromJson<Inventory>(playerInventoryJSON);
+        HubInventory = JsonUtility.FromJson<Inventory>(HubInventoryJSON);
+        
     }
 
 
@@ -51,59 +49,68 @@ public class InteractWithItems : MonoBehaviour
         }
     }
 
-    private void DepositInventory()
-    {
+    void Action(string objectName) {
+        
+        switch (objectName){
+            case "mushroom":
+                playerInventory.mushroom += 1;
+                break;
+            case "fish":
+                playerInventory.fish += 1;
+                break;
+            case "wood":
+                playerInventory.wood += 1;
+                break;
+            case "waterRation":
+                playerInventory.waterRation += 1;
+                break;
+            case "chest":
+                DepositInventory();
+                break;
+        }
+
+        string uploadInventory = JsonUtility.ToJson(playerInventory);
+        File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+
+        return;
     }
 
-    public class PlayerInventory
-    {
+    void DepositInventory() {
+        playerInventory.DepositInInventory(HubInventory, "HubInventory.json");
+        playerInventory = new Inventory();
+        string uploadInventory = JsonUtility.ToJson(playerInventory);
+        File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+    }
 
+    public void LoseInventory() {
+        playerInventory = new Inventory();
+        string uploadInventory = JsonUtility.ToJson(playerInventory);
+        File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+    }
+
+    public class Inventory {
         public int mushroom;
         public int fish;
         public int wood;
         public int waterRation;
-
-        PlayerInventory()
-        {
+        
+        public Inventory() {
             mushroom = 0;
             fish = 0;
             wood = 0;
             waterRation = 0;
         }
 
-    }
-    void Action(string objectName)
-        {
-            Debug.Log("Touched an item");
-            switch (objectName)
-            {
-                case "mushroom":
-                    playerInventory.mushroom += 1;
-                    break;
-                case "fish":
-                    playerInventory.fish += 1;
-                    break;
-                case "wood":
-                    playerInventory.wood += 1;
-                    break;
-                case "waterRation":
-                    playerInventory.waterRation += 1;
-                    break;
-                case "chest":
-                    DepositInventory();
-                    break;
-            }
+        public void DepositInInventory(Inventory target, string filename) {
+            target.mushroom += mushroom;
+            target.waterRation += waterRation;
+            target.fish += fish;
+            target.wood += wood;
 
-            string uploadInventory = JsonUtility.ToJson(playerInventory);
-            File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
-
-            return;
+            string uploadInventory = JsonUtility.ToJson(target);
+            File.WriteAllText(Application.dataPath + "/JSONFiles/" + filename, uploadInventory);
         }
+
     }
 
-
-
-
-
-
-
+}
