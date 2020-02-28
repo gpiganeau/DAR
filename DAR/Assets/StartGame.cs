@@ -15,6 +15,13 @@ public class StartGame : MonoBehaviour
         loadedDay.day = 1;
         string uploadDay = JsonUtility.ToJson(loadedDay);
         File.WriteAllText(Application.dataPath + "/JSONFiles/CurrentDay.json", uploadDay);
+
+        //INSERT HERE A RESET ON HUB AND PLAYER INVENTORY
+        //USE THE CONSTRUCTOR FUNCTION
+
+
+
+
         SceneManager.LoadScene(1);
     }
 
