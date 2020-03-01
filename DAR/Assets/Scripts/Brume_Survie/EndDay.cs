@@ -32,6 +32,10 @@ public class EndDay : MonoBehaviour
         sun.GetComponent<CycleJourNuit>().PlayOneDay();
     }
 
+    public void EndOfDayLastMoments() {
+        sun.GetComponent<CycleJourNuit>().NightScene();
+    }
+
 
     public void EndThisDayOutside() {
         sun.GetComponent<CycleJourNuit>().StopDayCoroutine();
@@ -55,9 +59,13 @@ public class EndDay : MonoBehaviour
         string uploadDay = JsonUtility.ToJson(loadedDay);
         File.WriteAllText(Application.dataPath + "/JSONFiles/CurrentDay.json", uploadDay);
 
-        StartDay(loadedDay.day);
-        if (!isInside) {
+        if (isInside) {
+            StartDay(loadedDay.day);
+        }
+        else {
+            
             playerInventory.LoseInventory();
+            StartDay(loadedDay.day); //Going to change to include near death experience
         }
         
     }

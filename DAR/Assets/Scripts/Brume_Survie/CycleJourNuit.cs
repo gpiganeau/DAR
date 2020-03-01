@@ -26,6 +26,10 @@ public class CycleJourNuit : MonoBehaviour {
         StopCoroutine(coroutineReference);
     }
 
+    public void NightScene() {
+        StartCoroutine(NightSceneCoroutine());
+    }
+
     // Update is called once per frame
     void Update() {
 
@@ -46,5 +50,9 @@ public class CycleJourNuit : MonoBehaviour {
             player.GetComponent<EndDay>().EndThisDayInside();
         }
         
+    }
+
+    IEnumerator NightSceneCoroutine() {
+        return null;
     }
 }
