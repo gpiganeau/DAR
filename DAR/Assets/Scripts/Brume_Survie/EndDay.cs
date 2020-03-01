@@ -21,15 +21,18 @@ public class EndDay : MonoBehaviour
     {
         string jsonDay = File.ReadAllText(Application.dataPath + "/JSONFiles/CurrentDay.json");
         loadedDay = JsonUtility.FromJson<InGameDay>(jsonDay);
-        StartDay(loadedDay.day);
+        StartDay();
         playerInventory = gameObject.GetComponent<InteractWithItems>();
         playerStatus = gameObject.GetComponent<PlayerStatus>();
     }
 
-    public void StartDay(int dayNumber) {
-        canvas.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + loadedDay.day.ToString();
-        canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", false);
-        sun.GetComponent<CycleJourNuit>().PlayOneDay();
+    public void StartDay() {
+
+            canvas.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + loadedDay.day.ToString();
+            canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", false);
+            sun.GetComponent<CycleJourNuit>().PlayOneDay();
+        
+        
     }
 
     public void EndOfDayLastMoments() {
@@ -48,24 +51,24 @@ public class EndDay : MonoBehaviour
     }
 
     IEnumerator EndDayCoroutine(bool isInside) {
-        canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", true);
-        yield return new WaitForSeconds(3.5f);
-
-        snowTracksManager.ResetTracks();
-        playerInventory.ConsumeRessources();
-        playerStatus.GoHome();
-
-        loadedDay.day += 1;
-        string uploadDay = JsonUtility.ToJson(loadedDay);
-        File.WriteAllText(Application.dataPath + "/JSONFiles/CurrentDay.json", uploadDay);
 
         if (isInside) {
-            StartDay(loadedDay.day);
+            canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", true);
+            yield return new WaitForSeconds(3.5f);
+
+            snowTracksManager.ResetTracks();
+            playerInventory.ConsumeRessources();
+            playerStatus.GoHome();
+
+            loadedDay.day += 1;
+            string uploadDay = JsonUtility.ToJson(loadedDay);
+            File.WriteAllText(Application.dataPath + "/JSONFiles/CurrentDay.json", uploadDay);
+            StartDay();
         }
         else {
-            
+            Debug.Log("NightScene should start");
             playerInventory.LoseInventory();
-            StartDay(loadedDay.day); //Going to change to include near death experience
+            sun.GetComponent<CycleJourNuit>().NightScene();
         }
         
     }
