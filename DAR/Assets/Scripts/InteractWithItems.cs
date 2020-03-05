@@ -38,7 +38,7 @@ public class InteractWithItems : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = player_camera.ScreenPointToRay(new Vector2(x, y));
-            if (Physics.Raycast(ray, out hit, 10, ~(1 << 11)))
+            if (Physics.Raycast(ray, out hit, 5, ~(1 << 11)))
             {
                 GameObject objectHit = hit.collider.gameObject;
                 if (objectHit.tag == "interactible")
@@ -74,11 +74,15 @@ public class InteractWithItems : MonoBehaviour
                 break;
             case "chest":
                 DepositInventory();
+                collectible.GetComponent<ChestScript>().Open();
                 //Debug.Log("## Current Inventory Space ## : " + playerInventory.currentInventorySpace);
                 //Debug.Log("## Wood Stock ## : " + hubInventory.wood);
                 break;
             case "bed":
                 gameObject.GetComponent<EndDay>().EndThisDayInside();
+                break;
+            case "door":
+                collectible.GetComponent<DoorScript>().Open();
                 break;
         }
 

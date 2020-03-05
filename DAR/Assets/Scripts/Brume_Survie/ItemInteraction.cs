@@ -26,4 +26,5 @@ public class ItemInteraction : MonoBehaviour
     public void RemoveOneUse() {
         numberOfUses -= 1;
     }
+
 }
