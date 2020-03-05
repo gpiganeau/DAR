@@ -24,13 +24,11 @@ public class FireplaceScript : MonoBehaviour
         string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
         hubInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
         if (fireplaceOn.activeSelf == false) {
-
             fireplaceOn.gameObject.SetActive(true);
             fireParticles.gameObject.SetActive(true);
             hubInventory.wood -= 3;
             string uploadInventory = JsonUtility.ToJson(hubInventory);
             File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json", uploadInventory);
-            
         }
     }
 }

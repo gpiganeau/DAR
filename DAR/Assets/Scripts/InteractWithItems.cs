@@ -79,11 +79,20 @@ public class InteractWithItems : MonoBehaviour
                 //Debug.Log("## Wood Stock ## : " + hubInventory.wood);
                 break;
             case "bed":
-                gameObject.GetComponent<EndDay>().EndThisDayInside();
+                if (gameObject.GetComponent<PlayerStatus>().GetShelteredStatus() && gameObject.GetComponent<PlayerStatus>().GetWarmStatus()) {
+                    gameObject.GetComponent<EndDay>().EndThisDayInside();
+                }
                 break;
             case "door":
-                collectible.GetComponent<DoorScript>().Open();
+                if (!gameObject.GetComponent<PlayerStatus>().GetIsRestingStatus()) {
+                    collectible.GetComponent<DoorScript>().Open();
+                }
+                
                 break;
+            case "fireplace":
+                collectible.GetComponent<FireplaceScript>().Light();
+                break;
+                
         }
 
         string uploadInventory = JsonUtility.ToJson(playerInventory);
@@ -139,7 +148,6 @@ public class InteractWithItems : MonoBehaviour
         }
 
         public void ConsumeDayRessources(Inventory target, string filename) {
-            target.wood -= 5;
             target.waterRation -= 2;
             int amountToEat = 5;
             while (amountToEat > 0) {

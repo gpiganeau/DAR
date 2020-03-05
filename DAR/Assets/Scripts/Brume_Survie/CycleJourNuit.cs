@@ -13,7 +13,6 @@ public class CycleJourNuit : MonoBehaviour {
     private Coroutine coroutineReference;
     public float timer;
 
-
     Quaternion originalRotation;
 
     void Start() {
@@ -39,7 +38,9 @@ public class CycleJourNuit : MonoBehaviour {
             SceneManager.LoadScene(2);
         }
         else {
-            player.GetComponent<EndDay>().EndThisDayInside(); //À finir
+            timerText.SetActive(false);
+            player.GetComponent<PlayerStatus>().SetIsRestingStatus(true);
+            //player.GetComponent<EndDay>().EndThisDayInside(); 
         }
     }
 
@@ -47,8 +48,10 @@ public class CycleJourNuit : MonoBehaviour {
     void Update() {
 
     }
+                
 
     IEnumerator OneDayCoroutine() {
+        player.GetComponent<PlayerStatus>().SetIsRestingStatus(false);
         timerText.SetActive(false);
         GetComponent<Light>().intensity = 1;
         transform.rotation = originalRotation;
@@ -58,11 +61,11 @@ public class CycleJourNuit : MonoBehaviour {
             rotation += (Time.deltaTime * 180) / (dayLength * 60);
             yield return null;
         }
-        if (!player.GetComponent<PlayerStatus>().GetShelteredStatus()) {
-            player.GetComponent<EndDay>().EndThisDayOutside();
+        if (player.GetComponent<PlayerStatus>().GetShelteredStatus() && player.GetComponent<PlayerStatus>().GetWarmStatus()) {
+            //player.GetComponent<EndDay>().EndThisDayInside();
         }
         else {
-            player.GetComponent<EndDay>().EndThisDayInside();
+            player.GetComponent<EndDay>().EndThisDayOutside();
         }
         
     }
@@ -74,9 +77,8 @@ public class CycleJourNuit : MonoBehaviour {
         GetComponent<Light>().intensity = 0;
         while (timer > 0) {
             timerText.GetComponent<TextMeshProUGUI>().text = timer.ToString("#.0");
-            if (!(player.GetComponent<PlayerStatus>().GetShelteredStatus() && player.GetComponent<PlayerStatus>().isWarm)) {
+            if (!(player.GetComponent<PlayerStatus>().GetShelteredStatus() && player.GetComponent<PlayerStatus>().GetWarmStatus())) {
                 timer -= Time.deltaTime;
-
                 yield return null;
             }
             else {
