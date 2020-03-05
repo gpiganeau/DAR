@@ -55,8 +55,8 @@ public class CameraController : MonoBehaviour
     {
         if (newCameraMode == CameraMode.Player)
         {
-            Animator cinemAnim = currentView.gameObject.GetComponentInParent<Animator>();
-            cinemAnim.SetBool("Animate", false);
+            //Animator cinemAnim = currentView.gameObject.GetComponentInParent<Animator>();
+            //cinemAnim.SetBool("Animate", false);
             transform.position = newView.position;
             gameObject.GetComponent<mouseLook>().enabled = true;
         }
@@ -64,8 +64,8 @@ public class CameraController : MonoBehaviour
         else if (newCameraMode == CameraMode.Cinematic)
         {
             gameObject.GetComponent<mouseLook>().enabled = false;
-            Animator cinemAnim = newView.gameObject.GetComponentInParent<Animator>();
-            cinemAnim.SetBool("Animate", true);
+            //Animator cinemAnim = newView.gameObject.GetComponentInParent<Animator>();
+            //cinemAnim.SetBool("Animate", true);
         }
 
         myCamMode = newCameraMode;
