@@ -73,8 +73,8 @@ public class CycleJourNuit : MonoBehaviour {
         timer = 30f;
         GetComponent<Light>().intensity = 0;
         while (timer > 0) {
-            timerText.GetComponent<TextMeshProUGUI>().text = timer.ToString();
-            if (!player.GetComponent<PlayerStatus>().GetShelteredStatus()) {
+            timerText.GetComponent<TextMeshProUGUI>().text = timer.ToString("#.0");
+            if (!(player.GetComponent<PlayerStatus>().GetShelteredStatus() && player.GetComponent<PlayerStatus>().isWarm)) {
                 timer -= Time.deltaTime;
 
                 yield return null;

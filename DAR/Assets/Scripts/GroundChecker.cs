@@ -45,7 +45,7 @@ public class GroundChecker : MonoBehaviour {
         if (/*controller && controller.*/isGrounded) {
             CheckGround(new Vector3(transform.position.x, groundCheck.position.y + startDistanceFromBottom, transform.position.z));
         }
-        playerDirectionVector = gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().getDirection();
+        //playerDirectionVector = gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().getDirection();
         if (playerDirectionVector.magnitude != 0) {
             lerpSlopeValue = Mathf.Clamp((Vector3.Dot(playerDirectionVector, groundSlopeDir) * 1.5f + 1) / 2, 0, 1);
         }
@@ -53,11 +53,11 @@ public class GroundChecker : MonoBehaviour {
             lerpSlopeValue = 0.5f;
         }
         if (lerpSlopeValue < 0.2) {
-            gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().forwardSpeed = 0f;
+            //gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().forwardSpeed = 0f;
         }
         
-        gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().forwardSpeed = Mathf.Lerp(3, 7, lerpSlopeValue);
-        gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().backwardSpeed = Mathf.Lerp(0, 4, lerpSlopeValue);
+        //gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().forwardSpeed = Mathf.Lerp(3, 7, lerpSlopeValue);
+        //gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>().backwardSpeed = Mathf.Lerp(0, 4, lerpSlopeValue);
     }
 
 

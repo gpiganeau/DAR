@@ -14,6 +14,8 @@ public class ChecklistScript : MonoBehaviour
     InteractWithItems.Inventory playerInventory;
     public GameObject fireplace;
 
+    bool taskBoolGetWood;
+
     void Start()
     {
         
@@ -21,13 +23,19 @@ public class ChecklistScript : MonoBehaviour
     
     void Update()
     {
-        string playerInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json");
+        string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
         playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
 
-        if (playerInventory.wood >= 3)
+        if (playerInventory.wood > 0)
         {
+            taskBoolGetWood = true;
+        }
+
+        if (taskBoolGetWood) {
             taskCheck1.gameObject.SetActive(true);
         }
+
+
 
         if (fireplace.activeSelf)
         {

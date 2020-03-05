@@ -7,7 +7,7 @@ public class FireplaceScript : MonoBehaviour
 {
     public GameObject fireplaceOn;
     public GameObject fireParticles;
-    InteractWithItems.Inventory playerInventory;
+    InteractWithItems.Inventory hubInventory;
     
 
     void Start()
@@ -22,9 +22,9 @@ public class FireplaceScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        string playerInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json");
-        playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
-        if (other.tag == "Player" && playerInventory.wood >= 3)
+        string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
+        hubInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
+        if (other.tag == "Player" && hubInventory.wood >= 3)
         {
             if (fireplaceOn.activeSelf == false)
             {
@@ -32,9 +32,9 @@ public class FireplaceScript : MonoBehaviour
                 {
                     fireplaceOn.gameObject.SetActive(true);
                     fireParticles.gameObject.SetActive(true);
-                    playerInventory.wood -= 3;
-                    string uploadInventory = JsonUtility.ToJson(playerInventory);
-                    File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+                    hubInventory.wood -= 3;
+                    string uploadInventory = JsonUtility.ToJson(hubInventory);
+                    File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json", uploadInventory);
                 }
             }
         }

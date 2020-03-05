@@ -19,9 +19,10 @@ public class InteractWithItems : MonoBehaviour
         
         x = Screen.width / 2;
         y = Screen.height / 2;
-
-        string playerInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json");
-        string HubInventoryJSON = File.ReadAllText(Application.dataPath + "/JSONFiles/HubInventory.json");
+       
+        
+        string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
+        string HubInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
         playerInventory = JsonUtility.FromJson<Inventory>(playerInventoryJSON);
         hubInventory = JsonUtility.FromJson<Inventory>(HubInventoryJSON);
         
@@ -59,15 +60,22 @@ public class InteractWithItems : MonoBehaviour
             case "fish":
                 playerInventory.fish += 1;
                 break;
-            case "wood":
-                playerInventory.wood += 1;
-                collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+            case "wood":      
+                if (playerInventory.wood < 3 && playerInventory.currentInventorySpace !=0) {
+                    //Debug.Log("Collecting Wood : " + (playerInventory.wood + 1) + "/" + playerInventory.inventorySpace);
+                    //Debug.Log("Current Inventory Size : " + (playerInventory.currentInventorySpace -1));
+                    playerInventory.wood += 1;
+                    playerInventory.currentInventorySpace -= 1;
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                } 
                 break;
             case "waterRation":
                 playerInventory.waterRation += 1;
                 break;
             case "chest":
                 DepositInventory();
+                //Debug.Log("## Current Inventory Space ## : " + playerInventory.currentInventorySpace);
+                //Debug.Log("## Wood Stock ## : " + hubInventory.wood);
                 break;
             case "bed":
                 gameObject.GetComponent<EndDay>().EndThisDayInside();
@@ -75,22 +83,23 @@ public class InteractWithItems : MonoBehaviour
         }
 
         string uploadInventory = JsonUtility.ToJson(playerInventory);
-        File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+        File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
 
         return;
     }
 
     void DepositInventory() {
         playerInventory.DepositInInventory(hubInventory, "HubInventory.json");
-        playerInventory = new Inventory();
+        playerInventory = new Inventory(playerInventory.inventorySpace);
+        playerInventory.currentInventorySpace = playerInventory.inventorySpace;
         string uploadInventory = JsonUtility.ToJson(playerInventory);
-        File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+        File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
     }
 
     public void LoseInventory() {
-        playerInventory = new Inventory();
+        playerInventory = new Inventory(2);
         string uploadInventory = JsonUtility.ToJson(playerInventory);
-        File.WriteAllText(Application.dataPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+        File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
     }
 
     public void ConsumeRessources() {
@@ -102,12 +111,16 @@ public class InteractWithItems : MonoBehaviour
         public int fish;
         public int wood;
         public int waterRation;
+        public int inventorySpace;
+        public int currentInventorySpace;
         
-        public Inventory() {
+        public Inventory(int _inventorySpace) {
             mushroom = 0;
             fish = 0;
             wood = 0;
             waterRation = 0;
+            inventorySpace = _inventorySpace;
+            currentInventorySpace = _inventorySpace;
         }
 
         public void DepositInInventory(Inventory target, string filename) {
@@ -117,7 +130,8 @@ public class InteractWithItems : MonoBehaviour
             target.wood += wood;
 
             string uploadInventory = JsonUtility.ToJson(target);
-            File.WriteAllText(Application.dataPath + "/JSONFiles/" + filename, uploadInventory);
+            File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/" + filename, uploadInventory);
+            
         }
 
         public void ConsumeDayRessources(Inventory target, string filename) {
@@ -145,7 +159,7 @@ public class InteractWithItems : MonoBehaviour
             target.fish = Mathf.Clamp(target.fish, 0, 99);
 
             string uploadInventory = JsonUtility.ToJson(target);
-            File.WriteAllText(Application.dataPath + "/JSONFiles/" + filename, uploadInventory);
+            File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/" + filename, uploadInventory);
 
         }
     }

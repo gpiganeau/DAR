@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerStatus : MonoBehaviour
 {
     public bool isSheltered;
+    public bool isWarm;
+    [SerializeField] GameObject fireplace;
     [SerializeField] Transform spawnPosition;
 
     public bool GetShelteredStatus() {
@@ -13,6 +15,15 @@ public class PlayerStatus : MonoBehaviour
 
     public void SetShelteredStatus(bool status) {
         isSheltered = status;
+    }
+
+    private void Update() {
+        if (fireplace.GetComponent<FireplaceScript>().fireplaceOn.activeSelf) {
+            isWarm = true;
+        }
+        else {
+            isWarm = false;
+        }
     }
 
     public void GoHome() {

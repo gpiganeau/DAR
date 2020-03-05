@@ -14,12 +14,13 @@ public class EndDay : MonoBehaviour
     [SerializeField] SnowOnTerrainManager snowTracksManager;
     [SerializeField] Canvas canvas;
     private PlayerStatus playerStatus;
+    [SerializeField] private GameObject firePlace;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        string jsonDay = File.ReadAllText(Application.dataPath + "/JSONFiles/CurrentDay.json");
+        string jsonDay = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/CurrentDay.json");
         loadedDay = JsonUtility.FromJson<InGameDay>(jsonDay);
         StartDay();
         playerInventory = gameObject.GetComponent<InteractWithItems>();
@@ -27,10 +28,11 @@ public class EndDay : MonoBehaviour
     }
 
     public void StartDay() {
-
-            canvas.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + loadedDay.day.ToString();
-            canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", false);
-            sun.GetComponent<CycleJourNuit>().PlayOneDay();
+        firePlace.GetComponent<FireplaceScript>().fireParticles.SetActive(false);
+        firePlace.GetComponent<FireplaceScript>().fireplaceOn.SetActive(false);
+        canvas.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + loadedDay.day.ToString();
+        canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", false);
+        sun.GetComponent<CycleJourNuit>().PlayOneDay();
         
         
     }
@@ -62,12 +64,11 @@ public class EndDay : MonoBehaviour
 
             loadedDay.day += 1;
             string uploadDay = JsonUtility.ToJson(loadedDay);
-            File.WriteAllText(Application.dataPath + "/JSONFiles/CurrentDay.json", uploadDay);
+            File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/CurrentDay.json", uploadDay);
             StartDay();
         }
         else {
             Debug.Log("NightScene should start");
-            playerInventory.LoseInventory();
             sun.GetComponent<CycleJourNuit>().NightScene();
         }
         
