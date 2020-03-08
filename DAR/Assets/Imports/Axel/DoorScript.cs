@@ -18,7 +18,6 @@ public class DoorScript : MonoBehaviour
     }
 
     public void Open() {
-        Debug.Log("Opening");
         if (doorClosed.activeSelf) {
 
             doorClosed.gameObject.SetActive(false);

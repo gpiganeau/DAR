@@ -15,6 +15,7 @@ public class EndDay : MonoBehaviour
     [SerializeField] Canvas canvas;
     private PlayerStatus playerStatus;
     [SerializeField] private GameObject firePlace;
+    
 
 
     // Start is called before the first frame update
@@ -33,9 +34,8 @@ public class EndDay : MonoBehaviour
         canvas.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + loadedDay.day.ToString();
         canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", false);
         sun.GetComponent<CycleJourNuit>().PlayOneDay();
-        
-        
     }
+
 
     public void EndOfDayLastMoments() {
         sun.GetComponent<CycleJourNuit>().NightScene();
@@ -52,9 +52,9 @@ public class EndDay : MonoBehaviour
         StartCoroutine(EndDayCoroutine(true));
     }
 
-    IEnumerator EndDayCoroutine(bool isInside) {
+    IEnumerator EndDayCoroutine(bool isInsideAndWarm) {
 
-        if (isInside) {
+        if (isInsideAndWarm) {
             canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", true);
             yield return new WaitForSeconds(3.5f);
 
@@ -68,7 +68,6 @@ public class EndDay : MonoBehaviour
             StartDay();
         }
         else {
-            Debug.Log("NightScene should start");
             sun.GetComponent<CycleJourNuit>().NightScene();
         }
         

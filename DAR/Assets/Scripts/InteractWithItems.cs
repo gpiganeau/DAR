@@ -89,14 +89,29 @@ public class InteractWithItems : MonoBehaviour
                 gameObject.GetComponent<PlayerInventoryManager>().ClearItemInUI();
                 break;
             case "bed":
-                gameObject.GetComponent<EndDay>().EndThisDayInside();
+                if (gameObject.GetComponent<PlayerStatus>().GetShelteredStatus() && gameObject.GetComponent<PlayerStatus>().GetWarmStatus()) {
+                    gameObject.GetComponent<EndDay>().EndThisDayInside();
+                }
                 break;
             case "door":
-                collectible.GetComponent<DoorScript>().Open();
+                if (!gameObject.GetComponent<PlayerStatus>().GetIsRestingStatus()) {
+                    collectible.GetComponent<DoorScript>().Open();
+                }
+                
                 break;
             case "bag":
                 playerInventory = ChangeInventory(9);
                 collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                
+                break;
+            case "fireplace":
+                string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
+                string HubInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
+                playerInventory = JsonUtility.FromJson<Inventory>(playerInventoryJSON);
+                hubInventory = JsonUtility.FromJson<Inventory>(HubInventoryJSON);
+                if (playerInventory.wood + hubInventory.wood >= 3) {
+                    playerInventory = collectible.GetComponent<FireplaceScript>().Light();
+                }
                 
                 break;
         }
@@ -169,7 +184,6 @@ public class InteractWithItems : MonoBehaviour
         }
 
         public void ConsumeDayRessources(Inventory target, string filename) {
-            target.wood -= 5;
             target.waterRation -= 2;
             int amountToEat = 5;
             while (amountToEat > 0) {

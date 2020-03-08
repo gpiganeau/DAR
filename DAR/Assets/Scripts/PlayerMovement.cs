@@ -104,4 +104,12 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 getMoveDirection() {
         return moveDirection;
     }
+
+    public void SetSpeed(float _speed) {
+        speed = _speed;
+    }
+
+    public void ResetSpeed() {
+        speed = 12f;
+    }
 }
