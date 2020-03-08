@@ -62,8 +62,6 @@ public class InteractWithItems : MonoBehaviour
                 break;
             case "wood":      
                 if (playerInventory.wood < 3 && playerInventory.currentInventorySpace !=0) {
-                    //Debug.Log("Collecting Wood : " + (playerInventory.wood + 1) + "/" + playerInventory.inventorySpace);
-                    //Debug.Log("Current Inventory Size : " + (playerInventory.currentInventorySpace -1));
                     playerInventory.wood += 1;
                     playerInventory.currentInventorySpace -= 1;
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
@@ -75,8 +73,6 @@ public class InteractWithItems : MonoBehaviour
             case "chest":
                 DepositInventory();
                 collectible.GetComponent<ChestScript>().Open();
-                //Debug.Log("## Current Inventory Space ## : " + playerInventory.currentInventorySpace);
-                //Debug.Log("## Wood Stock ## : " + hubInventory.wood);
                 break;
             case "bed":
                 if (gameObject.GetComponent<PlayerStatus>().GetShelteredStatus() && gameObject.GetComponent<PlayerStatus>().GetWarmStatus()) {
@@ -90,7 +86,14 @@ public class InteractWithItems : MonoBehaviour
                 
                 break;
             case "fireplace":
-                collectible.GetComponent<FireplaceScript>().Light();
+                string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
+                string HubInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
+                playerInventory = JsonUtility.FromJson<Inventory>(playerInventoryJSON);
+                hubInventory = JsonUtility.FromJson<Inventory>(HubInventoryJSON);
+                if (playerInventory.wood + hubInventory.wood >= 3) {
+                    playerInventory = collectible.GetComponent<FireplaceScript>().Light();
+                }
+                
                 break;
                 
         }

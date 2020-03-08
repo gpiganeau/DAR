@@ -51,6 +51,8 @@ public class CycleJourNuit : MonoBehaviour {
                 
 
     IEnumerator OneDayCoroutine() {
+        RenderSettings.ambientIntensity = 0.7f;
+        RenderSettings.reflectionIntensity = 1f;
         player.GetComponent<PlayerStatus>().SetIsRestingStatus(false);
         timerText.SetActive(false);
         GetComponent<Light>().intensity = 1;
@@ -61,13 +63,8 @@ public class CycleJourNuit : MonoBehaviour {
             rotation += (Time.deltaTime * 180) / (dayLength * 60);
             yield return null;
         }
-        if (player.GetComponent<PlayerStatus>().GetShelteredStatus() && player.GetComponent<PlayerStatus>().GetWarmStatus()) {
-            //player.GetComponent<EndDay>().EndThisDayInside();
-        }
-        else {
-            player.GetComponent<EndDay>().EndThisDayOutside();
-        }
-        
+        player.GetComponent<EndDay>().EndThisDayOutside();
+
     }
 
     IEnumerator NightSceneCoroutine() {
@@ -76,6 +73,8 @@ public class CycleJourNuit : MonoBehaviour {
         timer = 30f;
         GetComponent<Light>().intensity = 0;
         while (timer > 0) {
+            RenderSettings.ambientIntensity = Mathf.MoveTowards(RenderSettings.ambientIntensity, 0.1f, Time.deltaTime / (5 * dayLength) );
+            RenderSettings.reflectionIntensity = Mathf.MoveTowards(RenderSettings.reflectionIntensity, 0.1f, Time.deltaTime);
             timerText.GetComponent<TextMeshProUGUI>().text = timer.ToString("#.0");
             if (!(player.GetComponent<PlayerStatus>().GetShelteredStatus() && player.GetComponent<PlayerStatus>().GetWarmStatus())) {
                 timer -= Time.deltaTime;
