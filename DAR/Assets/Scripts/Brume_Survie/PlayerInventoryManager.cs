@@ -6,139 +6,237 @@ using System.IO;
 
 public class PlayerInventoryManager : MonoBehaviour
 {
-
-
-    /*
-    public Text objMush_Count;
-    public Image objMush_Img;
-   
-    public Text objWater_Count;
-    public Image objWater_Img;
-
-    public Text objFish_Count;
-    public Image objFish_Img;
- 
-    public Sprite mush_Img;
-    public Sprite water_Img;
-    public Sprite fish_Img;
-
-    */
-
-    public Text objWood_Count;
-    public Image objWood_Img;
-    public Image objWood2_Img;
-    public Sprite wood_Img;
-    
+    Sprite wood_Img;
+    Sprite mushroom_Img;
+    Sprite waterRation_Img;
+    Sprite fish_Img;
 
     InteractWithItems.Inventory playerInventory;
     public GameObject inventoryUI;
     public GameObject pointerUI;
+    
     string objectName;
+
+    public GameObject bagInventoryPanel;
+    public GameObject handInventoryPanel;
+
+    public GameObject[] inventorySlots;
+    
 
 
     void Start()
-    {
+    { 
+        wood_Img = Resources.Load<Sprite>("Images/wood_img"); 
+        mushroom_Img = Resources.Load<Sprite>("Images/mushroom_img");
+        waterRation_Img = Resources.Load<Sprite>("Images/water_img");
+        fish_Img = Resources.Load<Sprite>("Images/fish_img");
+
         GameObject.Find("Inventory").SetActive(false);
         string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
         playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
-
     }
 
 
 
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Tab) && inventoryUI.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
+            showUI();
+        }
+    }
+
+    public void AddItemInUI(string objectName)
+    {
+     for (int i = 0; i < inventorySlots.Length; i++)
+         {
+            if (inventorySlots[i].GetComponent<Image>().sprite == null)
+            {
+                switch (objectName)
+                {
+                    
+                    case "wood":
+                        inventorySlots[i].GetComponent<Image>().sprite = wood_Img;
+                        inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
+                        break;
+                    case "fish":
+                        inventorySlots[i].GetComponent<Image>().sprite = fish_Img;
+                        inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
+                        break;
+                    case "waterRation":
+                        inventorySlots[i].GetComponent<Image>().sprite = waterRation_Img;
+                        inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
+                        break;
+                    case "mushroom":
+                        inventorySlots[i].GetComponent<Image>().sprite = mushroom_Img;
+                        inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
+                        break;
+                    
+                }
+                break;
+            }
+         }
+    }
+
+    public void ClearItemInUI()
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            inventorySlots[i].GetComponent<Image>().sprite = null;
+            inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 0f);
+        }
+    }
+
+
+    public void ChangeInventoryUI(InteractWithItems.Inventory playerInventory)
+    {
+        showUI();
+        handInventoryPanel.SetActive(false);
+        bagInventoryPanel.SetActive(true);
+
+        inventorySlots = new GameObject[playerInventory.inventorySpace];
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            inventorySlots[i] = GameObject.Find("bagInventorySlots").transform.GetChild(i).gameObject;
+        }
+
+        string [] inventoryTemp = playerInventory.listContent();
+        foreach (string item in inventoryTemp)
+        {
+            AddItemInUI(item);
+        }
+        
+
+    }
+
+    public void showUI()
+    {
+               
+        if (inventoryUI.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            GameObject.Find("Camera_Despo").GetComponent<mouseLook>().ignore = false;
+            pointerUI.SetActive(true);
+            inventoryUI.SetActive(false);
+        }
+        else if (!inventoryUI.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            GameObject.Find("Camera_Despo").GetComponent<mouseLook>().ignore = true;
             string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
             playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
             pointerUI.SetActive(false);
             inventoryUI.SetActive(true);
-
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && inventoryUI.activeSelf == true)
-        {
-            pointerUI.SetActive(true);
-            inventoryUI.SetActive(false);
-        }
-
-
-        if (playerInventory.wood == 1 && playerInventory.inventorySpace != 0) {
-            objWood_Img.gameObject.SetActive(true);
-            objWood_Img.GetComponent<Image>().sprite = wood_Img;
-           // objWood_Count.text = playerInventory.wood.ToString();
-        }
-        
-        if (playerInventory.wood == 2 && playerInventory.inventorySpace != 0) {
-            objWood_Img.gameObject.SetActive(true);
-            objWood_Img.GetComponent<Image>().sprite = wood_Img;
-            objWood2_Img.gameObject.SetActive(true);
-            objWood2_Img.GetComponent<Image>().sprite = wood_Img;
-            // objWood_Count.text = playerInventory.wood.ToString();
-        }
-
-        if (playerInventory.wood == 0) {
-            objWood_Img.gameObject.SetActive(false);
-            objWood2_Img.gameObject.SetActive(false);
-        }
-        
-        
-
-        void vide() {
-            /* 
-            * if (playerInventory.mushroom > 0)
-             {
-                 objMush_Img.gameObject.SetActive(true);
-                 objMush_Img.GetComponent<Image>().sprite = mush_Img;
-                 objMush_Count.text = playerInventory.mushroom.ToString();
-             }
-             else
-             {
-                 objMush_Img.gameObject.SetActive(false);
-                 objMush_Img.GetComponent<Image>().sprite = mush_Img;
-                 objMush_Count.text = playerInventory.mushroom.ToString();
-             } */
-
-
-
-            /* if (playerInventory.waterRation > 0)
-             {
-                 objWater_Img.gameObject.SetActive(true);
-                 objWater_Img.GetComponent<Image>().sprite = water_Img;
-                 objWater_Count.text = playerInventory.waterRation.ToString();
-             }
-             else
-             {
-                 objWater_Img.gameObject.SetActive(false);
-                 objWater_Count.text = playerInventory.waterRation.ToString();
-             }
-
-             if (playerInventory.fish > 0)
-             {
-                 objFish_Img.gameObject.SetActive(true);
-                 objFish_Img.GetComponent<Image>().sprite = fish_Img;
-                 objFish_Count.text = playerInventory.fish.ToString();
-             }
-
-             else
-             {
-                 objFish_Img.gameObject.SetActive(false);
-                 objFish_Count.text = playerInventory.fish.ToString();
-             }
-             
-        public void AssignSprite()
-        {
-            mush_Img = Resources.Load("Assets/Ressources/Images/inventaire.png") as Sprite;
-            wood_Img = Resources.Load("Assets/Ressources/Images/wood_img") as Sprite;
-            water_Img = Resources.Load("Assets/Ressources/Images/water_img") as Sprite;
-            fish_Img = Resources.Load("Assets/Ressources/Images/fish_img") as Sprite;
-        }
-            */
     }
 
-    
+
+    void vide()
+    {
+
+
+        /*
+public Text objMush_Count;
+public Image objMush_Img;
+
+public Text objWater_Count;
+public Image objWater_Img;
+
+public Text objFish_Count;
+public Image objFish_Img;
+
+public Sprite mush_Img;
+public Sprite water_Img;
+public Sprite fish_Img;
+
+public Text objWood_Count;
+public Image objWood_Img;
+public Image objWood2_Img;
+
+*/
+
+        /* if (playerInventory.wood == 1 && playerInventory.inventorySpace != 0) {
+         objWood_Img.gameObject.SetActive(true);
+         objWood_Img.GetComponent<Image>().sprite = wood_Img;
+        // objWood_Count.text = playerInventory.wood.ToString();
+     }
+
+     if (playerInventory.wood == 2 && playerInventory.inventorySpace != 0) {
+         objWood_Img.gameObject.SetActive(true);
+         objWood_Img.GetComponent<Image>().sprite = wood_Img;
+         objWood2_Img.gameObject.SetActive(true);
+         objWood2_Img.GetComponent<Image>().sprite = wood_Img;
+         // objWood_Count.text = playerInventory.wood.ToString();
+     }
+
+     if (playerInventory.wood == 0) {
+         objWood_Img.gameObject.SetActive(false);
+         objWood2_Img.gameObject.SetActive(false);
+     }
+
+    */
+
+        /* 
+         * 
+        * if (playerInventory.mushroom > 0)
+         {
+             objMush_Img.gameObject.SetActive(true);
+             objMush_Img.GetComponent<Image>().sprite = mush_Img;
+             objMush_Count.text = playerInventory.mushroom.ToString();
+         }
+         else
+         {
+             objMush_Img.gameObject.SetActive(false);
+             objMush_Img.GetComponent<Image>().sprite = mush_Img;
+             objMush_Count.text = playerInventory.mushroom.ToString();
+         } */
+
+
+
+        /* if (playerInventory.waterRation > 0)
+         {
+             objWater_Img.gameObject.SetActive(true);
+             objWater_Img.GetComponent<Image>().sprite = water_Img;
+             objWater_Count.text = playerInventory.waterRation.ToString();
+         }
+         else
+         {
+             objWater_Img.gameObject.SetActive(false);
+             objWater_Count.text = playerInventory.waterRation.ToString();
+         }
+
+         if (playerInventory.fish > 0)
+         {
+             objFish_Img.gameObject.SetActive(true);
+             objFish_Img.GetComponent<Image>().sprite = fish_Img;
+             objFish_Count.text = playerInventory.fish.ToString();
+         }
+
+         else
+         {
+             objFish_Img.gameObject.SetActive(false);
+             objFish_Count.text = playerInventory.fish.ToString();
+         }
+
+    public void AssignSprite()
+    {
+        mush_Img = Resources.Load("Assets/Ressources/Images/inventaire.png") as Sprite;
+        wood_Img = Resources.Load("Assets/Ressources/Images/wood_img") as Sprite;
+        water_Img = Resources.Load("Assets/Ressources/Images/water_img") as Sprite;
+        fish_Img = Resources.Load("Assets/Ressources/Images/fish_img") as Sprite;
+    }
+        */
     }
 
-    
 }
+
+
+
+
+
+
+
+
+
+
+

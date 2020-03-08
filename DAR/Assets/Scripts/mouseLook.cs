@@ -10,7 +10,7 @@ public class mouseLook : MonoBehaviour
     public Transform playerBody;
 
     float xRotation = 0f;
-    bool ignore;
+    public bool ignore;
 
     // Start is called before the first frame update
     void Start()
@@ -37,18 +37,6 @@ public class mouseLook : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Tab)) {
-            Debug.Log("1");
-            if (Cursor.lockState == CursorLockMode.Locked) {
-                Debug.Log("2");
-                Cursor.lockState = CursorLockMode.None;
-                ignore = true;
-            }
-            else if (Cursor.lockState == CursorLockMode.None) {
-                Debug.Log("3");
-                Cursor.lockState = CursorLockMode.Locked;
-                ignore = false;
-            }
-        }
+        
     }
 }

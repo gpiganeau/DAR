@@ -50,24 +50,35 @@ public class InteractWithItems : MonoBehaviour
         }
     }
 
+   
+
     void Action(string objectName, GameObject collectible) {
         
         switch (objectName){
             case "mushroom":
-                playerInventory.mushroom += 1;
-                collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                if (playerInventory.usedInventorySpace !=  playerInventory.inventorySpace)
+                {
+                    playerInventory.mushroom += 1;
+                    playerInventory.usedInventorySpace += 1;
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    gameObject.GetComponent<PlayerInventoryManager>().AddItemInUI(objectName);
+
+                }
+                
                 break;
+            
+            case "wood":      
+                if (playerInventory.usedInventorySpace != playerInventory.inventorySpace) {   
+
+                    playerInventory.wood += 1;
+                    playerInventory.usedInventorySpace += 1;
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    gameObject.GetComponent<PlayerInventoryManager>().AddItemInUI(objectName);   
+                } 
+                break;
+
             case "fish":
                 playerInventory.fish += 1;
-                break;
-            case "wood":      
-                if (playerInventory.wood < 3 && playerInventory.currentInventorySpace !=0) {
-                    //Debug.Log("Collecting Wood : " + (playerInventory.wood + 1) + "/" + playerInventory.inventorySpace);
-                    //Debug.Log("Current Inventory Size : " + (playerInventory.currentInventorySpace -1));
-                    playerInventory.wood += 1;
-                    playerInventory.currentInventorySpace -= 1;
-                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                } 
                 break;
             case "waterRation":
                 playerInventory.waterRation += 1;
@@ -75,14 +86,18 @@ public class InteractWithItems : MonoBehaviour
             case "chest":
                 DepositInventory();
                 collectible.GetComponent<ChestScript>().Open();
-                //Debug.Log("## Current Inventory Space ## : " + playerInventory.currentInventorySpace);
-                //Debug.Log("## Wood Stock ## : " + hubInventory.wood);
+                gameObject.GetComponent<PlayerInventoryManager>().ClearItemInUI();
                 break;
             case "bed":
                 gameObject.GetComponent<EndDay>().EndThisDayInside();
                 break;
             case "door":
                 collectible.GetComponent<DoorScript>().Open();
+                break;
+            case "bag":
+                playerInventory = ChangeInventory(9);
+                collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                
                 break;
         }
 
@@ -95,13 +110,13 @@ public class InteractWithItems : MonoBehaviour
     void DepositInventory() {
         playerInventory.DepositInInventory(hubInventory, "HubInventory.json");
         playerInventory = new Inventory(playerInventory.inventorySpace);
-        playerInventory.currentInventorySpace = playerInventory.inventorySpace;
+        playerInventory.usedInventorySpace = 0;
         string uploadInventory = JsonUtility.ToJson(playerInventory);
         File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
     }
 
     public void LoseInventory() {
-        playerInventory = new Inventory(2);
+        playerInventory = new Inventory(playerInventory.inventorySpace);
         string uploadInventory = JsonUtility.ToJson(playerInventory);
         File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
     }
@@ -110,22 +125,37 @@ public class InteractWithItems : MonoBehaviour
         playerInventory.ConsumeDayRessources(hubInventory, "HubInventory.json");
     }
 
+    public Inventory ChangeInventory(int _newInventorySpace)
+    {
+        playerInventory.oldUsedInventorySpace = playerInventory.usedInventorySpace;
+        playerInventory.inventorySpace = _newInventorySpace;
+        playerInventory.usedInventorySpace = playerInventory.oldUsedInventorySpace;
+        gameObject.GetComponent<PlayerInventoryManager>().ChangeInventoryUI(playerInventory);
+        return playerInventory;
+
+    }
+
     public class Inventory {
         public int mushroom;
         public int fish;
         public int wood;
         public int waterRation;
         public int inventorySpace;
-        public int currentInventorySpace;
-        
-        public Inventory(int _inventorySpace) {
+        public int usedInventorySpace;
+        public int oldUsedInventorySpace;
+
+
+
+        public Inventory(int newInventorySpace) {
             mushroom = 0;
             fish = 0;
             wood = 0;
             waterRation = 0;
-            inventorySpace = _inventorySpace;
-            currentInventorySpace = _inventorySpace;
+            inventorySpace = newInventorySpace;
+            usedInventorySpace = 0;
+
         }
+        
 
         public void DepositInInventory(Inventory target, string filename) {
             target.mushroom += mushroom;
@@ -166,6 +196,37 @@ public class InteractWithItems : MonoBehaviour
             File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/" + filename, uploadInventory);
 
         }
+
+        public string[] listContent() 
+        {
+            int counter = 0;
+            string[] returnList = new string[usedInventorySpace];
+            for (int i = 0; i < wood; i++)
+            {
+                returnList[counter] = "wood";
+                counter++;
+            }
+            for (int i = 0; i < fish; i++)
+            {
+                returnList[counter] = "fish";
+                counter++;
+            }
+            for (int i = 0; i < mushroom; i++)
+            {
+                returnList[counter] = "mushroom";
+                counter++;
+            }
+            for (int i = 0; i < waterRation; i++)
+            {
+                returnList[counter] = "waterRation";
+                counter++;
+            }
+
+            return returnList;
+        }
+            
+
     }
+
 
 }
