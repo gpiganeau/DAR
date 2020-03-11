@@ -13,6 +13,7 @@ public class InteractWithItems : MonoBehaviour
     public Camera player_camera;
     Inventory playerInventory;
     Inventory hubInventory;
+    private bool m_isAxisInUse = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,19 +34,29 @@ public class InteractWithItems : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetAxisRaw("Interact") != 0)
         {
-            RaycastHit hit;
-            Ray ray = player_camera.ScreenPointToRay(new Vector2(x, y));
-            if (Physics.Raycast(ray, out hit, 5, ~(1 << 11)))
+            Debug.Log("bump");
+            if(m_isAxisInUse == false)
             {
-                GameObject objectHit = hit.collider.gameObject;
-                if (objectHit.tag == "interactible")
+                RaycastHit hit;
+                Ray ray = player_camera.ScreenPointToRay(new Vector2(x, y));
+                if (Physics.Raycast(ray, out hit, 5, ~(1 << 11)))
                 {
-                    objectName = objectHit.gameObject.GetComponent<ItemInteraction>().GetName();
-                    Action(objectName, objectHit);
+                    GameObject objectHit = hit.collider.gameObject;
+                    if (objectHit.tag == "interactible")
+                    {
+                        objectName = objectHit.gameObject.GetComponent<ItemInteraction>().GetName();
+                        Action(objectName, objectHit);
+                    }
                 }
+                m_isAxisInUse = true;
             }
+        }
+        
+        if( Input.GetAxisRaw("Interact") == 0)
+        {
+            m_isAxisInUse = false;
         }
     }
 

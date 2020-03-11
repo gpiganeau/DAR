@@ -22,7 +22,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public GameObject[] inventorySlots;
     
-
+    private bool m_isAxisInUse = false;
 
     void Start()
     { 
@@ -44,6 +44,18 @@ public class PlayerInventoryManager : MonoBehaviour
         {
             showUI();
         }
+        if( Input.GetAxisRaw("UISelect") != 0)
+        {
+            if(m_isAxisInUse == false)
+            {
+                showUI();
+                m_isAxisInUse = true;
+            }
+        }
+        if( Input.GetAxisRaw("UISelect") == 0)
+        {
+            m_isAxisInUse = false;
+        }    
     }
 
     public void AddItemInUI(string objectName)
@@ -111,18 +123,18 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public void showUI()
     {
-               
+        mouseLook despoMouseLook = GetComponentInChildren<mouseLook>();  
         if (inventoryUI.activeSelf)
         {
             Cursor.lockState = CursorLockMode.Locked;
-            GameObject.Find("Camera_Despo").GetComponent<mouseLook>().ignore = false;
+            despoMouseLook.ignore = false;
             pointerUI.SetActive(true);
             inventoryUI.SetActive(false);
         }
-        else if (!inventoryUI.activeSelf)
+        else
         {
             Cursor.lockState = CursorLockMode.None;
-            GameObject.Find("Camera_Despo").GetComponent<mouseLook>().ignore = true;
+            despoMouseLook.ignore = true;
             string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
             playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
             pointerUI.SetActive(false);
