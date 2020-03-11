@@ -19,7 +19,6 @@ public class InteractWithItems : MonoBehaviour
         
         x = Screen.width / 2;
         y = Screen.height / 2;
-       
         
         string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
         string HubInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
@@ -53,7 +52,6 @@ public class InteractWithItems : MonoBehaviour
    
 
     void Action(string objectName, GameObject collectible) {
-        
         switch (objectName){
             case "mushroom":
                 if (playerInventory.usedInventorySpace !=  playerInventory.inventorySpace)

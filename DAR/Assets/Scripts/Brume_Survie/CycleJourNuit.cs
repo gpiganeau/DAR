@@ -21,7 +21,6 @@ public class CycleJourNuit : MonoBehaviour {
     }
 
     public void PlayOneDay() {
-        Debug.Log("DayStarting");
         coroutineReference = StartCoroutine(OneDayCoroutine());
     }
 

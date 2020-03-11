@@ -31,7 +31,7 @@ public class PlayerInventoryManager : MonoBehaviour
         waterRation_Img = Resources.Load<Sprite>("Images/water_img");
         fish_Img = Resources.Load<Sprite>("Images/fish_img");
 
-        GameObject.Find("Inventory").SetActive(false);
+        inventoryUI.SetActive(false);
         string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
         playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
     }

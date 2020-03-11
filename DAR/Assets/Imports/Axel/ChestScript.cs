@@ -27,7 +27,7 @@ public class ChestScript : MonoBehaviour
             handleOpened.gameObject.SetActive(true); 
         }
 
-        else if (chestOpened.activeSelf) {
+        else {
             chestClosed.gameObject.SetActive(true);
             chestOpened.gameObject.SetActive(false);
             handleClosed.gameObject.SetActive(true);
