@@ -22,10 +22,9 @@ public class FireplaceScript : MonoBehaviour
     }
 
     public InteractWithItems.Inventory Light() {
-        string hubInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
-        hubInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(hubInventoryJSON);
-        string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
-        playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
+        hubInventory = InteractWithItems.Inventory.ReadInventory("HubInventory.json");
+        playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
+
         if (fireplaceOn.activeSelf == false) {
             int totalWood = 3;
             fireplaceOn.gameObject.SetActive(true);
@@ -35,10 +34,9 @@ public class FireplaceScript : MonoBehaviour
                 totalWood -= 1;
             }
             hubInventory.wood -= totalWood;
-            string uploadHubInventory = JsonUtility.ToJson(hubInventory);
-            string uploadPlayerInventory = JsonUtility.ToJson(playerInventory);
-            File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json", uploadHubInventory);
-            File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json", uploadPlayerInventory);
+
+            hubInventory.WriteInventory();
+            playerInventory.WriteInventory();
         }
         return playerInventory;
     }

@@ -20,15 +20,11 @@ public class StartGame : MonoBehaviour
 
         //RESET ON HUB AND PLAYER INVENTORY
         //USING THE CONSTRUCTOR FUNCTION
-        playerInventory = new InteractWithItems.Inventory(2);
-        hubInventory = new InteractWithItems.Inventory(1000);
+        playerInventory = new InteractWithItems.Inventory(2, "PlayerInventory.json");
+        hubInventory = new InteractWithItems.Inventory(1000, "HubInventory.json");
 
-        string uploadPlayerInv = JsonUtility.ToJson(playerInventory);
-        File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json", uploadPlayerInv);
-
-        string uploadHubInv = JsonUtility.ToJson(hubInventory);
-        File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json", uploadHubInv);
-
+        playerInventory.WriteInventory();
+        hubInventory.WriteInventory();
 
         SceneManager.LoadScene(1);
     }

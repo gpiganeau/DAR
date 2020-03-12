@@ -23,8 +23,7 @@ public class ChecklistScript : MonoBehaviour
     
     void Update()
     {
-        string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
-        playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
+        playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
 
         if (playerInventory.wood > 0)
         {

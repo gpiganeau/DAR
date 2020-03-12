@@ -32,18 +32,14 @@ public class PlayerInventoryManager : MonoBehaviour
         fish_Img = Resources.Load<Sprite>("Images/fish_img");
 
         inventoryUI.SetActive(false);
-        string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
-        playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
+        playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
     }
 
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            showUI();
-        }
+
         if( Input.GetAxisRaw("UISelect") != 0)
         {
             if(m_isAxisInUse == false)
@@ -135,8 +131,7 @@ public class PlayerInventoryManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             despoMouseLook.ignore = true;
-            string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
-            playerInventory = JsonUtility.FromJson<InteractWithItems.Inventory>(playerInventoryJSON);
+            playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
             pointerUI.SetActive(false);
             inventoryUI.SetActive(true);
         }
