@@ -14,7 +14,14 @@ public class InteractWithItems : MonoBehaviour
     Inventory playerInventory;
     Inventory hubInventory;
     private bool m_isAxisInUse = false;
+    GameObject woodStorage;
     // Start is called before the first frame update
+
+    public void Awake()
+    {
+        woodStorage = GameObject.Find("woodStorage");
+    }
+
     void Start()
     {
         
@@ -23,7 +30,7 @@ public class InteractWithItems : MonoBehaviour
 
         playerInventory = Inventory.ReadInventory("PlayerInventory.json");
         hubInventory = Inventory.ReadInventory("HubInventory.json");
-        
+        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
     }
 
 
@@ -116,12 +123,31 @@ public class InteractWithItems : MonoBehaviour
                 if (playerInventory.wood + hubInventory.wood >= 3) {
                     playerInventory = collectible.GetComponent<FireplaceScript>().Light();
                 }
+                hubInventory = Inventory.ReadInventory("HubInventory.json");
+
+                woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
                 break;
+
+            case "woodStorage":
+                {
+                    DepositWood();
+                    break;
+                }
         }
 
         playerInventory.WriteInventory();
-
+		gameObject.GetComponent<PlayerInventoryManager>().UpdateInventoryUI(playerInventory);
         return;
+    }
+
+    void DepositWood()
+    {
+        hubInventory.wood += playerInventory.wood;
+        playerInventory.wood = 0;
+        hubInventory.WriteInventory();
+        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+        playerInventory.WriteInventory();
+        
     }
 
     void DepositInventory() {
@@ -129,7 +155,7 @@ public class InteractWithItems : MonoBehaviour
         playerInventory = new Inventory(playerInventory.inventorySpace, "PlayerInventory.json");
         playerInventory.usedInventorySpace = 0;
         playerInventory.WriteInventory();
-        
+        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
     }
 
     public void LoseInventory() {
@@ -171,7 +197,22 @@ public class InteractWithItems : MonoBehaviour
             inventorySpace = newInventorySpace;
             usedInventorySpace = 0;
             filename = _filename;
+        }
 
+
+        public static Inventory ReadHubInventory()
+        {
+            Inventory hubInventory;
+            string HubInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
+            hubInventory = JsonUtility.FromJson<Inventory>(HubInventoryJSON);
+            return hubInventory;
+        }
+
+        public static void WriteHubInventory(Inventory newHubInventory)
+        {
+            //GameObject.Find("woodStorage").GetComponent<woodStorage>().Show(newHubInventory.wood);
+            string uploadInventory = JsonUtility.ToJson(newHubInventory);
+            File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json", uploadInventory);
         }
 
         public static Inventory ReadInventory(string filename) {
