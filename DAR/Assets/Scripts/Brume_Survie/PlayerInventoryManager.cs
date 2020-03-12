@@ -100,7 +100,7 @@ public class PlayerInventoryManager : MonoBehaviour
     }
 
 
-    public void ChangeInventoryUI(InteractWithItems.Inventory playerInventory)
+    public void ChangeInventoryUI(InteractWithItems.Inventory _playerInventory)
     {
         showUI();
         handInventoryPanel.SetActive(false);
@@ -112,13 +112,18 @@ public class PlayerInventoryManager : MonoBehaviour
             inventorySlots[i] = GameObject.Find("bagInventorySlots").transform.GetChild(i).gameObject;
         }
 
-        string [] inventoryTemp = playerInventory.listContent();
+        UpdateInventoryUI(_playerInventory);
+
+    }
+
+    public void UpdateInventoryUI(InteractWithItems.Inventory playerInventory)
+    {
+        ClearItemInUI();
+        string[] inventoryTemp = playerInventory.listContent();
         foreach (string item in inventoryTemp)
         {
             AddItemInUI(item);
         }
-        
-
     }
 
     public void showUI()

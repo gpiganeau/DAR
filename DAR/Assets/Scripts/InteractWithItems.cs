@@ -14,7 +14,14 @@ public class InteractWithItems : MonoBehaviour
     Inventory playerInventory;
     Inventory hubInventory;
     private bool m_isAxisInUse = false;
+    GameObject woodStorage;
     // Start is called before the first frame update
+
+    public void Awake()
+    {
+        woodStorage = GameObject.Find("woodStorage");
+    }
+
     void Start()
     {
         
@@ -25,6 +32,8 @@ public class InteractWithItems : MonoBehaviour
         string HubInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
         playerInventory = JsonUtility.FromJson<Inventory>(playerInventoryJSON);
         hubInventory = JsonUtility.FromJson<Inventory>(HubInventoryJSON);
+
+        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
         
     }
 
@@ -115,14 +124,24 @@ public class InteractWithItems : MonoBehaviour
                 break;
             case "fireplace":
                 string playerInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json");
-                string HubInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
+                hubInventory = Inventory.ReadHubInventory();
                 playerInventory = JsonUtility.FromJson<Inventory>(playerInventoryJSON);
-                hubInventory = JsonUtility.FromJson<Inventory>(HubInventoryJSON);
+                
                 if (playerInventory.wood + hubInventory.wood >= 3) {
                     playerInventory = collectible.GetComponent<FireplaceScript>().Light();
                 }
-                
+
+                string HubInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
+                hubInventory = JsonUtility.FromJson<Inventory>(HubInventoryJSON);
+
+                woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
                 break;
+
+            case "woodStorage":
+                {
+                    DepositWood();
+                    break;
+                }
         }
 
         string uploadInventory = JsonUtility.ToJson(playerInventory);
@@ -131,12 +150,27 @@ public class InteractWithItems : MonoBehaviour
         return;
     }
 
+    void DepositWood()
+    {
+        hubInventory.wood += playerInventory.wood;
+        playerInventory.wood = 0;
+        Inventory.WriteHubInventory(hubInventory);
+        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+        string uploadInventory = JsonUtility.ToJson(playerInventory);
+        File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+        gameObject.GetComponent<PlayerInventoryManager>().UpdateInventoryUI(playerInventory);
+
+    }
+
     void DepositInventory() {
         playerInventory.DepositInInventory(hubInventory, "HubInventory.json");
         playerInventory = new Inventory(playerInventory.inventorySpace);
         playerInventory.usedInventorySpace = 0;
         string uploadInventory = JsonUtility.ToJson(playerInventory);
         File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/PlayerInventory.json", uploadInventory);
+        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+        gameObject.GetComponent<PlayerInventoryManager>().UpdateInventoryUI(playerInventory);
+
     }
 
     public void LoseInventory() {
@@ -167,7 +201,7 @@ public class InteractWithItems : MonoBehaviour
         public int inventorySpace;
         public int usedInventorySpace;
         public int oldUsedInventorySpace;
-
+        public string filename;
 
 
         public Inventory(int newInventorySpace) {
@@ -177,9 +211,24 @@ public class InteractWithItems : MonoBehaviour
             waterRation = 0;
             inventorySpace = newInventorySpace;
             usedInventorySpace = 0;
-
+            filename = "";
         }
-        
+
+        public static Inventory ReadHubInventory()
+        {
+            Inventory hubInventory;
+            string HubInventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json");
+            hubInventory = JsonUtility.FromJson<Inventory>(HubInventoryJSON);
+            return hubInventory;
+        }
+
+        public static void WriteHubInventory(Inventory newHubInventory)
+        {
+            //GameObject.Find("woodStorage").GetComponent<woodStorage>().Show(newHubInventory.wood);
+            string uploadInventory = JsonUtility.ToJson(newHubInventory);
+            File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json", uploadInventory);
+        }
+
 
         public void DepositInInventory(Inventory target, string filename) {
             target.mushroom += mushroom;
