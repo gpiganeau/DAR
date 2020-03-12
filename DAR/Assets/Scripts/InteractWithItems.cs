@@ -30,6 +30,7 @@ public class InteractWithItems : MonoBehaviour
 
         playerInventory = Inventory.ReadInventory("PlayerInventory.json");
         hubInventory = Inventory.ReadInventory("HubInventory.json");
+        Debug.Log(hubInventory.wood);
         woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
     }
 

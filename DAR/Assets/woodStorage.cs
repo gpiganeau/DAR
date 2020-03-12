@@ -8,7 +8,7 @@ public class woodStorage : MonoBehaviour
     public GameObject[] woodInStorage;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 
         woodInStorage = new GameObject[transform.childCount];
