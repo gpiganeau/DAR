@@ -36,7 +36,6 @@ public class InteractWithItems : MonoBehaviour
 
         if (Input.GetAxisRaw("Interact") != 0)
         {
-            Debug.Log("bump");
             if(m_isAxisInUse == false)
             {
                 RaycastHit hit;
