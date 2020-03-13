@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour 
 {
     [SerializeField] private GameObject pausePanel;
+    public Text dayText;
     private bool m_isAxisInUse = false;
     void Start()
     {
