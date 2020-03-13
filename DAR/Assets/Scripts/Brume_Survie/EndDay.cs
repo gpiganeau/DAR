@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class EndDay : MonoBehaviour
@@ -15,6 +16,7 @@ public class EndDay : MonoBehaviour
     [SerializeField] Canvas canvas;
     private PlayerStatus playerStatus;
     [SerializeField] private GameObject firePlace;
+    private Text dayTextPause;
     
 
 
@@ -23,6 +25,7 @@ public class EndDay : MonoBehaviour
     {
         string jsonDay = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/CurrentDay.json");
         loadedDay = JsonUtility.FromJson<InGameDay>(jsonDay);
+        if (!dayTextPause) { dayTextPause = GetComponent<Pause>().dayText; }
         StartDay();
         playerInventory = gameObject.GetComponent<InteractWithItems>();
         playerStatus = gameObject.GetComponent<PlayerStatus>();
@@ -31,9 +34,11 @@ public class EndDay : MonoBehaviour
     public void StartDay() {
         firePlace.GetComponent<FireplaceScript>().fireParticles.SetActive(false);
         firePlace.GetComponent<FireplaceScript>().fireplaceOn.SetActive(false);
-        canvas.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + loadedDay.day.ToString();
+        string currentDay = "Day " + loadedDay.day.ToString();
+        canvas.GetComponentInChildren<TextMeshProUGUI>().text = currentDay;
         canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", false);
         sun.GetComponent<CycleJourNuit>().PlayOneDay();
+        if (dayTextPause) { dayTextPause.text = currentDay; }
     }
 
 
