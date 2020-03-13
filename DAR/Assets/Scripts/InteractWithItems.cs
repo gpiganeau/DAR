@@ -69,24 +69,19 @@ public class InteractWithItems : MonoBehaviour
     void Action(string objectName, GameObject collectible) {
         switch (objectName){
             case "mushroom":
-                if (playerInventory.usedInventorySpace !=  playerInventory.inventorySpace)
-                {
+                if (playerInventory.usedInventorySpace !=  playerInventory.inventorySpace) {
                     playerInventory.mushroom += 1;
                     playerInventory.usedInventorySpace += 1;
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    gameObject.GetComponent<PlayerInventoryManager>().AddItemInUI(objectName);
-
                 }
                 
                 break;
             
             case "wood":      
                 if (playerInventory.usedInventorySpace != playerInventory.inventorySpace) {   
-
                     playerInventory.wood += 1;
                     playerInventory.usedInventorySpace += 1;
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    gameObject.GetComponent<PlayerInventoryManager>().AddItemInUI(objectName);   
                 } 
                 break;
 
@@ -129,10 +124,9 @@ public class InteractWithItems : MonoBehaviour
                 break;
 
             case "woodStorage":
-                {
                     DepositWood();
                     break;
-                }
+
         }
 
         playerInventory.WriteInventory();

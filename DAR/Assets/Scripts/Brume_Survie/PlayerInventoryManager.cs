@@ -44,7 +44,7 @@ public class PlayerInventoryManager : MonoBehaviour
         {
             if(m_isAxisInUse == false)
             {
-                showUI();
+                ShowUI();
                 m_isAxisInUse = true;
             }
         }
@@ -56,13 +56,9 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public void AddItemInUI(string objectName)
     {
-     for (int i = 0; i < inventorySlots.Length; i++)
-         {
-            if (inventorySlots[i].GetComponent<Image>().sprite == null)
-            {
-                switch (objectName)
-                {
-                    
+        for (int i = 0; i < inventorySlots.Length; i++) {
+            if (inventorySlots[i].GetComponent<Image>().sprite == null) {
+                switch (objectName) {
                     case "wood":
                         inventorySlots[i].GetComponent<Image>().sprite = wood_Img;
                         inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
@@ -80,9 +76,9 @@ public class PlayerInventoryManager : MonoBehaviour
                         inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
                         break;
                     
+                    }
+                    break;
                 }
-                break;
-            }
          }
     }
 
@@ -98,11 +94,11 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public void ChangeInventoryUI(InteractWithItems.Inventory _playerInventory)
     {
-        showUI();
+        ShowUI();
         handInventoryPanel.SetActive(false);
         bagInventoryPanel.SetActive(true);
 
-        inventorySlots = new GameObject[playerInventory.inventorySpace];
+        inventorySlots = new GameObject[_playerInventory.inventorySpace];
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             inventorySlots[i] = GameObject.Find("bagInventorySlots").transform.GetChild(i).gameObject;
@@ -116,24 +112,21 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         ClearItemInUI();
         string[] inventoryTemp = playerInventory.listContent();
-        foreach (string item in inventoryTemp)
-        {
+        foreach (string item in inventoryTemp) {
             AddItemInUI(item);
         }
     }
 
-    public void showUI()
+    public void ShowUI()
     {
         mouseLook despoMouseLook = GetComponentInChildren<mouseLook>();  
-        if (inventoryUI.activeSelf)
-        {
+        if (inventoryUI.activeSelf) {
             Cursor.lockState = CursorLockMode.Locked;
             despoMouseLook.ignore = false;
             pointerUI.SetActive(true);
             inventoryUI.SetActive(false);
         }
-        else
-        {
+        else {
             Cursor.lockState = CursorLockMode.None;
             despoMouseLook.ignore = true;
             playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
