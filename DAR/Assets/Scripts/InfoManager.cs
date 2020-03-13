@@ -7,6 +7,8 @@ public class InfoManager : MonoBehaviour
 {
     public GameObject infoPanel;
     public Text infoText;
+    Coroutine showInfoCoroutineReference;
+    Color originalColor = Color.white;
 
     void Start()
     {
@@ -16,9 +18,17 @@ public class InfoManager : MonoBehaviour
     IEnumerator ShowInfoCoroutine(string info, float timer){
         float infoTimer = timer;
         infoText.text = info;
-        while ( infoTimer > 0 )
+        infoText.color = originalColor;
+        while ( infoTimer > 2 )
         {
             infoTimer -= Time.deltaTime;
+            yield return null;
+        }
+        while (infoTimer > 0)
+        {
+            //change color
+            infoTimer -= Time.deltaTime;
+            infoText.color = Color.Lerp(originalColor, Color.clear, 1 - infoTimer/2);
             yield return null;
         }
         HideInfo();
@@ -26,11 +36,16 @@ public class InfoManager : MonoBehaviour
 
     public void ShowInfo(string info)
     {
-        StartCoroutine(ShowInfoCoroutine(info, 3f));
+        HideInfo();
+        showInfoCoroutineReference = StartCoroutine(ShowInfoCoroutine(info, 3f));
     }
 
     public void HideInfo()
     {
+        if (showInfoCoroutineReference != null)
+        {
+            StopCoroutine(showInfoCoroutineReference);
+        }
         infoText.text = "";
     }
 }
