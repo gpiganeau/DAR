@@ -94,6 +94,8 @@ public class InteractWithItems : MonoBehaviour
             case "chest":
                 DepositInventory();
                 collectible.GetComponent<ChestScript>().Open();
+                hubInventory = Inventory.ReadInventory("HubInventory.json");
+                gameObject.GetComponent<PlayerInventoryManager>().ShowUIHub();
                 gameObject.GetComponent<PlayerInventoryManager>().ClearItemInUI();
                 break;
             case "bed":
