@@ -19,6 +19,10 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public GameObject bagInventoryPanel;
     public GameObject handInventoryPanel;
+    public GameObject hubInventoryPanel;
+
+    public Text _nb_Wood;
+    public Text _nb_Mushroom;
 
     public GameObject[] inventorySlots;
     
@@ -30,6 +34,11 @@ public class PlayerInventoryManager : MonoBehaviour
         mushroom_Img = Resources.Load<Sprite>("Images/mushroom_img");
         waterRation_Img = Resources.Load<Sprite>("Images/water_img");
         fish_Img = Resources.Load<Sprite>("Images/fish_img");
+
+        hubInventoryPanel = GameObject.Find("Inventory_Hub_Panel");
+        _nb_Wood = GameObject.Find("nb_Wood").GetComponent<Text>();
+        _nb_Mushroom = GameObject.Find("nb_Mushroom").GetComponent<Text>();
+        hubInventoryPanel.SetActive(false);
 
         inventoryUI.SetActive(false);
         playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
@@ -91,7 +100,6 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
-
     public void ChangeInventoryUI(InteractWithItems.Inventory _playerInventory)
     {
         ShowUI();
@@ -132,6 +140,33 @@ public class PlayerInventoryManager : MonoBehaviour
             playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
             pointerUI.SetActive(false);
             inventoryUI.SetActive(true);
+        }
+    }
+
+    public void ShowUIHub()
+    {
+        mouseLook despoMouseLook = GetComponentInChildren<mouseLook>();
+        if (hubInventoryPanel.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            despoMouseLook.ignore = false;
+            pointerUI.SetActive(true);
+            inventoryUI.SetActive(false);
+            handInventoryPanel.SetActive(true);
+            hubInventoryPanel.SetActive(false);
+            
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            despoMouseLook.ignore = true;
+            pointerUI.SetActive(false);
+            inventoryUI.SetActive(true);
+            handInventoryPanel.SetActive(false);
+            hubInventoryPanel.SetActive(true);
+            InteractWithItems.Inventory hubInventory = InteractWithItems.Inventory.ReadInventory("HubInventory.json");
+            _nb_Wood.text = "x " + hubInventory.wood;
+            _nb_Mushroom.text = "x " + hubInventory.mushroom;
         }
     }
 
