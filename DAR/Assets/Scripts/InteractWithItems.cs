@@ -13,6 +13,7 @@ public class InteractWithItems : MonoBehaviour
     public Camera player_camera;
     Inventory playerInventory;
     Inventory hubInventory;
+    private InfoManager infoManager;
     private bool m_isAxisInUse = false;
     GameObject woodStorage;
     // Start is called before the first frame update
@@ -31,6 +32,7 @@ public class InteractWithItems : MonoBehaviour
         playerInventory = Inventory.ReadInventory("PlayerInventory.json");
         hubInventory = Inventory.ReadInventory("HubInventory.json");
         woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+        infoManager = GetComponent<InfoManager>();
     }
 
 
@@ -73,6 +75,7 @@ public class InteractWithItems : MonoBehaviour
                     playerInventory.mushroom += 1;
                     playerInventory.usedInventorySpace += 1;
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo(objectName + " added");
                 }
                 
                 break;
@@ -82,14 +85,17 @@ public class InteractWithItems : MonoBehaviour
                     playerInventory.wood += 1;
                     playerInventory.usedInventorySpace += 1;
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo(objectName + " added");
                 } 
                 break;
 
             case "fish":
                 playerInventory.fish += 1;
+                infoManager.ShowInfo(objectName + " added");
                 break;
             case "waterRation":
                 playerInventory.waterRation += 1;
+                infoManager.ShowInfo(objectName + " added");
                 break;
             case "chest":
                 DepositInventory();
@@ -101,6 +107,7 @@ public class InteractWithItems : MonoBehaviour
             case "bed":
                 if (gameObject.GetComponent<PlayerStatus>().GetShelteredStatus() && gameObject.GetComponent<PlayerStatus>().GetWarmStatus()) {
                     gameObject.GetComponent<EndDay>().EndThisDayInside();
+                    infoManager.ShowInfo("Day completed !");
                 }
                 break;
             case "door":
@@ -112,13 +119,14 @@ public class InteractWithItems : MonoBehaviour
             case "bag":
                 playerInventory = ChangeInventory(9);
                 collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                
+                infoManager.ShowInfo(objectName + " acquired");
                 break;
             case "fireplace":
                 playerInventory = Inventory.ReadInventory("PlayerInventory.json");
                 hubInventory = Inventory.ReadInventory("HubInventory.json");
                 if (playerInventory.wood + hubInventory.wood >= 3) {
                     playerInventory = collectible.GetComponent<FireplaceScript>().Light();
+                    infoManager.ShowInfo("Fire lit !");
                 }
                 hubInventory = Inventory.ReadInventory("HubInventory.json");
 

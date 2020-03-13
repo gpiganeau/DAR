@@ -66,8 +66,10 @@ public class PlayerInventoryManager : MonoBehaviour
     public void AddItemInUI(string objectName)
     {
         for (int i = 0; i < inventorySlots.Length; i++) {
-            if (inventorySlots[i].GetComponent<Image>().sprite == null) {
-                switch (objectName) {
+            if (inventorySlots[i].GetComponent<Image>().sprite == null)
+            {
+                switch (objectName)
+                {
                     case "wood":
                         inventorySlots[i].GetComponent<Image>().sprite = wood_Img;
                         inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
@@ -85,10 +87,10 @@ public class PlayerInventoryManager : MonoBehaviour
                         inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
                         break;
                     
-                    }
-                    break;
                 }
-         }
+                break;
+            }
+        }
     }
 
     public void ClearItemInUI()
