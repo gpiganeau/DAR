@@ -19,6 +19,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public GameObject bagInventoryPanel;
     public GameObject handInventoryPanel;
+    private GameObject currentInventoryPanel;
     public GameObject hubInventoryPanel;
 
     public Text _nb_Wood;
@@ -42,6 +43,8 @@ public class PlayerInventoryManager : MonoBehaviour
 
         inventoryUI.SetActive(false);
         playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
+
+        currentInventoryPanel = handInventoryPanel;
     }
 
 
@@ -105,9 +108,9 @@ public class PlayerInventoryManager : MonoBehaviour
     public void ChangeInventoryUI(InteractWithItems.Inventory _playerInventory)
     {
         ShowUI();
+        currentInventoryPanel = bagInventoryPanel;
         handInventoryPanel.SetActive(false);
-        bagInventoryPanel.SetActive(true);
-
+        currentInventoryPanel.SetActive(true);
         inventorySlots = new GameObject[_playerInventory.inventorySpace];
         for (int i = 0; i < inventorySlots.Length; i++)
         {
@@ -154,7 +157,7 @@ public class PlayerInventoryManager : MonoBehaviour
             despoMouseLook.ignore = false;
             pointerUI.SetActive(true);
             inventoryUI.SetActive(false);
-            handInventoryPanel.SetActive(true);
+            currentInventoryPanel.SetActive(true);
             hubInventoryPanel.SetActive(false);
             
         }
@@ -164,7 +167,7 @@ public class PlayerInventoryManager : MonoBehaviour
             despoMouseLook.ignore = true;
             pointerUI.SetActive(false);
             inventoryUI.SetActive(true);
-            handInventoryPanel.SetActive(false);
+            currentInventoryPanel.SetActive(false);
             hubInventoryPanel.SetActive(true);
             InteractWithItems.Inventory hubInventory = InteractWithItems.Inventory.ReadInventory("HubInventory.json");
             _nb_Wood.text = "x " + hubInventory.wood;
