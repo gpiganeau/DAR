@@ -22283,26 +22283,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 858737029}
   m_PrefabAsset: {fileID: 0}
---- !u!143 &924330453 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 3700134211258645079, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 858737029}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &924330461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924330446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a6cc214006114e55ae3f52eb2cb4434, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer: 0
---- !u!114 &924330462
+--- !u!114 &924330447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22315,6 +22296,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markSize: 0.25
+--- !u!143 &924330453 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 3700134211258645079, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 858737029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &926554593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44022,7 +44009,7 @@ MonoBehaviour:
   _snowQuality: 30
   _coverageUpdateMethod: 1
   _reliefAmount: 0.3
-  _occlusion: 1
+  _occlusion: 0
   _occlusionIntensity: 1.2
   _glitterStrength: 0.75
   _footprints: 1
@@ -44031,7 +44018,7 @@ MonoBehaviour:
   _footprintsScale: 1
   _footprintsObscurance: 0.1
   _snowfall: 1
-  _snowfallIntensity: 0.1
+  _snowfallIntensity: 0.619
   _snowfallUseIllumination: 1
   _snowfallReceiveShadows: 0
   _maxExposure: 0.85
@@ -44061,8 +44048,8 @@ MonoBehaviour:
   _fixMaterials: 0
   _opaqueCutout: 0
   _fixTreeOpaque: 0
-  _billboardCoverage: 1.4
-  _grassCoverage: 0.75
+  _billboardCoverage: 1.522
+  _grassCoverage: 0.853
   _characterController: {fileID: 924330453}
   _maskEditorEnabled: 1
   _maskTextureResolution: 1024
