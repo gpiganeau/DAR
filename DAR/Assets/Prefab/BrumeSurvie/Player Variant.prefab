@@ -250,6 +250,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 0}
   dayText: {fileID: 0}
+--- !u!114 &8696873966379164852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700134211258645085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c8b01ee22f3d74bbac7fff432a932d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FootstepsEventPath: event:/Character/Movement/Footsteps
+  JumpingEventPath: event:/Character/Movement/Jump & Land
+  MaterialParameterName: Material
+  SpeedParameterName: Speed Switch
+  JumpOrLandParameterName: Jump Or Land
+  StepDistance: 2
+  RayDistance: 1.2
+  StartRunningTime: 0.3
+  JumpInputName: jump
+  MaterialTypes:
+  - Snow
+  - Stone
+  - Reverb
+  - Wood
+  DefulatMaterialValue: 0
 --- !u!114 &8895370325545244772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 2722617377809273763, guid: dbc32fe3095c0c5498d951b462f9c46a,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2722617377809273763, guid: dbc32fe3095c0c5498d951b462f9c46a,
         type: 3}
@@ -336,16 +363,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2722617377809273773, guid: dbc32fe3095c0c5498d951b462f9c46a,
-        type: 3}
-      propertyPath: m_Height
-      value: 2.8789291
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722617377809273773, guid: dbc32fe3095c0c5498d951b462f9c46a,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.43946457
-      objectReference: {fileID: 0}
     - target: {fileID: 3070035191930474057, guid: dbc32fe3095c0c5498d951b462f9c46a,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -395,6 +412,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722617377809273773, guid: dbc32fe3095c0c5498d951b462f9c46a,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.8789291
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722617377809273773, guid: dbc32fe3095c0c5498d951b462f9c46a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.43946457
       objectReference: {fileID: 0}
     - target: {fileID: 3137424265420591833, guid: dbc32fe3095c0c5498d951b462f9c46a,
         type: 3}
@@ -476,6 +503,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a823472c377071344812f441db9fcc40, type: 2}
+    - target: {fileID: 5228078282297842573, guid: dbc32fe3095c0c5498d951b462f9c46a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbc32fe3095c0c5498d951b462f9c46a, type: 3}
 --- !u!1 &3700134211258645085 stripped
