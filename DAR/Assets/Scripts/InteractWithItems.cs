@@ -75,9 +75,11 @@ public class InteractWithItems : MonoBehaviour
                     playerInventory.mushroom += 1;
                     playerInventory.usedInventorySpace += 1;
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo(objectName + " added");
+                    infoManager.ShowInfo("Champignon ajouté");
                 }
-                
+                else {
+                    infoManager.ShowInfo("Inventaire plein");
+                }
                 break;
             
             case "wood":      
@@ -85,29 +87,32 @@ public class InteractWithItems : MonoBehaviour
                     playerInventory.wood += 1;
                     playerInventory.usedInventorySpace += 1;
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo(objectName + " added");
-                } 
+                    infoManager.ShowInfo("Bois ajouté");
+                }
+                else {
+                    infoManager.ShowInfo("Inventaire plein");
+                }
                 break;
 
             case "fish":
                 playerInventory.fish += 1;
-                infoManager.ShowInfo(objectName + " added");
+                infoManager.ShowInfo("Poisson ajouté");
                 break;
             case "waterRation":
                 playerInventory.waterRation += 1;
-                infoManager.ShowInfo(objectName + " added");
+                infoManager.ShowInfo("Ration d'eau ajoutée");
                 break;
             case "chest":
                 DepositInventory();
                 collectible.GetComponent<ChestScript>().Open();
                 hubInventory = Inventory.ReadInventory("HubInventory.json");
-                gameObject.GetComponent<PlayerInventoryManager>().ShowUIHub();
+                gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(2);
                 gameObject.GetComponent<PlayerInventoryManager>().ClearItemInUI();
                 break;
             case "bed":
                 if (gameObject.GetComponent<PlayerStatus>().GetShelteredStatus() && gameObject.GetComponent<PlayerStatus>().GetWarmStatus()) {
                     gameObject.GetComponent<EndDay>().EndThisDayInside();
-                    infoManager.ShowInfo("Day completed !");
+                    infoManager.ShowInfo("Journée finie !");
                 }
                 break;
             case "door":
@@ -119,14 +124,14 @@ public class InteractWithItems : MonoBehaviour
             case "bag":
                 playerInventory = ChangeInventory(9);
                 collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                infoManager.ShowInfo(objectName + " acquired");
+                infoManager.ShowInfo("Vous avez trouvé le sac");
                 break;
             case "fireplace":
                 playerInventory = Inventory.ReadInventory("PlayerInventory.json");
                 hubInventory = Inventory.ReadInventory("HubInventory.json");
                 if (playerInventory.wood + hubInventory.wood >= 3) {
                     playerInventory = collectible.GetComponent<FireplaceScript>().Light();
-                    infoManager.ShowInfo("Fire lit !");
+                    infoManager.ShowInfo("Feu allumé !");
                 }
                 hubInventory = Inventory.ReadInventory("HubInventory.json");
 
@@ -134,8 +139,11 @@ public class InteractWithItems : MonoBehaviour
                 break;
 
             case "woodStorage":
-                    DepositWood();
-                    break;
+                DepositWood();
+                break;
+            case "workTable":
+                gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(3);
+                break;
 
         }
 
@@ -154,7 +162,13 @@ public class InteractWithItems : MonoBehaviour
         
     }
 
+    public void UpdateWoodStorage() {
+        hubInventory = Inventory.ReadInventory("HubInventory.json");
+        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+    }
+
     void DepositInventory() {
+        hubInventory = Inventory.ReadInventory("HubInventory.json");
         playerInventory.DepositInInventory(hubInventory);
         playerInventory = new Inventory(playerInventory.inventorySpace, "PlayerInventory.json");
         playerInventory.usedInventorySpace = 0;
@@ -164,9 +178,7 @@ public class InteractWithItems : MonoBehaviour
 
     public void LoseInventory() {
         playerInventory = new Inventory(playerInventory.inventorySpace, "PlayerInventory.json");
-        playerInventory.WriteInventory();
-        
-    }
+        playerInventory.WriteInventory();    }
 
     public void ConsumeRessources() {
         playerInventory.ConsumeDayRessources(hubInventory);
@@ -295,9 +307,29 @@ public class InteractWithItems : MonoBehaviour
 
             return returnList;
         }
-            
 
+        public Inventory Consume(string ressourceName, int amount) {
+            Inventory hubInventory = ReadInventory("HubInventory.json");
+            switch (ressourceName) {
+                case "wood":
+                    while (wood > 0 && amount > 0) {
+                        wood -= 1;
+                        amount -= 1;
+                    }
+                    hubInventory.wood -= amount;
+
+                    hubInventory.WriteInventory();
+                    WriteInventory();
+                    break;
+
+                case "mushroom":
+                    break;
+
+                case "plank":
+                    break;
+            }
+            return this;
+        }
     }
-
-
+    
 }

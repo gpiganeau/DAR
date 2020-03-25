@@ -32,14 +32,23 @@ public class CycleJourNuit : MonoBehaviour {
         StartCoroutine(NightSceneCoroutine());
     }
 
-    private void GameOver(bool gameOver) {
-        if (gameOver) {
+    private void GameOver(bool worse) {
+        int freezingLevel = player.GetComponent<PlayerStatus>().GetFreezingLevel();
+        if (worse) {
+            freezingLevel = player.GetComponent<PlayerStatus>().IncrementFreezingLevel();
+        }
+        else {
+            freezingLevel = player.GetComponent<PlayerStatus>().ResetFreezingLevel();
+        }
+
+
+        if ((freezingLevel > 1) || !player.GetComponent<PlayerStatus>().GetShelteredStatus()){
             SceneManager.LoadScene(2);
         }
         else {
             timerText.SetActive(false);
             player.GetComponent<PlayerStatus>().SetIsRestingStatus(true);
-            //player.GetComponent<EndDay>().EndThisDayInside(); 
+            player.GetComponent<EndDay>().EndThisDayInside(); 
         }
     }
 
@@ -68,7 +77,7 @@ public class CycleJourNuit : MonoBehaviour {
 
     IEnumerator NightSceneCoroutine() {
         timerText.SetActive(true);
-        bool gameOver = true;
+        bool worseConditions = true;
         timer = 30f;
         GetComponent<Light>().intensity = 0;
         while (timer > 0) {
@@ -80,11 +89,11 @@ public class CycleJourNuit : MonoBehaviour {
                 yield return null;
             }
             else {
-                gameOver = false;
+                worseConditions = false;
                 break;
             }
         }
-        GameOver(gameOver);
+        GameOver(worseConditions);
     }
 
 }

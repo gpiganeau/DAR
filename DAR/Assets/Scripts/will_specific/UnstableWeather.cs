@@ -43,10 +43,8 @@ public class UnstableWeather : MonoBehaviour
             vel.y = new ParticleSystem.MinMaxCurve(vel.y.constantMin - (direction.y * (currentValue / 2)), vel.y.constantMax - (direction.y * (currentValue / 2)));
             vel.z = new ParticleSystem.MinMaxCurve(vel.z.constantMin - (direction.z * (currentValue / 2)), vel.z.constantMax - (direction.z * (currentValue / 2)));
             currentValue -= currentValue / 2;
-            Debug.Log(currentValue);
             yield return new WaitForSeconds(.25f);
         }
-        Debug.Log(currentValue - currentValue);
         vel.x = new ParticleSystem.MinMaxCurve(vel.x.constantMin - (direction.x * currentValue), vel.x.constantMax - (direction.x * currentValue));
         vel.y = new ParticleSystem.MinMaxCurve(vel.y.constantMin - (direction.y * currentValue), vel.y.constantMax - (direction.y * currentValue));
         vel.z = new ParticleSystem.MinMaxCurve(vel.z.constantMin - (direction.z * currentValue), vel.z.constantMax - (direction.z * currentValue));

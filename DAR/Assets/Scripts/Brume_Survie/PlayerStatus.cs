@@ -7,9 +7,30 @@ public class PlayerStatus : MonoBehaviour
     private bool isSheltered;
     private bool isWarm;
     private bool isResting;
+    private int freezingLevel;
     [SerializeField] GameObject fireplace;
     [SerializeField] Transform spawnPosition;
     [SerializeField] private GameObject hut;
+
+    private void Start() {
+        freezingLevel = 0;
+        UpdatePlayerSpeed();
+    }
+
+    public int GetFreezingLevel() {
+        return freezingLevel;
+    }
+
+    public int IncrementFreezingLevel() {
+        freezingLevel = Mathf.Clamp(freezingLevel + 1, 0, 2);
+        UpdatePlayerSpeed();
+        return freezingLevel;
+    }
+
+    public int ResetFreezingLevel() {
+        freezingLevel = 0;
+        return 0;
+    }
 
     public bool GetShelteredStatus() {
         return isSheltered;
@@ -46,5 +67,15 @@ public class PlayerStatus : MonoBehaviour
     public bool GetIsRestingStatus() {
         return isResting;
     }
+
+    public void UpdatePlayerSpeed() {
+        if (freezingLevel == 0) {
+            gameObject.GetComponent<PlayerMovement>().SetSpeed(10);
+        }
+        else {
+            gameObject.GetComponent<PlayerMovement>().SetSpeed(6);
+        }
+    }
+        
 
 }

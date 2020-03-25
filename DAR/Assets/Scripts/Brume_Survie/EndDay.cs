@@ -64,7 +64,7 @@ public class EndDay : MonoBehaviour
             yield return new WaitForSeconds(3.5f);
 
             snowTracksManager.ResetTracks();
-            playerInventory.ConsumeRessources();
+            //playerInventory.ConsumeRessources(); No need to eat for the moment
             playerStatus.GoHome();
 
             loadedDay.day += 1;

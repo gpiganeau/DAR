@@ -7,6 +7,7 @@ public class woodStorage : MonoBehaviour
 
     public GameObject[] woodInStorage;
 
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,7 +22,7 @@ public class woodStorage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
