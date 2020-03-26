@@ -31,8 +31,7 @@ public class InteractWithItems : MonoBehaviour
         y = Screen.height / 2;
 
         playerInventory = Inventory.ReadInventory("PlayerInventory.json");
-        woodStorage.GetComponent<woodStorage>().Show(hubInventoryManager.hubInventory.wood);
-        infoManager = GetComponent<InfoManager>();
+        infoManager = gameObject.GetComponent<InfoManager>();
     }
 
 
@@ -105,7 +104,6 @@ public class InteractWithItems : MonoBehaviour
             case "chest":
                 DepositInventory();
                 collectible.GetComponent<ChestScript>().Open();
-                //hubInventory = Inventory.ReadInventory("HubInventory.json");
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(2);
                 gameObject.GetComponent<PlayerInventoryManager>().ClearItemInUI();
                 break;
@@ -128,13 +126,11 @@ public class InteractWithItems : MonoBehaviour
                 break;
             case "fireplace":
                 playerInventory = Inventory.ReadInventory("PlayerInventory.json");
-               // hubInventory = Inventory.ReadInventory("HubInventory.json");
-                if (playerInventory.wood + hubInventoryManager.hubInventory.wood >= 3) {
+                if (playerInventory.wood + hubInventoryManager.GetHubInventory().wood >= 3) {
                     playerInventory = collectible.GetComponent<FireplaceScript>().Light();
                     infoManager.ShowInfo("Feu allumé !");
                 }
-                //hubInventory = Inventory.ReadInventory("HubInventory.json");
-                woodStorage.GetComponent<woodStorage>().Show(hubInventoryManager.hubInventory.wood);
+                
                 break;
 
             case "woodStorage":
@@ -153,26 +149,16 @@ public class InteractWithItems : MonoBehaviour
 
     void DepositWood()
     {
-        hubInventoryManager.hubInventory.wood += playerInventory.wood;
+        hubInventoryManager.ChangeValue("wood", playerInventory.wood);
         playerInventory.wood = 0;
-        hubInventoryManager.hubInventory.WriteInventory();
-        woodStorage.GetComponent<woodStorage>().Show(hubInventoryManager.hubInventory.wood);
         playerInventory.WriteInventory();
-        
-    }
-
-    public void UpdateWoodStorage() {
-        //hubInventory = Inventory.ReadInventory("HubInventory.json");
-        woodStorage.GetComponent<woodStorage>().Show(hubInventoryManager.hubInventory.wood);
     }
 
     void DepositInventory() {
-        //hubInventory = Inventory.ReadInventory("HubInventory.json");
-        playerInventory.DepositInInventory(hubInventoryManager.hubInventory);
+        playerInventory.DepositInInventory(hubInventoryManager);
         playerInventory = new Inventory(playerInventory.inventorySpace, "PlayerInventory.json");
         playerInventory.usedInventorySpace = 0;
         playerInventory.WriteInventory();
-        woodStorage.GetComponent<woodStorage>().Show(hubInventoryManager.hubInventory.wood);
     }
 
     public void LoseInventory() {
@@ -180,8 +166,31 @@ public class InteractWithItems : MonoBehaviour
         playerInventory.WriteInventory();    }
 
     public void ConsumeRessources() {
-        playerInventory.ConsumeDayRessources(hubInventoryManager.hubInventory);
+        playerInventory.ConsumeDayRessources(hubInventoryManager);
     }
+
+    public Inventory UseRessources(string ressourceName, int amount) {
+        playerInventory = Inventory.ReadInventory("PlayerInventory.json");
+        switch (ressourceName) {
+            case "wood":
+                while (playerInventory.wood > 0 && amount > 0) {
+                    playerInventory.wood -= 1;
+                    amount -= 1;
+                }
+                hubInventoryManager.ChangeValue("wood", -amount);
+                playerInventory.WriteInventory();
+                break;
+
+            case "mushroom":
+                break;
+
+            case "plank":
+                break;
+        }
+        playerInventory.WriteInventory();
+        return playerInventory;
+    }
+
 
     public Inventory ChangeInventory(int _newInventorySpace)
     {
@@ -225,7 +234,6 @@ public class InteractWithItems : MonoBehaviour
 
         public static void WriteHubInventory(Inventory newHubInventory)
         {
-            //GameObject.Find("woodStorage").GetComponent<woodStorage>().Show(newHubInventory.wood);
             string uploadInventory = JsonUtility.ToJson(newHubInventory);
             File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json", uploadInventory);
         }
@@ -242,26 +250,26 @@ public class InteractWithItems : MonoBehaviour
         }
         
 
-        public void DepositInInventory(HubInventoryManager.Inventory target) {
-            target.mushroom += mushroom;
-            target.waterRation += waterRation;
-            target.fish += fish;
-            target.wood += wood;
+        public void DepositInInventory(HubInventoryManager hubInventoryManager) {
+            //target.mushroom += mushroom;
+            //target.waterRation += waterRation;
+            //target.fish += fish;
+            //target.wood += wood;
 
-            target.WriteInventory();
+            hubInventoryManager.ChangeValue("wood", wood);
             
         }
 
-        public void ConsumeDayRessources(HubInventoryManager.Inventory target) {
-            target.waterRation -= 2;
+        public void ConsumeDayRessources(HubInventoryManager hubInventoryManager) {
+            hubInventoryManager.GetHubInventory().waterRation -= 2;
             int amountToEat = 5;
             while (amountToEat > 0) {
-                if (target.fish > 0) {
-                    target.fish -= 1;
+                if (hubInventoryManager.GetHubInventory().fish > 0) {
+                    hubInventoryManager.GetHubInventory().fish -= 1;
                     amountToEat -= 2;
                 }
-                else if (target.mushroom > 0) {
-                    target.mushroom -= 1;
+                else if (hubInventoryManager.GetHubInventory().mushroom > 0) {
+                    hubInventoryManager.GetHubInventory().mushroom -= 1;
                     amountToEat -= 1;
                 }
                 else {
@@ -270,12 +278,11 @@ public class InteractWithItems : MonoBehaviour
                 
             }
 
-            target.wood = Mathf.Clamp(target.wood, 0, 99);
-            target.waterRation = Mathf.Clamp(target.wood, 0, 99);
-            target.mushroom = Mathf.Clamp(target.wood, 0, 99);
-            target.fish = Mathf.Clamp(target.fish, 0, 99);
-
-            target.WriteInventory();
+            hubInventoryManager.GetHubInventory().wood = Mathf.Clamp(hubInventoryManager.GetHubInventory().wood, 0, 99);
+            hubInventoryManager.GetHubInventory().waterRation = Mathf.Clamp(hubInventoryManager.GetHubInventory().wood, 0, 99);
+            hubInventoryManager.GetHubInventory().mushroom = Mathf.Clamp(hubInventoryManager.GetHubInventory().wood, 0, 99);
+            hubInventoryManager.GetHubInventory().fish = Mathf.Clamp(hubInventoryManager.GetHubInventory().fish, 0, 99);
+            
 
         }
 
@@ -307,27 +314,6 @@ public class InteractWithItems : MonoBehaviour
             return returnList;
         }
 
-        public Inventory Consume(string ressourceName, int amount, HubInventoryManager.Inventory hubInventory) {
-            //Inventory hubInventory = ReadInventory("HubInventory.json");
-            switch (ressourceName) {
-                case "wood":
-                    while (wood > 0 && amount > 0) {
-                        wood -= 1;
-                        amount -= 1;
-                    }
-                    hubInventory.wood -= amount;
-                    hubInventory.WriteInventory();
-                    WriteInventory();
-                    break;
-
-                case "mushroom":
-                    break;
-
-                case "plank":
-                    break;
-            }
-            return this;
-        }
     }
     
 }

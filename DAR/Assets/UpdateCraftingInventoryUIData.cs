@@ -8,45 +8,37 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
     private Text _nb_Wood;
     private Text _nb_Mushroom;
 
+    [SerializeField] InteractWithItems interactWithItems;
     private InteractWithItems.Inventory playerInventory;
-    //private InteractWithItems.Inventory hubInventory;
-
-    [SerializeField]
-    public HubInventoryManager hubInventoryManager;
 
     [SerializeField] private GameObject player;
 
     private void OnEnable() {
-        _nb_Wood = transform.Find("TotalInventoryFrame").transform.Find("nb_Wood").GetComponent<Text>();
-        _nb_Mushroom = transform.Find("TotalInventoryFrame").transform.Find("nb_Mushroom").GetComponent<Text>();
+        if (_nb_Wood == null || _nb_Mushroom == null) {
+            _nb_Wood = transform.Find("TotalInventoryFrame").transform.Find("nb_Wood").GetComponent<Text>();
+            _nb_Mushroom = transform.Find("TotalInventoryFrame").transform.Find("nb_Mushroom").GetComponent<Text>();
+        }
         playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
-        _nb_Wood.text = "x " + (hubInventoryManager.hubInventory.wood + playerInventory.wood);
-        _nb_Mushroom.text = "x " + (hubInventoryManager.hubInventory.mushroom + playerInventory.mushroom);
+        
     }
 
-    private void UpdateNumbers() {
-       // hubInventory = InteractWithItems.Inventory.ReadInventory("HubInventory.json");
-        _nb_Wood.text = "x " + (hubInventoryManager.hubInventory.wood + playerInventory.wood);
-        _nb_Mushroom.text = "x " + (hubInventoryManager.hubInventory.mushroom + playerInventory.mushroom);
+    public void UpdateNumbers(HubInventoryManager.Inventory _hubInventory) {
+        playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
+        _nb_Wood.text = "x " + (_hubInventory.wood + playerInventory.wood);
+        _nb_Mushroom.text = "x " + (_hubInventory.mushroom + playerInventory.mushroom);
     }
 
     public void CraftItem(int itemIndex) {
         Debug.Log("Crafting");
         switch (itemIndex) {
             case 0:
-                playerInventory = playerInventory.Consume("wood", 2, hubInventoryManager.hubInventory);
-                player.GetComponent<InteractWithItems>().UpdateWoodStorage();
-                UpdateNumbers();
+                playerInventory = interactWithItems.UseRessources("wood", 2);
                 break;
             case 1:
-                playerInventory = playerInventory.Consume("wood", 4, hubInventoryManager.hubInventory);
-                player.GetComponent<InteractWithItems>().UpdateWoodStorage();
-                UpdateNumbers();
+                playerInventory = interactWithItems.UseRessources("wood", 4);
                 break;
             case 2:
-                playerInventory = playerInventory.Consume("wood", 6, hubInventoryManager.hubInventory);
-                player.GetComponent<InteractWithItems>().UpdateWoodStorage();
-                UpdateNumbers();
+                playerInventory = interactWithItems.UseRessources("wood", 6);
                 break;
         }        
     }
