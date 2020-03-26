@@ -6,13 +6,14 @@ using System.IO;
 
 public class InteractWithItems : MonoBehaviour
 {
+    public HubInventoryManager hubInventoryManager;
     Vector2 center;
     float x;
     float y;
     string objectName;
     public Camera player_camera;
     Inventory playerInventory;
-    Inventory hubInventory;
+    //Inventory hubInventory;
     private InfoManager infoManager;
     private bool m_isAxisInUse = false;
     GameObject woodStorage;
@@ -20,7 +21,7 @@ public class InteractWithItems : MonoBehaviour
 
     public void Awake()
     {
-        woodStorage = GameObject.Find("woodStorage");
+       woodStorage = GameObject.Find("woodStorage");
     }
 
     void Start()
@@ -30,8 +31,7 @@ public class InteractWithItems : MonoBehaviour
         y = Screen.height / 2;
 
         playerInventory = Inventory.ReadInventory("PlayerInventory.json");
-        hubInventory = Inventory.ReadInventory("HubInventory.json");
-        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+        woodStorage.GetComponent<woodStorage>().Show(hubInventoryManager.hubInventory.wood);
         infoManager = GetComponent<InfoManager>();
     }
 
@@ -105,7 +105,7 @@ public class InteractWithItems : MonoBehaviour
             case "chest":
                 DepositInventory();
                 collectible.GetComponent<ChestScript>().Open();
-                hubInventory = Inventory.ReadInventory("HubInventory.json");
+                //hubInventory = Inventory.ReadInventory("HubInventory.json");
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(2);
                 gameObject.GetComponent<PlayerInventoryManager>().ClearItemInUI();
                 break;
@@ -128,14 +128,13 @@ public class InteractWithItems : MonoBehaviour
                 break;
             case "fireplace":
                 playerInventory = Inventory.ReadInventory("PlayerInventory.json");
-                hubInventory = Inventory.ReadInventory("HubInventory.json");
-                if (playerInventory.wood + hubInventory.wood >= 3) {
+               // hubInventory = Inventory.ReadInventory("HubInventory.json");
+                if (playerInventory.wood + hubInventoryManager.hubInventory.wood >= 3) {
                     playerInventory = collectible.GetComponent<FireplaceScript>().Light();
                     infoManager.ShowInfo("Feu allumé !");
                 }
-                hubInventory = Inventory.ReadInventory("HubInventory.json");
-
-                woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+                //hubInventory = Inventory.ReadInventory("HubInventory.json");
+                woodStorage.GetComponent<woodStorage>().Show(hubInventoryManager.hubInventory.wood);
                 break;
 
             case "woodStorage":
@@ -154,26 +153,26 @@ public class InteractWithItems : MonoBehaviour
 
     void DepositWood()
     {
-        hubInventory.wood += playerInventory.wood;
+        hubInventoryManager.hubInventory.wood += playerInventory.wood;
         playerInventory.wood = 0;
-        hubInventory.WriteInventory();
-        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+        hubInventoryManager.hubInventory.WriteInventory();
+        woodStorage.GetComponent<woodStorage>().Show(hubInventoryManager.hubInventory.wood);
         playerInventory.WriteInventory();
         
     }
 
     public void UpdateWoodStorage() {
-        hubInventory = Inventory.ReadInventory("HubInventory.json");
-        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+        //hubInventory = Inventory.ReadInventory("HubInventory.json");
+        woodStorage.GetComponent<woodStorage>().Show(hubInventoryManager.hubInventory.wood);
     }
 
     void DepositInventory() {
-        hubInventory = Inventory.ReadInventory("HubInventory.json");
-        playerInventory.DepositInInventory(hubInventory);
+        //hubInventory = Inventory.ReadInventory("HubInventory.json");
+        playerInventory.DepositInInventory(hubInventoryManager.hubInventory);
         playerInventory = new Inventory(playerInventory.inventorySpace, "PlayerInventory.json");
         playerInventory.usedInventorySpace = 0;
         playerInventory.WriteInventory();
-        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+        woodStorage.GetComponent<woodStorage>().Show(hubInventoryManager.hubInventory.wood);
     }
 
     public void LoseInventory() {
@@ -181,7 +180,7 @@ public class InteractWithItems : MonoBehaviour
         playerInventory.WriteInventory();    }
 
     public void ConsumeRessources() {
-        playerInventory.ConsumeDayRessources(hubInventory);
+        playerInventory.ConsumeDayRessources(hubInventoryManager.hubInventory);
     }
 
     public Inventory ChangeInventory(int _newInventorySpace)
@@ -243,7 +242,7 @@ public class InteractWithItems : MonoBehaviour
         }
         
 
-        public void DepositInInventory(Inventory target) {
+        public void DepositInInventory(HubInventoryManager.Inventory target) {
             target.mushroom += mushroom;
             target.waterRation += waterRation;
             target.fish += fish;
@@ -253,7 +252,7 @@ public class InteractWithItems : MonoBehaviour
             
         }
 
-        public void ConsumeDayRessources(Inventory target) {
+        public void ConsumeDayRessources(HubInventoryManager.Inventory target) {
             target.waterRation -= 2;
             int amountToEat = 5;
             while (amountToEat > 0) {
@@ -308,8 +307,8 @@ public class InteractWithItems : MonoBehaviour
             return returnList;
         }
 
-        public Inventory Consume(string ressourceName, int amount) {
-            Inventory hubInventory = ReadInventory("HubInventory.json");
+        public Inventory Consume(string ressourceName, int amount, HubInventoryManager.Inventory hubInventory) {
+            //Inventory hubInventory = ReadInventory("HubInventory.json");
             switch (ressourceName) {
                 case "wood":
                     while (wood > 0 && amount > 0) {
@@ -317,7 +316,6 @@ public class InteractWithItems : MonoBehaviour
                         amount -= 1;
                     }
                     hubInventory.wood -= amount;
-
                     hubInventory.WriteInventory();
                     WriteInventory();
                     break;

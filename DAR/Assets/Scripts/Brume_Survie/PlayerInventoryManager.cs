@@ -148,6 +148,16 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
+    public void DropItem()
+    {
+        //Get le currentInventorySlot
+        //Check le nom de l'objet ? 
+        //Case pour savoir quoi faire en fonction du type d'objet
+
+        //instantiate à la position du joueur sur le sol le type d'item qui à été identifié dans le case
+        UpdateInventoryUI(playerInventory);
+    }
+
     public void ShowAlternateUI(int UIIndex) {
         if (!currentInventoryPanel.activeSelf) {
             currentInventoryPanel = UIElements[UIIndex];
