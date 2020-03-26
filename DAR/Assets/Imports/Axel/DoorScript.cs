@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
-    public GameObject doorClosed;
-    public GameObject doorOpened;
-
+    public Animator animatorDoor;
     void Start()
     {
-        
+        animatorDoor = gameObject.GetComponent<Animator>();
     }
     
     void Update()
@@ -18,18 +16,14 @@ public class DoorScript : MonoBehaviour
     }
 
     public void Open() {
-        if (doorClosed.activeSelf) {
-
-            doorClosed.gameObject.SetActive(false);
-            doorOpened.gameObject.SetActive(true);
-
+        if (!animatorDoor.GetBool("isOpen"))
+        {
+            animatorDoor.SetBool("isOpen", true);
         }
 
-        else if (doorOpened.activeSelf) {
-
-            doorClosed.gameObject.SetActive(true);
-            doorOpened.gameObject.SetActive(false);
-
+        else
+        {
+            animatorDoor.SetBool("isOpen", false);
         }
     }
 
