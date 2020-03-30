@@ -11,7 +11,7 @@ public class PlayerInventoryManager : MonoBehaviour
     Sprite waterRation_Img;
     Sprite fish_Img;
 
-    InteractWithItems.Inventory playerInventory;
+    Inventory playerInventory;
     public GameObject pointerUI;
     
     string objectName;
@@ -60,6 +60,13 @@ public class PlayerInventoryManager : MonoBehaviour
             m_isAxisInUse = false;
         }    
     }
+
+    public void addItem(Item _item) {
+        playerInventory.content.Add(_item);
+        updateAll();
+    }
+
+
 
     public void AddItemInUI(string objectName)
     {
@@ -167,6 +174,62 @@ public class PlayerInventoryManager : MonoBehaviour
             ShowUI();
         }
     }
+
+    public class Inventory {
+
+        public List<Item> content;
+        public int size;
+        public int usedSpace;
+        public string filename;
+
+
+
+        public Inventory(int newInventorySpace, string _filename) {
+            content = new List<Item>();
+            usedSpace = 0;
+            filename = _filename;
+        }
+
+
+        public static void WriteHubInventory(Inventory newHubInventory) {
+            string uploadInventory = JsonUtility.ToJson(newHubInventory);
+            File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json", uploadInventory);
+        }
+
+        public static Inventory ReadInventory(string filename) {
+            string InventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/" + filename);
+            Inventory returnInventory = JsonUtility.FromJson<Inventory>(InventoryJSON);
+            return returnInventory;
+        }
+
+        public void WriteInventory() {
+            string uploadInventory = JsonUtility.ToJson(this);
+            File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/" + filename, uploadInventory);
+        }
+
+
+        public void DepositInHub(HubInventoryManager hubInventoryManager) {
+            //target.mushroom += mushroom;
+            //target.waterRation += waterRation;
+            //target.fish += fish;
+            //target.wood += wood;
+
+            hubInventoryManager.ChangeValue("wood", wood);
+
+        }
+
+
+        
+
+        public Item[] listContent() {
+            
+
+            return content.ToArray();
+        }
+
+    }
+
+
 }
 
 

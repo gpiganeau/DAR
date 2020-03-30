@@ -50,7 +50,7 @@ public class HubInventoryManager : MonoBehaviour
 
     public class Inventory
     {
-        
+
         public int mushroom;
         public int fish;
         public int wood;

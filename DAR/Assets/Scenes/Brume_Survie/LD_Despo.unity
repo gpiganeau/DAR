@@ -6515,6 +6515,7 @@ MonoBehaviour:
   player: {fileID: 924330446}
   woodStorage: {fileID: 856115641}
   hubUI: {fileID: 1739379976}
+  craftUI: {fileID: 232028443}
 --- !u!4 &666948255
 Transform:
   m_ObjectHideFlags: 0
@@ -8845,6 +8846,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 858737029}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &924330452 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 858737029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924330446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c77635767f19142bd3c6f1ba6b1b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &925612400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15935,7 +15948,7 @@ PrefabInstance:
     - target: {fileID: 7760151911710383277, guid: 2de9037b3a6ca0546b18105f44d4915c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1817333815, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
       propertyPath: m_IsActive
@@ -16019,6 +16032,10 @@ PrefabInstance:
       propertyPath: hubInventoryManager
       value: 
       objectReference: {fileID: 666948254}
+    - target: {fileID: 232028447, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
+      propertyPath: interactWithItems
+      value: 
+      objectReference: {fileID: 924330452}
     - target: {fileID: 4699887318285718997, guid: 2de9037b3a6ca0546b18105f44d4915c,
         type: 3}
       propertyPath: m_BlockingMask.m_Bits
@@ -20465,6 +20482,10 @@ PrefabInstance:
       propertyPath: OverrideMaxDistance
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1465062151, guid: cdb53fe348325464dba26523a94ec537, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 924330446}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdb53fe348325464dba26523a94ec537, type: 3}
 --- !u!1001 &3944297293851996791
