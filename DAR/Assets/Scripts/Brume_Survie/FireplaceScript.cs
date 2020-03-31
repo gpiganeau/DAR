@@ -10,8 +10,7 @@ public class FireplaceScript : MonoBehaviour
     public GameObject player;
     HubInventoryManager hubInventoryManager;
 
-    InteractWithItems.Inventory playerInventory;
-    
+    PlayerInventoryManager playerInventoryManager;
 
     void Start()
     {
@@ -23,14 +22,12 @@ public class FireplaceScript : MonoBehaviour
 
     }
 
-    public InteractWithItems.Inventory Light() {
-        playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
+    public void Light() {
 
         if (fireplaceOn.activeSelf == false) {
             fireplaceOn.gameObject.SetActive(true);
             fireParticles.gameObject.SetActive(true);
-            player.GetComponent<InteractWithItems>().UseRessources("wood", 3);
+            playerInventoryManager.Consume("wood", 3);
         }
-        return playerInventory;
     }
 }

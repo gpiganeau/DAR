@@ -9,7 +9,7 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
     private Text _nb_Mushroom;
 
     [SerializeField] InteractWithItems interactWithItems;
-    private InteractWithItems.Inventory playerInventory;
+    [SerializeField] private PlayerInventoryManager playerInventoryManager;
 
     [SerializeField] private GameObject player;
 
@@ -18,27 +18,23 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
             _nb_Wood = transform.Find("TotalInventoryFrame").transform.Find("nb_Wood").GetComponent<Text>();
             _nb_Mushroom = transform.Find("TotalInventoryFrame").transform.Find("nb_Mushroom").GetComponent<Text>();
         }
-        playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
-        
     }
 
     public void UpdateNumbers(HubInventoryManager.Inventory _hubInventory) {
-        playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
-        _nb_Wood.text = "x " + (_hubInventory.wood + playerInventory.wood);
-        _nb_Mushroom.text = "x " + (_hubInventory.mushroom + playerInventory.mushroom);
+        _nb_Wood.text = "x " + (_hubInventory.wood + playerInventoryManager.GetInventory().CountItem("wood"));
+        _nb_Mushroom.text = "x " + (_hubInventory.mushroom + playerInventoryManager.GetInventory().CountItem("mushroom"));
     }
 
     public void CraftItem(int itemIndex) {
-        Debug.Log("Crafting");
         switch (itemIndex) {
             case 0:
-                playerInventory = interactWithItems.UseRessources("wood", 2);
+                playerInventoryManager.Consume("wood", 2);
                 break;
             case 1:
-                playerInventory = interactWithItems.UseRessources("wood", 4);
+                playerInventoryManager.Consume("wood", 4);
                 break;
             case 2:
-                playerInventory = interactWithItems.UseRessources("wood", 6);
+                playerInventoryManager.Consume("wood", 6);
                 break;
         }        
     }

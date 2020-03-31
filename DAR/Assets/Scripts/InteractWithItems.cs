@@ -8,9 +8,14 @@ public class InteractWithItems : MonoBehaviour
 {
     public HubInventoryManager hubInventoryManager;
     public PlayerInventoryManager playerInventoryManager;
+
     Vector2 center;
     float x;
     float y;
+
+    [SerializeField] Item wood;
+    [SerializeField] Item mushroom;
+
     string objectName;
     public Camera player_camera;
     //Inventory hubInventory;
@@ -69,8 +74,8 @@ public class InteractWithItems : MonoBehaviour
         switch (objectName){
             case "mushroom":
                 if (playerInventoryManager.GetInventory().maxWeight != playerInventoryManager.GetInventory().currentWeight) {
-                    playerInventoryManager.AddItem() += 1;
-                    playerInventory.usedInventorySpace += 1;
+                    Item newItem = Instantiate<Item>(mushroom);
+                    playerInventoryManager.AddItem(newItem);
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
                     infoManager.ShowInfo("Champignon ajouté");
                 }
@@ -80,9 +85,9 @@ public class InteractWithItems : MonoBehaviour
                 break;
             
             case "wood":      
-                if (playerInventory.usedInventorySpace != playerInventory.inventorySpace) {   
-                    playerInventory.wood += 1;
-                    playerInventory.usedInventorySpace += 1;
+                if (playerInventoryManager.GetInventory().maxWeight != playerInventoryManager.GetInventory().currentWeight) {
+                    Item newItem = Instantiate<Item>(wood);
+                    playerInventoryManager.AddItem(newItem);
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
                     infoManager.ShowInfo("Bois ajouté");
                 }
@@ -90,7 +95,7 @@ public class InteractWithItems : MonoBehaviour
                     infoManager.ShowInfo("Inventaire plein");
                 }
                 break;
-
+/*
             case "fish":
                 playerInventory.fish += 1;
                 infoManager.ShowInfo("Poisson ajouté");
@@ -99,11 +104,11 @@ public class InteractWithItems : MonoBehaviour
                 playerInventory.waterRation += 1;
                 infoManager.ShowInfo("Ration d'eau ajoutée");
                 break;
+*/
             case "chest":
-                DepositInventory();
+                playerInventoryManager.DepositInventory();
                 collectible.GetComponent<ChestScript>().Open();
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(2);
-                gameObject.GetComponent<PlayerInventoryManager>().ClearItemInUI();
                 break;
             case "bed":
                 if (gameObject.GetComponent<PlayerStatus>().GetShelteredStatus() && gameObject.GetComponent<PlayerStatus>().GetWarmStatus()) {
@@ -118,87 +123,28 @@ public class InteractWithItems : MonoBehaviour
                 
                 break;
             case "bag":
-                playerInventory = ChangeInventory(9);
+                playerInventoryManager.ChangeInventory(9);
                 collectible.GetComponent<ItemInteraction>().RemoveOneUse();
                 infoManager.ShowInfo("Vous avez trouvé le sac");
                 break;
             case "fireplace":
-                playerInventory = Inventory.ReadInventory("PlayerInventory.json");
-                if (playerInventory.wood + hubInventoryManager.GetHubInventory().wood >= 3) {
-                    playerInventory = collectible.GetComponent<FireplaceScript>().Light();
+                if (playerInventoryManager.GetInventory().CountItem("wood") + hubInventoryManager.GetHubInventory().wood >= 3) {
+                    collectible.GetComponent<FireplaceScript>().Light();
                     infoManager.ShowInfo("Feu allumé !");
                 }
-                
                 break;
 
             case "woodStorage":
-                DepositWood();
+                playerInventoryManager.DepositInventory("wood");
                 break;
             case "workTable":
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(3);
                 break;
 
         }
-
-        playerInventory.WriteInventory();
-		gameObject.GetComponent<PlayerInventoryManager>().UpdateInventoryUI(playerInventory);
         return;
     }
 
-    void DepositWood()
-    {
-        hubInventoryManager.ChangeValue("wood", playerInventory.wood);
-        playerInventory.wood = 0;
-        playerInventory.WriteInventory();
-    }
-
-    void DepositInventory() {
-        playerInventory.DepositInInventory(hubInventoryManager);
-        playerInventory = new Inventory(playerInventory.inventorySpace, "PlayerInventory.json");
-        playerInventory.usedInventorySpace = 0;
-        playerInventory.WriteInventory();
-    }
-
-    public void LoseInventory() {
-        playerInventory = new Inventory(playerInventory.inventorySpace, "PlayerInventory.json");
-        playerInventory.WriteInventory();    }
-
-    public void ConsumeRessources() {
-        playerInventory.ConsumeDayRessources(hubInventoryManager);
-    }
-
-    public Inventory UseRessources(string ressourceName, int amount) {
-        playerInventory = Inventory.ReadInventory("PlayerInventory.json");
-        switch (ressourceName) {
-            case "wood":
-                while (playerInventory.wood > 0 && amount > 0) {
-                    playerInventory.wood -= 1;
-                    amount -= 1;
-                }
-                hubInventoryManager.ChangeValue("wood", -amount);
-                playerInventory.WriteInventory();
-                break;
-
-            case "mushroom":
-                break;
-
-            case "plank":
-                break;
-        }
-        playerInventory.WriteInventory();
-        return playerInventory;
-    }
-
-
-    public Inventory ChangeInventory(int _newInventorySpace)
-    {
-        playerInventory.oldUsedInventorySpace = playerInventory.usedInventorySpace;
-        playerInventory.inventorySpace = _newInventorySpace;
-        playerInventory.usedInventorySpace = playerInventory.oldUsedInventorySpace;
-        gameObject.GetComponent<PlayerInventoryManager>().ChangeInventoryUI(playerInventory);
-        return playerInventory;
-
-    }
 
     
     

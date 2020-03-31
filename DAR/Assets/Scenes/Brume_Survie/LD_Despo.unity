@@ -7868,6 +7868,10 @@ PrefabInstance:
       propertyPath: UIElements.Array.data[3]
       value: 
       objectReference: {fileID: 232028443}
+    - target: {fileID: 924330457, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: hubInventoryManager
+      value: 
+      objectReference: {fileID: 666948254}
     - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: fireplace
       value: 
@@ -7927,6 +7931,20 @@ PrefabInstance:
       propertyPath: hubInventoryManager
       value: 
       objectReference: {fileID: 666948254}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: wood
+      value: 
+      objectReference: {fileID: 11400000, guid: b14f69fe44f02624b8abc1d3a0014360,
+        type: 2}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: mushroom
+      value: 
+      objectReference: {fileID: 11400000, guid: dc2993eea42f2044980445cac57472c0,
+        type: 2}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: playerInventoryManager
+      value: 
+      objectReference: {fileID: 924330453}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
 --- !u!1 &863508407 stripped
@@ -8856,6 +8874,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65c77635767f19142bd3c6f1ba6b1b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &924330453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 924330457, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 858737029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924330446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f87196992bdfb849921f69a045625d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &925612400
@@ -16036,6 +16066,10 @@ PrefabInstance:
       propertyPath: interactWithItems
       value: 
       objectReference: {fileID: 924330452}
+    - target: {fileID: 232028447, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
+      propertyPath: playerInventoryManager
+      value: 
+      objectReference: {fileID: 924330453}
     - target: {fileID: 4699887318285718997, guid: 2de9037b3a6ca0546b18105f44d4915c,
         type: 3}
       propertyPath: m_BlockingMask.m_Bits
@@ -16046,6 +16080,16 @@ PrefabInstance:
       propertyPath: m_BlockingMask.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2840197588978131758, guid: 2de9037b3a6ca0546b18105f44d4915c,
+        type: 3}
+      propertyPath: _nb_Wood
+      value: 
+      objectReference: {fileID: 1217222103}
+    - target: {fileID: 2840197588978131758, guid: 2de9037b3a6ca0546b18105f44d4915c,
+        type: 3}
+      propertyPath: _nb_Mushroom
+      value: 
+      objectReference: {fileID: 1041470018}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
 --- !u!1 &1586687778 stripped

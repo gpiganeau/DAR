@@ -12,13 +12,11 @@ public class PlayerInventoryManager : MonoBehaviour
     Sprite fish_Img;
 
     Inventory playerInventory;
+    [SerializeField] private HubInventoryManager hubInventoryManager;
     public GameObject pointerUI;
-    
-    string objectName;
 
-    public GameObject[] UIElements = new GameObject[3];
+    public GameObject[] UIElements = new GameObject[4];
     private GameObject currentInventoryPanel;
-
 
     public GameObject[] inventorySlots;
     
@@ -34,6 +32,7 @@ public class PlayerInventoryManager : MonoBehaviour
         UIElements[2] = GameObject.Find("Inventory_Hub_Panel");
 
         playerInventory = Inventory.ReadInventory("PlayerInventory.json");
+        playerInventory.SetManager(this);
 
         currentInventoryPanel = UIElements[0];
 
@@ -41,8 +40,6 @@ public class PlayerInventoryManager : MonoBehaviour
             UIElement.SetActive(false);
         }
     }
-
-
 
     void Update()
     {
@@ -61,14 +58,44 @@ public class PlayerInventoryManager : MonoBehaviour
         }    
     }
 
+    public void DepositInventory(string itemType = "") {
+        if (itemType == "") {
+            playerInventory.DepositInHub(hubInventoryManager);
+            playerInventory.WriteInventory();
+        }
+        else {
+            playerInventory.DepositOneType(itemType, hubInventoryManager);
+        }
+        UpdateAll();
+    }
+
+    public void Consume(string itemName, int amount) {
+        int itemCount = playerInventory.CountItem(itemName);
+        if (amount <= itemCount) {
+            playerInventory.ConsumeItem(itemName, amount);
+        }
+        else {
+            playerInventory.ConsumeItem(itemName, itemCount);
+            hubInventoryManager.ChangeValue(itemName, amount - itemCount);
+        }
+        UpdateAll();
+    }
+
+
+    public void ChangeInventory(int _newInventorySpace) {
+        playerInventory.maxWeight = _newInventorySpace;
+        gameObject.GetComponent<PlayerInventoryManager>().ChangeInventoryUI(playerInventory);
+        UpdateAll();
+    }
+
     public void AddItem(Item _item) {
-        playerInventory.content.Add(_item);
-        playerInventory.currentWeight += _item.weight;
+        playerInventory.Add(_item);
         UpdateAll();
     }
 
     public void UpdateAll() {
         UpdateInventoryUI(playerInventory);
+        hubInventoryManager.UpdateAll();
     }
 
     public Inventory GetInventory() {
@@ -80,9 +107,9 @@ public class PlayerInventoryManager : MonoBehaviour
         for (int i = 0; i < inventorySlots.Length; i++) {
             if (inventorySlots[i].GetComponent<Image>().sprite == null)
             {
-                inventorySlots[i].GetComponent<Image>().sprite = item.image.sprite;
+                inventorySlots[i].GetComponent<Image>().sprite = item.sprite;
                 inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
-
+                return;
             }
         }
     }
@@ -163,6 +190,9 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
+
+
+
     public class Inventory {
 
         public List<Item> content;
@@ -170,14 +200,19 @@ public class PlayerInventoryManager : MonoBehaviour
         public int currentWeight;
         public string filename;
 
-
-
+        public PlayerInventoryManager playerInventoryManager;
+        
         public Inventory(int newInventorySpace, string _filename) {
             content = new List<Item>();
             currentWeight = 0;
+            maxWeight = newInventorySpace;
             filename = _filename;
         }
 
+        public void SetManager(PlayerInventoryManager _playerInventoryManager) {
+            playerInventoryManager = _playerInventoryManager;
+            WriteInventory();
+        }
 
         public static Inventory ReadInventory(string filename) {
             string InventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/" + filename);
@@ -190,17 +225,64 @@ public class PlayerInventoryManager : MonoBehaviour
             File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/" + filename, uploadInventory);
         }
 
+        public void ClearInventory() {
+            content = new List<Item>();
+            currentWeight = 0;
+            WriteInventory();
+        }
+
+        public void Add(Item item) {
+            content.Add(item);
+            currentWeight += item.weight;
+            WriteInventory();
+        }
+
 
         public void DepositInHub(HubInventoryManager hubInventoryManager) {
             hubInventoryManager.ChangeValue("mushroom", CountItem("mushroom"));
             hubInventoryManager.ChangeValue("wood", CountItem("wood"));
-
+            ClearInventory();
+            WriteInventory();
         }
 
-        public int CountItem(string _name) {
-            int returnValue = 0;
+        public void DepositOneType(string itemType, HubInventoryManager hubInventoryManager) {
+            int total = 0;
+            List<int> indexes = new List<int>();
+            Item currentItem = new Item();
+            for(int i = 0; i < content.Count; i++) { 
+                if (content[i]._name == itemType) {
+                    currentItem = content[i];
+                    indexes.Add(i - total);
+                    total += 1;
+                }
+            }
+            foreach (int index in indexes) {
+                content.RemoveAt(index);
+            }
+            currentWeight -= total * currentItem.weight;
+            hubInventoryManager.ChangeValue(itemType, total);
+            WriteInventory();
+        }
+
+        public void ConsumeItem(string itemName, int amount) {
             foreach (Item item in content) {
-                if (item.name == _name) {
+                if (amount > 0) {
+                    if (item._name == itemName) {
+                        amount -= 1;
+                        content.Remove(item);
+                    }
+                }
+            }
+            WriteInventory();
+        }
+
+        public int CountItem(string _itemName) {
+            int returnValue = 0;
+            if (content.Count == 0) {
+                return returnValue;
+            }
+            foreach (Item item in content) {
+                if (item._name == _itemName) {
                     returnValue += 1;
                 }
             }

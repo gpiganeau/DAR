@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[CreateAssetMenu(menuName = "Item", fileName = "NewItem")]
 public class Item : ScriptableObject {
 
     public string prefabName;
 
-    public string name;
+    public string _name;
     public int weight;
-    public Image image;
+    public Sprite sprite;
     
 
 }

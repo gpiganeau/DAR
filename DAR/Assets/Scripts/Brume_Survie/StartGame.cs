@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class StartGame : MonoBehaviour
 {
     InGameDay loadedDay;
-    InteractWithItems.Inventory playerInventory;
-    InteractWithItems.Inventory hubInventory;
+    PlayerInventoryManager.Inventory playerInventory;
+    HubInventoryManager.Inventory hubInventory;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +20,8 @@ public class StartGame : MonoBehaviour
 
         //RESET ON HUB AND PLAYER INVENTORY
         //USING THE CONSTRUCTOR FUNCTION
-        playerInventory = new InteractWithItems.Inventory(2, "PlayerInventory.json");
-        hubInventory = new InteractWithItems.Inventory(1000, "HubInventory.json");
+        playerInventory = new PlayerInventoryManager.Inventory(2, "PlayerInventory.json");
+        hubInventory = new HubInventoryManager.Inventory("HubInventory.json");
 
         playerInventory.WriteInventory();
         hubInventory.WriteInventory();

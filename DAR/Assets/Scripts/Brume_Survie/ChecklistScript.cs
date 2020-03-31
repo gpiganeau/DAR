@@ -11,7 +11,7 @@ public class ChecklistScript : MonoBehaviour
     public Image taskCheck3;
     public Image taskCheck4;
 
-    InteractWithItems.Inventory playerInventory;
+    PlayerInventoryManager playerInventoryManager;
     public GameObject fireplace;
 
     bool taskBoolGetWood;
@@ -23,9 +23,8 @@ public class ChecklistScript : MonoBehaviour
     
     void Update()
     {
-        playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
 
-        if (playerInventory.wood > 0)
+        if (playerInventoryManager.GetInventory().CountItem("wood") > 0)
         {
             taskBoolGetWood = true;
         }
