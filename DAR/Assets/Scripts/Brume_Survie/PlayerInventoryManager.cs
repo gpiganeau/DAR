@@ -33,7 +33,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
         UIElements[2] = GameObject.Find("Inventory_Hub_Panel");
 
-        playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
+        playerInventory = Inventory.ReadInventory("PlayerInventory.json");
 
         currentInventoryPanel = UIElements[0];
 
@@ -61,39 +61,28 @@ public class PlayerInventoryManager : MonoBehaviour
         }    
     }
 
-    public void addItem(Item _item) {
+    public void AddItem(Item _item) {
         playerInventory.content.Add(_item);
-        updateAll();
+        playerInventory.currentWeight += _item.weight;
+        UpdateAll();
     }
 
+    public void UpdateAll() {
+        UpdateInventoryUI(playerInventory);
+    }
 
+    public Inventory GetInventory() {
+        return playerInventory;
+    }
 
-    public void AddItemInUI(string objectName)
+    public void AddItemInUI(Item item)
     {
         for (int i = 0; i < inventorySlots.Length; i++) {
             if (inventorySlots[i].GetComponent<Image>().sprite == null)
             {
-                switch (objectName)
-                {
-                    case "wood":
-                        inventorySlots[i].GetComponent<Image>().sprite = wood_Img;
-                        inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
-                        break;
-                    case "fish":
-                        inventorySlots[i].GetComponent<Image>().sprite = fish_Img;
-                        inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
-                        break;
-                    case "waterRation":
-                        inventorySlots[i].GetComponent<Image>().sprite = waterRation_Img;
-                        inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
-                        break;
-                    case "mushroom":
-                        inventorySlots[i].GetComponent<Image>().sprite = mushroom_Img;
-                        inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
-                        break;
-                    
-                }
-                break;
+                inventorySlots[i].GetComponent<Image>().sprite = item.image.sprite;
+                inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
+
             }
         }
     }
@@ -107,7 +96,7 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
-    public void ChangeInventoryUI(InteractWithItems.Inventory _playerInventory)
+    public void ChangeInventoryUI(Inventory _playerInventory)
     {
         GameObject temp = UIElements[0];
         UIElements[0] = UIElements[1];
@@ -117,7 +106,7 @@ public class PlayerInventoryManager : MonoBehaviour
         currentInventoryPanel = UIElements[0];  //On change le current panel
         currentInventoryPanel.SetActive(true);  // Et on le rallume
 
-        inventorySlots = new GameObject[_playerInventory.inventorySpace];
+        inventorySlots = new GameObject[_playerInventory.maxWeight];
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             inventorySlots[i] = GameObject.Find("bagInventorySlots").transform.GetChild(i).gameObject;
@@ -127,11 +116,11 @@ public class PlayerInventoryManager : MonoBehaviour
 
     }
 
-    public void UpdateInventoryUI(InteractWithItems.Inventory playerInventory)
+    public void UpdateInventoryUI(Inventory playerInventory)
     {
         ClearItemInUI();
-        string[] inventoryTemp = playerInventory.listContent();
-        foreach (string item in inventoryTemp) {
+        Item[] inventoryTemp = playerInventory.listContent();
+        foreach (Item item in inventoryTemp) {
             AddItemInUI(item);
         }
     }
@@ -149,7 +138,6 @@ public class PlayerInventoryManager : MonoBehaviour
         else {
             Cursor.lockState = CursorLockMode.None;
             despoMouseLook.ignore = true;
-            playerInventory = InteractWithItems.Inventory.ReadInventory("PlayerInventory.json");
             pointerUI.SetActive(false);
             currentInventoryPanel.SetActive(true);
         }
@@ -178,23 +166,18 @@ public class PlayerInventoryManager : MonoBehaviour
     public class Inventory {
 
         public List<Item> content;
-        public int size;
-        public int usedSpace;
+        public int maxWeight;
+        public int currentWeight;
         public string filename;
 
 
 
         public Inventory(int newInventorySpace, string _filename) {
             content = new List<Item>();
-            usedSpace = 0;
+            currentWeight = 0;
             filename = _filename;
         }
 
-
-        public static void WriteHubInventory(Inventory newHubInventory) {
-            string uploadInventory = JsonUtility.ToJson(newHubInventory);
-            File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/HubInventory.json", uploadInventory);
-        }
 
         public static Inventory ReadInventory(string filename) {
             string InventoryJSON = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/" + filename);
@@ -209,21 +192,23 @@ public class PlayerInventoryManager : MonoBehaviour
 
 
         public void DepositInHub(HubInventoryManager hubInventoryManager) {
-            //target.mushroom += mushroom;
-            //target.waterRation += waterRation;
-            //target.fish += fish;
-            //target.wood += wood;
-
-            hubInventoryManager.ChangeValue("wood", wood);
+            hubInventoryManager.ChangeValue("mushroom", CountItem("mushroom"));
+            hubInventoryManager.ChangeValue("wood", CountItem("wood"));
 
         }
 
-
+        public int CountItem(string _name) {
+            int returnValue = 0;
+            foreach (Item item in content) {
+                if (item.name == _name) {
+                    returnValue += 1;
+                }
+            }
+            return returnValue;
+        }
         
 
         public Item[] listContent() {
-            
-
             return content.ToArray();
         }
 

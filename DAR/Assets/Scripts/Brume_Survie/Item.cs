@@ -7,8 +7,9 @@ public class Item : ScriptableObject {
 
     public string prefabName;
 
-    public int itemSize;
-    public Image itemImage;
+    public string name;
+    public int weight;
+    public Image image;
     
 
 }

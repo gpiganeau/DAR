@@ -36,6 +36,9 @@ public class HubInventoryManager : MonoBehaviour
             case "wood":
                 hubInventory.wood += itemValue;
                 break;
+            case "mushroom":
+                hubInventory.mushroom += itemValue;
+                break;
         }
         UpdateAll();
     }

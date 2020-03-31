@@ -7,12 +7,12 @@ using System.IO;
 public class InteractWithItems : MonoBehaviour
 {
     public HubInventoryManager hubInventoryManager;
+    public PlayerInventoryManager playerInventoryManager;
     Vector2 center;
     float x;
     float y;
     string objectName;
     public Camera player_camera;
-    Inventory playerInventory;
     //Inventory hubInventory;
     private InfoManager infoManager;
     private bool m_isAxisInUse = false;
@@ -29,8 +29,6 @@ public class InteractWithItems : MonoBehaviour
         
         x = Screen.width / 2;
         y = Screen.height / 2;
-
-        playerInventory = Inventory.ReadInventory("PlayerInventory.json");
         infoManager = gameObject.GetComponent<InfoManager>();
     }
 
@@ -70,8 +68,8 @@ public class InteractWithItems : MonoBehaviour
     void Action(string objectName, GameObject collectible) {
         switch (objectName){
             case "mushroom":
-                if (playerInventory.usedInventorySpace !=  playerInventory.inventorySpace) {
-                    playerInventory.mushroom += 1;
+                if (playerInventoryManager.GetInventory().maxWeight != playerInventoryManager.GetInventory().currentWeight) {
+                    playerInventoryManager.AddItem() += 1;
                     playerInventory.usedInventorySpace += 1;
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
                     infoManager.ShowInfo("Champignon ajouté");
