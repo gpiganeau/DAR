@@ -96,16 +96,39 @@ public class InteractWithItems : MonoBehaviour
                     infoManager.ShowInfo("Inventaire plein");
                 }
                 break;
-/*
-            case "fish":
-                playerInventory.fish += 1;
-                infoManager.ShowInfo("Poisson ajouté");
+            case "plank":
+                if (playerInventoryManager.GetInventory().maxWeight != playerInventoryManager.GetInventory().currentWeight)
+                {
+                    Item newItem = Instantiate<Item>(plank);
+                    playerInventoryManager.AddItem(newItem);
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo("Planche ajouté");
+                }
+                else
+                {
+                    infoManager.ShowInfo("Inventaire plein");
+                }
                 break;
-            case "waterRation":
-                playerInventory.waterRation += 1;
-                infoManager.ShowInfo("Ration d'eau ajoutée");
-                break;
-*/
+            /* case "wood":      
+                            if (playerInventoryManager.GetInventory().maxWeight != playerInventoryManager.GetInventory().currentWeight) {
+                                Item newItem = Instantiate<Item>(wood);
+                                playerInventoryManager.AddItem(newItem);
+                                collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                                infoManager.ShowInfo("Bois ajouté");
+                            }
+                            else {
+                                infoManager.ShowInfo("Inventaire plein");
+                            }
+                            break;
+                        case "fish":
+                            playerInventory.fish += 1;
+                            infoManager.ShowInfo("Poisson ajouté");
+                            break;
+                        case "waterRation":
+                            playerInventory.waterRation += 1;
+                            infoManager.ShowInfo("Ration d'eau ajoutée");
+                            break;
+            */
             case "chest":
                 playerInventoryManager.DepositInventory();
                 collectible.GetComponent<ChestScript>().Open();

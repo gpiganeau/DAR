@@ -10,9 +10,11 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
     private int woodValue;
     private int mushroomValue;
 
+    
+
     [SerializeField] InteractWithItems interactWithItems;
     [SerializeField] private PlayerInventoryManager playerInventoryManager;
-
+    [SerializeField] private GameObject workBench;
     [SerializeField] private GameObject player;
 
 
@@ -42,6 +44,7 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
         switch (itemName) {
             case "planche": 
                 playerInventoryManager.Consume("wood", 4);
+                workBench.GetComponent<SpawningCraftedItem>().SpawnCraft(itemName);
                 break;
             case "balise":
                 playerInventoryManager.Consume("wood", 2);
