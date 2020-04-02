@@ -284,7 +284,7 @@ public class PlayerInventoryManager : MonoBehaviour
                 content.RemoveAt(index);
             }
             if (amount > 0) {
-                hubInventoryManager.ChangeValue(itemToConsume, amount);
+                hubInventoryManager.ChangeValue(itemToConsume, -amount);
             }
             WriteInventory();
         }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "Item", fileName = "NewItem")]
 public class Item : ScriptableObject {
 
-    public string prefabName;
+    public GameObject prefab;
 
     public string _name;
     public int weight;

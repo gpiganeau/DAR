@@ -40,11 +40,11 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
         return ReturnArray;
     }
 
-    public void CraftItem(string itemName) {
-        switch (itemName) {
-            case "planche": 
+    public void CraftItem(Item item) {
+        switch (item._name) {
+            case "plank": 
                 playerInventoryManager.Consume("wood", 4);
-                workBench.GetComponent<SpawningCraftedItem>().SpawnCraft(itemName);
+                workBench.GetComponent<SpawningCraftedItem>().SpawnCraft(item);
                 break;
             case "balise":
                 playerInventoryManager.Consume("wood", 2);
