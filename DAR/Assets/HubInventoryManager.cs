@@ -42,6 +42,8 @@ public class HubInventoryManager : MonoBehaviour
     public void ChangeValue(Item item, int itemValue) {
         bool found = false;
         for (int i = 0; i < hubInventory.content.Count; i++) {
+            Debug.Log("hub : " + hubInventory.content[i]._name);
+            Debug.Log("item : " + item._name);
             if (hubInventory.content[i]._name == item._name) {
                 hubInventory.amount[i] += itemValue;
                 found = true;

@@ -79,7 +79,7 @@ public class PlayerInventoryManager : MonoBehaviour
     }
 
     public void Consume(string itemName, int amount) {
-        playerInventory.ConsumeItem(itemName, amount, hubInventoryManager);
+        playerInventory.ConsumeItem(gameObject.GetComponent<InteractWithItems>().GetItem(itemName), amount, hubInventoryManager);
         UpdateAll();
     }
 
@@ -267,13 +267,12 @@ public class PlayerInventoryManager : MonoBehaviour
             WriteInventory();
         }
 
-        public void ConsumeItem(string itemName, int amount, HubInventoryManager hubInventoryManager) {
-            Item itemToConsume = new Item();
+        public void ConsumeItem(Item item, int amount, HubInventoryManager hubInventoryManager) {
             int total = 0;
             List<int> indexes = new List<int>();
             for (int i = 0; i < content.Count; i++) {
                 if (amount > 0) {
-                    if (content[i]._name == itemName) {
+                    if (content[i]._name == item._name) {
                         indexes.Add(i - total);
                         total += 1;
                         amount -= 1;
@@ -284,7 +283,7 @@ public class PlayerInventoryManager : MonoBehaviour
                 content.RemoveAt(index);
             }
             if (amount > 0) {
-                hubInventoryManager.ChangeValue(itemToConsume, -amount);
+                hubInventoryManager.ChangeValue(item, -amount);
             }
             WriteInventory();
         }

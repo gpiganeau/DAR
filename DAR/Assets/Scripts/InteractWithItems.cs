@@ -170,6 +170,19 @@ public class InteractWithItems : MonoBehaviour
     }
 
 
+    public Item GetItem(string itemName) {
+        if (itemName == wood._name) {
+            return wood;
+        }
+        else if (itemName == plank._name) {
+            return plank;
+        }
+        else if (itemName == mushroom._name) {
+            return mushroom;
+        }
+        return new Item();
+    }
+
     
     
 }
