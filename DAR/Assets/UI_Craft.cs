@@ -13,6 +13,9 @@ public class UI_Craft : MonoBehaviour
     [SerializeField]
     private GameObject child_nbToCraft;
 
+    
+
+
     public int _nbToCraft;
 
     private int _nbInventory;
