@@ -279,8 +279,8 @@ public class PlayerInventoryManager : MonoBehaviour
             for (int i = 0; i < content.Count; i++) {
                 if (amount > 0) {
                     if (content[i]._name == itemName) {
-                        total += 1;
                         indexes.Add(i - total);
+                        total += 1;
                         amount -= 1;
                     }
                 }
