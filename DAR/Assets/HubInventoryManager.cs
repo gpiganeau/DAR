@@ -6,6 +6,9 @@ using System.IO;
 
 public class HubInventoryManager : MonoBehaviour
 {
+    public static bool initializeWithLoad = true;
+
+
     private Inventory hubInventory;
 
     [SerializeField] private GameObject player;
@@ -16,10 +19,15 @@ public class HubInventoryManager : MonoBehaviour
 
     void Start()
     {
-        hubInventory = Inventory.ReadInventory("HubInventory.JSON");
+        if (initializeWithLoad) {
+            hubInventory = new Inventory("HubInventory.json");
+        }
+        else {
+            hubInventory = Inventory.ReadInventory("HubInventory.JSON");
+        }
+       
         hubInventory.SetManagerReference(this);
         hubInventory.WriteInventory();
-        //UpdateAll();
     }
   
     void Update()

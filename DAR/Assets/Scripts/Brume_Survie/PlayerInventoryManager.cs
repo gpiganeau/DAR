@@ -6,6 +6,7 @@ using System.IO;
 
 public class PlayerInventoryManager : MonoBehaviour
 {
+
     Sprite wood_Img;
     Sprite mushroom_Img;
     Sprite waterRation_Img;
@@ -31,7 +32,14 @@ public class PlayerInventoryManager : MonoBehaviour
 
         UIElements[2] = GameObject.Find("Inventory_Hub_Panel");
 
-        playerInventory = Inventory.ReadInventory("PlayerInventory.json");
+
+        if (HubInventoryManager.initializeWithLoad) {
+            playerInventory = new Inventory(2, "PlayerInventory.json");
+        }
+        else {
+            playerInventory = Inventory.ReadInventory("PlayerInventory.json");
+        }
+        
         playerInventory.SetManager(this);
         UpdateAll();
 
@@ -266,13 +274,19 @@ public class PlayerInventoryManager : MonoBehaviour
         }
 
         public void ConsumeItem(string itemName, int amount) {
-            foreach (Item item in content) {
+            int total = 0;
+            List<int> indexes = new List<int>();
+            for (int i = 0; i < content.Count; i++) {
                 if (amount > 0) {
-                    if (item._name == itemName) {
+                    if (content[i]._name == itemName) {
+                        total += 1;
+                        indexes.Add(i - total);
                         amount -= 1;
-                        content.Remove(item);
                     }
                 }
+            }
+            foreach (int index in indexes) {
+                content.RemoveAt(index);
             }
             WriteInventory();
         }
