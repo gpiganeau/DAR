@@ -19,7 +19,7 @@ public class HubInventoryManager : MonoBehaviour
         hubInventory = Inventory.ReadInventory("HubInventory.JSON");
         hubInventory.SetManagerReference(this);
         hubInventory.WriteInventory();
-        UpdateAll();
+        //UpdateAll();
     }
   
     void Update()

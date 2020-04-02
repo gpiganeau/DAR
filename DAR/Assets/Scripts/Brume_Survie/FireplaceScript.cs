@@ -8,9 +8,6 @@ public class FireplaceScript : MonoBehaviour
     public GameObject fireplaceOn;
     public GameObject fireParticles;
     public GameObject player;
-    HubInventoryManager hubInventoryManager;
-
-    PlayerInventoryManager playerInventoryManager;
 
     void Start()
     {
@@ -27,7 +24,7 @@ public class FireplaceScript : MonoBehaviour
         if (fireplaceOn.activeSelf == false) {
             fireplaceOn.gameObject.SetActive(true);
             fireParticles.gameObject.SetActive(true);
-            playerInventoryManager.Consume("wood", 3);
+            player.GetComponent<PlayerInventoryManager>().Consume("wood", 3);
         }
     }
 }
