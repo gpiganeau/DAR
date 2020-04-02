@@ -33,6 +33,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
         playerInventory = Inventory.ReadInventory("PlayerInventory.json");
         playerInventory.SetManager(this);
+        UpdateAll();
 
         currentInventoryPanel = UIElements[0];
 
@@ -76,7 +77,7 @@ public class PlayerInventoryManager : MonoBehaviour
         }
         else {
             playerInventory.ConsumeItem(itemName, itemCount);
-            hubInventoryManager.ChangeValue(itemName, amount - itemCount);
+            hubInventoryManager.ChangeValue(itemName, itemCount - amount);
         }
         UpdateAll();
     }

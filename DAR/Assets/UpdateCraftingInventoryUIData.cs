@@ -39,4 +39,6 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
         }        
     }
 
+   
+    
 }
