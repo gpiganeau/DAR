@@ -39,20 +39,23 @@ public class HubInventoryManager : MonoBehaviour
         return hubInventory;
     }
 
-    public void ChangeValue(string itemName, int itemValue) {
-        switch (itemName) {
-            case "wood":
-                hubInventory.wood += itemValue;
-                break;
-            case "mushroom":
-                hubInventory.mushroom += itemValue;
-                break;
+    public void ChangeValue(Item item, int itemValue) {
+        bool found = false;
+        for (int i = 0; i < hubInventory.content.Count; i++) {
+            if (hubInventory.content[i]._name == item._name) {
+                hubInventory.amount[i] += itemValue;
+                found = true;
+            }
+        }
+        if (!found) {
+            hubInventory.content.Add(item);
+            hubInventory.amount.Add(itemValue);
         }
         UpdateAll();
     }
 
     public void UpdateAll() {
-        woodStorage.GetComponent<woodStorage>().Show(hubInventory.wood);
+        woodStorage.GetComponent<woodStorage>().Show(hubInventory.Count("wood"));
         hubUI.GetComponent<UpdateInventoryHubUIData>().UpdateValues(hubInventory);
         craftUI.GetComponent<UpdateCraftingInventoryUIData>().UpdateNumbers(hubInventory);
         hubInventory.WriteInventory();
@@ -61,11 +64,8 @@ public class HubInventoryManager : MonoBehaviour
 
     public class Inventory
     {
-
-        public int mushroom;
-        public int fish;
-        public int wood;
-        public int waterRation;
+        public List<Item> content;
+        public List<int> amount;
 
         public string filename;
         public HubInventoryManager hubInventoryManager;
@@ -73,10 +73,8 @@ public class HubInventoryManager : MonoBehaviour
 
         public Inventory(string _filename)
         {
-            mushroom = 0;
-            fish = 0;
-            wood = 0;
-            waterRation = 0;
+            content = new List<Item>();
+            amount = new List<int>();
            
             filename = _filename;
         }
@@ -96,13 +94,14 @@ public class HubInventoryManager : MonoBehaviour
             File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/" + filename, uploadInventory);
         }
 
-        public void DepositInInventory(Inventory target) {
-            target.mushroom += mushroom;
-            target.waterRation += waterRation;
-            target.fish += fish;
-            target.wood += wood;
-
-            target.WriteInventory();
+        public int Count(string item_type) {
+            int nullValue = 0;
+            for(int i = 0; i < content.Count; i++) {
+                if (content[i]._name == item_type) {
+                    return amount[i];
+                }
+            }
+            return nullValue;
         }
 
     }

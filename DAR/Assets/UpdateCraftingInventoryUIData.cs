@@ -24,8 +24,8 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
     }
 
     public void UpdateNumbers(HubInventoryManager.Inventory _hubInventory) {
-        woodValue = _hubInventory.wood + playerInventoryManager.GetInventory().CountItem("wood");
-        mushroomValue = _hubInventory.mushroom + playerInventoryManager.GetInventory().CountItem("mushroom");
+        woodValue = _hubInventory.Count("wood") + playerInventoryManager.GetInventory().CountItem("wood");
+        mushroomValue = _hubInventory.Count("mushroom") + playerInventoryManager.GetInventory().CountItem("mushroom");
         _nb_Wood.text = "x " + (woodValue);
         _nb_Mushroom.text = "x " + (mushroomValue);
     }

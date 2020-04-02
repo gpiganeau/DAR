@@ -79,14 +79,7 @@ public class PlayerInventoryManager : MonoBehaviour
     }
 
     public void Consume(string itemName, int amount) {
-        int itemCount = playerInventory.CountItem(itemName);
-        if (amount <= itemCount) {
-            playerInventory.ConsumeItem(itemName, amount);
-        }
-        else {
-            playerInventory.ConsumeItem(itemName, itemCount);
-            hubInventoryManager.ChangeValue(itemName, itemCount - amount);
-        }
+        playerInventory.ConsumeItem(itemName, amount, hubInventoryManager);
         UpdateAll();
     }
 
@@ -248,8 +241,9 @@ public class PlayerInventoryManager : MonoBehaviour
 
 
         public void DepositInHub(HubInventoryManager hubInventoryManager) {
-            hubInventoryManager.ChangeValue("mushroom", CountItem("mushroom"));
-            hubInventoryManager.ChangeValue("wood", CountItem("wood"));
+            foreach(Item item in playerInventoryManager.GetInventory().content) {
+                hubInventoryManager.ChangeValue(item, 1);
+            }
             ClearInventory();
             WriteInventory();
         }
@@ -269,11 +263,12 @@ public class PlayerInventoryManager : MonoBehaviour
                 content.RemoveAt(index);
             }
             currentWeight -= total * currentItem.weight;
-            hubInventoryManager.ChangeValue(itemType, total);
+            hubInventoryManager.ChangeValue(currentItem, total);
             WriteInventory();
         }
 
-        public void ConsumeItem(string itemName, int amount) {
+        public void ConsumeItem(string itemName, int amount, HubInventoryManager hubInventoryManager) {
+            Item itemToConsume = new Item();
             int total = 0;
             List<int> indexes = new List<int>();
             for (int i = 0; i < content.Count; i++) {
@@ -287,6 +282,9 @@ public class PlayerInventoryManager : MonoBehaviour
             }
             foreach (int index in indexes) {
                 content.RemoveAt(index);
+            }
+            if (amount > 0) {
+                hubInventoryManager.ChangeValue(itemToConsume, amount);
             }
             WriteInventory();
         }

@@ -29,8 +29,8 @@ public class UpdateInventoryHubUIData : MonoBehaviour
     }
 
     public void UpdateValues(HubInventoryManager.Inventory hubInventory) {
-        _nb_Wood.text = "x " + hubInventory.wood;
-        _nb_Mushroom.text = "x " + hubInventory.mushroom;
+        _nb_Wood.text = "x " + hubInventory.Count("wood");
+        _nb_Mushroom.text = "x " + hubInventory.Count("mushroom");
     }
 
 }
