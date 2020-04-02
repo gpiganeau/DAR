@@ -7,11 +7,14 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
 
     private Text _nb_Wood;
     private Text _nb_Mushroom;
+    private int woodValue;
+    private int mushroomValue;
 
     [SerializeField] InteractWithItems interactWithItems;
     [SerializeField] private PlayerInventoryManager playerInventoryManager;
 
     [SerializeField] private GameObject player;
+
 
     private void OnEnable() {
         if (_nb_Wood == null || _nb_Mushroom == null) {
@@ -21,19 +24,29 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
     }
 
     public void UpdateNumbers(HubInventoryManager.Inventory _hubInventory) {
-        _nb_Wood.text = "x " + (_hubInventory.wood + playerInventoryManager.GetInventory().CountItem("wood"));
-        _nb_Mushroom.text = "x " + (_hubInventory.mushroom + playerInventoryManager.GetInventory().CountItem("mushroom"));
+        woodValue = _hubInventory.wood + playerInventoryManager.GetInventory().CountItem("wood");
+        mushroomValue = _hubInventory.mushroom + playerInventoryManager.GetInventory().CountItem("mushroom");
+        _nb_Wood.text = "x " + (woodValue);
+        _nb_Mushroom.text = "x " + (mushroomValue);
     }
 
-    public void CraftItem(int itemIndex) {
-        switch (itemIndex) {
-            case 0:
-                playerInventoryManager.Consume("wood", 2);
-                break;
-            case 1:
+    public int[] GetValues()
+    {
+        int [] ReturnArray = new int[2];
+        ReturnArray[0] = woodValue;
+        ReturnArray[1] = mushroomValue;
+        return ReturnArray;
+    }
+
+    public void CraftItem(string itemName) {
+        switch (itemName) {
+            case "planche": 
                 playerInventoryManager.Consume("wood", 4);
                 break;
-            case 2:
+            case "balise":
+                playerInventoryManager.Consume("wood", 2);
+                break;
+            case "echelle":
                 playerInventoryManager.Consume("wood", 6);
                 break;
         }        
