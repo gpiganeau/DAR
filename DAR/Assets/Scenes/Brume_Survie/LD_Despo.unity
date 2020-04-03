@@ -6595,6 +6595,29 @@ MonoBehaviour:
   - {fileID: 1004891042}
   _brushImpact: 0
   _brushStrength: 0
+--- !u!114 &714517181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59306422a2ca4454aabce3daa79c3334, type: 3}
+  m_Name: New Aura Base Settings
+  m_EditorClassIdentifier: 
+  useDensity: 1
+  density: 0.25
+  useScattering: 1
+  scattering: 0.5
+  useAmbientLighting: 1
+  ambientLightingStrength: 1
+  useColor: 0
+  color: {r: 0, g: 0.5, b: 0.5, a: 0.5}
+  colorStrength: 1
+  useExtinction: 0
+  extinction: 0.75
 --- !u!4 &715790677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4872034089202312431, guid: 134833c663c69a34a844b8be7d474752,
@@ -7586,6 +7609,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8bb7d8863cee8c246b179ffaff9eb6f1,
         type: 2}
+    - target: {fileID: 1395155405, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: volumeShape.shape
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395155405, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: densityInjection.enable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395155405, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: densityInjection.strength
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395155405, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: volumeShape.fading.distanceSphereFade
+      value: 0.893
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
 --- !u!1 &863508407 stripped
@@ -9284,6 +9323,46 @@ PrefabInstance:
       propertyPath: directionalLight
       value: 
       objectReference: {fileID: 97721887}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.shape
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: densityInjection.enable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.xPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.xNegativeCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.yPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.zPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.zNegativeCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: densityInjection.strength
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16eeefcda582ecf4eac409f1a022180f, type: 3}
 --- !u!4 &1004891042 stripped
@@ -12885,6 +12964,46 @@ PrefabInstance:
       propertyPath: densityInjection.strength
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 7539169609003576241, guid: a012159b99c5f7b479d87b980056c4c3,
+        type: 3}
+      propertyPath: volumeShape.shape
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539169609003576241, guid: a012159b99c5f7b479d87b980056c4c3,
+        type: 3}
+      propertyPath: noiseMask.enable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539169609003576241, guid: a012159b99c5f7b479d87b980056c4c3,
+        type: 3}
+      propertyPath: densityInjection.enable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539169609003576241, guid: a012159b99c5f7b479d87b980056c4c3,
+        type: 3}
+      propertyPath: volumeShape.fading.xNegativeCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539169609003576241, guid: a012159b99c5f7b479d87b980056c4c3,
+        type: 3}
+      propertyPath: volumeShape.fading.xPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539169609003576241, guid: a012159b99c5f7b479d87b980056c4c3,
+        type: 3}
+      propertyPath: volumeShape.fading.yPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539169609003576241, guid: a012159b99c5f7b479d87b980056c4c3,
+        type: 3}
+      propertyPath: volumeShape.fading.zNegativeCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539169609003576241, guid: a012159b99c5f7b479d87b980056c4c3,
+        type: 3}
+      propertyPath: volumeShape.fading.zPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7539169609107534606, guid: a012159b99c5f7b479d87b980056c4c3,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13748,6 +13867,46 @@ PrefabInstance:
       propertyPath: directionalLight
       value: 
       objectReference: {fileID: 97721887}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.shape
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: densityInjection.enable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: densityInjection.strength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.xPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.xNegativeCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.yPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.zPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.zNegativeCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16eeefcda582ecf4eac409f1a022180f, type: 3}
 --- !u!1 &1392898444 stripped
@@ -13992,6 +14151,46 @@ PrefabInstance:
       propertyPath: directionalLight
       value: 
       objectReference: {fileID: 97721887}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.shape
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: densityInjection.enable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: densityInjection.strength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.xNegativeCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.xPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.yPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.zNegativeCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505376222059677629, guid: 16eeefcda582ecf4eac409f1a022180f,
+        type: 3}
+      propertyPath: volumeShape.fading.zPositiveCubeFade
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16eeefcda582ecf4eac409f1a022180f, type: 3}
 --- !u!1001 &1412446818
@@ -15767,6 +15966,32 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7563480783990141934, guid: 2de9037b3a6ca0546b18105f44d4915c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 666948254}
+    - target: {fileID: 7563480783990141934, guid: 2de9037b3a6ca0546b18105f44d4915c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ItemTransferHubToPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563480783990141934, guid: 2de9037b3a6ca0546b18105f44d4915c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563480783990141934, guid: 2de9037b3a6ca0546b18105f44d4915c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Item, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563480783990141934, guid: 2de9037b3a6ca0546b18105f44d4915c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: b14f69fe44f02624b8abc1d3a0014360,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
 --- !u!1 &1585237683 stripped

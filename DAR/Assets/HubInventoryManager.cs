@@ -67,6 +67,10 @@ public class HubInventoryManager : MonoBehaviour
         hubInventory.WriteInventory();
     }
 
+    public void ItemTransferHubToPlayer(Item item) {
+        hubInventory.Remove(item, 1);
+        player.GetComponent<PlayerInventoryManager>().AddItem(item);
+    }
 
     public class Inventory
     {
@@ -108,6 +112,14 @@ public class HubInventoryManager : MonoBehaviour
                 }
             }
             return nullValue;
+        }
+
+        public void Remove(Item item, int number) {
+            for (int i = 0; i < content.Count; i++) {
+                if (content[i]._name == item._name) {
+                    amount[i] -= number;
+                }
+            }
         }
 
     }
