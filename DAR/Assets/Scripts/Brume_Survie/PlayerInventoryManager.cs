@@ -273,6 +273,7 @@ public class PlayerInventoryManager : MonoBehaviour
             foreach (int index in indexes) {
                 content.RemoveAt(index);
             }
+            currentWeight -= total * item.weight;
             if (amount > 0) {
                 hubInventoryManager.ChangeValue(item, -amount);
             }

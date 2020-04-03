@@ -58,16 +58,6 @@ public class HubInventoryManager : MonoBehaviour
         UpdateAll();
     }
 
-    public void AddItemInUI(Item item) {
-        for (int i = 0; i < inventorySlots.Length; i++) {
-            if (inventorySlots[i].GetComponent<Image>().sprite == null) {
-                inventorySlots[i].GetComponent<Image>().sprite = item.sprite;
-                inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
-                return;
-            }
-        }
-    }
-
 
 
     public void UpdateAll() {
