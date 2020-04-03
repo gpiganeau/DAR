@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
@@ -25,8 +24,6 @@ public class StartGame : MonoBehaviour
 
         playerInventory.WriteInventory();
         hubInventory.WriteInventory();
-
-        SceneManager.LoadScene(1);
     }
 
     // Update is called once per frame
