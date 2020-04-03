@@ -8,6 +8,7 @@ public class HubInventoryManager : MonoBehaviour
 {
     public static bool initializeWithLoad = true;
 
+    public GameObject[] inventorySlots;
 
     private Inventory hubInventory;
 
@@ -28,6 +29,9 @@ public class HubInventoryManager : MonoBehaviour
        
         hubInventory.SetManagerReference(this);
         hubInventory.WriteInventory();
+        for (int i = 0; i < inventorySlots.Length; i++) {
+            inventorySlots[i] = GameObject.Find("Inventory_Hub_Panel").transform.GetChild(i).gameObject;
+        }
     }
   
     void Update()
@@ -42,8 +46,6 @@ public class HubInventoryManager : MonoBehaviour
     public void ChangeValue(Item item, int itemValue) {
         bool found = false;
         for (int i = 0; i < hubInventory.content.Count; i++) {
-            Debug.Log("hub : " + hubInventory.content[i]._name);
-            Debug.Log("item : " + item._name);
             if (hubInventory.content[i]._name == item._name) {
                 hubInventory.amount[i] += itemValue;
                 found = true;
@@ -55,6 +57,18 @@ public class HubInventoryManager : MonoBehaviour
         }
         UpdateAll();
     }
+
+    public void AddItemInUI(Item item) {
+        for (int i = 0; i < inventorySlots.Length; i++) {
+            if (inventorySlots[i].GetComponent<Image>().sprite == null) {
+                inventorySlots[i].GetComponent<Image>().sprite = item.sprite;
+                inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
+                return;
+            }
+        }
+    }
+
+
 
     public void UpdateAll() {
         woodStorage.GetComponent<woodStorage>().Show(hubInventory.Count("wood"));

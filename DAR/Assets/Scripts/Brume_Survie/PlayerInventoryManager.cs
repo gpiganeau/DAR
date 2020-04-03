@@ -7,11 +7,6 @@ using System.IO;
 public class PlayerInventoryManager : MonoBehaviour
 {
 
-    Sprite wood_Img;
-    Sprite mushroom_Img;
-    Sprite waterRation_Img;
-    Sprite fish_Img;
-
     Inventory playerInventory;
     [SerializeField] private HubInventoryManager hubInventoryManager;
     public GameObject pointerUI;
@@ -25,10 +20,6 @@ public class PlayerInventoryManager : MonoBehaviour
 
     void Start()
     { 
-        wood_Img = Resources.Load<Sprite>("Images/wood_img"); 
-        mushroom_Img = Resources.Load<Sprite>("Images/mushroom_img");
-        waterRation_Img = Resources.Load<Sprite>("Images/water_img");
-        fish_Img = Resources.Load<Sprite>("Images/fish_img");
 
         UIElements[2] = GameObject.Find("Inventory_Hub_Panel");
 
