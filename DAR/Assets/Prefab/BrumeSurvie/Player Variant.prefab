@@ -198,6 +198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c77635767f19142bd3c6f1ba6b1b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hubInventoryManager: {fileID: 0}
+  playerInventoryManager: {fileID: 0}
+  wood: {fileID: 0}
+  mushroom: {fileID: 0}
+  plank: {fileID: 0}
   player_camera: {fileID: 5747731795494153468}
 --- !u!114 &924330457
 MonoBehaviour:
@@ -211,13 +216,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f87196992bdfb849921f69a045625d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 0}
+  hubInventoryManager: {fileID: 0}
   pointerUI: {fileID: 0}
-  bagInventoryPanel: {fileID: 0}
-  handInventoryPanel: {fileID: 0}
-  hubInventoryPanel: {fileID: 0}
-  _nb_Wood: {fileID: 0}
-  _nb_Mushroom: {fileID: 0}
+  UIElements:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   inventorySlots:
   - {fileID: 0}
   - {fileID: 0}
@@ -508,7 +513,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2722617377618714448, guid: dbc32fe3095c0c5498d951b462f9c46a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dbc32fe3095c0c5498d951b462f9c46a, type: 3}
 --- !u!1 &3700134211258645085 stripped
 GameObject:

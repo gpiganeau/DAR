@@ -9,7 +9,7 @@ public class StartGame : MonoBehaviour
     PlayerInventoryManager.Inventory playerInventory;
     HubInventoryManager.Inventory hubInventory;
     // Start is called before the first frame update
-    void Start()
+    void GameStart()
     {
         string jsonDay = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/CurrentDay.json");
         loadedDay = JsonUtility.FromJson<InGameDay>(jsonDay);
