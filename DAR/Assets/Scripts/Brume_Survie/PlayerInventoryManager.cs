@@ -81,9 +81,13 @@ public class PlayerInventoryManager : MonoBehaviour
         UpdateAll();
     }
 
-    public void AddItem(Item _item) {
-        playerInventory.Add(_item);
-        UpdateAll();
+    public bool AddItem(Item _item) {
+        if (playerInventory.Add(_item))
+        {  
+            UpdateAll();
+            return true;
+        }
+        return false; 
     }
 
     public void UpdateAll() {
@@ -224,10 +228,15 @@ public class PlayerInventoryManager : MonoBehaviour
             WriteInventory();
         }
 
-        public void Add(Item item) {
-            content.Add(item);
-            currentWeight += item.weight;
-            WriteInventory();
+        public bool Add(Item item) {
+            if (currentWeight + item.weight <= maxWeight)
+            {
+                content.Add(item);
+                currentWeight += item.weight;
+                WriteInventory();
+                return true;
+            }
+            return false;
         }
 
 

@@ -68,9 +68,12 @@ public class HubInventoryManager : MonoBehaviour
     }
 
     public void ItemTransferHubToPlayer(Item item) {
-        hubInventory.Remove(item, 1);
-        player.GetComponent<PlayerInventoryManager>().AddItem(item);
-        UpdateAll();
+        if(hubInventory.Count(item._name) > 0) {
+            if (player.GetComponent<PlayerInventoryManager>().AddItem(item)){
+                hubInventory.Remove(item, 1);
+                UpdateAll();
+            }
+        }
     }
 
     public class Inventory
@@ -116,11 +119,14 @@ public class HubInventoryManager : MonoBehaviour
         }
 
         public void Remove(Item item, int number) {
-            for (int i = 0; i < content.Count; i++) {
-                if (content[i]._name == item._name) {
-                    amount[i] -= number;
+            
+             for (int i = 0; i < content.Count; i++) {
+                 
+                 if (content[i]._name == item._name) {
+                        amount[i] -= number;
+                    }   
                 }
-            }
+            
         }
 
     }
