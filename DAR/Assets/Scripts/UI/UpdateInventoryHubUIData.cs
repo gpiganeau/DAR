@@ -37,6 +37,7 @@ public class UpdateInventoryHubUIData : MonoBehaviour
             inventorySlots[i].GetComponent<Image>().sprite = hubInventory.content[i].sprite;
             inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
             inventorySlots[i].GetComponentInChildren<Text>().text = "x " + hubInventory.amount[i];
+            inventorySlots[i].GetComponent<ButtonInfo>().item = hubInventory.content[i];
         }
     }
 

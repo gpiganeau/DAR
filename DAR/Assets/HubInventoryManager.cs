@@ -70,6 +70,7 @@ public class HubInventoryManager : MonoBehaviour
     public void ItemTransferHubToPlayer(Item item) {
         hubInventory.Remove(item, 1);
         player.GetComponent<PlayerInventoryManager>().AddItem(item);
+        UpdateAll();
     }
 
     public class Inventory
