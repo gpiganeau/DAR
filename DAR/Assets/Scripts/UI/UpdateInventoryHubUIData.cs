@@ -13,9 +13,9 @@ public class UpdateInventoryHubUIData : MonoBehaviour
 
     void Start()
     {
-        inventorySlots = new GameObject[transform.childCount];
+        inventorySlots = new GameObject[gameObject.GetComponentsInChildren<ButtonInfo>().Length];
         for (int i = 0; i < inventorySlots.Length; i++) {
-            inventorySlots[i] = transform.GetChild(i).gameObject;
+            inventorySlots[i] = gameObject.GetComponentsInChildren<ButtonInfo>()[i].gameObject;
         }
     }
 
@@ -37,7 +37,7 @@ public class UpdateInventoryHubUIData : MonoBehaviour
             inventorySlots[i].GetComponent<Image>().sprite = hubInventory.content[i].sprite;
             inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
             inventorySlots[i].GetComponentInChildren<Text>().text = "x " + hubInventory.amount[i];
-            inventorySlots[i].GetComponent<ButtonInfo>().item = hubInventory.content[i];
+            inventorySlots[i].GetComponent<ButtonInfo>().SetItem(hubInventory.content[i]);
         }
     }
 
