@@ -72,11 +72,12 @@ public class InteractWithItems : MonoBehaviour
    
 
     void Action(string objectName, GameObject collectible) {
+        
         switch (objectName){
+
             case "mushroom":
-                if (playerInventoryManager.GetInventory().maxWeight != playerInventoryManager.GetInventory().currentWeight) {
-                    Item newItem = Instantiate<Item>(mushroom);
-                    playerInventoryManager.AddItem(newItem);
+                Item newItem = Instantiate<Item>(mushroom);
+                if (playerInventoryManager.AddItem(newItem)) {
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
                     infoManager.ShowInfo("Champignon ajouté");
                 }
@@ -85,10 +86,11 @@ public class InteractWithItems : MonoBehaviour
                 }
                 break;
             
-            case "wood":      
-                if (playerInventoryManager.GetInventory().maxWeight != playerInventoryManager.GetInventory().currentWeight) {
-                    Item newItem = Instantiate<Item>(wood);
-                    playerInventoryManager.AddItem(newItem);
+            case "wood":
+                Item newItem1 = Instantiate<Item>(wood);
+                if (playerInventoryManager.AddItem(newItem1)) {
+                   
+                    
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
                     infoManager.ShowInfo("Bois ajouté");
                 }
@@ -97,10 +99,8 @@ public class InteractWithItems : MonoBehaviour
                 }
                 break;
             case "plank":
-                if (playerInventoryManager.GetInventory().maxWeight != playerInventoryManager.GetInventory().currentWeight)
-                {
-                    Item newItem = Instantiate<Item>(plank);
-                    playerInventoryManager.AddItem(newItem);
+                Item newItem2 = Instantiate<Item>(plank);
+                if (playerInventoryManager.AddItem(newItem2)){
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
                     infoManager.ShowInfo("Planche ajouté");
                 }
@@ -130,7 +130,7 @@ public class InteractWithItems : MonoBehaviour
                             break;
             */
             case "chest":
-                playerInventoryManager.DepositInventory();
+               // playerInventoryManager.DepositInventory();
                 collectible.GetComponent<ChestScript>().Open();
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(2);
                 break;
