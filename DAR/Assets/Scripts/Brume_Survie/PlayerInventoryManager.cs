@@ -8,6 +8,8 @@ public class PlayerInventoryManager : MonoBehaviour
 {
 
     Inventory playerInventory;
+    
+
     [SerializeField] private HubInventoryManager hubInventoryManager;
     public GameObject pointerUI;
 
@@ -19,7 +21,8 @@ public class PlayerInventoryManager : MonoBehaviour
     private bool m_isAxisInUse = false;
 
     void Start()
-    { 
+    {
+       
 
         UIElements[2] = GameObject.Find("Inventory_Hub_Panel");
 
@@ -86,10 +89,17 @@ public class PlayerInventoryManager : MonoBehaviour
         UpdateAll();
     }
 
+    public void RemoveItemAt(int index) {
+        playerInventory.Remove(index);
+        UpdateAll();
+    }
+
     public void UpdateAll() {
         UpdateInventoryUI(playerInventory);
         hubInventoryManager.UpdateAll();
     }
+
+   
 
     public Inventory GetInventory() {
         return playerInventory;
@@ -100,6 +110,7 @@ public class PlayerInventoryManager : MonoBehaviour
         for (int i = 0; i < inventorySlots.Length; i++) {
             if (inventorySlots[i].GetComponent<Image>().sprite == null)
             {
+                inventorySlots[i].GetComponent<PlayerButtonInfo>().SetItem(item, i);
                 inventorySlots[i].GetComponent<Image>().sprite = item.sprite;
                 inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 1f);
                 return;
@@ -111,6 +122,7 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
+            inventorySlots[i].GetComponent<PlayerButtonInfo>().ResetItem();
             inventorySlots[i].GetComponent<Image>().sprite = null;
             inventorySlots[i].GetComponent<Image>().color = new Color(inventorySlots[i].GetComponent<Image>().color.r, inventorySlots[i].GetComponent<Image>().color.g, inventorySlots[i].GetComponent<Image>().color.b, 0f);
         }
@@ -163,14 +175,8 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
-    public void DropItem()
-    {
-        //Get le currentInventorySlot
-        //Check le nom de l'objet ? 
-        //Case pour savoir quoi faire en fonction du type d'objet
-
-        //instantiate à la position du joueur sur le sol le type d'item qui à été identifié dans le case
-        UpdateInventoryUI(playerInventory);
+    public bool IsUIOpen() {
+        return currentInventoryPanel.activeSelf;
     }
 
     public void ShowAlternateUI(int UIIndex) {
@@ -183,9 +189,7 @@ public class PlayerInventoryManager : MonoBehaviour
         }
     }
 
-
-
-
+    
     public class Inventory {
 
         public List<Item> content;
@@ -230,6 +234,12 @@ public class PlayerInventoryManager : MonoBehaviour
             WriteInventory();
         }
 
+        public void Remove(int index) {
+            currentWeight -= content[index].weight;
+            content.RemoveAt(index);
+            WriteInventory();
+            
+        }
 
         public void DepositInHub(HubInventoryManager hubInventoryManager) {
             foreach(Item item in playerInventoryManager.GetInventory().content) {

@@ -58,7 +58,7 @@ MonoBehaviour:
       widthCylinderFade: 0.5
       yNegativeCylinderFade: 0.25
       yPositiveCylinderFade: 0.25
-      distanceSphereFade: 0.885
+      distanceSphereFade: 0.893
   useAsLightProbesProxyVolume: 0
   lightProbesMultiplier: 1
   texture2DMask:
@@ -170,6 +170,36 @@ MonoBehaviour:
         outputHiValue: 1
         contrast: 1
     color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1545660016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545660017}
+  m_Layer: 0
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545660017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545660016}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.004, y: -0.956, z: 2.385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4326796919499204535}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &149913946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,11 +229,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hubInventoryManager: {fileID: 0}
-  playerInventoryManager: {fileID: 0}
-  wood: {fileID: 0}
-  mushroom: {fileID: 0}
-  plank: {fileID: 0}
+  playerInventoryManager: {fileID: 924330457}
+  wood: {fileID: 11400000, guid: b14f69fe44f02624b8abc1d3a0014360, type: 2}
+  mushroom: {fileID: 11400000, guid: dc2993eea42f2044980445cac57472c0, type: 2}
+  plank: {fileID: 11400000, guid: 8bb7d8863cee8c246b179ffaff9eb6f1, type: 2}
   player_camera: {fileID: 5747731795494153468}
+--- !u!114 &924330448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700134211258645085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef2056b3ea6fdd429516aed40c46357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &924330457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,10 +314,10 @@ MonoBehaviour:
   MaterialParameterName: Material
   SpeedParameterName: Speed Switch
   JumpOrLandParameterName: Jump Or Land
-  StepDistance: 2
+  StepDistance: 1.5
   RayDistance: 1.2
   StartRunningTime: 0.3
-  JumpInputName: jump
+  JumpInputName: Fire3
   MaterialTypes:
   - Snow
   - Stone
@@ -321,7 +363,7 @@ PrefabInstance:
     - target: {fileID: 2722617377809273774, guid: dbc32fe3095c0c5498d951b462f9c46a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 57.3
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 2722617377809273774, guid: dbc32fe3095c0c5498d951b462f9c46a,
         type: 3}
@@ -508,13 +550,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a823472c377071344812f441db9fcc40, type: 2}
-    - target: {fileID: 5228078282297842573, guid: dbc32fe3095c0c5498d951b462f9c46a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2722617377618714448, guid: dbc32fe3095c0c5498d951b462f9c46a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbc32fe3095c0c5498d951b462f9c46a, type: 3}
 --- !u!1 &3700134211258645085 stripped
 GameObject:
@@ -525,6 +561,12 @@ GameObject:
 --- !u!4 &3700134211258645072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2722617377809273774, guid: dbc32fe3095c0c5498d951b462f9c46a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1626127542949243390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4326796919499204535 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3070035191930474057, guid: dbc32fe3095c0c5498d951b462f9c46a,
     type: 3}
   m_PrefabInstance: {fileID: 1626127542949243390}
   m_PrefabAsset: {fileID: 0}
