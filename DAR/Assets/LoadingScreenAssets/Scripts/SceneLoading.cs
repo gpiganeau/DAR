@@ -9,10 +9,31 @@ public class SceneLoading : MonoBehaviour
     [SerializeField]
     private Image _progressBar;
     [SerializeField]
+    private MainMenuToLoadScene loadSceneInfo;
+    [SerializeField]
     private int sceneIndex;
+    
+    void Awake()
+    {
+        //get the scene to load from MainMenuToLoadScene
+        loadSceneInfo = GameObject.FindObjectOfType<MainMenuToLoadScene>();
+        if (loadSceneInfo != null)
+        {
+            sceneIndex = loadSceneInfo.sceneToLoad;
+        }
+        else sceneIndex = 0;
+    }
+    
     void Start()
     {
         //start async operation
+        StartCoroutine(TimerBeforeLoad());
+    }
+
+    private IEnumerator TimerBeforeLoad()
+    {
+        yield return new WaitForSeconds(2.0f);
+        //Debug.Log("Wait over");
         StartCoroutine(LoadAsyncOperation());
     }
 

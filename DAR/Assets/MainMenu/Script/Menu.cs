@@ -21,6 +21,8 @@ public class Menu : MonoBehaviour
     public bool isNew;
 
     Animator anim;
+
+    public MainMenuToLoadScene loadScenePath;
     
     void Start()
     {
@@ -83,11 +85,8 @@ public class Menu : MonoBehaviour
             playerInventory.WriteInventory();
             hubInventory.WriteInventory();
         }
-        else
-        {
-            // Loard partie dans ce slot
-            SceneManager.LoadScene("LD_Despo");
-        }
+        loadScenePath.sceneToLoad = 2;
+        loadScenePath.GoToLoad();
     }
 
 //------------------------------[Partie Options]------------------------------------------------------------//
