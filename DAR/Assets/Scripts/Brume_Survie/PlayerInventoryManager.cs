@@ -37,7 +37,6 @@ public class PlayerInventoryManager : MonoBehaviour
         foreach (GameObject UIElement in UIElements) {
             UIElement.SetActive(false);
         }
-
         UpdateAll();
     }
 
