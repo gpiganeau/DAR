@@ -22,11 +22,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     void Start()
     {
-       
-
-        UIElements[2] = GameObject.Find("Inventory_Hub_Panel");
-
-
+        //Set un nouvel inventaire ou lit les données d'inventaire sauvegardées
         if (HubInventoryManager.initializeWithLoad) {
             playerInventory = new Inventory(2, "PlayerInventory.json");
         }
@@ -35,13 +31,14 @@ public class PlayerInventoryManager : MonoBehaviour
         }
         
         playerInventory.SetManager(this);
-        UpdateAll();
 
         currentInventoryPanel = UIElements[0];
 
         foreach (GameObject UIElement in UIElements) {
             UIElement.SetActive(false);
         }
+
+        UpdateAll();
     }
 
     void Update()

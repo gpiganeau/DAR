@@ -15,9 +15,23 @@ public class CycleJourNuit : MonoBehaviour {
 
     Quaternion originalRotation;
 
+    //Partie son
+    [FMODUnity.EventRef]
+    public string dayMusicEvent = "";
+    public FMOD.Studio.EventInstance dayMusic;
+
+    public float StartingMusic = 3;
+    float musicState;
+
     void Start() {
         originalRotation = transform.rotation;
         playerIsInside = player.GetComponent<PlayerStatus>().GetShelteredStatus();
+
+        musicState = StartingMusic;
+
+        dayMusic = FMODUnity.RuntimeManager.CreateInstance(dayMusicEvent);
+        dayMusic.setParameterByName("musique", musicState);
+        dayMusic.start();
     }
 
     public void PlayOneDay() {
@@ -29,6 +43,8 @@ public class CycleJourNuit : MonoBehaviour {
     }
 
     public void NightScene() {
+        musicState = 2f;
+        dayMusic.setParameterByName("musique", musicState);
         StartCoroutine(NightSceneCoroutine());
     }
 
@@ -59,6 +75,7 @@ public class CycleJourNuit : MonoBehaviour {
                 
 
     IEnumerator OneDayCoroutine() {
+        bool part2 = false;
         RenderSettings.ambientIntensity = 0.7f;
         RenderSettings.reflectionIntensity = 1f;
         player.GetComponent<PlayerStatus>().SetIsRestingStatus(false);
@@ -69,6 +86,14 @@ public class CycleJourNuit : MonoBehaviour {
         while(rotation < 180f) {
             transform.RotateAround(transform.position, new Vector3(1,0,0), Time.deltaTime * 180 / (dayLength * 60));
             rotation += (Time.deltaTime * 180) / (dayLength * 60);
+            
+            if (rotation > 90f && !part2)
+            {
+                part2 = true;
+                musicState = 1f;
+                dayMusic.setParameterByName("musique", musicState);
+            }
+
             yield return null;
         }
         player.GetComponent<EndDay>().EndThisDayOutside();
@@ -95,5 +120,17 @@ public class CycleJourNuit : MonoBehaviour {
         }
         GameOver(worseConditions);
     }
+    void OnDestroy()
+    {
+        //StopAllPlayerEvents();
+        dayMusic.release();
+    }
 
+    void StopAllPlayerEvents()
+    {
+        FMOD.Studio.Bus playerBus = FMODUnity.RuntimeManager.GetBus("bus:");
+        playerBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
 }
+
+ 

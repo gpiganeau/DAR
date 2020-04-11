@@ -30,18 +30,6 @@ Transform:
   m_Father: {fileID: 2722617377809273774}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2722617377618714448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2976397569101195415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb8d8d99c7d144c4783e1578503f2573, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2722617377809273763
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,11 +208,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2722617377809273774}
     m_Modifications:
-    - target: {fileID: 902663611899274837, guid: 6510eb150a5a75448a947db25a6e20d8,
-        type: 3}
-      propertyPath: m_Name
-      value: Snow_Particles_New
-      objectReference: {fileID: 0}
     - target: {fileID: 904697577624154613, guid: 6510eb150a5a75448a947db25a6e20d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -280,19 +263,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 902663611899274837, guid: 6510eb150a5a75448a947db25a6e20d8,
+        type: 3}
+      propertyPath: m_Name
+      value: Snow_Particles_New
+      objectReference: {fileID: 0}
     - target: {fileID: 1027648282901634075, guid: 6510eb150a5a75448a947db25a6e20d8,
         type: 3}
       propertyPath: VelocityModule.y.minScalar
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 1028151295239595973, guid: 6510eb150a5a75448a947db25a6e20d8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6510eb150a5a75448a947db25a6e20d8, type: 3}
---- !u!1 &2976397569101195415 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 902663611899274837, guid: 6510eb150a5a75448a947db25a6e20d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 2722617375843258050}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2974222604044353335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 904697577624154613, guid: 6510eb150a5a75448a947db25a6e20d8,
@@ -306,11 +293,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2722617377809273774}
     m_Modifications:
-    - target: {fileID: 1588597149839534614, guid: 8cd556bde3ab10a44bc9b6b9924dd93e,
-        type: 3}
-      propertyPath: m_Name
-      value: Camera_Despo
-      objectReference: {fileID: 0}
     - target: {fileID: 1104044544095657293, guid: 8cd556bde3ab10a44bc9b6b9924dd93e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -366,16 +348,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2030370617442644018, guid: 8cd556bde3ab10a44bc9b6b9924dd93e,
+    - target: {fileID: 1588597149839534614, guid: 8cd556bde3ab10a44bc9b6b9924dd93e,
         type: 3}
-      propertyPath: playerBody
-      value: 
-      objectReference: {fileID: 2722617377809273774}
+      propertyPath: m_Name
+      value: Camera_Despo
+      objectReference: {fileID: 0}
     - target: {fileID: 1588597149839534612, guid: 8cd556bde3ab10a44bc9b6b9924dd93e,
         type: 3}
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2030370617442644018, guid: 8cd556bde3ab10a44bc9b6b9924dd93e,
+        type: 3}
+      propertyPath: playerBody
+      value: 
+      objectReference: {fileID: 2722617377809273774}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cd556bde3ab10a44bc9b6b9924dd93e, type: 3}
 --- !u!4 &3070035191930474057 stripped
