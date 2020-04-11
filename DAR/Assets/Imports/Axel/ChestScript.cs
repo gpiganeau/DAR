@@ -5,20 +5,11 @@ using UnityEngine.UI;
 
 public class ChestScript : MonoBehaviour
 {
-    public GameObject chestClosed;
-    public GameObject chestOpened;
-    public GameObject handleClosed;
-    public GameObject handleOpened;
-    
-
-    void Awake()
-    {
-        
-    }
+    public Animator animatorChest;
 
     void Start()
     {
-        
+        animatorChest = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -27,20 +18,12 @@ public class ChestScript : MonoBehaviour
     }
 
     public void Open() {
-        if (chestClosed.activeSelf) {
-            
-            chestClosed.gameObject.SetActive(false);
-            chestOpened.gameObject.SetActive(true);
-            handleClosed.gameObject.SetActive(false);
-            handleOpened.gameObject.SetActive(true); 
+        if (!animatorChest.GetBool("isOpen")) {
+            animatorChest.SetBool("isOpen", true);
         }
 
         else {
-            
-            chestClosed.gameObject.SetActive(true);
-            chestOpened.gameObject.SetActive(false);
-            handleClosed.gameObject.SetActive(true);
-            handleOpened.gameObject.SetActive(false);
+            animatorChest.SetBool("isOpen", false);
         }
         
     }
