@@ -4199,31 +4199,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1585237682}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &360536730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360536726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/IU/Inventory
-  PlayEvent: 12
-  StopEvent: 11
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: Inventory_Close
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1001 &363388382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7451,6 +7426,10 @@ PrefabInstance:
       propertyPath: inventorySlots.Array.data[1]
       value: 
       objectReference: {fileID: 880693608}
+    - target: {fileID: 924330457, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: inventoryEvent
+      value: event:/IU/Inventory
+      objectReference: {fileID: 0}
     - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: fireplace
       value: 
@@ -16435,6 +16414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4957357090557913704, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
+    - {fileID: 8497937851333855759, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
 --- !u!1 &1585237684 stripped
 GameObject:

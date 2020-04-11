@@ -20,6 +20,10 @@ public class PlayerInventoryManager : MonoBehaviour
     
     private bool m_isAxisInUse = false;
 
+    [FMODUnity.EventRef]
+    public string inventoryEvent = "";
+    public FMOD.Studio.EventInstance inventorySound;
+
     void Start()
     {
         //Set un nouvel inventaire ou lit les données d'inventaire sauvegardées
@@ -38,6 +42,8 @@ public class PlayerInventoryManager : MonoBehaviour
             UIElement.SetActive(false);
         }
         UpdateAll();
+
+        inventorySound = FMODUnity.RuntimeManager.CreateInstance(inventoryEvent);
     }
 
     void Update()
@@ -166,12 +172,18 @@ public class PlayerInventoryManager : MonoBehaviour
             pointerUI.SetActive(true);
             currentInventoryPanel.SetActive(false);
             currentInventoryPanel = UIElements[0];
+
+            inventorySound.setParameterByName("Inventory_Open", 0);
+            inventorySound.start();
         }
         else {
             Cursor.lockState = CursorLockMode.None;
             despoMouseLook.ignore = true;
             pointerUI.SetActive(false);
             currentInventoryPanel.SetActive(true);
+
+            inventorySound.setParameterByName("Inventory_Open", 1);
+            inventorySound.start();
         }
     }
 
