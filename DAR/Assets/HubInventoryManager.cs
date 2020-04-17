@@ -6,7 +6,7 @@ using System.IO;
 
 public class HubInventoryManager : MonoBehaviour
 {
-    public static bool initializeWithLoad = false;
+    public static bool initializeWithLoad = true;
 
     public GameObject[] inventorySlots;
 

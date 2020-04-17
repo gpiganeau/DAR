@@ -77,6 +77,7 @@ public class TerrainCamera : MonoBehaviour {
 
     void Start()
     {
+        floorObj = transform.parent.gameObject;
 
         cam = GetComponent<Camera>();
         if (cam == null)
@@ -85,8 +86,11 @@ public class TerrainCamera : MonoBehaviour {
         snowRenderMat = floorObj.GetComponent<Renderer>().material;
 
         // Init cam and place it on the right spot with the right direction
-        cam.transform.position = floorObj.transform.position - floorObj.transform.up;
-        cam.transform.LookAt(floorObj.transform.position + floorObj.transform.up, floorObj.transform.forward);
+        //cam.transform.position = floorObj.transform.position - floorObj.transform.up;
+        //cam.transform.LookAt(floorObj.transform.position + floorObj.transform.up, floorObj.transform.forward);
+
+        cam.transform.position = floorObj.GetComponent<MeshRenderer>().bounds.center + floorObj.transform.up;
+        cam.transform.LookAt(floorObj.GetComponent<MeshRenderer>().bounds.center + floorObj.transform.up, -floorObj.transform.forward);
 
 
         int zBuffSize;
@@ -118,7 +122,7 @@ public class TerrainCamera : MonoBehaviour {
 
         //Setup the camera
 
-        cam.nearClipPlane = 0.0f;
+        cam.nearClipPlane = -snowFarPlane / 2;
         cam.orthographic = true;
         cam.aspect = 1.0f;
         cam.clearFlags = CameraClearFlags.Color;
@@ -136,8 +140,8 @@ public class TerrainCamera : MonoBehaviour {
     void UpdateCamera()
     {
 
-        
-        cam.farClipPlane = snowFarPlane;
+
+        cam.farClipPlane = snowFarPlane / 2;
         cam.orthographicSize = planeSize.x / 2;
 
         // Pass the configuration to the shader
