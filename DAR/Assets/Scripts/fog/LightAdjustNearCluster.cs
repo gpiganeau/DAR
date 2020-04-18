@@ -6,16 +6,21 @@ public class LightAdjustNearCluster : MonoBehaviour
 {
     [SerializeField] private Light directionalLight;
     [SerializeField] private Transform parentTransform;
-    
+
+    private Coroutine coroutine;
+
     private float densityValue;
     private float colliderSizeX;
     private float colliderSizeZ;
     private Vector3 colliderCenter;
-    private float xDistance;
-    private float zDistance;
+    private float xCoord;
+    private float zCoord;
+    private float xprime;
+    private float zprime;
     private float xLerpValue;
     private float zLerpValue;
-    private float Distance; //selon la norme infinie de R²
+    private float phi;
+    private float Distance; //selon la norme deux de R²
     // private float shadowsValue;
     // Start is called before the first frame update
     void Start() {
@@ -30,17 +35,51 @@ public class LightAdjustNearCluster : MonoBehaviour
 
     }
 
+    IEnumerator RestartLight() {
+        while(directionalLight.intensity != 1) {
+            directionalLight.shadowStrength = Mathf.MoveTowards(directionalLight.shadowStrength, .75f, Time.deltaTime);
+            directionalLight.intensity = Mathf.MoveTowards(directionalLight.intensity, 1f, Time.deltaTime);
 
+            yield return null;
+        }
+        
+    }
 
     private void OnTriggerStay(Collider other) {
-        xDistance = (other.transform.position.x - colliderCenter.x);
-        zDistance = (other.transform.position.z - colliderCenter.z);
-        //Distance = Mathf.Max(Mathf.Abs(xDistance), Mathf.Abs(yDistance));
+        xCoord = other.transform.position.x - colliderCenter.x;
+        zCoord = other.transform.position.z - colliderCenter.z;
 
-        xLerpValue = Mathf.Clamp01((Mathf.Abs(xDistance) - (colliderSizeX / 4)) / (colliderSizeX / 2));
-        zLerpValue = Mathf.Clamp01((Mathf.Abs(zDistance) - (colliderSizeZ / 4)) / (colliderSizeZ / 2));
+
+        phi = transform.rotation.eulerAngles.y;
+
+        xprime = xCoord * Mathf.Cos(phi) + zCoord * Mathf.Sin(phi);
+        zprime = - xCoord * Mathf.Sin(phi) + zCoord * Mathf.Cos(phi);
+        //Distance = Mathf.Sqrt(   .Max(Mathf.Abs(xDistance), Mathf.Abs(yDistance));
+
+        
+
+        xprime = 2 * Mathf.Abs(xprime) / colliderSizeX;
+        zprime = 2 * Mathf.Abs(zprime) / colliderSizeZ;
+
+        Debug.Log(xprime);
+
+        xLerpValue = Mathf.Clamp01(xprime - 0.5f);
+        zLerpValue = Mathf.Clamp01(zprime - 0.5f);
+
+        //Debug.Log(Mathf.Max(xLerpValue, zLerpValue) * 2);
 
         directionalLight.shadowStrength = Mathf.Lerp(.1f, .75f, Mathf.Max(xLerpValue, zLerpValue) * 2);
         directionalLight.intensity = Mathf.Lerp(.4f, 1, Mathf.Max(xLerpValue, zLerpValue) * 2);
     }
+
+    private void OnTriggerExit(Collider other) {
+        coroutine = StartCoroutine(RestartLight());
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        StopCoroutine(coroutine);
+    }
+
 }
+    
+
