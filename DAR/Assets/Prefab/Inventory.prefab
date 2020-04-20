@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 135492684}
   - component: {fileID: 135492683}
   - component: {fileID: 381793915}
+  - component: {fileID: 2143667485}
   m_Layer: 5
   m_Name: Slot6_Panel
   m_TagString: Untagged
@@ -267,7 +268,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 135492683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2143667485}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2143667485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135492681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &471823800
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +305,7 @@ GameObject:
   - component: {fileID: 471823803}
   - component: {fileID: 471823802}
   - component: {fileID: 1771616474}
+  - component: {fileID: 644249831}
   m_Layer: 5
   m_Name: Slot7_Panel
   m_TagString: Untagged
@@ -380,7 +406,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 471823802}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 644249831}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &644249831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471823800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &496815930
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +631,7 @@ GameObject:
   - component: {fileID: 983217306}
   - component: {fileID: 983217305}
   - component: {fileID: 109811392}
+  - component: {fileID: 1789500821}
   m_Layer: 5
   m_Name: Slot1_Panel
   m_TagString: Untagged
@@ -681,7 +732,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 983217305}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1789500821}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1789500821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983217303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &1006239659
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +769,7 @@ GameObject:
   - component: {fileID: 1006239662}
   - component: {fileID: 1006239661}
   - component: {fileID: 228488427}
+  - component: {fileID: 950954296}
   m_Layer: 5
   m_Name: Slot2_Panel
   m_TagString: Untagged
@@ -794,7 +870,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1006239661}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 950954296}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &950954296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006239659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &1007374000
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +907,7 @@ GameObject:
   - component: {fileID: 1007374003}
   - component: {fileID: 1007374002}
   - component: {fileID: 880693612}
+  - component: {fileID: 1946941561}
   m_Layer: 5
   m_Name: Slot2_Panel
   m_TagString: Untagged
@@ -907,7 +1008,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1007374002}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1946941561}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1946941561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007374000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &1012397686
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +1045,7 @@ GameObject:
   - component: {fileID: 1012397689}
   - component: {fileID: 1012397688}
   - component: {fileID: 1564250322}
+  - component: {fileID: 243826303}
   m_Layer: 5
   m_Name: Slot3_Panel
   m_TagString: Untagged
@@ -1020,7 +1146,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1012397688}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 243826303}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &243826303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012397686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &1030898341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1183,7 @@ GameObject:
   - component: {fileID: 1030898344}
   - component: {fileID: 1030898343}
   - component: {fileID: 690546493}
+  - component: {fileID: 2113753185}
   m_Layer: 5
   m_Name: Slot5_Panel
   m_TagString: Untagged
@@ -1133,7 +1284,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1030898343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2113753185}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2113753185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030898341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &1046773361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1321,7 @@ GameObject:
   - component: {fileID: 1046773364}
   - component: {fileID: 1046773363}
   - component: {fileID: 546374334}
+  - component: {fileID: 1378960719}
   m_Layer: 5
   m_Name: Slot8_Panel
   m_TagString: Untagged
@@ -1246,7 +1422,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1046773363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1378960719}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1378960719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046773361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &1296123879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,6 +1533,7 @@ GameObject:
   - component: {fileID: 1420015730}
   - component: {fileID: 1420015729}
   - component: {fileID: 448070936}
+  - component: {fileID: 1777412135}
   m_Layer: 5
   m_Name: Slot1_Panel
   m_TagString: Untagged
@@ -1433,7 +1634,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1420015729}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1777412135}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1777412135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420015727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &1489470593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1743,7 @@ GameObject:
   - component: {fileID: 1592496127}
   - component: {fileID: 1592496126}
   - component: {fileID: 99093090}
+  - component: {fileID: 495028299}
   m_Layer: 5
   m_Name: Slot9_Panel
   m_TagString: Untagged
@@ -1618,7 +1844,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1592496126}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 495028299}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &495028299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592496124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &1817333815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,8 +1880,6 @@ GameObject:
   - component: {fileID: 1817333816}
   - component: {fileID: 1817333818}
   - component: {fileID: 1817333817}
-  - component: {fileID: 8497937851333855759}
-  - component: {fileID: 4957357090557913704}
   m_Layer: 5
   m_Name: Inventory_Bag_Panel
   m_TagString: Untagged
@@ -1695,56 +1943,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &8497937851333855759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817333815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/UI/Inventory/Use
-  PlayEvent: 11
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: InUse
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &4957357090557913704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817333815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/UI/Inventory/Use
-  PlayEvent: 12
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: InUse
-    Value: 0
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1896108698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,6 +1992,7 @@ GameObject:
   - component: {fileID: 1932495360}
   - component: {fileID: 1932495359}
   - component: {fileID: 1673737561}
+  - component: {fileID: 1026274993}
   m_Layer: 5
   m_Name: Slot4_Panel
   m_TagString: Untagged
@@ -1894,7 +2093,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1932495359}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1026274993}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1026274993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932495357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!1 &210521479982559449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,13 +2614,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2722617377809273763, guid: dbc32fe3095c0c5498d951b462f9c46a,
-          type: 3}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_MethodName: DepositInventory
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4857,7 +5079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -26, y: -49}
+  m_AnchoredPosition: {x: -26, y: -49.000122}
   m_SizeDelta: {x: 0, y: -844.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5136977537762913187
@@ -8428,7 +8650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -51, y: -55}
+  m_AnchoredPosition: {x: -51, y: -55.000122}
   m_SizeDelta: {x: 0, y: -844.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5136977539634785371
@@ -10575,8 +10797,6 @@ GameObject:
   - component: {fileID: 1172084091265468244}
   - component: {fileID: 3506112094024235715}
   - component: {fileID: 232028447}
-  - component: {fileID: 6956665963585032660}
-  - component: {fileID: 6598163891585756077}
   m_Layer: 5
   m_Name: Crafting_Panel
   m_TagString: Untagged
@@ -10660,44 +10880,6 @@ MonoBehaviour:
   playerInventoryManager: {fileID: 0}
   workBench: {fileID: 0}
   player: {fileID: 0}
---- !u!223 &6956665963585032660
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760151911710383277}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!114 &6598163891585756077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760151911710383277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &8125537461829718117
 GameObject:
   m_ObjectHideFlags: 0
