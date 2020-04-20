@@ -54,6 +54,7 @@ public class PlayerInventoryManager : MonoBehaviour
             if(m_isAxisInUse == false)
             {
                 ShowUI();
+                EnableMovement(true);
                 m_isAxisInUse = true;
             }
         }
