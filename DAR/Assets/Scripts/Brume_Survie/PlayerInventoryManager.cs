@@ -194,14 +194,23 @@ public class PlayerInventoryManager : MonoBehaviour
     public void ShowAlternateUI(int UIIndex) {
         if (!currentInventoryPanel.activeSelf) {
             currentInventoryPanel = UIElements[UIIndex];
+            if (UIIndex >= 2)
+            { EnableMovement(false); }
             ShowUI();
         }
         else {
+            EnableMovement(true);
             ShowUI();
         }
     }
 
-    
+    public void EnableMovement(bool state)
+    {
+        GetComponent<CharacterController>().enabled = state;
+        GetComponent<PlayerMovement>().enabled = state;
+        GetComponentInChildren<Headbobber>().enabled = state;
+    }
+
     public class Inventory {
 
         public List<Item> content;

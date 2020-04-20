@@ -130,7 +130,7 @@ public class InteractWithItems : MonoBehaviour
                             break;
             */
             case "chest":
-               // playerInventoryManager.DepositInventory();
+                //playerInventoryManager.DepositInventory();
                 collectible.GetComponent<ChestScript>().Open();
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(2);
                 break;

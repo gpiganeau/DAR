@@ -246,6 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef2056b3ea6fdd429516aed40c46357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventoryManager: {fileID: 0}
+  rotSpeed: 0
+  player_camera: {fileID: 0}
 --- !u!114 &924330457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +271,7 @@ MonoBehaviour:
   inventorySlots:
   - {fileID: 0}
   - {fileID: 0}
+  inventoryEvent: event:/IU/Inventory
 --- !u!114 &924330458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,8 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c8b01ee22f3d74bbac7fff432a932d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FootstepsEventPath: event:/Character/Movement/Footsteps
-  JumpingEventPath: event:/Character/Movement/Jump & Land
+  FootstepsEventPath: event:/Character/Footsteps
+  JumpingEventPath: 
   MaterialParameterName: Material
   SpeedParameterName: Speed Switch
   JumpOrLandParameterName: Jump Or Land
@@ -410,6 +414,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2722617377809273773, guid: dbc32fe3095c0c5498d951b462f9c46a,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.8789291
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722617377809273773, guid: dbc32fe3095c0c5498d951b462f9c46a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.43946457
+      objectReference: {fileID: 0}
     - target: {fileID: 3070035191930474057, guid: dbc32fe3095c0c5498d951b462f9c46a,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -459,16 +473,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180.00002
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722617377809273773, guid: dbc32fe3095c0c5498d951b462f9c46a,
-        type: 3}
-      propertyPath: m_Height
-      value: 2.8789291
-      objectReference: {fileID: 0}
-    - target: {fileID: 2722617377809273773, guid: dbc32fe3095c0c5498d951b462f9c46a,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.43946457
       objectReference: {fileID: 0}
     - target: {fileID: 3137424265420591833, guid: dbc32fe3095c0c5498d951b462f9c46a,
         type: 3}
