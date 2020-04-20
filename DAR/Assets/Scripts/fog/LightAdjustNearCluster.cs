@@ -61,8 +61,6 @@ public class LightAdjustNearCluster : MonoBehaviour
         xprime = 2 * Mathf.Abs(xprime) / colliderSizeX;
         zprime = 2 * Mathf.Abs(zprime) / colliderSizeZ;
 
-        Debug.Log(xprime);
-
         xLerpValue = Mathf.Clamp01(xprime - 0.5f);
         zLerpValue = Mathf.Clamp01(zprime - 0.5f);
 
