@@ -75,9 +75,11 @@ public class LightAdjustNearCluster : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        StopCoroutine(coroutine);
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
     }
-
 }
     
 

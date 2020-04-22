@@ -16,6 +16,7 @@ public class InteractWithItems : MonoBehaviour
     [SerializeField] Item wood;
     [SerializeField] Item mushroom;
     [SerializeField] Item plank;
+    [SerializeField] Item radioPiece;
 
     string objectName;
     public Camera player_camera;
@@ -165,6 +166,18 @@ public class InteractWithItems : MonoBehaviour
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(3);
                 break;
 
+            case "radioPiece":
+                Item newItem3 = Instantiate<Item>(radioPiece);
+                if (playerInventoryManager.AddItem(newItem3)) {
+                   
+                    
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo("Pièce radio ajoutée");
+                }
+                else {
+                    infoManager.ShowInfo("Inventaire plein");
+                }
+                break;
         }
         return;
     }
