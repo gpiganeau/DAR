@@ -16,7 +16,10 @@ public class InteractWithItems : MonoBehaviour
     [SerializeField] Item wood;
     [SerializeField] Item mushroom;
     [SerializeField] Item plank;
-    [SerializeField] Item radioPiece;
+    [SerializeField] Item radioPiece1;
+    [SerializeField] Item radioPiece2;
+    [SerializeField] Item radioPiece3;
+    [SerializeField] Item radioPiece4;
 
     string objectName;
     public Camera player_camera;
@@ -166,8 +169,8 @@ public class InteractWithItems : MonoBehaviour
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(3);
                 break;
 
-            case "radioPiece":
-                Item newItem3 = Instantiate<Item>(radioPiece);
+            case "radioPiece1":
+                Item newItem3 = Instantiate<Item>(radioPiece1);
                 if (playerInventoryManager.AddItem(newItem3)) {
                    
                     
@@ -175,7 +178,43 @@ public class InteractWithItems : MonoBehaviour
                     infoManager.ShowInfo("Pièce radio ajoutée");
                 }
                 else {
-                    infoManager.ShowInfo("Inventaire plein");
+                    infoManager.ShowInfo("Nécéssite " + radioPiece1.weight + " places !");
+                }
+                break;
+            case "radioPiece2":
+                Item newItem4 = Instantiate<Item>(radioPiece2);
+                if (playerInventoryManager.AddItem(newItem4)) {
+                   
+                    
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo("Pièce radio ajoutée");
+                }
+                else {
+                    infoManager.ShowInfo("Nécéssite " + radioPiece2.weight + " places !");
+                }
+                break;
+            case "radioPiece3":
+                Item newItem5 = Instantiate<Item>(radioPiece3);
+                if (playerInventoryManager.AddItem(newItem5)) {
+                   
+                    
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo("Pièce radio ajoutée");
+                }
+                else {
+                    infoManager.ShowInfo("Nécéssite " + radioPiece3.weight + " places !");
+                }
+                break;
+            case "radioPiece4":
+                Item newItem6 = Instantiate<Item>(radioPiece4);
+                if (playerInventoryManager.AddItem(newItem6)) {
+                   
+                    
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo("Pièce radio ajoutée");
+                }
+                else {
+                    infoManager.ShowInfo("Nécéssite " + radioPiece4.weight + " places !");
                 }
                 break;
         }
