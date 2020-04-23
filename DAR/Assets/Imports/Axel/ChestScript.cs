@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ChestScript : MonoBehaviour
 {
     public Animator animatorChest;
+    public GameObject chestPanel;
 
     void Start()
     {
@@ -14,7 +15,11 @@ public class ChestScript : MonoBehaviour
 
     void Update()
     {
-
+        if(chestPanel.activeSelf == true)
+        {
+            animatorChest.SetBool("isOpen", true);
+        }
+        else animatorChest.SetBool("isOpen", false);
     }
 
     public void Open() {

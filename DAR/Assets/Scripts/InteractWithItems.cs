@@ -135,7 +135,7 @@ public class InteractWithItems : MonoBehaviour
             */
             case "chest":
                 //playerInventoryManager.DepositInventory();
-                collectible.GetComponent<ChestScript>().Open();
+                //collectible.GetComponent<ChestScript>().Open();
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(2);
                 break;
             case "bed":
