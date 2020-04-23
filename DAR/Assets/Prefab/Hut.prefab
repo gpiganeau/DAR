@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &964592801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964592802}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &964592802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964592801}
+  m_LocalRotation: {x: -0, y: 0.96103776, z: -0, w: -0.27641717}
+  m_LocalPosition: {x: 0.030665947, y: 0.10399933, z: -0.04521071}
+  m_LocalScale: {x: 0.20000002, y: 0.2, z: 0.20000002}
+  m_Children: []
+  m_Father: {fileID: 1006814718399061536}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1006814717303245510
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +123,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006814718398562816}
-  m_LocalRotation: {x: -0, y: 0.09103949, z: -0, w: 0.9958473}
+  m_LocalRotation: {x: 0, y: 0.091041036, z: 0, w: 0.99584717}
   m_LocalPosition: {x: 365.16217, y: 57.45, z: 256.51505}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
@@ -109,6 +139,7 @@ Transform:
   - {fileID: 1006814717303245511}
   - {fileID: 1006814718672770867}
   - {fileID: 5092840272587260314}
+  - {fileID: 964592802}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 10.4470005, z: 0}
@@ -124,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed68076be1b1bc14c8387c613e77811e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openedDoor: {fileID: 0}
+  openedDoor: {fileID: 5092840272586972602}
 --- !u!1 &1006814718398562818
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,9 +1003,13 @@ GameObject:
   - component: {fileID: 5092840272587260314}
   - component: {fileID: 5092840272588063162}
   - component: {fileID: 5092840272589161338}
+  - component: {fileID: 215788188}
+  - component: {fileID: 215788189}
+  - component: {fileID: 215788187}
+  - component: {fileID: 215788190}
   m_Layer: 0
   m_Name: Door.003
-  m_TagString: Untagged
+  m_TagString: interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1038,3 +1073,63 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &215788188
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092840272586972602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.006118999, y: 0.0021244357, z: 0.009718057}
+  m_Center: {x: 0.0026424942, y: -0.0005379227, z: 0.0048589846}
+--- !u!95 &215788189
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092840272586972602}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a81f9971e5ebed64b88176f3867e775d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &215788187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092840272586972602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd98601e646ab7449b80661fe1ead3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: door
+  numberOfUses: 1
+--- !u!114 &215788190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092840272586972602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becb2c5806d3fb749a43841a49900bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatorDoor: {fileID: 215788189}
+  doorEvent: event:/Environnement/HUT/Door
