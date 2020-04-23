@@ -23,7 +23,7 @@ public class ResetTerrainOnDestroy : MonoBehaviour {
         originalHeights = Terrain.terrainData.GetHeights(
             0, 0, Terrain.terrainData.heightmapWidth, Terrain.terrainData.heightmapHeight);
         originalTextureMap = Terrain.terrainData.GetAlphamaps(
-            0, 0, Terrain.terrainData.heightmapResolution - 1, Terrain.terrainData.heightmapResolution - 1);
+            0, 0, Terrain.terrainData.alphamapResolution, Terrain.terrainData.alphamapResolution);
     }
 
     #endregion

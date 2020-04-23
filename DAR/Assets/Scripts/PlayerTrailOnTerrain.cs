@@ -29,28 +29,26 @@ public class PlayerTrailOnTerrain : MonoBehaviour
     void Start()
     {
         if(playerObj == null) {
-            playerObj = GameObject.Find("FPS_Character");
+            playerObj = GameObject.Find("player");
         }
         terr = this.gameObject.GetComponent<Terrain>();
         td = terr.terrainData;
-        hmWidth = td.heightmapWidth;
-        hmHeight = td.heightmapHeight;
-        mapResolution = td.heightmapResolution;
+        hmWidth = td.alphamapWidth;
+        hmHeight = td.alphamapHeight;
+        mapResolution = td.alphamapResolution;
         playerHasPassed = new bool[mapResolution, mapResolution];
         lastPosition = FindPlayerPosition();
     }
 
     // Update is called once per frame
     void Update() {
-        Debug.Log(playerObj.GetComponent<BallController>().AmIGrounded());
-        if (playerObj.GetComponent<BallController>().AmIGrounded()) {
+        if (playerObj.GetComponent<PlayerMovement>().AmIGrounded()) {
             playerPositionOnTerrain = FindPlayerPosition();
             if (lastPosition != playerPositionOnTerrain) {
-                brush = UpdateBrush(playerPositionOnTerrain, 4);
+                brush = UpdateBrush(playerPositionOnTerrain, 2);
                 ChangeArray tilesToChange = WhoChanged(brush);
                 UpdateVisibleTrail(tilesToChange);
                 lastPosition = playerPositionOnTerrain;
-                playerObj.GetComponent<Collecte>().collect += tilesToChange.quantity;
             }
         }
     }
@@ -76,7 +74,7 @@ public class PlayerTrailOnTerrain : MonoBehaviour
         brush = new Vector2Int[0];
         if (type == "Trail") {
             brush = new Vector2Int[size * size];
-            int offset = size / 2;
+            int offset = Mathf.FloorToInt(size / 2);
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
                     brush[i * size + j] = new Vector2Int(playerPositionOnTerrain.x - offset + i, playerPositionOnTerrain.y - offset + j);
@@ -93,11 +91,12 @@ public class PlayerTrailOnTerrain : MonoBehaviour
             int posY = Vector2Min("Y", tilesToChange.coordinatesArray);
             int length = Vector2Max("X", tilesToChange.coordinatesArray) - posX + 1;
             int width = Vector2Max("Y", tilesToChange.coordinatesArray) - posY + 1;
-            float[,,] map = new float[width, length, 2];
+            float[,,] map = new float[width, length, 3];
             for (int i = 0; i < width; i++) {
                 for (int j = 0; j < length; j++) {
-                    map[i, j, 0] = 1f;
+                    map[i, j, 0] = 0f;
                     map[i, j, 1] = 0f;
+                    map[i, j, 2] = 1f;
                 }
             }
             td.SetAlphamaps(posX, posY, map);
