@@ -41,7 +41,7 @@ public class PlayerStatus : MonoBehaviour
     }
 
     private void Update() {
-        if (fireplace.GetComponent<FireplaceScript>().fireplaceOn.activeSelf) {
+        if (fireplace.GetComponent<FireplaceScript>().fireParticles.activeSelf) {
             isWarm = true;
         }
         else {
