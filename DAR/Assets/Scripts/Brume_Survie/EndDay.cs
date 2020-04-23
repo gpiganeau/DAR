@@ -33,7 +33,7 @@ public class EndDay : MonoBehaviour
 
     public void StartDay() {
         firePlace.GetComponent<FireplaceScript>().fireParticles.SetActive(false);
-        firePlace.GetComponent<FireplaceScript>().fireplaceOn.SetActive(false);
+        //firePlace.GetComponent<FireplaceScript>().fireplaceOn.SetActive(false);
         string currentDay = "Day " + loadedDay.day.ToString();
         canvas.GetComponentInChildren<TextMeshProUGUI>().text = currentDay;
         canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", false);

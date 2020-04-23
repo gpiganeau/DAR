@@ -5,7 +5,7 @@ using System.IO;
 
 public class FireplaceScript : MonoBehaviour
 {
-    public GameObject fireplaceOn;
+    //public GameObject fireplaceOn;
     public GameObject fireParticles;
     public GameObject player;
 
@@ -21,8 +21,8 @@ public class FireplaceScript : MonoBehaviour
 
     public void Light() {
 
-        if (fireplaceOn.activeSelf == false) {
-            fireplaceOn.gameObject.SetActive(true);
+        if (fireParticles.activeSelf == false) {
+           // fireplaceOn.gameObject.SetActive(true);
             fireParticles.gameObject.SetActive(true);
             player.GetComponent<PlayerInventoryManager>().Consume("wood", 3);
         }
