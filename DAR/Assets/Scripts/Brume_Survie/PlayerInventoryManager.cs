@@ -8,16 +8,18 @@ public class PlayerInventoryManager : MonoBehaviour
 {
 
     Inventory playerInventory;
-    
 
     [SerializeField] private HubInventoryManager hubInventoryManager;
     public GameObject pointerUI;
+    [SerializeField] private Image weightFillBar;
 
     public GameObject[] UIElements = new GameObject[4];
     private GameObject currentInventoryPanel;
 
     public GameObject[] inventorySlots;
+
     
+
     private bool m_isAxisInUse = false;
 
     [FMODUnity.EventRef]
@@ -162,6 +164,7 @@ public class PlayerInventoryManager : MonoBehaviour
         foreach (Item item in inventoryTemp) {
             AddItemInUI(item);
         }
+        weightFillBar.fillAmount = (float) playerInventory.currentWeight / (float) playerInventory.maxWeight;
     }
 
     public void ShowUI()
