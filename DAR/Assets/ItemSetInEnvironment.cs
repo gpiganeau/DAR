@@ -17,18 +17,28 @@ public class ItemSetInEnvironment : MonoBehaviour
     float x;
     float y;
 
+    Vector3 offset; //vector by which to move the transform so that it is all the way out of the ground
+
 
     public void PutInHand(Item item, int index) {
         if (!itemInHand) {
-            instanciatedItem = Instantiate<GameObject>(item.prefab, hand);
+            instanciatedItem = Instantiate(item.prefab, hand);
             instanciatedItem.layer = 11;
+
+            try {
+                offset = new Vector3(0, instanciatedItem.GetComponent<MeshFilter>().mesh.bounds.extents.y * transform.localScale.y / 2, 0);
+            }
+            catch {
+                offset = new Vector3(0, instanciatedItem.GetComponentInChildren<MeshFilter>().mesh.bounds.extents.y * instanciatedItem.GetComponentInChildren<MeshFilter>().transform.localScale.y / 2, 0);
+            }
+            Debug.Log(offset.ToString());
             itemInHand = item;
             playerInventoryManager.RemoveItemAt(index);
         }
         else {
             Destroy(instanciatedItem);
             playerInventoryManager.AddItem(itemInHand);
-            instanciatedItem = Instantiate<GameObject>(item.prefab, hand);
+            instanciatedItem = Instantiate(item.prefab, hand);
             instanciatedItem.layer = 11;
             itemInHand = item;
             playerInventoryManager.RemoveItemAt(index);
@@ -43,28 +53,29 @@ public class ItemSetInEnvironment : MonoBehaviour
             Destroy(instanciatedItem);
             instanciatedItem = null;
             itemInHand = null;
-
         }
     }
 
     private void Update() {
-        if (Input.GetButtonDown("Fire") && !playerInventoryManager.IsUIOpen()) {
-            HandToWorld();
+        hand.rotation.SetLookRotation(Vector3.up, new Vector3(0,1,0));
+        if (itemInHand) {
+            if (Input.GetButtonDown("Fire") && !playerInventoryManager.IsUIOpen()) {
+                HandToWorld();
+            }
+            if (Input.GetButton("Recharge") && !playerInventoryManager.IsUIOpen()) {
+                hand.Rotate(Vector3.up, rotSpeed * Time.deltaTime);
+            }
+            RaycastHit hit;
+            Ray ray = player_camera.ScreenPointToRay(new Vector2(x, y));
+            if (Physics.Raycast(ray, out hit, 10, ~(1 << 11))) {
+                hand.position = hit.point + offset;
+            }
+            else {
+                hand.localPosition = new Vector3(0, 0, 10);
+                Physics.Raycast(hand.position, Vector3.down, out hit, 50f, ~(1 << 11));
+                hand.position = hit.point + offset;
+            }
         }
-        if (Input.GetButton("Recharge") && !playerInventoryManager.IsUIOpen()) {
-            hand.Rotate(Vector3.up, rotSpeed * Time.deltaTime);
-        }
-        RaycastHit hit;
-        Ray ray = player_camera.ScreenPointToRay(new Vector2(x, y));
-        if (Physics.Raycast(ray, out hit, 10, ~(1 << 11))) {
-            hand.position = hit.point;
-        }
-        else {
-            hand.localPosition = new Vector3(0, 0, 10);
-            Physics.Raycast(hand.position, Vector3.down, out hit, 50f,~(1 << 11));
-            hand.position = hit.point;
-        }
-
     }
 
     private void Start() {
