@@ -146,6 +146,7 @@ public class PlayerInventoryManager : MonoBehaviour
         currentInventoryPanel.SetActive(false); //On éteind l'ancien panel
         currentInventoryPanel = UIElements[0];  //On change le current panel
         currentInventoryPanel.SetActive(true);  // Et on le rallume
+        weightFillBar = currentInventoryPanel.transform.Find("WeightBar_UI").GetChild(0).GetComponent<Image>();
 
         inventorySlots = new GameObject[_playerInventory.maxWeight];
         for (int i = 0; i < inventorySlots.Length; i++)

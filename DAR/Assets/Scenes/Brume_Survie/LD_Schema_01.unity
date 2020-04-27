@@ -11153,6 +11153,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 243826303, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
+      propertyPath: itemSetInEnvironment
+      value: 
+      objectReference: {fileID: 628572747}
     - target: {fileID: 5136977538572572282, guid: 2de9037b3a6ca0546b18105f44d4915c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11282,10 +11286,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 628572747}
     - target: {fileID: 950954296, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
-      propertyPath: itemSetInEnvironment
-      value: 
-      objectReference: {fileID: 628572747}
-    - target: {fileID: 243826303, guid: 2de9037b3a6ca0546b18105f44d4915c, type: 3}
       propertyPath: itemSetInEnvironment
       value: 
       objectReference: {fileID: 628572747}
@@ -28983,6 +28983,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 149540081}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1073678993 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 837659906136265746, guid: 2de9037b3a6ca0546b18105f44d4915c,
+    type: 3}
+  m_PrefabInstance: {fileID: 410073146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1074874391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8565685047591761735, guid: 8e44163c5f0a97945a9e7a65a9a112e9,
@@ -40093,7 +40105,9 @@ GameObject:
   - component: {fileID: 1454798105}
   - component: {fileID: 1454798104}
   - component: {fileID: 1454798103}
-  m_Layer: 0
+  - component: {fileID: 1454798107}
+  - component: {fileID: 1454798106}
+  m_Layer: 9
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40162,6 +40176,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1454798106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454798102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c2583148313f544b7f9b1cb0e53dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Terrain: {fileID: 1454798104}
+--- !u!114 &1454798107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454798102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea6546a956961f40820955a231ad864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerObj: {fileID: 628572739}
+  indexOfTrail: 2
 --- !u!4 &1455737818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6499297322174372949, guid: 8c841f2c88400494493ad273b8d7a361,
@@ -48606,6 +48647,10 @@ PrefabInstance:
       propertyPath: inventorySlots.Array.data[1]
       value: 
       objectReference: {fileID: 1946941556}
+    - target: {fileID: 924330457, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: weightFillBar
+      value: 
+      objectReference: {fileID: 1073678993}
     - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: hubInventoryManager
       value: 
