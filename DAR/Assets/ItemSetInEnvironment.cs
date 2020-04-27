@@ -29,7 +29,6 @@ public class ItemSetInEnvironment : MonoBehaviour
                 offset = new Vector3(0, instanciatedItem.GetComponent<MeshFilter>().mesh.bounds.extents.y * transform.localScale.y / 2, 0);
             }
             catch {
-                Debug.Log("Second Chance");
                 offset = new Vector3(0, instanciatedItem.GetComponentInChildren<MeshFilter>().mesh.bounds.extents.y * instanciatedItem.GetComponentInChildren<MeshFilter>().transform.localScale.y / 2, 0);
             }
             Debug.Log(offset.ToString());
@@ -54,11 +53,11 @@ public class ItemSetInEnvironment : MonoBehaviour
             Destroy(instanciatedItem);
             instanciatedItem = null;
             itemInHand = null;
-
         }
     }
 
     private void Update() {
+        hand.rotation.SetLookRotation(Vector3.up, new Vector3(0,1,0));
         if (itemInHand) {
             if (Input.GetButtonDown("Fire") && !playerInventoryManager.IsUIOpen()) {
                 HandToWorld();
