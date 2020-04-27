@@ -19,6 +19,7 @@ public class PlayerTrailOnTerrain : MonoBehaviour
     private float[,,] splatmapData;
     private Vector2Int[] brush;
     private Vector2Int lastPosition;
+    [SerializeField] private int indexOfTrail;
 
 
     private struct ChangeArray {
@@ -91,12 +92,13 @@ public class PlayerTrailOnTerrain : MonoBehaviour
             int posY = Vector2Min("Y", tilesToChange.coordinatesArray);
             int length = Vector2Max("X", tilesToChange.coordinatesArray) - posX + 1;
             int width = Vector2Max("Y", tilesToChange.coordinatesArray) - posY + 1;
-            float[,,] map = new float[width, length, 3];
+            float[,,] map = new float[width, length, td.alphamapLayers];
             for (int i = 0; i < width; i++) {
                 for (int j = 0; j < length; j++) {
-                    map[i, j, 0] = 0f;
-                    map[i, j, 1] = 0f;
-                    map[i, j, 2] = 1f;
+                    for(int k =0; k < td.alphamapLayers; k++) {
+                        map[i, j, k] = (k == indexOfTrail) ? 1f : 0f;
+                        
+                    }
                 }
             }
             td.SetAlphamaps(posX, posY, map);
