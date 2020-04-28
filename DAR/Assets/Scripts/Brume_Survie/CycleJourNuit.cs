@@ -9,6 +9,9 @@ public class CycleJourNuit : MonoBehaviour {
     [SerializeField] private float dayLength;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject timerText;
+    [SerializeField] private Material daySkybox;
+    [SerializeField] private Material nightSkybox;
+
     bool playerIsInside;
     private Coroutine coroutineReference;
     public float timer;
@@ -78,6 +81,7 @@ public class CycleJourNuit : MonoBehaviour {
         bool part2 = false;
         RenderSettings.ambientIntensity = 0.7f;
         RenderSettings.reflectionIntensity = 1f;
+        RenderSettings.skybox = daySkybox;
         player.GetComponent<PlayerStatus>().SetIsRestingStatus(false);
         timerText.SetActive(false);
         GetComponent<Light>().intensity = 1;
@@ -101,11 +105,13 @@ public class CycleJourNuit : MonoBehaviour {
     }
 
     IEnumerator NightSceneCoroutine() {
+        
         timerText.SetActive(true);
         bool worseConditions = true;
         timer = 30f;
         GetComponent<Light>().intensity = 0;
         while (timer > 0) {
+            RenderSettings.skybox = nightSkybox;
             RenderSettings.ambientIntensity = Mathf.MoveTowards(RenderSettings.ambientIntensity, 0.1f, Time.deltaTime / (5 * dayLength) );
             RenderSettings.reflectionIntensity = Mathf.MoveTowards(RenderSettings.reflectionIntensity, 0.1f, Time.deltaTime);
             timerText.GetComponent<TextMeshProUGUI>().text = timer.ToString("#.0");
