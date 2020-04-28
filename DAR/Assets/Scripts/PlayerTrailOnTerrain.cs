@@ -96,7 +96,7 @@ public class PlayerTrailOnTerrain : MonoBehaviour
             for (int i = 0; i < width; i++) {
                 for (int j = 0; j < length; j++) {
                     for(int k =0; k < td.alphamapLayers; k++) {
-                        map[i, j, k] = (k == indexOfTrail) ? 1f : 0f;
+                        map[i, j, k] += (k == indexOfTrail) ? 1f : 0f;
                     }
                 }
             }

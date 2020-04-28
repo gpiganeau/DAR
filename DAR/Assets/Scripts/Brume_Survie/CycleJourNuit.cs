@@ -15,6 +15,7 @@ public class CycleJourNuit : MonoBehaviour {
     bool playerIsInside;
     private Coroutine coroutineReference;
     public float timer;
+    private float eveningLength;
 
     Quaternion originalRotation;
 
@@ -27,6 +28,7 @@ public class CycleJourNuit : MonoBehaviour {
     float musicState;
 
     void Start() {
+        eveningLength = dayLength / 5;
         originalRotation = transform.rotation;
         playerIsInside = player.GetComponent<PlayerStatus>().GetShelteredStatus();
 
@@ -61,7 +63,7 @@ public class CycleJourNuit : MonoBehaviour {
         }
 
 
-        if ((freezingLevel > 1) || !player.GetComponent<PlayerStatus>().GetShelteredStatus()){
+        if ((freezingLevel > 1) || !player.GetComponent<PlayerStatus>().GetShelteredStatus()) {
             SceneManager.LoadScene(2);
         }
         else {
@@ -79,9 +81,11 @@ public class CycleJourNuit : MonoBehaviour {
 
     IEnumerator OneDayCoroutine() {
         bool part2 = false;
+        float eveningLerpValue;
         RenderSettings.ambientIntensity = 0.7f;
         RenderSettings.reflectionIntensity = 1f;
         RenderSettings.skybox = daySkybox;
+        player.transform.Find("Camera_Despo").GetComponent<Aura2API.AuraCamera>().frustumSettings.baseSettings.density = 0f;
         player.GetComponent<PlayerStatus>().SetIsRestingStatus(false);
         timerText.SetActive(false);
         GetComponent<Light>().intensity = 1;
@@ -97,9 +101,16 @@ public class CycleJourNuit : MonoBehaviour {
                 musicState = 1f;
                 dayMusic.setParameterByName("musique", musicState);
             }
+            if (rotation > 144f) {
+                eveningLerpValue = (rotation - 144f) / 36f;
+                RenderSettings.ambientIntensity = Mathf.Lerp(0.7f, 0.1f, eveningLerpValue);
+                RenderSettings.reflectionIntensity = Mathf.Lerp(1f, 0.1f, eveningLerpValue);
+                player.transform.Find("Camera_Despo").GetComponent<Aura2API.AuraCamera>().frustumSettings.baseSettings.density = Mathf.Lerp(0f, .4f, eveningLerpValue);
 
+            }
             yield return null;
         }
+        RenderSettings.skybox = nightSkybox;
         player.GetComponent<EndDay>().EndThisDayOutside();
 
     }
@@ -111,9 +122,6 @@ public class CycleJourNuit : MonoBehaviour {
         timer = 30f;
         GetComponent<Light>().intensity = 0;
         while (timer > 0) {
-            RenderSettings.skybox = nightSkybox;
-            RenderSettings.ambientIntensity = Mathf.MoveTowards(RenderSettings.ambientIntensity, 0.1f, Time.deltaTime / (5 * dayLength) );
-            RenderSettings.reflectionIntensity = Mathf.MoveTowards(RenderSettings.reflectionIntensity, 0.1f, Time.deltaTime);
             timerText.GetComponent<TextMeshProUGUI>().text = timer.ToString("#.0");
             if (!(player.GetComponent<PlayerStatus>().GetShelteredStatus() && player.GetComponent<PlayerStatus>().GetWarmStatus())) {
                 timer -= Time.deltaTime;
