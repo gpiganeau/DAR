@@ -10028,6 +10028,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hut
       objectReference: {fileID: 0}
+    - target: {fileID: 5092840272586972602, guid: 8fcc219cf00737c46882eaf6d41159e6,
+        type: 3}
+      propertyPath: m_TagString
+      value: interactible
+      objectReference: {fileID: 0}
     - target: {fileID: 1006814718399061536, guid: 8fcc219cf00737c46882eaf6d41159e6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10097,11 +10102,6 @@ PrefabInstance:
       propertyPath: openedDoor
       value: 
       objectReference: {fileID: 215788183}
-    - target: {fileID: 5092840272586972602, guid: 8fcc219cf00737c46882eaf6d41159e6,
-        type: 3}
-      propertyPath: m_TagString
-      value: interactible
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fcc219cf00737c46882eaf6d41159e6, type: 3}
 --- !u!4 &336001958 stripped
@@ -42694,8 +42694,8 @@ GameObject:
   - component: {fileID: 1454798105}
   - component: {fileID: 1454798104}
   - component: {fileID: 1454798103}
-  - component: {fileID: 1454798106}
   - component: {fileID: 1454798107}
+  - component: {fileID: 1454798106}
   m_Layer: 9
   m_Name: Terrain
   m_TagString: Untagged
@@ -42774,11 +42774,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1454798102}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea6546a956961f40820955a231ad864, type: 3}
+  m_Script: {fileID: 11500000, guid: 2658d0f6b0168334ca28ef3e6a762bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerObj: {fileID: 628572739}
   indexOfTrail: 2
+  indexOfUnstransformableLayers: 01000000
 --- !u!114 &1454798107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51907,6 +51908,71 @@ PrefabInstance:
       propertyPath: rotSpeed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: field of view
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_GateFitMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_SensorSize.x
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_SensorSize.y
+      value: 15.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52041,71 +52107,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: far clip plane
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_projectionMatrixMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: field of view
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_GateFitMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_SensorSize.x
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_SensorSize.y
-      value: 15.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_Depth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_OcclusionCulling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747731795494153468, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_AllowDynamicResolution
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2689300741216309484, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
@@ -61926,7 +61927,7 @@ PrefabInstance:
     - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
         type: 3}
       propertyPath: dayLength
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
         type: 3}

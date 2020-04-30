@@ -78,7 +78,7 @@ public class PlayerTrailOnTerrainGradual : MonoBehaviour
                     toBeChanged = true;
                     for (int k = 0; k < td.alphamapLayers; k++) {
                         if(Array.Exists<int>(indexOfUnstransformableLayers, x => x == k)) {
-                            toBeChanged = (map[i,j,k] < 0.5) && toBeChanged;
+                            toBeChanged = (map[i,j,k] < 0.75f) && toBeChanged;
                         }
                     }
                     if (toBeChanged) {
