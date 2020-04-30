@@ -41,6 +41,7 @@ public class CycleJourNuit : MonoBehaviour {
 
     public void PlayOneDay() {
         coroutineReference = StartCoroutine(OneDayCoroutine());
+        dayMusic.setParameterByName("musique", StartingMusic);
     }
 
     public void StopDayCoroutine() {
@@ -67,6 +68,8 @@ public class CycleJourNuit : MonoBehaviour {
             SceneManager.LoadScene(3);
         }
         else {
+            musicState = 2f;
+            dayMusic.setParameterByName("musique", musicState);
             timerText.SetActive(false);
             player.GetComponent<PlayerStatus>().SetIsRestingStatus(true);
             //player.GetComponent<EndDay>().EndThisDayInside(); 
