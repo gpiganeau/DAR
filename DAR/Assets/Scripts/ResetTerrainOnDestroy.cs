@@ -15,6 +15,10 @@ public class ResetTerrainOnDestroy : MonoBehaviour {
     #region Methods
 
     private void OnDestroy() {
+        ResetTracks();
+    }
+
+    public void ResetTracks() {
         Terrain.terrainData.SetHeights(0, 0, originalHeights);
         Terrain.terrainData.SetAlphamaps(0, 0, originalTextureMap);
     }

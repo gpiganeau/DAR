@@ -33805,12 +33805,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1228856112}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1229655197 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1006814718672770860, guid: 8fcc219cf00737c46882eaf6d41159e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 333650474}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1229832499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48930,7 +48924,7 @@ PrefabInstance:
     - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 101.17
+      value: 98.34
       objectReference: {fileID: 0}
     - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
@@ -48994,6 +48988,10 @@ PrefabInstance:
       propertyPath: firePlace
       value: 
       objectReference: {fileID: 551841010}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: resetTerrainOnDestroyObject
+      value: 
+      objectReference: {fileID: 1454798106}
     - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: fireplace
       value: 
@@ -49005,7 +49003,7 @@ PrefabInstance:
     - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: hut
       value: 
-      objectReference: {fileID: 1229655197}
+      objectReference: {fileID: 1917468782}
     - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: pausePanel
       value: 
@@ -53216,6 +53214,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6499297322174372949, guid: 8c841f2c88400494493ad273b8d7a361,
     type: 3}
   m_PrefabInstance: {fileID: 968996359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1917468782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1006814718398562816, guid: 8fcc219cf00737c46882eaf6d41159e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 333650474}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1923970439
 PrefabInstance:
@@ -57720,8 +57724,18 @@ PrefabInstance:
     - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
         type: 3}
       propertyPath: dayLength
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
+        type: 3}
+      propertyPath: daySkybox
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b335a179bbc43d9a975a1a2548a6886, type: 2}
+    - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
+        type: 3}
+      propertyPath: nightSkybox
+      value: 
+      objectReference: {fileID: 2100000, guid: cc421da483ed06c49933077a621bff25, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 752e0225b3bf1d945aa0b3d0843d25a6, type: 3}
 --- !u!4 &2069688110 stripped

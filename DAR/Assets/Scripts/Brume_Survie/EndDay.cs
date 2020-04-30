@@ -12,7 +12,7 @@ public class EndDay : MonoBehaviour
     [SerializeField] Light sun;
 
     InteractWithItems playerInventory;
-    [SerializeField] SnowOnTerrainManager snowTracksManager;
+    [SerializeField] ResetTerrainOnDestroy resetTerrainOnDestroyObject;
     [SerializeField] Canvas canvas;
     private PlayerStatus playerStatus;
     [SerializeField] private GameObject firePlace;
@@ -63,7 +63,7 @@ public class EndDay : MonoBehaviour
             canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", true);
             yield return new WaitForSeconds(3.5f);
 
-            //snowTracksManager.ResetTracks();
+            resetTerrainOnDestroyObject.ResetTracks();
             //playerInventory.ConsumeRessources(); No need to eat for the moment
             playerStatus.GoHome();
 

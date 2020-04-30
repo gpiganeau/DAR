@@ -22,21 +22,26 @@ public class DoorScript : MonoBehaviour
         
     }
 
-    public void Open() {
-        if (!animatorDoor.GetBool("isOpen"))
-        {
-            animatorDoor.SetBool("isOpen", true);
-            
-            doorSound.setParameterByName("door_Open", 1);
-            doorSound.start();
-        }
+    public void Open(bool forceClose = false) {
+        if (!forceClose) {
+            if (!animatorDoor.GetBool("isOpen")) {
+                animatorDoor.SetBool("isOpen", true);
 
-        else
-        {
+                doorSound.setParameterByName("door_Open", 1);
+                doorSound.start();
+            }
+
+            else {
+                animatorDoor.SetBool("isOpen", false);
+
+                doorSound.setParameterByName("door_Open", 0);
+                doorSound.start();
+            }
+        }
+        else {
             animatorDoor.SetBool("isOpen", false);
 
             doorSound.setParameterByName("door_Open", 0);
-            doorSound.start();
         }
     }
 

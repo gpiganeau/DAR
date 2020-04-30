@@ -64,12 +64,12 @@ public class CycleJourNuit : MonoBehaviour {
 
 
         if ((freezingLevel > 1) || !player.GetComponent<PlayerStatus>().GetShelteredStatus()) {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         else {
             timerText.SetActive(false);
             player.GetComponent<PlayerStatus>().SetIsRestingStatus(true);
-            player.GetComponent<EndDay>().EndThisDayInside(); 
+            //player.GetComponent<EndDay>().EndThisDayInside(); 
         }
     }
 
