@@ -39,9 +39,12 @@ public class DoorScript : MonoBehaviour
             }
         }
         else {
-            animatorDoor.SetBool("isOpen", false);
+            if (animatorDoor.GetBool("isOpen")) {
+                animatorDoor.SetBool("isOpen", false);
 
-            doorSound.setParameterByName("door_Open", 0);
+                doorSound.setParameterByName("door_Open", 0);
+                doorSound.start();
+            }
         }
     }
 

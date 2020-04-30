@@ -68,7 +68,7 @@ public class CycleJourNuit : MonoBehaviour {
             SceneManager.LoadScene(3);
         }
         else {
-            musicState = 2f;
+            musicState = 3f;
             dayMusic.setParameterByName("musique", musicState);
             timerText.SetActive(false);
             player.GetComponent<PlayerStatus>().SetIsRestingStatus(true);

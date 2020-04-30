@@ -8,7 +8,7 @@ public class LockDuringNightTime : MonoBehaviour
     
     public void NightTimeLock() {
         if (openedDoor.activeSelf) {
-            openedDoor.GetComponent<DoorScript>().Open();
+            openedDoor.GetComponent<DoorScript>().Open(true);
         }
     }
 
