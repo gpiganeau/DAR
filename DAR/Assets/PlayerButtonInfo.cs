@@ -14,6 +14,14 @@ public class PlayerButtonInfo : MonoBehaviour
         }
     }
 
+    public void Eat() {
+        if (item) {
+            if(item.eatInfo > 0) {
+                itemSetInEnvironment.Eat(item, index);
+            }
+        }
+    }
+
     public void SetItem(Item _item, int _index) {
         item = _item;
         index = _index;
@@ -22,5 +30,9 @@ public class PlayerButtonInfo : MonoBehaviour
     public void ResetItem() {
         item = null;
         index = -1;
+    }
+
+    public Item GetItem() {
+        return item;
     }
 }

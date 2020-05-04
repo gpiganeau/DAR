@@ -268,18 +268,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 135492683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2143667485}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2143667485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,18 +395,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 471823802}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 644249831}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &644249831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,8 +608,8 @@ GameObject:
   - component: {fileID: 983217304}
   - component: {fileID: 983217306}
   - component: {fileID: 983217305}
-  - component: {fileID: 109811392}
   - component: {fileID: 1789500821}
+  - component: {fileID: 109811392}
   m_Layer: 5
   m_Name: Slot1_Panel
   m_TagString: Untagged
@@ -693,6 +671,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1789500821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983217303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!114 &109811392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,31 +723,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 983217305}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1789500821}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1789500821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983217303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemSetInEnvironment: {fileID: 0}
+      m_Calls: []
 --- !u!1 &1006239659
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,18 +837,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1006239661}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 950954296}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &950954296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -906,8 +862,8 @@ GameObject:
   - component: {fileID: 1007374001}
   - component: {fileID: 1007374003}
   - component: {fileID: 1007374002}
-  - component: {fileID: 880693612}
   - component: {fileID: 1946941561}
+  - component: {fileID: 880693612}
   m_Layer: 5
   m_Name: Slot2_Panel
   m_TagString: Untagged
@@ -969,6 +925,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1946941561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007374000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSetInEnvironment: {fileID: 0}
 --- !u!114 &880693612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,31 +977,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1007374002}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1946941561}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1946941561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007374000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 557583b329288034b9c64eb871128dd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemSetInEnvironment: {fileID: 0}
+      m_Calls: []
 --- !u!1 &1012397686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,18 +1091,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1012397688}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 243826303}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &243826303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1284,18 +1218,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1030898343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2113753185}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2113753185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1422,18 +1345,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1046773363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1378960719}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1378960719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1635,18 +1547,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1420015729}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1777412135}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1777412135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1845,18 +1746,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1592496126}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 495028299}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &495028299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2095,18 +1985,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1932495359}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1026274993}
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1026274993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2413,7 +2292,8 @@ MonoBehaviour:
   m_text: /2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc403f04bc1cc6b4bb8d213ff334819d, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 21822522994715998, guid: bc403f04bc1cc6b4bb8d213ff334819d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7402,6 +7282,7 @@ GameObject:
   - component: {fileID: 5136977538929142900}
   - component: {fileID: 5136977538929142903}
   - component: {fileID: 5136977538929142902}
+  - component: {fileID: 1931992948586666232}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7493,6 +7374,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1931992948586666232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5136977538929142897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3dbab7f49b533459e42a80e11b326b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5136977539016861807
 GameObject:
   m_ObjectHideFlags: 0
@@ -9869,7 +9762,8 @@ MonoBehaviour:
   m_text: Balise
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc403f04bc1cc6b4bb8d213ff334819d, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 21822522994715998, guid: bc403f04bc1cc6b4bb8d213ff334819d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10317,7 +10211,8 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc403f04bc1cc6b4bb8d213ff334819d, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 21822522994715998, guid: bc403f04bc1cc6b4bb8d213ff334819d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

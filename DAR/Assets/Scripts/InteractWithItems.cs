@@ -20,6 +20,9 @@ public class InteractWithItems : MonoBehaviour
     [SerializeField] Item radioPiece2;
     [SerializeField] Item radioPiece3;
     [SerializeField] Item radioPiece4;
+    [SerializeField] Item baie;
+    [SerializeField] Item poissonCru;
+    [SerializeField] Item poissonCuit;
 
     string objectName;
     public Camera player_camera;
@@ -57,7 +60,7 @@ public class InteractWithItems : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, 5, ~(1 << 11)))
                 {
                     GameObject objectHit = hit.collider.gameObject;
-                    if (objectHit.tag == "interactible")
+                    if (objectHit.tag == "interactible" || objectHit.tag == "Food")
                     {
                         objectName = objectHit.gameObject.GetComponent<ItemInteraction>().GetName();
                         Action(objectName, objectHit);
@@ -196,8 +199,6 @@ public class InteractWithItems : MonoBehaviour
             case "radioPiece3":
                 Item newItem5 = Instantiate<Item>(radioPiece3);
                 if (playerInventoryManager.AddItem(newItem5)) {
-                   
-                    
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
                     infoManager.ShowInfo("Pièce radio ajoutée");
                 }
@@ -208,13 +209,41 @@ public class InteractWithItems : MonoBehaviour
             case "radioPiece4":
                 Item newItem6 = Instantiate<Item>(radioPiece4);
                 if (playerInventoryManager.AddItem(newItem6)) {
-                   
-                    
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
                     infoManager.ShowInfo("Pièce radio ajoutée");
                 }
                 else {
                     infoManager.ShowInfo("Nécéssite " + radioPiece4.weight + " places !");
+                }
+                break;
+            case "baie":
+                Item newItem7 = Instantiate<Item>(baie);
+                if (playerInventoryManager.AddItem(newItem7)) {
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo("Baie ramassée");
+                }
+                else {
+                    infoManager.ShowInfo("Nécéssite " + baie.weight + " places !");
+                }
+                break;
+            case "poissonCru":
+                Item newItem8 = Instantiate<Item>(poissonCru);
+                if (playerInventoryManager.AddItem(newItem8)) {
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo("Poisson ajouté");
+                }
+                else {
+                    infoManager.ShowInfo("Nécéssite " + poissonCru.weight + " places !");
+                }
+                break;
+            case "poissonCuit":
+                Item newItem9 = Instantiate<Item>(poissonCuit);
+                if (playerInventoryManager.AddItem(newItem9)) {
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo("Poisson cuit ajouté");
+                }
+                else {
+                    infoManager.ShowInfo("Nécéssite " + poissonCuit.weight + " places !");
                 }
                 break;
         }

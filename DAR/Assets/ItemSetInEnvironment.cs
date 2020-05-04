@@ -11,6 +11,7 @@ public class ItemSetInEnvironment : MonoBehaviour
     Transform originalHandPosition;
     [SerializeField] PlayerInventoryManager playerInventoryManager;
     [SerializeField] float rotSpeed;
+    [SerializeField] HungerSystem m_Hunger;
     private bool m_isAxisInUse = false;
     public Camera player_camera;
     Vector2 center;
@@ -19,6 +20,10 @@ public class ItemSetInEnvironment : MonoBehaviour
 
     Vector3 offset; //vector by which to move the transform so that it is all the way out of the ground
 
+    public void Eat(Item item, int index) {
+        m_Hunger.Eat(item.eatInfo);
+        playerInventoryManager.RemoveItemAt(index);
+    }
 
     public void PutInHand(Item item, int index) {
         if (!itemInHand) {

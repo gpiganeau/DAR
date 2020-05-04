@@ -11,6 +11,8 @@ public class Item : ScriptableObject {
     public string _name;
     public int weight;
     public Sprite sprite;
-    
+
+    public int eatInfo;
+    public bool isEating;
 
 }
