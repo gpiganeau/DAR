@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Hunger : MonoBehaviour
 {
     public Image hungerBarEmpty;
-    public Text hungerText;
+    public TMPro.TextMeshProUGUI hungerText;
 
     public float minHunger;
     public float maxHunger;
