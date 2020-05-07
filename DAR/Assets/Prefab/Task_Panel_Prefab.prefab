@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 8296798108116653701}
   - component: {fileID: 7350024181185556172}
   - component: {fileID: 8854660596590987217}
-  - component: {fileID: 1519411125185622341}
+  - component: {fileID: 114902299409575542}
   m_Layer: 5
   m_Name: Task_Panel_Prefab
   m_TagString: Untagged
@@ -248,8 +248,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTask: {fileID: 0}
+  taskManagerObject: {fileID: 0}
   detail: {fileID: 0}
---- !u!114 &1519411125185622341
+--- !u!114 &114902299409575542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +289,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7350024181185556172}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8854660596590987217}
+        m_MethodName: SelectTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5925919291330307275
 GameObject:
   m_ObjectHideFlags: 0

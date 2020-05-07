@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class taskManager : MonoBehaviour
 {
+    [SerializeField] private PlayerInventoryManager playerInventoryManager;
     private Tasks currentTask;
     public GameObject detail;
     public GameObject taskPrefab;
+    [SerializeField] private GameObject taskSlotInHierarchy;
     public List<GameObject> taskSlots;
     public List<Tasks> AllCurrentTasks;
     public List<Tasks> AllTasks;
     public Dictionary<string,Tasks> AllTasksDictionary;
+   
 
     // Start is called before the first frame update
     void Start()
     {
         taskSlots = new List<GameObject>(transform.childCount);
-        foreach (Transform child in transform)
+        foreach (Transform child in taskSlotInHierarchy.transform)
         {
             taskSlots.Add(child.gameObject);
         }
@@ -33,6 +36,12 @@ public class taskManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.CapsLock))
+        {
+            playerInventoryManager.ShowAlternateUI(4);            
+        }
+
+
         if (Input.GetKeyDown(KeyCode.B))
         {
             
@@ -43,6 +52,11 @@ public class taskManager : MonoBehaviour
         {
 
             CompleteTask(currentTask);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Comma))
+        {
+            DeleteTask(currentTask);
         }
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -60,7 +74,7 @@ public class taskManager : MonoBehaviour
         Tasks testTask = Instantiate(_task, gO.transform);
         AllCurrentTasks.Add(testTask);
         GameObject testTaskGO = Instantiate(testTask.prefabTask, gO.transform);
-        testTaskGO.GetComponent<taskState>().Initiate(testTask);
+        testTaskGO.GetComponent<taskState>().Initiate(testTask,this);
         UpdateDetail(_task);
         currentTask = testTask;
 
@@ -76,12 +90,27 @@ public class taskManager : MonoBehaviour
 
     public void DeleteTask(Tasks task)
     {
-
+        
     }
 
     public void UpdateDetail (Tasks task)
     {
         detail.GetComponent<TMPro.TextMeshProUGUI>().text = task._detail;
+    }
+
+    public void SelectTask(Tasks task)
+    {
+        currentTask = task;
+        UpdateDetail(currentTask);
+        currentTask._isSelected = true;
+
+        if (currentTask != task)
+        {
+            currentTask._isSelected = false;
+            currentTask = task;
+            UpdateDetail(currentTask);
+            currentTask._isSelected = true;
+        }
     }
 
 
