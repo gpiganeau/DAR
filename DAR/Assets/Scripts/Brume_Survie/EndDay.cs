@@ -57,6 +57,19 @@ public class EndDay : MonoBehaviour
         StartCoroutine(EndDayCoroutine(true));
     }
 
+    public void SaveDayData()
+    {
+        SaveSystem.SaveDay(loadedDay);
+        Debug.Log("Day saved");
+    }
+
+    public void LoadDayData()
+    {
+        SaveData dayData = SaveSystem.LoadDay();
+
+        loadedDay.day = dayData.day;
+    }
+
     IEnumerator EndDayCoroutine(bool isInsideAndWarm) {
 
         if (isInsideAndWarm) {
@@ -78,7 +91,7 @@ public class EndDay : MonoBehaviour
         
     }
 
-    private class InGameDay {
+    public class InGameDay {
         public bool gameHasStarted;
         public int day;
     }

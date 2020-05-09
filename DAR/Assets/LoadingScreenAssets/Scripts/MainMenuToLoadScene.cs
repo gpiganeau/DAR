@@ -13,17 +13,22 @@ public class MainMenuToLoadScene : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
     }
+
+    public void GoToIntro()
+    {
+        StartCoroutine(Fading(4));
+    }
     
     public void GoToLoad()
     {
-        StartCoroutine(Fading());
+        StartCoroutine(Fading(1));
     }
 
-    private IEnumerator Fading()
+    private IEnumerator Fading(int sceneNumber)
     {
         animBlack.SetBool("Fade", true);
         yield return new WaitUntil(()=>black.color.a == 1);
         //Debug.Log("Wait over");
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(sceneNumber);
     }
 }

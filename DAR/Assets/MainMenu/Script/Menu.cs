@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour
     public GameObject parametreControls;
     public GameObject parametreSound;
     public Text changingText;
+    public Button loadButton;
 
     InGameDay loadedDay;
     PlayerInventoryManager.Inventory playerInventory;
@@ -27,6 +28,15 @@ public class Menu : MonoBehaviour
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+        if (checkForPreviousData() == true)
+        {
+            loadButton.interactable = true;
+        }
+    }
+
+    private bool checkForPreviousData()
+    {
+        return SaveSystem.previousDataExists();
     }
 
 
@@ -65,6 +75,18 @@ public class Menu : MonoBehaviour
         anim.SetBool("EstVisible", false);
         isNew = false;
         //anim.SetBool("EstVisiblePartie",true);
+
+        LoadDayData();
+    }
+
+    public void LoadDayData()
+    {
+        SaveData dayData = SaveSystem.LoadDay();
+        string jsonDay = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/CurrentDay.json");
+        loadedDay = JsonUtility.FromJson<InGameDay>(jsonDay);
+        loadedDay.day = dayData.day;
+        string uploadDay = JsonUtility.ToJson(loadedDay);
+        File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/CurrentDay.json", uploadDay);
     }
 
     public void Play()
@@ -77,6 +99,17 @@ public class Menu : MonoBehaviour
             string uploadDay = JsonUtility.ToJson(loadedDay);
             File.WriteAllText(Application.streamingAssetsPath + "/JSONFiles/CurrentDay.json", uploadDay);
 
+            //RESET ON HUB AND PLAYER INVENTORY
+            //USING THE CONSTRUCTOR FUNCTION
+            playerInventory = new PlayerInventoryManager.Inventory(2, "PlayerInventory.json");
+            hubInventory = new HubInventoryManager.Inventory("HubInventory.json");
+
+            playerInventory.WriteInventory();
+            hubInventory.WriteInventory();
+        }
+        else
+        {
+            //*Reset parce qu'on charge pas encore l'inventaire et tout le reste*
             //RESET ON HUB AND PLAYER INVENTORY
             //USING THE CONSTRUCTOR FUNCTION
             playerInventory = new PlayerInventoryManager.Inventory(2, "PlayerInventory.json");

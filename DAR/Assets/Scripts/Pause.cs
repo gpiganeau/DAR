@@ -33,6 +33,12 @@ public class Pause : MonoBehaviour
         {
             m_isAxisInUse = false;
         }
+
+        //Debug Save
+        if (Input.GetKeyDown("s") == true)
+        {
+            SaveDay();
+        }
      }
     private void PauseGame()
     {
@@ -53,5 +59,11 @@ public class Pause : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = true;
         GetComponent<CameraController>().enabled = true;
         GetComponentInChildren<Headbobber>().enabled = true;
+    }
+
+    public void SaveDay()
+    {
+        FindObjectOfType<EndDay>().SaveDayData();
+        Debug.Log("save function called");
     }
 }
