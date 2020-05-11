@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour 
 {
+    public bool gamePaused = false;
     [SerializeField] private GameObject pausePanel;
     public Text dayText;
     private bool m_isAxisInUse = false;
@@ -35,13 +36,14 @@ public class Pause : MonoBehaviour
         }
 
         //Debug Save
-        if (Input.GetKeyDown("s") == true)
+        if (gamePaused && Input.GetKeyDown("s") == true)
         {
             SaveDay();
         }
      }
     private void PauseGame()
     {
+        gamePaused = true;
         Time.timeScale = 0;
         pausePanel.SetActive(true);
         //Disable scripts that still work while timescale is set to 0
@@ -52,6 +54,7 @@ public class Pause : MonoBehaviour
     } 
     private void ContinueGame()
     {
+        gamePaused = false;
         Time.timeScale = 1;
         pausePanel.SetActive(false);
         //enable the scripts again

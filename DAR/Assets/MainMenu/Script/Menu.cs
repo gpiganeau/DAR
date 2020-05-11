@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour
 {
+    public Button firstButton;
     public GameObject choose;
     public GameObject team;
     public GameObject parametreGraphism;
@@ -34,6 +36,30 @@ public class Menu : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        //Revenir en arrière
+        if (Input.GetAxis("Cancel") != 0 && anim.GetBool("EstSlide") == true)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            anim.SetBool("EstSlide", false);
+            anim.SetBool("EstVisible", false);
+            choose.SetActive(false);
+            team.SetActive(false);
+            parametreGraphism.SetActive(false);
+            parametreSound.SetActive(false);
+            parametreControls.SetActive(false);
+        }
+
+        //first selected on move
+        if (EventSystem.current.currentSelectedGameObject == null
+            && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            && anim.GetBool("EstSlide") == false)
+        {
+            EventSystem.current.SetSelectedGameObject(firstButton.gameObject);
+        }
+    }
+
     private bool checkForPreviousData()
     {
         return SaveSystem.previousDataExists();
@@ -49,7 +75,6 @@ public class Menu : MonoBehaviour
 
     public void New()
     {
-        //SceneManager.LoadScene("Scene2");
         team.SetActive(false);
         parametreGraphism.SetActive(false);
         parametreSound.SetActive(false);
@@ -59,12 +84,12 @@ public class Menu : MonoBehaviour
         anim.SetBool("EstSlide",true);
         anim.SetBool("EstVisible", false);
         isNew = true;
+        EventSystem.current.SetSelectedGameObject(choose.GetComponentInChildren<Button>().gameObject);
         //anim.SetBool("EstVisiblePartie",true);
     }
 
     public void Load()
     {
-        //SceneManager.LoadScene("Scene2");
         team.SetActive(false);
         parametreGraphism.SetActive(false);
         parametreSound.SetActive(false);
@@ -74,6 +99,7 @@ public class Menu : MonoBehaviour
         anim.SetBool("EstSlide",true);
         anim.SetBool("EstVisible", false);
         isNew = false;
+        EventSystem.current.SetSelectedGameObject(choose.GetComponentInChildren<Button>().gameObject);
         //anim.SetBool("EstVisiblePartie",true);
 
         LoadDayData();
@@ -133,6 +159,7 @@ public class Menu : MonoBehaviour
         team.SetActive(false);
         anim.SetBool("EstSlide",true);
         anim.SetBool("EstVisible", false);
+        EventSystem.current.SetSelectedGameObject(parametreGraphism.GetComponentInChildren<Button>().gameObject);
     }
 
     public void Controls()
@@ -144,6 +171,7 @@ public class Menu : MonoBehaviour
         team.SetActive(false);
         anim.SetBool("EstSlide",true);
         anim.SetBool("EstVisible", false);
+        EventSystem.current.SetSelectedGameObject(parametreControls.GetComponentInChildren<Button>().gameObject);
     }
 
     public void Sound()
@@ -155,6 +183,7 @@ public class Menu : MonoBehaviour
         team.SetActive(false);
         anim.SetBool("EstSlide",true);
         anim.SetBool("EstVisible", false);
+        EventSystem.current.SetSelectedGameObject(parametreSound.GetComponentInChildren<Button>().gameObject);
     }
 
 //------------------------------[Partie Quitter]------------------------------------------------------------//
@@ -175,5 +204,6 @@ public class Menu : MonoBehaviour
         team.SetActive(true);
         anim.SetBool("EstSlide",true);
         anim.SetBool("EstVisible", true);
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }
