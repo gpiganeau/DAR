@@ -24,7 +24,7 @@ public class FireplaceScript : MonoBehaviour
         if (fireParticles.activeSelf == false) {
            // fireplaceOn.gameObject.SetActive(true);
             fireParticles.gameObject.SetActive(true);
-            player.GetComponent<PlayerInventoryManager>().Consume("wood", 3);
+            player.GetComponent<PlayerInventoryManager>().Consume("Bûche", 3);
         }
     }
 }

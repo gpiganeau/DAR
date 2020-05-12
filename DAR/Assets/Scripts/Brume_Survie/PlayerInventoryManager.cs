@@ -10,10 +10,11 @@ public class PlayerInventoryManager : MonoBehaviour
     Inventory playerInventory;
 
     [SerializeField] private HubInventoryManager hubInventoryManager;
+    [SerializeField] private taskManager taskManagerObject;
     public GameObject pointerUI;
     [SerializeField] private Image weightFillBar;
 
-    public GameObject[] UIElements = new GameObject[4];
+    public GameObject[] UIElements = new GameObject[5];
     private GameObject currentInventoryPanel;
 
     public GameObject[] inventorySlots;

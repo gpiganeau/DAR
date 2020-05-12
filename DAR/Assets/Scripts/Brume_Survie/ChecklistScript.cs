@@ -24,7 +24,7 @@ public class ChecklistScript : MonoBehaviour
     void Update()
     {
 
-        if (playerInventoryManager.GetInventory().CountItem("wood") > 0)
+        if (playerInventoryManager.GetInventory().CountItem("Bûche") > 0)
         {
             taskBoolGetWood = true;
         }

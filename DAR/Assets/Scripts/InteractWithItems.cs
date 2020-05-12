@@ -159,14 +159,14 @@ public class InteractWithItems : MonoBehaviour
                 infoManager.ShowInfo("Vous avez trouvé le sac");
                 break;
             case "fireplace":
-                if (playerInventoryManager.GetInventory().CountItem("wood") + hubInventoryManager.GetHubInventory().Count("wood") >= 3) {
+                if (playerInventoryManager.GetInventory().CountItem("Bûche") + hubInventoryManager.GetHubInventory().Count("Bûche") >= 3) {
                     collectible.GetComponent<FireplaceScript>().Light();
                     infoManager.ShowInfo("Feu allumé !");
                 }
                 break;
 
             case "woodStorage":
-                playerInventoryManager.DepositInventory("wood");
+                playerInventoryManager.DepositInventory("Bûche");
                 break;
             case "workTable":
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(3);
