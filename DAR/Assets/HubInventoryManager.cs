@@ -6,7 +6,7 @@ using System.IO;
 
 public class HubInventoryManager : MonoBehaviour
 {
-    public static bool initializeWithLoad = false;
+    public static bool initializeWithLoad = true;
 
     public GameObject[] inventorySlots;
 
@@ -61,7 +61,7 @@ public class HubInventoryManager : MonoBehaviour
 
 
     public void UpdateAll() {
-        woodStorage.GetComponent<woodStorage>().Show(hubInventory.Count("wood"));
+        woodStorage.GetComponent<woodStorage>().Show(hubInventory.Count("Bûche"));
         hubUI.GetComponent<UpdateInventoryHubUIData>().UpdateValues(hubInventory);
         craftUI.GetComponent<UpdateCraftingInventoryUIData>().UpdateNumbers(hubInventory);
         hubInventory.WriteInventory();
