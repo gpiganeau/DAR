@@ -166,7 +166,7 @@ public class InteractWithItems : MonoBehaviour
                 break;
 
             case "woodStorage":
-                playerInventoryManager.DepositInventory("wood");
+                playerInventoryManager.DepositInventory("Bûche");
                 break;
             case "workTable":
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(3);
