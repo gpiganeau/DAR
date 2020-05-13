@@ -251,6 +251,9 @@ public class InteractWithItems : MonoBehaviour
                     infoManager.ShowInfo("Nécéssite " + poissonCuit.weight + " places !");
                 }
                 break;
+            case "fishingSpot":
+                collectible.GetComponent<FishingScript>().StartFishing();
+                break;
         }
         return;
     }
