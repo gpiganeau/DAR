@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemInteraction : MonoBehaviour
 {
-    [SerializeField] private string itemName;
+    [SerializeField] public string itemName;
     [SerializeField] private int numberOfUses = 1;
     // Start is called before the first frame update
     void Start()

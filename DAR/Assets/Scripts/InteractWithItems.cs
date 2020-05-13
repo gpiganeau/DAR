@@ -6,6 +6,10 @@ using System.IO;
 
 public class InteractWithItems : MonoBehaviour
 {
+    public Text mTextName;
+    public Text mTextInteraction;
+    public GameObject mText;
+
     public HubInventoryManager hubInventoryManager;
     public PlayerInventoryManager playerInventoryManager;
 
@@ -39,7 +43,7 @@ public class InteractWithItems : MonoBehaviour
 
     void Start()
     {
-        
+        mText.SetActive(false);
         x = Screen.width / 2;
         y = Screen.height / 2;
         infoManager = gameObject.GetComponent<InfoManager>();
@@ -72,6 +76,7 @@ public class InteractWithItems : MonoBehaviour
         
         if( Input.GetAxisRaw("Interact") == 0)
         {
+            //mText.SetActive(false);
             m_isAxisInUse = false;
         }
     }

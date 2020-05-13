@@ -12,12 +12,15 @@ public class GameManager : MonoBehaviour
     public KeyCode backward {get; set;}
     public KeyCode left {get; set;}
     public KeyCode right {get; set;}
+    public KeyCode eating{get;set;}
+    public KeyCode check{get;set;}
+    public KeyCode put{get;set;}
 
-    void Awake()
+    void Start()
     {
         if(GM == null)
         {
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(transform.gameObject);
             GM = this;
         }
         else if(GM != this)
@@ -31,8 +34,9 @@ public class GameManager : MonoBehaviour
         backward = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("backwardKey","S"));
         left = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("leftKey","Q"));
         right = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("rightKey","D"));
-
-       
+        eating = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("eatKey","Mouse1"));
+        check = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("checkKey","I"));
+        put = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("putKey","Mouse0"));
     }
 
 }

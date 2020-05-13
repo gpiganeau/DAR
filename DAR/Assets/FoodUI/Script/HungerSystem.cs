@@ -7,8 +7,18 @@ using UnityEngine.EventSystems;
 
 public class HungerSystem : MonoBehaviour
 {
+    public Text mTextName;
+    public Text mTextInteraction;
+    public Text mTextName2;
+    public Text mTextInteraction2;
+    public Text mTextFood;
+    public GameObject mText;
+    public GameObject mText2;
+
+    private Transform _selection;
+    
     [SerializeField] private string foodTag = "Food";
-    [SerializeField] private Material high;
+    [SerializeField] private string interactiveTag = "interactible";
     public Camera player_camera;
 
 
@@ -29,6 +39,9 @@ public class HungerSystem : MonoBehaviour
         mFoodBar.minHunger = 0;
         mFoodBar.maxHunger = food;
         startFood = food;
+
+        mText.SetActive(false);
+        mText2.SetActive(true);
 
         InvokeRepeating("IncreaserHunger",0, rateHunger);
     }
@@ -69,17 +82,53 @@ public class HungerSystem : MonoBehaviour
     }
 
     public void Ray3D() {
+        if (_selection != null)
+        {
+            mText.SetActive(false);
+            mText2.SetActive(false);
+            _selection = null;
+        }
         var ray = player_camera.ScreenPointToRay(new Vector2(x, y));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 5, ~(1 << 11))) {
-            var selection = hit.transform;
+            /*var selection = hit.transform;
             if (selection.CompareTag(foodTag)) {
                 ///var selectionRenderer = selection.GetComponent<Renderer>();
                 var selectionEat = selection.GetComponent<Food>();
                 if (Input.GetMouseButtonDown(1)) {
                     Eat(selectionEat.m_food.eatInfo);
                     Destroy(selection.gameObject);
+                }*/
+            var selection = hit.transform;
+            if (selection.CompareTag(interactiveTag))
+            {
+                var itemInteraction = selection.GetComponent<ItemInteraction>();
+                mText2.SetActive(true);
+                mTextName2.text = itemInteraction.itemName;
+                mTextInteraction2.text = GameManager.GM.interaction + "\n Pour mettre dans l'inventaire";
+            }
+            else if (selection.CompareTag(foodTag))
+            {
+                mText.SetActive(true);
+                mTextName.text = selection.gameObject.name;
+                mTextFood.text = GameManager.GM.eating + "\n Pour manger";
+                mTextInteraction.text =  GameManager.GM.interaction + "\n Pour mettre dans l'inventaire";
+                var selectionRenderer = selection.GetComponent<Renderer>();
+                var selectionEat = selection.GetComponent<Food>();
+                if(selectionRenderer != null)
+                {
+                    if(Input.GetMouseButtonDown(1))
+                    {
+                        Eat(selectionEat.m_food.eatInfo);
+                        Destroy(selection.gameObject);
+                    }
                 }
+            }
+            else
+            {
+                _selection = selection;
+                mText.SetActive(false);
+                mText2.SetActive(false);
             }
         }
     }

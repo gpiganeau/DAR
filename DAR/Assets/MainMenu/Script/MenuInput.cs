@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class MenuInput : MonoBehaviour
 {
-    Transform menuPanel;
+    public Transform menuPanel1;
+    public Transform menuPanel2;
     Event keyEvent;
     Text buttonText;
     KeyCode newKey;
@@ -15,23 +16,33 @@ public class MenuInput : MonoBehaviour
 
     void Start()
     {
-        menuPanel = transform.Find("ControlsMenu");
+
         waitingForKey = false;
 
         for (int i =0; i<6; i++)
         {
-            if(menuPanel.GetChild(i).name == "InteractionKey")
-                {menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.interaction.ToString();}
-            else if(menuPanel.GetChild(i).name == "InventoryKey")
-                {menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.inventory.ToString();}
-            else if(menuPanel.GetChild(i).name == "ForwardKey")
-                {menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.forward.ToString();}
-            else if(menuPanel.GetChild(i).name == "BackwardKey")
-                {menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.backward.ToString();}
-            else if(menuPanel.GetChild(i).name == "LeftKey")
-               {menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.left.ToString();}
-            else if(menuPanel.GetChild(i).name == "RightKey")
-                {menuPanel.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.right.ToString();}
+            if(menuPanel1.GetChild(i).name == "InteractionKey")
+                {menuPanel1.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.interaction.ToString();}
+            else if(menuPanel1.GetChild(i).name == "ForwardKey")
+                {menuPanel1.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.forward.ToString();}
+            else if(menuPanel1.GetChild(i).name == "BackwardKey")
+                {menuPanel1.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.backward.ToString();}
+            else if(menuPanel1.GetChild(i).name == "LeftKey")
+               {menuPanel1.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.left.ToString();}
+            else if(menuPanel1.GetChild(i).name == "RightKey")
+                {menuPanel1.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.right.ToString();}
+            else if(menuPanel1.GetChild(i).name == "EatKey")
+                {menuPanel1.GetChild(i).GetComponentInChildren<Text>().text = GameManager.GM.eating.ToString();}
+        }
+
+        for(int j=0; j<3; j++)
+        {
+            if(menuPanel2.GetChild(j).name == "InventoryKey")
+                {menuPanel2.GetChild(j).GetComponentInChildren<Text>().text = GameManager.GM.inventory.ToString();}
+            else if(menuPanel2.GetChild(j).name == "CheckKey")
+                {menuPanel2.GetChild(j).GetComponentInChildren<Text>().text = GameManager.GM.check.ToString();}
+            else if(menuPanel2.GetChild(j).name == "PutKey")
+                {menuPanel2.GetChild(j).GetComponentInChildren<Text>().text = GameManager.GM.put.ToString();}
         }
     }
 
@@ -75,7 +86,7 @@ public class MenuInput : MonoBehaviour
                 buttonText.text = GameManager.GM.interaction.ToString();
                 PlayerPrefs.SetString("interactionKey", GameManager.GM.interaction.ToString());
                 break;
-            case "inventory":
+            case "inventory" :
                 GameManager.GM.inventory = newKey;
                 buttonText.text = GameManager.GM.inventory.ToString();
                 PlayerPrefs.SetString("inventoryKey", GameManager.GM.inventory.ToString());
@@ -100,8 +111,23 @@ public class MenuInput : MonoBehaviour
                 buttonText.text = GameManager.GM.right.ToString();
                 PlayerPrefs.SetString("rightKey", GameManager.GM.right.ToString());
                 break;
-        }
+            case "eat" :
+                GameManager.GM.eating = newKey;
+                buttonText.text = GameManager.GM.eating.ToString();
+                PlayerPrefs.SetString("eatKey", GameManager.GM.eating.ToString());
+                break;
+            case "put" :
+                GameManager.GM.put = newKey;
+                buttonText.text = GameManager.GM.put.ToString();
+                PlayerPrefs.SetString("putKey", GameManager.GM.put.ToString());
+                break;
+            case "check" :
+                GameManager.GM.check = newKey;
+                buttonText.text = GameManager.GM.check.ToString();
+                PlayerPrefs.SetString("checkKey", GameManager.GM.check.ToString());
+                break;
 
+        }
         yield return null;
     }
 }

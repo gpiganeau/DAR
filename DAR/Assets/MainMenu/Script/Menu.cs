@@ -14,6 +14,8 @@ public class Menu : MonoBehaviour
     public GameObject parametreGraphism;
     public GameObject parametreControls;
     public GameObject parametreSound;
+    public GameObject parametreControlsPage1;
+    public GameObject parametreControlsPage2;
     public Text changingText;
     public Button loadButton;
 
@@ -168,10 +170,22 @@ public class Menu : MonoBehaviour
         parametreGraphism.SetActive(false);
         parametreSound.SetActive(false);
         parametreControls.SetActive(true);
+        parametreControlsPage1.SetActive(true);
+        parametreControlsPage2.SetActive(false);
         team.SetActive(false);
         anim.SetBool("EstSlide",true);
         anim.SetBool("EstVisible", false);
         EventSystem.current.SetSelectedGameObject(parametreControls.GetComponentInChildren<Button>().gameObject);
+    }
+
+    public void GoPage2()
+    {
+        choose.SetActive(false);
+        parametreControlsPage1.SetActive(false);
+        parametreControlsPage2.SetActive(true);
+        parametreGraphism.SetActive(false);
+        parametreSound.SetActive(false);
+        parametreControls.SetActive(true);
     }
 
     public void Sound()
