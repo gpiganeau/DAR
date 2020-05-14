@@ -18,6 +18,7 @@ public class InteractWithItems : MonoBehaviour
     float y;
 
     [SerializeField] Item wood;
+    [SerializeField] Item balise;
     [SerializeField] Item mushroom;
     [SerializeField] Item plank;
     [SerializeField] Item radioPiece1;
@@ -253,6 +254,14 @@ public class InteractWithItems : MonoBehaviour
                 break;
             case "fishingSpot":
                 collectible.GetComponent<FishingScript>().StartFishing();
+                break;
+            case "Balise":
+                Item newItem10 = Instantiate<Item>(balise);
+                if (playerInventoryManager.AddItem(newItem10))
+                {
+                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                    infoManager.ShowInfo("Balise ajouté");
+                }
                 break;
         }
         return;

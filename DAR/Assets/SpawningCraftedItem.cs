@@ -19,7 +19,7 @@ public class SpawningCraftedItem : MonoBehaviour {
     public void SpawnCraft(Item item) {
         for (int cpt = 0; cpt < spawnList.Length; cpt++) {
             if (spawnList[cpt].transform.childCount == 0) {
-                GameObject instantiated = GameObject.Instantiate(item.prefab, spawnList[cpt].transform.position, item.prefab.transform.rotation);
+                GameObject instantiated = GameObject.Instantiate(item.prefab, spawnList[cpt].transform.position, spawnList[cpt].transform.rotation);
                 instantiated.transform.parent = spawnList[cpt].transform;
                 break;
             }
