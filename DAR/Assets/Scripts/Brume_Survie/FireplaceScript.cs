@@ -5,7 +5,7 @@ using System.IO;
 
 public class FireplaceScript : MonoBehaviour
 {
-    //public GameObject fireplaceOn;
+    public GameObject fireplaceOn;
     public GameObject fireParticles;
     public GameObject player;
 
@@ -22,7 +22,7 @@ public class FireplaceScript : MonoBehaviour
     public void Light() {
 
         if (fireParticles.activeSelf == false) {
-           // fireplaceOn.gameObject.SetActive(true);
+            fireplaceOn.gameObject.SetActive(true);
             fireParticles.gameObject.SetActive(true);
             player.GetComponent<PlayerInventoryManager>().Consume("Bûche", 3);
         }

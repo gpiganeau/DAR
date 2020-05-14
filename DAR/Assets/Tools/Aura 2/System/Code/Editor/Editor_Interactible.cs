@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using UnityEditor;
 
 
@@ -39,4 +39,4 @@ public class Editor_Interactible : Editor
         {
         }
     }
-}
+}*/
