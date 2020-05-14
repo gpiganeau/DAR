@@ -30,7 +30,7 @@ public class HubInventoryManager : MonoBehaviour
         hubInventory.SetManagerReference(this);
         hubInventory.WriteInventory();
         for (int i = 0; i < inventorySlots.Length; i++) {
-            inventorySlots[i] = GameObject.Find("Inventory_Hub_Panel").transform.GetChild(i).gameObject;
+            inventorySlots[i] = hubUI.transform.GetChild(i).gameObject;
         }
     }
   

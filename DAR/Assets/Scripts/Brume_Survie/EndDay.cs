@@ -13,7 +13,8 @@ public class EndDay : MonoBehaviour
 
     InteractWithItems playerInventory;
     [SerializeField] ResetTerrainOnDestroy resetTerrainOnDestroyObject;
-    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject blackFadeMachine;
+    [SerializeField] TextMeshProUGUI currentDayText;
     private PlayerStatus playerStatus;
     [SerializeField] private GameObject firePlace;
     private Text dayTextPause;
@@ -35,8 +36,8 @@ public class EndDay : MonoBehaviour
         firePlace.GetComponent<FireplaceScript>().fireParticles.SetActive(false);
         //firePlace.GetComponent<FireplaceScript>().fireplaceOn.SetActive(false);
         string currentDay = "Jour " + loadedDay.day.ToString();
-        canvas.GetComponentInChildren<TextMeshProUGUI>().text = currentDay;
-        canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", false);
+        currentDayText.text = currentDay;
+        currentDayText.gameObject.GetComponent<Animator>().SetBool("StartFadeToBlack", true);
         sun.GetComponent<CycleJourNuit>().PlayOneDay();
         if (dayTextPause) { dayTextPause.text = currentDay; }
     }
@@ -73,7 +74,7 @@ public class EndDay : MonoBehaviour
     IEnumerator EndDayCoroutine(bool isInsideAndWarm) {
 
         if (isInsideAndWarm) {
-            canvas.GetComponent<Animator>().SetBool("StartFadeToBlack", true);
+            blackFadeMachine.GetComponent<Animator>().SetBool("Fade", true);
             yield return new WaitForSeconds(3.5f);
 
             resetTerrainOnDestroyObject.ResetTracks();
