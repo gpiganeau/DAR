@@ -7,11 +7,21 @@ public class Pause : MonoBehaviour
 {
     public bool gamePaused = false;
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private CanvasGroup pauseCanvasGroup;
+    [SerializeField] private mouseLook despoMouseLook;
     public Text dayText;
+
+    private CursorLockMode lockModeState;
+    private bool mouseLookState;
     private bool m_isAxisInUse = false;
     void Start()
     {
+        despoMouseLook = GetComponentInChildren<mouseLook>();
+        gamePaused = false;
         pausePanel.SetActive(false);
+        pauseCanvasGroup.enabled = false;
+        lockModeState = Cursor.lockState;
+        mouseLookState = despoMouseLook.ignore;
     }
     void Update()
     {
@@ -43,9 +53,15 @@ public class Pause : MonoBehaviour
      }
     private void PauseGame()
     {
+        lockModeState = Cursor.lockState;
+        mouseLookState = despoMouseLook.ignore;
+        
         gamePaused = true;
+        Cursor.lockState = CursorLockMode.None;
+        despoMouseLook.ignore = true;
         Time.timeScale = 0;
         pausePanel.SetActive(true);
+        pauseCanvasGroup.enabled = true;
         //Disable scripts that still work while timescale is set to 0
         GetComponent<CharacterController>().enabled = false;
         GetComponent<PlayerMovement>().enabled = false;
@@ -55,8 +71,11 @@ public class Pause : MonoBehaviour
     private void ContinueGame()
     {
         gamePaused = false;
+        Cursor.lockState = lockModeState;
+        despoMouseLook.ignore = mouseLookState;
         Time.timeScale = 1;
         pausePanel.SetActive(false);
+        pauseCanvasGroup.enabled = false;
         //enable the scripts again
         GetComponent<CharacterController>().enabled = true;
         GetComponent<PlayerMovement>().enabled = true;
@@ -64,9 +83,13 @@ public class Pause : MonoBehaviour
         GetComponentInChildren<Headbobber>().enabled = true;
     }
 
+    public void TurnBackTimeOnly()
+    {
+        Time.timeScale = 1;
+    }
+
     public void SaveDay()
     {
         FindObjectOfType<EndDay>().SaveDayData();
-        Debug.Log("save function called");
     }
 }
