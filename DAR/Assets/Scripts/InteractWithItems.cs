@@ -105,29 +105,29 @@ public class InteractWithItems : MonoBehaviour
         
         switch (objectName){
 
-            case "chest":
+            case "Coffre":
                 //playerInventoryManager.DepositInventory();
                 //collectible.GetComponent<ChestScript>().Open();
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(2);
                 break;
-            case "bed":
+            case "Lit":
                 if (gameObject.GetComponent<PlayerStatus>().GetShelteredStatus() && gameObject.GetComponent<PlayerStatus>().GetWarmStatus()) {
                     gameObject.GetComponent<EndDay>().EndThisDayInside();
                     infoManager.ShowInfo("Journée finie !");
                 }
                 break;
-            case "door":
+            case "Porte":
                 if (!gameObject.GetComponent<PlayerStatus>().GetIsRestingStatus()) {
                     collectible.GetComponent<DoorScript>().Open();
                 }
                 
                 break;
-            case "bag":
+            case "Sac à dos":
                 playerInventoryManager.ChangeInventory(9);
                 collectible.GetComponent<ItemInteraction>().RemoveOneUse();
                 infoManager.ShowInfo("Vous avez trouvé le sac");
                 break;
-            case "fireplace":
+            case "Poêle":
                 if (playerInventoryManager.GetInventory().CountItem("Bûche") + hubInventoryManager.GetHubInventory().Count("Bûche") >= 3) {
                     collectible.GetComponent<FireplaceScript>().Light();
                     infoManager.ShowInfo("Feu allumé !");

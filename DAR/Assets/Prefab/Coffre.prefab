@@ -281,7 +281,7 @@ Transform:
   m_GameObject: {fileID: 2555290340019310431}
   m_LocalRotation: {x: 0, y: -0.6397945, z: 0, w: 0.76854604}
   m_LocalPosition: {x: 371.1831, y: 56.89, z: 251.27707}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2555290340018951033}
   - {fileID: 2555290340018951035}
@@ -313,7 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1dc31032b33f9a418e391582159a347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatorChest: {fileID: 0}
+  animatorChest: {fileID: 1291175684}
+  chestPanel: {fileID: 0}
 --- !u!114 &2555290340019341762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd98601e646ab7449b80661fe1ead3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: chest
+  itemName: Coffre
+  collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!95 &1291175684
 Animator:
@@ -338,7 +340,7 @@ Animator:
   m_GameObject: {fileID: 2555290340019310431}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10ead8b60390d854aac6ad4e01a7e645, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

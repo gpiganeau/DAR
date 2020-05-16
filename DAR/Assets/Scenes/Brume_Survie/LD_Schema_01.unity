@@ -1943,6 +1943,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 628572739}
+    - target: {fileID: 215788187, guid: 8fcc219cf00737c46882eaf6d41159e6, type: 3}
+      propertyPath: itemName
+      value: Porte
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fcc219cf00737c46882eaf6d41159e6, type: 3}
 --- !u!1 &339500370
@@ -5248,7 +5252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd98601e646ab7449b80661fe1ead3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: bag
+  itemName: "Sac \xE0 dos"
   collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!1 &719292545
@@ -6605,35 +6609,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2555290340018951039, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555290340018951039, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555290340018951039, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555290340019341764, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
-        type: 3}
-      propertyPath: animatorChest
-      value: 
-      objectReference: {fileID: 1202772126}
     - target: {fileID: 2555290340019341764, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
         type: 3}
       propertyPath: chestPanel
       value: 
       objectReference: {fileID: 777105122}
-    - target: {fileID: 1291175684, guid: 63bb2f0728c8f1742ba6de27c5f308f5, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 10ead8b60390d854aac6ad4e01a7e645, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63bb2f0728c8f1742ba6de27c5f308f5, type: 3}
 --- !u!1 &872281043
@@ -8889,6 +8869,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3944297293898617035, guid: e78664d195a99be439ad8e67e7fbbb01,
+        type: 3}
+      propertyPath: itemName
+      value: Pile de bois
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78664d195a99be439ad8e67e7fbbb01, type: 3}
 --- !u!1 &1174404076
@@ -9178,12 +9163,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42be4a75f01615d4081100af5700187c, type: 3}
---- !u!95 &1202772126 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1291175684, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
-    type: 3}
-  m_PrefabInstance: {fileID: 870982002}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1238387043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d943f8dd83cbc4e48a8affefb9a31a01,
@@ -13919,6 +13898,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.800001
       objectReference: {fileID: 0}
+    - target: {fileID: 9188597725189577772, guid: b2d3f160a9bcf914495242ef445f7e27,
+        type: 3}
+      propertyPath: itemName
+      value: "\xC9tabli"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2d3f160a9bcf914495242ef445f7e27, type: 3}
 --- !u!1 &1750752819
@@ -14783,7 +14767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd98601e646ab7449b80661fe1ead3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: bed
+  itemName: Lit
   collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!1 &1800057114
@@ -15154,6 +15138,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077986702557673689, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: itemName
+      value: "Po\xEAle"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b21f75b6949788e4c8d1fb5f25080b6b, type: 3}
