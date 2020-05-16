@@ -104,13 +104,23 @@ public class HungerSystem : MonoBehaviour
             {
                 var itemInteraction = selection.GetComponent<ItemInteraction>();
                 mText2.SetActive(true);
-                mTextName2.text = itemInteraction.itemName;
+                if (itemInteraction.GetCollectible() != null) {
+                    mTextName2.text = itemInteraction.GetCollectible()._name;
+                }
+                else {
+                    mTextName2.text = itemInteraction.GetName();
+                }
                 mTextInteraction2.text = GameManager.GM.interaction + "\n Pour mettre dans l'inventaire";
             }
             else if (selection.CompareTag(foodTag))
             {
                 mText.SetActive(true);
-                mTextName.text = selection.gameObject.name;
+                if (selection.GetComponent<ItemInteraction>().GetCollectible() != null) {
+                    mTextName.text = selection.GetComponent<ItemInteraction>().GetCollectible()._name;
+                }
+                else {
+                    mTextName.text = selection.GetComponent<ItemInteraction>().GetName();
+                }
                 mTextFood.text = GameManager.GM.eating + "\n Pour manger";
                 mTextInteraction.text =  GameManager.GM.interaction + "\n Pour mettre dans l'inventaire";
                 var selectionRenderer = selection.GetComponent<Renderer>();

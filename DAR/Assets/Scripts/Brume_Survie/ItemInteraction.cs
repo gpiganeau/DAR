@@ -7,6 +7,7 @@ using UnityEngine;
 public class ItemInteraction : MonoBehaviour
 {
     [SerializeField] public string itemName;
+    [SerializeField] private Item collectible;
     [SerializeField] private int numberOfUses = 1;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,13 @@ public class ItemInteraction : MonoBehaviour
     }
     public void RemoveOneUse() {
         numberOfUses -= 1;
+    }
+
+    public Item GetCollectible() {
+        if (collectible != null) {
+            return collectible;
+        }
+        else return null;
     }
 
 }
