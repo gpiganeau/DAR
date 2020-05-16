@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.4886127, g: 0.6626016, b: 1.0911267, a: 1}
+  m_IndirectSpecularColor: {r: 0.4886669, g: 0.6626503, b: 1.09112, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4960,6 +4960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: fishingSpot
+  collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!4 &694160284 stripped
 Transform:
@@ -5248,6 +5249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: bag
+  collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!1 &719292545
 GameObject:
@@ -7866,6 +7868,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2134064390}
     m_Modifications:
+    - target: {fileID: 2891123777556412598, guid: 20224fb1bb8218f41830c4dc1c16d757,
+        type: 3}
+      propertyPath: m_Name
+      value: WeightBar_UI
+      objectReference: {fileID: 0}
     - target: {fileID: 6195717264488173112, guid: 20224fb1bb8218f41830c4dc1c16d757,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7970,11 +7977,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891123777556412598, guid: 20224fb1bb8218f41830c4dc1c16d757,
-        type: 3}
-      propertyPath: m_Name
-      value: WeightBar_UI
       objectReference: {fileID: 0}
     - target: {fileID: 8851100438816394068, guid: 20224fb1bb8218f41830c4dc1c16d757,
         type: 3}
@@ -12782,6 +12784,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1067631157}
     m_Modifications:
+    - target: {fileID: 54518748545885192, guid: d77481190fd9f2e4aa4ce77803e111d7,
+        type: 3}
+      propertyPath: m_Name
+      value: Checklist_UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 54518748545885192, guid: d77481190fd9f2e4aa4ce77803e111d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 54518748545885195, guid: d77481190fd9f2e4aa4ce77803e111d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12886,16 +12898,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 54518748545885192, guid: d77481190fd9f2e4aa4ce77803e111d7,
-        type: 3}
-      propertyPath: m_Name
-      value: Checklist_UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 54518748545885192, guid: d77481190fd9f2e4aa4ce77803e111d7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54518748191607217, guid: d77481190fd9f2e4aa4ce77803e111d7,
         type: 3}
@@ -13025,6 +13027,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1862103908}
     m_Modifications:
+    - target: {fileID: 2891123777556412598, guid: 20224fb1bb8218f41830c4dc1c16d757,
+        type: 3}
+      propertyPath: m_Name
+      value: WeightBar_UI
+      objectReference: {fileID: 0}
     - target: {fileID: 6195717264488173112, guid: 20224fb1bb8218f41830c4dc1c16d757,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13129,11 +13136,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891123777556412598, guid: 20224fb1bb8218f41830c4dc1c16d757,
-        type: 3}
-      propertyPath: m_Name
-      value: WeightBar_UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20224fb1bb8218f41830c4dc1c16d757, type: 3}
@@ -13388,7 +13390,7 @@ PrefabInstance:
     - target: {fileID: 3505376222059677628, guid: 16eeefcda582ecf4eac409f1a022180f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 698
+      value: 714
       objectReference: {fileID: 0}
     - target: {fileID: 3505376222059677628, guid: 16eeefcda582ecf4eac409f1a022180f,
         type: 3}
@@ -13398,7 +13400,7 @@ PrefabInstance:
     - target: {fileID: 3505376222059677628, guid: 16eeefcda582ecf4eac409f1a022180f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 426
+      value: 165
       objectReference: {fileID: 0}
     - target: {fileID: 3505376222059677628, guid: 16eeefcda582ecf4eac409f1a022180f,
         type: 3}
@@ -14782,6 +14784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: bed
+  collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!1 &1800057114
 GameObject:
@@ -15087,6 +15090,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 628572739}
+    - target: {fileID: 2324180676563720946, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -15112,10 +15120,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.29
       objectReference: {fileID: 0}
-    - target: {fileID: 2324180676563720946, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+    - target: {fileID: 2487534953260843856, guid: b21f75b6949788e4c8d1fb5f25080b6b,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487404673301072780, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487495782416152178, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2329595450639378768, guid: b21f75b6949788e4c8d1fb5f25080b6b,
         type: 3}
@@ -15131,21 +15149,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.193
-      objectReference: {fileID: 0}
-    - target: {fileID: 2487534953260843856, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2487495782416152178, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2487404673301072780, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2488064684765909162, guid: b21f75b6949788e4c8d1fb5f25080b6b,
         type: 3}
