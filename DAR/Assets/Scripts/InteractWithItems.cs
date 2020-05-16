@@ -67,8 +67,14 @@ public class InteractWithItems : MonoBehaviour
                     GameObject objectHit = hit.collider.gameObject;
                     if (objectHit.tag == "interactible" || objectHit.tag == "Food")
                     {
-                        objectName = objectHit.gameObject.GetComponent<ItemInteraction>().GetName();
-                        Action(objectName, objectHit);
+                        Item collectible = objectHit.gameObject.GetComponent<ItemInteraction>().GetCollectible();
+                        if (collectible != null) {
+                            Collect(collectible, objectHit);
+                        }
+                        else {
+                            objectName = objectHit.gameObject.GetComponent<ItemInteraction>().GetName();
+                            Action(objectName, objectHit);
+                        }
                     }
                 }
                 m_isAxisInUse = true;
@@ -82,66 +88,23 @@ public class InteractWithItems : MonoBehaviour
         }
     }
 
-   
+    void Collect(Item collectible, GameObject objectHit) {
+        if (playerInventoryManager.AddItem(Instantiate(collectible))) {
+            objectHit.GetComponent<ItemInteraction>().RemoveOneUse();
+            string display = collectible._name + " ajouté";
+            infoManager.ShowInfo(display);
+        }
+        else {
+            infoManager.ShowInfo("Inventaire plein");
+        }
+    }
+
+
 
     void Action(string objectName, GameObject collectible) {
         
         switch (objectName){
 
-            case "mushroom":
-                Item newItem = Instantiate<Item>(mushroom);
-                if (playerInventoryManager.AddItem(newItem)) {
-                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo("Champignon ajouté");
-                }
-                else {
-                    infoManager.ShowInfo("Inventaire plein");
-                }
-                break;
-            
-            case "wood":
-                Item newItem1 = Instantiate<Item>(wood);
-                if (playerInventoryManager.AddItem(newItem1)) {
-                   
-                    
-                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo("Bois ajouté");
-                }
-                else {
-                    infoManager.ShowInfo("Inventaire plein");
-                }
-                break;
-            case "plank":
-                Item newItem2 = Instantiate<Item>(plank);
-                if (playerInventoryManager.AddItem(newItem2)){
-                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo("Planche ajouté");
-                }
-                else
-                {
-                    infoManager.ShowInfo("Inventaire plein");
-                }
-                break;
-            /* case "wood":      
-                            if (playerInventoryManager.GetInventory().maxWeight != playerInventoryManager.GetInventory().currentWeight) {
-                                Item newItem = Instantiate<Item>(wood);
-                                playerInventoryManager.AddItem(newItem);
-                                collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                                infoManager.ShowInfo("Bois ajouté");
-                            }
-                            else {
-                                infoManager.ShowInfo("Inventaire plein");
-                            }
-                            break;
-                        case "fish":
-                            playerInventory.fish += 1;
-                            infoManager.ShowInfo("Poisson ajouté");
-                            break;
-                        case "waterRation":
-                            playerInventory.waterRation += 1;
-                            infoManager.ShowInfo("Ration d'eau ajoutée");
-                            break;
-            */
             case "chest":
                 //playerInventoryManager.DepositInventory();
                 //collectible.GetComponent<ChestScript>().Open();
@@ -178,60 +141,6 @@ public class InteractWithItems : MonoBehaviour
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(3);
                 break;
 
-            case "radioPiece1":
-                Item newItem3 = Instantiate<Item>(radioPiece1);
-                if (playerInventoryManager.AddItem(newItem3)) {
-                   
-                    
-                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo("Pièce radio ajoutée");
-                }
-                else {
-                    infoManager.ShowInfo("Nécéssite " + radioPiece1.weight + " places !");
-                }
-                break;
-            case "radioPiece2":
-                Item newItem4 = Instantiate<Item>(radioPiece2);
-                if (playerInventoryManager.AddItem(newItem4)) {
-                   
-                    
-                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo("Pièce radio ajoutée");
-                }
-                else {
-                    infoManager.ShowInfo("Nécéssite " + radioPiece2.weight + " places !");
-                }
-                break;
-            case "radioPiece3":
-                Item newItem5 = Instantiate<Item>(radioPiece3);
-                if (playerInventoryManager.AddItem(newItem5)) {
-                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo("Pièce radio ajoutée");
-                }
-                else {
-                    infoManager.ShowInfo("Nécéssite " + radioPiece3.weight + " places !");
-                }
-                break;
-            case "radioPiece4":
-                Item newItem6 = Instantiate<Item>(radioPiece4);
-                if (playerInventoryManager.AddItem(newItem6)) {
-                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo("Pièce radio ajoutée");
-                }
-                else {
-                    infoManager.ShowInfo("Nécéssite " + radioPiece4.weight + " places !");
-                }
-                break;
-            case "baie":
-                Item newItem7 = Instantiate<Item>(baie);
-                if (playerInventoryManager.AddItem(newItem7)) {
-                    collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo("Baie ramassée");
-                }
-                else {
-                    infoManager.ShowInfo("Nécéssite " + baie.weight + " places !");
-                }
-                break;
             case "poissonCru":
                 Item newItem8 = Instantiate<Item>(poissonCru);
                 if (playerInventoryManager.AddItem(newItem8)) {

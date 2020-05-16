@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5068914693322589055}
   - component: {fileID: 5068914693322589054}
   m_Layer: 0
-  m_Name: Mushroom
+  m_Name: Mushroom_Prefab
   m_TagString: interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,4 +105,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: mushroom
+  collectible: {fileID: 11400000, guid: dc2993eea42f2044980445cac57472c0, type: 2}
   numberOfUses: 1

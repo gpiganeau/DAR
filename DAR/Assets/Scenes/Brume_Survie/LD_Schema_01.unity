@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.48860264, g: 0.662597, b: 1.0911306, a: 1}
+  m_IndirectSpecularColor: {r: 0.4886669, g: 0.6626503, b: 1.09112, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5034,6 +5034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: fishingSpot
+  collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!1001 &701020171
 PrefabInstance:
@@ -5310,6 +5311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: bag
+  collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!1 &719292545
 GameObject:
@@ -5571,6 +5573,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5714898754307723455, guid: c623564649310eb42bc5c037def6f84b,
+        type: 3}
+      propertyPath: collectible
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e4f2bcadc08ed44e820a452d4ab73e3,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c623564649310eb42bc5c037def6f84b, type: 3}
 --- !u!1 &777105122
@@ -10984,6 +10992,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 284301911}
     m_Modifications:
+    - target: {fileID: 7966554187946489859, guid: a570a3c9f6b36974987d02c0ada09b0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Hunger_Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966554187946489859, guid: a570a3c9f6b36974987d02c0ada09b0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7966554187946489858, guid: a570a3c9f6b36974987d02c0ada09b0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11088,16 +11106,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7966554187946489859, guid: a570a3c9f6b36974987d02c0ada09b0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Hunger_Bar
-      objectReference: {fileID: 0}
-    - target: {fileID: 7966554187946489859, guid: a570a3c9f6b36974987d02c0ada09b0a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4543418231088898665, guid: a570a3c9f6b36974987d02c0ada09b0a,
         type: 3}
@@ -14181,6 +14189,18 @@ PrefabInstance:
       propertyPath: m_Hunger
       value: 
       objectReference: {fileID: 628572740}
+    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: pausePanel
+      value: 
+      objectReference: {fileID: 446904812}
+    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: dayText
+      value: 
+      objectReference: {fileID: 284837684}
+    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: pauseCanvasGroup
+      value: 
+      objectReference: {fileID: 1862612117}
     - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14281,18 +14301,6 @@ PrefabInstance:
       propertyPath: hut
       value: 
       objectReference: {fileID: 1917468782}
-    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: pausePanel
-      value: 
-      objectReference: {fileID: 446904812}
-    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: dayText
-      value: 
-      objectReference: {fileID: 284837684}
-    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: pauseCanvasGroup
-      value: 
-      objectReference: {fileID: 1862612117}
     - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: infoPanel
@@ -14431,6 +14439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: bed
+  collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!1 &1800057114
 GameObject:
