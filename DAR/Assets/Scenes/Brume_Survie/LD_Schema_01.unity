@@ -7866,6 +7866,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2134064390}
     m_Modifications:
+    - target: {fileID: 2891123777556412598, guid: 20224fb1bb8218f41830c4dc1c16d757,
+        type: 3}
+      propertyPath: m_Name
+      value: WeightBar_UI
+      objectReference: {fileID: 0}
     - target: {fileID: 6195717264488173112, guid: 20224fb1bb8218f41830c4dc1c16d757,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7970,11 +7975,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891123777556412598, guid: 20224fb1bb8218f41830c4dc1c16d757,
-        type: 3}
-      propertyPath: m_Name
-      value: WeightBar_UI
       objectReference: {fileID: 0}
     - target: {fileID: 8851100438816394068, guid: 20224fb1bb8218f41830c4dc1c16d757,
         type: 3}
@@ -8157,6 +8157,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TurnBackTimeOnly
+      objectReference: {fileID: 0}
+    - target: {fileID: 3572391268911237422, guid: 2ee8f09c2f8c3e44c9f1daecae9908ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1767658221}
+    - target: {fileID: 3572391268911237422, guid: 2ee8f09c2f8c3e44c9f1daecae9908ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SaveDay
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ee8f09c2f8c3e44c9f1daecae9908ea, type: 3}
@@ -12782,6 +12792,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1067631157}
     m_Modifications:
+    - target: {fileID: 54518748545885192, guid: d77481190fd9f2e4aa4ce77803e111d7,
+        type: 3}
+      propertyPath: m_Name
+      value: Checklist_UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 54518748545885192, guid: d77481190fd9f2e4aa4ce77803e111d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 54518748545885195, guid: d77481190fd9f2e4aa4ce77803e111d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12886,16 +12906,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 54518748545885192, guid: d77481190fd9f2e4aa4ce77803e111d7,
-        type: 3}
-      propertyPath: m_Name
-      value: Checklist_UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 54518748545885192, guid: d77481190fd9f2e4aa4ce77803e111d7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54518748191607217, guid: d77481190fd9f2e4aa4ce77803e111d7,
         type: 3}
@@ -13025,6 +13035,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1862103908}
     m_Modifications:
+    - target: {fileID: 2891123777556412598, guid: 20224fb1bb8218f41830c4dc1c16d757,
+        type: 3}
+      propertyPath: m_Name
+      value: WeightBar_UI
+      objectReference: {fileID: 0}
     - target: {fileID: 6195717264488173112, guid: 20224fb1bb8218f41830c4dc1c16d757,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13129,11 +13144,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891123777556412598, guid: 20224fb1bb8218f41830c4dc1c16d757,
-        type: 3}
-      propertyPath: m_Name
-      value: WeightBar_UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20224fb1bb8218f41830c4dc1c16d757, type: 3}
@@ -14667,6 +14677,18 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 1767658219}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1767658221 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1767658219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628572739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539143523e4853a4383bfe80e7e78d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1769186264 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6319953076943843106, guid: b2d3f160a9bcf914495242ef445f7e27,

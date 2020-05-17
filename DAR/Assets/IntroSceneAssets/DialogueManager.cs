@@ -10,6 +10,8 @@ public class DialogueManager : MonoBehaviour {
 	public Animator animator;
 	public bool inDialogue = false;
 	private Queue<string> sentences;
+	public bool nowTyping;
+	private string currentText;
 
 	// Use this for initialization
 	void Awake () {
@@ -43,18 +45,27 @@ public class DialogueManager : MonoBehaviour {
 		}
 
 		string sentence = sentences.Dequeue();
+		currentText = sentence;
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentence));
 	}
 
 	IEnumerator TypeSentence (string sentence)
 	{
+		nowTyping = true;
 		dialogueText.text = "";
 		foreach (char letter in sentence.ToCharArray())
 		{
 			dialogueText.text += letter;
 			yield return null;
 		}
+		nowTyping = false;
+	}
+	public void TypeEverything()
+	{
+		StopAllCoroutines();
+		dialogueText.text = currentText;
+		nowTyping = false;
 	}
 
 	void EndDialogue()
@@ -62,6 +73,8 @@ public class DialogueManager : MonoBehaviour {
 		inDialogue = false;
 
 		if (animator) { animator.SetBool("IsOpen", false); }
+
+		currentText = null;
 	}
 
 }

@@ -13,6 +13,7 @@ public class taskManager : MonoBehaviour
     public List<Tasks> AllCurrentTasks;
     public List<Tasks> AllTasks;
     public Dictionary<string,Tasks> AllTasksDictionary;
+    private bool m_isAxisInUse = false;
    
 
     // Start is called before the first frame update
@@ -36,10 +37,10 @@ public class taskManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.CapsLock))
+        /*if (Input.GetKeyDown(KeyCode.CapsLock))
         {
             playerInventoryManager.ShowAlternateUI(4);            
-        }
+        }*/
 
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -64,7 +65,19 @@ public class taskManager : MonoBehaviour
             AddTask(AllTasksDictionary["GSH"]);
         }
 
+        if(Input.GetAxisRaw("Checklist") != 0) 
+        {
+            if(m_isAxisInUse == false)
+            {
+                m_isAxisInUse = true;
+                playerInventoryManager.ShowAlternateUI(4);
+            }
+        }
 
+        if(Input.GetAxisRaw("Checklist") == 0)
+        {
+            m_isAxisInUse = false;
+        }
 
     }
 

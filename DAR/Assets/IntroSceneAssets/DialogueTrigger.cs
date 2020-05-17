@@ -31,7 +31,12 @@ public class DialogueTrigger : MonoBehaviour {
 		{
 			if(m_isAxisInUse == false)
 			{
-				TriggerNextSentence();
+				if (dialogueMng.nowTyping)
+				{
+					dialogueMng.TypeEverything();
+				}
+				else TriggerNextSentence();
+				
 				m_isAxisInUse = true;
 				if (dialogueActivated && !dialogueMng.inDialogue && fadeComponent != null)
 				{
@@ -55,5 +60,4 @@ public class DialogueTrigger : MonoBehaviour {
 	{
 		dialogueMng.DisplayNextSentence();
 	}
-
 }
