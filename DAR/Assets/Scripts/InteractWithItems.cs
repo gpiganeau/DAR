@@ -55,7 +55,6 @@ public class InteractWithItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetAxisRaw("Interact") != 0)
         {
             if(m_isAxisInUse == false)
@@ -134,10 +133,10 @@ public class InteractWithItems : MonoBehaviour
                 }
                 break;
 
-            case "woodStorage":
+            case "Pile de bois":
                 playerInventoryManager.DepositInventory("Bûche");
                 break;
-            case "workTable":
+            case "Établi":
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(3);
                 break;
 

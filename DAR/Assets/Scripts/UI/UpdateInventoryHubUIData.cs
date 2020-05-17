@@ -5,26 +5,14 @@ using UnityEngine.UI;
 
 public class UpdateInventoryHubUIData : MonoBehaviour
 {
-
-    public Text _nb_Wood;
-    public Text _nb_Mushroom;
-    private GameObject[] inventorySlots;
+    public GameObject[] inventorySlots;
     // Start is called before the first frame update
 
     void Start()
     {
-        inventorySlots = new GameObject[gameObject.GetComponentsInChildren<ButtonInfo>().Length];
-        for (int i = 0; i < inventorySlots.Length; i++) {
-            inventorySlots[i] = gameObject.GetComponentsInChildren<ButtonInfo>()[i].gameObject;
-        }
+
     }
 
-    //private void OnEnable() {
-    //    if(_nb_Wood == null || _nb_Mushroom == null) {
-    //        _nb_Wood = transform.Find("nb_Wood").GetComponent<Text>();
-    //        _nb_Mushroom = transform.Find("nb_Mushroom").GetComponent<Text>();
-    //    }
-    //}
 
     // Update is called once per frame
     void Update()

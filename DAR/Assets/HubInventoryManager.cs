@@ -59,7 +59,6 @@ public class HubInventoryManager : MonoBehaviour
     }
 
 
-
     public void UpdateAll() {
         woodStorage.GetComponent<woodStorage>().Show(hubInventory.Count("Bûche"));
         hubUI.GetComponent<UpdateInventoryHubUIData>().UpdateValues(hubInventory);

@@ -4404,9 +4404,10 @@ MonoBehaviour:
   mText2: {fileID: 2075337630}
   foodTag: Food
   interactiveTag: interactible
+  playerStatus: {fileID: 628572748}
   player_camera: {fileID: 1767658220}
   mFoodBar: {fileID: 1762031672}
-  rateHunger: 5
+  rateHunger: 1
   food: 100
 --- !u!114 &628572744 stripped
 MonoBehaviour:
@@ -4442,6 +4443,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ef2056b3ea6fdd429516aed40c46357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &628572748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1767658219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628572739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ab1170892028d49aeefae764dad3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &631835977
@@ -5647,7 +5660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &777105123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5727,8 +5740,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af45770bb6a6c043ace4b0e2038819a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nb_Wood: {fileID: 0}
-  _nb_Mushroom: {fileID: 0}
+  inventorySlots:
+  - {fileID: 2104513963}
+  - {fileID: 501495452}
+  - {fileID: 1984830653}
+  - {fileID: 1765963328}
 --- !u!114 &777105127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14618,6 +14634,10 @@ PrefabInstance:
       propertyPath: currentDayText
       value: 
       objectReference: {fileID: 835544117}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: hungerSystem
+      value: 
+      objectReference: {fileID: 628572740}
     - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: fireplace
       value: 
@@ -15404,7 +15424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1862103906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17334,7 +17354,7 @@ PrefabInstance:
     - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
         type: 3}
       propertyPath: dayLength
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
         type: 3}
