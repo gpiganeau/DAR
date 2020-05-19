@@ -50,8 +50,15 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
                 playerInventoryManager.Consume("Bûche", 2);
                 workBench.GetComponent<SpawningCraftedItem>().SpawnCraft(item);
                 break;
-            case "echelle":
+            /*case "echelle":
                 playerInventoryManager.Consume("Bûche", 6);
+                break;*/
+            case "Radio":
+                playerInventoryManager.Consume("radioPiece1Item", 1);
+                playerInventoryManager.Consume("radioPiece2Item", 1);
+                playerInventoryManager.Consume("radioPiece3Item", 1);
+                playerInventoryManager.Consume("radioPiece4Item", 1);
+                workBench.GetComponent<SpawningCraftedItem>().SpawnCraft(item);
                 break;
         }        
     }
