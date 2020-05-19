@@ -134,6 +134,8 @@ public class Menu : MonoBehaviour
 
             playerInventory.WriteInventory();
             hubInventory.WriteInventory();
+            loadScenePath.sceneToLoad = 2;
+            loadScenePath.GoToIntro();
         }
         else
         {
@@ -145,9 +147,10 @@ public class Menu : MonoBehaviour
 
             playerInventory.WriteInventory();
             hubInventory.WriteInventory();
+            loadScenePath.sceneToLoad = 2;
+            loadScenePath.GoToLoad();
         }
-        loadScenePath.sceneToLoad = 2;
-        loadScenePath.GoToLoad();
+        
     }
 
 //------------------------------[Partie Options]------------------------------------------------------------//
