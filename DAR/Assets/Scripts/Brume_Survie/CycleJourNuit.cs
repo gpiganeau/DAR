@@ -95,6 +95,10 @@ public class CycleJourNuit : MonoBehaviour {
         transform.rotation = originalRotation;
         float rotation = 0f;
         while(rotation < 180f) {
+            if (player.GetComponent<PlayerStatus>().GetDeadByHunger()) {
+                GameOver(true);
+                break;
+            }
             transform.RotateAround(transform.position, new Vector3(1,0,0), Time.deltaTime * 180 / (dayLength * 60));
             rotation += (Time.deltaTime * 180) / (dayLength * 60);
             

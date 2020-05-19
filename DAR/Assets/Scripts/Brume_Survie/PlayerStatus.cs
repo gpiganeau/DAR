@@ -8,6 +8,7 @@ public class PlayerStatus : MonoBehaviour
     private bool isWarm;
     private bool isResting;
     private int freezingLevel;
+    private bool deadByHunger = false;
     [SerializeField] GameObject fireplace;
     [SerializeField] Transform spawnPosition;
     [SerializeField] private GameObject hut;
@@ -77,5 +78,12 @@ public class PlayerStatus : MonoBehaviour
         }
     }
         
+    public void SetDeadByHunger(bool input) {
+        deadByHunger = input;
+    }
+
+    public bool GetDeadByHunger() {
+        return deadByHunger;
+    }
 
 }

@@ -18,7 +18,8 @@ public class EndDay : MonoBehaviour
     private PlayerStatus playerStatus;
     [SerializeField] private GameObject firePlace;
     private Text dayTextPause;
-    
+    [SerializeField] private HungerSystem hungerSystem;
+
 
 
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class EndDay : MonoBehaviour
     }
 
     public void StartDay() {
+        hungerSystem.StartInvoking();
         firePlace.GetComponent<FireplaceScript>().fireParticles.SetActive(false);
         firePlace.GetComponent<FireplaceScript>().fireplaceOn.SetActive(false);
         string currentDay = "Jour " + loadedDay.day.ToString();

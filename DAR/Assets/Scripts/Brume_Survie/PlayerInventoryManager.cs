@@ -73,7 +73,13 @@ public class PlayerInventoryManager : MonoBehaviour
             playerInventory.WriteInventory();
         }
         else {
-            playerInventory.DepositOneType(itemType, hubInventoryManager);
+            foreach (Item item in GetInventory().content) {
+                if(item._name == itemType) {
+                    Item temp = item;
+                    playerInventory.DepositOneType(temp, hubInventoryManager);
+                    break;
+                }
+            }
         }
         UpdateAll();
     }
@@ -281,13 +287,12 @@ public class PlayerInventoryManager : MonoBehaviour
             WriteInventory();
         }
 
-        public void DepositOneType(string itemType, HubInventoryManager hubInventoryManager) {
+        public void DepositOneType(Item itemType, HubInventoryManager hubInventoryManager) {
             int total = 0;
             List<int> indexes = new List<int>();
-            Item currentItem = new Item();
-            for(int i = 0; i < content.Count; i++) { 
-                if (content[i]._name == itemType) {
-                    currentItem = content[i];
+            
+            for (int i = 0; i < content.Count; i++) { 
+                if (content[i]._name == itemType._name) {
                     indexes.Add(i - total);
                     total += 1;
                 }
@@ -295,8 +300,8 @@ public class PlayerInventoryManager : MonoBehaviour
             foreach (int index in indexes) {
                 content.RemoveAt(index);
             }
-            currentWeight -= total * currentItem.weight;
-            hubInventoryManager.ChangeValue(currentItem, total);
+            currentWeight -= total * itemType.weight;
+            hubInventoryManager.ChangeValue(itemType, total);
             WriteInventory();
         }
 

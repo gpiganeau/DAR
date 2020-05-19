@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.4886127, g: 0.6626016, b: 1.0911267, a: 1}
+  m_IndirectSpecularColor: {r: 0.4886669, g: 0.6626503, b: 1.09112, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1943,6 +1943,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 628572739}
+    - target: {fileID: 215788187, guid: 8fcc219cf00737c46882eaf6d41159e6, type: 3}
+      propertyPath: itemName
+      value: Porte
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fcc219cf00737c46882eaf6d41159e6, type: 3}
 --- !u!1 &339500370
@@ -4400,9 +4404,10 @@ MonoBehaviour:
   mText2: {fileID: 2075337630}
   foodTag: Food
   interactiveTag: interactible
+  playerStatus: {fileID: 628572748}
   player_camera: {fileID: 1767658220}
   mFoodBar: {fileID: 1762031672}
-  rateHunger: 5
+  rateHunger: 1
   food: 100
 --- !u!114 &628572744 stripped
 MonoBehaviour:
@@ -4438,6 +4443,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ef2056b3ea6fdd429516aed40c46357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &628572748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1767658219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628572739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ab1170892028d49aeefae764dad3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &631835977
@@ -4960,6 +4977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: fishingSpot
+  collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!4 &694160284 stripped
 Transform:
@@ -5247,7 +5265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd98601e646ab7449b80661fe1ead3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: bag
+  itemName: "Sac \xE0 dos"
+  collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!1 &719292545
 GameObject:
@@ -5641,7 +5660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &777105123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5721,8 +5740,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af45770bb6a6c043ace4b0e2038819a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nb_Wood: {fileID: 0}
-  _nb_Mushroom: {fileID: 0}
+  inventorySlots:
+  - {fileID: 2104513963}
+  - {fileID: 501495452}
+  - {fileID: 1984830653}
+  - {fileID: 1765963328}
 --- !u!114 &777105127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6603,35 +6625,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2555290340018951039, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555290340018951039, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555290340018951039, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555290340019341764, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
-        type: 3}
-      propertyPath: animatorChest
-      value: 
-      objectReference: {fileID: 1202772126}
     - target: {fileID: 2555290340019341764, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
         type: 3}
       propertyPath: chestPanel
       value: 
       objectReference: {fileID: 777105122}
-    - target: {fileID: 1291175684, guid: 63bb2f0728c8f1742ba6de27c5f308f5, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 10ead8b60390d854aac6ad4e01a7e645, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63bb2f0728c8f1742ba6de27c5f308f5, type: 3}
 --- !u!1 &872281043
@@ -8897,6 +8895,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3944297293898617035, guid: e78664d195a99be439ad8e67e7fbbb01,
+        type: 3}
+      propertyPath: itemName
+      value: Pile de bois
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78664d195a99be439ad8e67e7fbbb01, type: 3}
 --- !u!1 &1174404076
@@ -9186,12 +9189,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42be4a75f01615d4081100af5700187c, type: 3}
---- !u!95 &1202772126 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1291175684, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
-    type: 3}
-  m_PrefabInstance: {fileID: 870982002}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1238387043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d943f8dd83cbc4e48a8affefb9a31a01,
@@ -13398,7 +13395,7 @@ PrefabInstance:
     - target: {fileID: 3505376222059677628, guid: 16eeefcda582ecf4eac409f1a022180f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 698
+      value: 714
       objectReference: {fileID: 0}
     - target: {fileID: 3505376222059677628, guid: 16eeefcda582ecf4eac409f1a022180f,
         type: 3}
@@ -13408,7 +13405,7 @@ PrefabInstance:
     - target: {fileID: 3505376222059677628, guid: 16eeefcda582ecf4eac409f1a022180f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 426
+      value: 165
       objectReference: {fileID: 0}
     - target: {fileID: 3505376222059677628, guid: 16eeefcda582ecf4eac409f1a022180f,
         type: 3}
@@ -13926,6 +13923,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 4.800001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188597725189577772, guid: b2d3f160a9bcf914495242ef445f7e27,
+        type: 3}
+      propertyPath: itemName
+      value: "\xC9tabli"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2d3f160a9bcf914495242ef445f7e27, type: 3}
@@ -14642,6 +14644,10 @@ PrefabInstance:
       propertyPath: currentDayText
       value: 
       objectReference: {fileID: 835544117}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: hungerSystem
+      value: 
+      objectReference: {fileID: 628572740}
     - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: fireplace
       value: 
@@ -14803,7 +14809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd98601e646ab7449b80661fe1ead3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: bed
+  itemName: Lit
+  collectible: {fileID: 0}
   numberOfUses: 1
 --- !u!1 &1800057114
 GameObject:
@@ -15109,6 +15116,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 628572739}
+    - target: {fileID: 2324180676563720946, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -15134,10 +15146,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.29
       objectReference: {fileID: 0}
-    - target: {fileID: 2324180676563720946, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+    - target: {fileID: 2487534953260843856, guid: b21f75b6949788e4c8d1fb5f25080b6b,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487404673301072780, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487495782416152178, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2329595450639378768, guid: b21f75b6949788e4c8d1fb5f25080b6b,
         type: 3}
@@ -15154,25 +15176,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.193
       objectReference: {fileID: 0}
-    - target: {fileID: 2487534953260843856, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2487495782416152178, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2487404673301072780, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2488064684765909162, guid: b21f75b6949788e4c8d1fb5f25080b6b,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077986702557673689, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: itemName
+      value: "Po\xEAle"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b21f75b6949788e4c8d1fb5f25080b6b, type: 3}
@@ -15434,7 +15446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1862103906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17364,7 +17376,7 @@ PrefabInstance:
     - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
         type: 3}
       propertyPath: dayLength
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
         type: 3}

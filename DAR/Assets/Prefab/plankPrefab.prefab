@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3641307253067849905}
   - component: {fileID: 3641307253067849904}
   m_Layer: 0
-  m_Name: plank
+  m_Name: plankPrefab
   m_TagString: interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: plank
+  collectible: {fileID: 11400000, guid: 8bb7d8863cee8c246b179ffaff9eb6f1, type: 2}
   numberOfUses: 1
 --- !u!1 &3641307252896967919
 GameObject:
