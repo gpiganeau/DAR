@@ -9,6 +9,7 @@ public class ItemInteraction : MonoBehaviour
     [SerializeField] public string itemName;
     [SerializeField] private Item collectible;
     [SerializeField] private int numberOfUses = 1;
+    public bool notInventory = false;
     // Start is called before the first frame update
     void Start()
     {

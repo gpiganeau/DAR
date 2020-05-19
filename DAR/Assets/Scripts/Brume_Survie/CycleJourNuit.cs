@@ -65,7 +65,8 @@ public class CycleJourNuit : MonoBehaviour {
 
 
         if ((freezingLevel > 1) || !player.GetComponent<PlayerStatus>().GetShelteredStatus()) {
-            SceneManager.LoadScene(3);
+            //SceneManager.LoadScene(3);
+            player.GetComponent<template>().Hypothermie();
         }
         else {
             musicState = 3f;
@@ -96,7 +97,8 @@ public class CycleJourNuit : MonoBehaviour {
         float rotation = 0f;
         while(rotation < 180f) {
             if (player.GetComponent<PlayerStatus>().GetDeadByHunger()) {
-                GameOver(true);
+                //GameOver(true);
+                player.GetComponent<template>().Famine();
                 break;
             }
             transform.RotateAround(transform.position, new Vector3(1,0,0), Time.deltaTime * 180 / (dayLength * 60));

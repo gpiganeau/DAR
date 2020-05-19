@@ -14,6 +14,7 @@ public class Pause : MonoBehaviour
     private CursorLockMode lockModeState;
     private bool mouseLookState;
     private bool m_isAxisInUse = false;
+    public bool isDead = false;
     void Start()
     {
         despoMouseLook = GetComponentInChildren<mouseLook>();
@@ -30,7 +31,7 @@ public class Pause : MonoBehaviour
             if(m_isAxisInUse == false)
             {
                 m_isAxisInUse = true;
-                if (!pausePanel.activeInHierarchy) 
+                if (!pausePanel.activeInHierarchy && isDead == false) 
                 {
                     PauseGame();
                 }

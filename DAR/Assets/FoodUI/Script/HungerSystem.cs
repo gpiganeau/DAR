@@ -62,7 +62,8 @@ public class HungerSystem : MonoBehaviour
         mFoodBar.SetValue(food);
 
         if (food == 0) {
-            playerStatus.SetDeadByHunger(true);
+            //playerStatus.SetDeadByHunger(true);
+            GetComponent<template>().Famine();
         }
 
         if (playerStatus.GetDeadByHunger() || playerStatus.GetIsRestingStatus())
@@ -111,7 +112,15 @@ public class HungerSystem : MonoBehaviour
                 else {
                     mTextName2.text = itemInteraction.GetName();
                 }
-                mTextInteraction2.text = GameManager.GM.interaction + "\n Pour mettre dans l'inventaire";
+                
+                if (itemInteraction.notInventory == false)
+                {
+                    mTextInteraction2.text =  GameManager.GM.interaction + "\n Pour mettre dans l'inventaire";
+                }
+                else
+                {
+                    mTextInteraction2.text =  GameManager.GM.interaction + "\n Pour utiliser";
+                }
             }
             else if (selection.CompareTag(foodTag))
             {
@@ -141,6 +150,11 @@ public class HungerSystem : MonoBehaviour
                 mText.SetActive(false);
                 mText2.SetActive(false);
             }
+        }
+        else
+        {
+            mText.SetActive(false);
+            mText2.SetActive(false);
         }
     }
 

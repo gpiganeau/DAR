@@ -160,8 +160,11 @@ public class InteractWithItems : MonoBehaviour
                     infoManager.ShowInfo("Nécéssite " + poissonCuit.weight + " places !");
                 }
                 break;
-            case "fishingSpot":
+            case "Pêcher":
                 collectible.GetComponent<FishingScript>().StartFishing();
+                break;
+            case "Zone de pêche" :
+                collectible.GetComponent<NewPosition>().isFishing = true;
                 break;
             case "Balise":
                 Item newItem10 = Instantiate<Item>(balise);

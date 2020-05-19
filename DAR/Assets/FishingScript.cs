@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FishingScript : MonoBehaviour
 {
@@ -14,27 +15,61 @@ public class FishingScript : MonoBehaviour
     Coroutine catchingFishCoroutine;
     float timer;
     float randomOffsetTime;
+
+    public InfoManager infoManager;
+    public bool isCatch;
+    public bool beingCatch;
+    public GameObject mText;
+    public GameObject mText2;
+    public Text mTextCatch;
+    public GameObject rode;
+    public GameObject thread; 
+    public Animator anim;
+    public Camera player_camera;
+    float x;
+    float y;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        x = Screen.width / 2;
+        y = Screen.height / 2;
+        mText.SetActive(false);
+        //rode.SetActive(false);
+        //infoManager = gameObject.GetComponent<InfoManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isCatch == true)
+        {
+            infoManager.ShowInfo("Poisson ajouté");
+            isCatch =false;
+        }
+        anim.SetBool("isWin", false);
+
+        if(beingCatch == true)
+        {
+            mText2.SetActive(false);
+        }
     }
 
-    public void StartFishing() {
-        if (fishingCoroutine == null) {
+    public void StartFishing()
+    {
+        if (fishingCoroutine == null)
+        {
+            anim.SetBool("isStart",true);
+            thread.SetActive(true);
+            beingCatch = true;
             fishingCoroutine = StartCoroutine(FishingCoroutine());
         }
-        
     }
 
     public void StopFishing(int success) {
         timer = 0f;
+        anim.SetBool("isWin", true);
+        anim.SetBool("isStart",false);
         randomOffsetTime = -1f;
         if (success == 1) {
             PlayerInventoryManager.AddItem(Instantiate(fish1));
@@ -46,6 +81,7 @@ public class FishingScript : MonoBehaviour
             PlayerInventoryManager.AddItem(Instantiate(fish3));
         }
         StopCoroutine(fishingCoroutine);
+        beingCatch = false;
         fishingCoroutine = null;
     }
 
@@ -69,16 +105,23 @@ public class FishingScript : MonoBehaviour
         }
         while (pickUpTimer < timeLimit) {
             pickUpTimer += Time.deltaTime;
-            //afficher indicateur
-            if (Input.GetButtonDown("Interact")) {
+                anim.SetBool("isBite",true);
+                mText.SetActive(true);
+                mTextCatch.text = KeyCode.Mouse0 + "\n Pour attraper";
+            if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 success = fish;
+                isCatch = true;
                 break; 
             }
-            else {
+            else
+            {
+                isCatch = false;
                 yield return null;
             }
             yield return null;
         }
+        anim.SetBool("isBite",false);
+        mText.SetActive(false);
         //hide indicateur
         StopFishing(success);
     }
