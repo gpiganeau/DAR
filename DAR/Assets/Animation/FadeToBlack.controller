@@ -85,7 +85,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DayNumber
+  m_Name: DayNumberShown
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -99,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 412227c3516e73d4c95966612752dbcd, type: 2}
+  m_Motion: {fileID: 7400000, guid: cabac892cd2704d4caae0ae01f67f118, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -112,7 +112,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlackScreen
+  m_Name: DayNumberHidden
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -126,7 +126,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cabac892cd2704d4caae0ae01f67f118, type: 2}
+  m_Motion: {fileID: 7400000, guid: 412227c3516e73d4c95966612752dbcd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -143,10 +143,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102368735523668762}
-    m_Position: {x: 240, y: 156, z: 0}
+    m_Position: {x: 408, y: 144, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102582857974666878}
-    m_Position: {x: 672, y: 288, z: 0}
+    m_Position: {x: 648, y: 300, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
