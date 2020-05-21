@@ -4719,7 +4719,7 @@ MonoBehaviour:
   playerStatus: {fileID: 0}
   player_camera: {fileID: 1767658220}
   mFoodBar: {fileID: 1762031672}
-  rateHunger: 1
+  rateHunger: 0.1
   food: 100
   areaFishing: {fileID: 1309913120}
 --- !u!4 &628572741 stripped
@@ -8468,7 +8468,7 @@ PrefabInstance:
     - target: {fileID: 7418370702669569086, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3771136158489433024, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
@@ -8578,22 +8578,22 @@ PrefabInstance:
     - target: {fileID: 3165323812316941716, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3165323812316941716, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3165323812316941716, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 960
       objectReference: {fileID: 0}
     - target: {fileID: 3165323812316941716, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -540
       objectReference: {fileID: 0}
     - target: {fileID: 3131238833755964333, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
@@ -14920,16 +14920,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 419
-      objectReference: {fileID: 0}
-    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 550
-      objectReference: {fileID: 0}
     - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: infoPanel
@@ -15036,6 +15026,10 @@ PrefabInstance:
       propertyPath: areaFishing
       value: 
       objectReference: {fileID: 1130643419}
+    - target: {fileID: 924330457, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 837583080}
     - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: hubInventoryManager
       value: 

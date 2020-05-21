@@ -21,6 +21,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     private bool m_isAxisInUse = false;
     public GameObject areaFishing;
+    public GameObject gameOver;
 
     [FMODUnity.EventRef]
     public string inventoryEvent = "";
@@ -50,7 +51,7 @@ public class PlayerInventoryManager : MonoBehaviour
 
     void Update()
     {
-        if (areaFishing.activeSelf)
+        if (areaFishing.activeSelf )
         {
         if( Input.GetAxisRaw("UISelect") != 0)
         {
