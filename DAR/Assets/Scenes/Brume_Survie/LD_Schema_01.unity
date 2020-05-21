@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.48866624, g: 0.66264987, b: 1.0911198, a: 1}
+  m_IndirectSpecularColor: {r: 0.4886127, g: 0.6626016, b: 1.0911267, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4696,6 +4696,7 @@ MonoBehaviour:
   mText2: {fileID: 2075337630}
   foodTag: Food
   interactiveTag: interactible
+  playerStatus: {fileID: 0}
   player_camera: {fileID: 1767658220}
   mFoodBar: {fileID: 1762031672}
   rateHunger: 1
@@ -15036,18 +15037,6 @@ PrefabInstance:
       propertyPath: m_Hunger
       value: 
       objectReference: {fileID: 628572740}
-    - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: fireplace
-      value: 
-      objectReference: {fileID: 113546410}
-    - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: spawnPosition
-      value: 
-      objectReference: {fileID: 964592802}
-    - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: hut
-      value: 
-      objectReference: {fileID: 1917468782}
     - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: pausePanel
       value: 
@@ -15060,6 +15049,18 @@ PrefabInstance:
       propertyPath: pauseCanvasGroup
       value: 
       objectReference: {fileID: 1862612117}
+    - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: fireplace
+      value: 
+      objectReference: {fileID: 113546410}
+    - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: spawnPosition
+      value: 
+      objectReference: {fileID: 964592802}
+    - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: hut
+      value: 
+      objectReference: {fileID: 1917468782}
     - target: {fileID: 3700134211258645079, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: m_Enabled

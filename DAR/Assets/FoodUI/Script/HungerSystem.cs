@@ -19,6 +19,7 @@ public class HungerSystem : MonoBehaviour
     
     [SerializeField] private string foodTag = "Food";
     [SerializeField] private string interactiveTag = "interactible";
+    [SerializeField] private PlayerStatus playerStatus;
     public Camera player_camera;
 
 
@@ -42,10 +43,13 @@ public class HungerSystem : MonoBehaviour
         startFood = food;
 
         mText.SetActive(false);
-        mText2.SetActive(true);
-
-        InvokeRepeating("IncreaserHunger",0, rateHunger);
+        mText2.SetActive(true);        
     }
+
+    public void StartInvoking() {
+        InvokeRepeating("IncreaserHunger", 0, rateHunger);
+    }
+
 
     public void IncreaserHunger()
     {
@@ -57,7 +61,12 @@ public class HungerSystem : MonoBehaviour
 
         mFoodBar.SetValue(food);
 
-        if (IsDead)
+        if (food == 0) {
+            //playerStatus.SetDeadByHunger(true);
+            GetComponent<template>().Famine();
+        }
+
+        if (playerStatus.GetDeadByHunger() || playerStatus.GetIsRestingStatus())
         {
             CancelInvoke();
         }
