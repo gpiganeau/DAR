@@ -107,7 +107,7 @@ public class FishingScript : MonoBehaviour
             pickUpTimer += Time.deltaTime;
                 anim.SetBool("isBite",true);
                 mText.SetActive(true);
-                mTextCatch.text = KeyCode.Mouse0 + "\n Pour attraper";
+                mTextCatch.text = "Clic Gauche \n Pour attraper";
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 success = fish;
                 isCatch = true;

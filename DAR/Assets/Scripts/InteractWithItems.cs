@@ -35,6 +35,9 @@ public class InteractWithItems : MonoBehaviour
     private InfoManager infoManager;
     private bool m_isAxisInUse = false;
     GameObject woodStorage;
+
+
+    public Animator anim;
     // Start is called before the first frame update
 
     public void Awake()
@@ -49,8 +52,6 @@ public class InteractWithItems : MonoBehaviour
         y = Screen.height / 2;
         infoManager = gameObject.GetComponent<InfoManager>();
     }
-
-
 
     // Update is called once per frame
     void Update()

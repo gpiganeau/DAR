@@ -10,6 +10,8 @@ public class NewPosition : MonoBehaviour
     public GameObject thread;
     [SerializeField] private GameObject cameraDespo;
     public GameObject player;
+    public GameObject mText3;
+    public GameObject inventoryUI;
     public bool isFishing;
     private bool mouseLookState;
     public Animator anim;
@@ -17,9 +19,12 @@ public class NewPosition : MonoBehaviour
     public float timerT = 2f;
     public bool toStop = false;
 
-    
+    public bool notInventory;
+
     void Start()
     {
+        notInventory = false;
+        //mText3.SetActive(false);
         //areaFishing.SetActive(false);
         mouseLookState = cameraDespo.GetComponent<mouseLook>().ignore;     
     }
@@ -29,6 +34,8 @@ public class NewPosition : MonoBehaviour
         if (isFishing == true)
         {
             NewPositionPlayer();
+            Debug.Log("Peche");
+            mText3.SetActive(true);
         }
 
         else if (Input.GetKeyDown(KeyCode.T))
@@ -53,6 +60,8 @@ public class NewPosition : MonoBehaviour
         areaFishing.SetActive(true);
         areaFishing2.SetActive(false);
         rode.SetActive(true);
+        mText3.SetActive(true);
+        Debug.Log("New" + gameObject.name);
         cameraDespo.GetComponent<mouseLook>().enabled = false;
         player.GetComponent<CharacterController>().enabled = false;
         player.GetComponent<PlayerMovement>().enabled = false;
@@ -62,6 +71,7 @@ public class NewPosition : MonoBehaviour
         //cameraDespo.transform.rotation = Quaternion.Lerp(cameraDespo.transform.rotation,rotationM, speed*Time.deltaTime);
         cameraDespo.transform.LookAt(areaFishing.transform.position);
         isFishing = false;
+        notInventory = true;
     }
 
     public void ItsTimeToStop()
@@ -73,9 +83,14 @@ public class NewPosition : MonoBehaviour
 
     public void OldPositionPlayer()
     {
+        Debug.Log("Stop");
+        notInventory = false;
         areaFishing.SetActive(false);
         areaFishing2.SetActive(true);
         rode.SetActive(false);
+        mText3.SetActive(false);
+        notInventory = false;
+        Debug.Log("Old" + gameObject.name);
         cameraDespo.GetComponent<mouseLook>().enabled = true;
         player.GetComponent<CharacterController>().enabled = true;
         player.GetComponent<PlayerMovement>().enabled = true;
@@ -84,7 +99,6 @@ public class NewPosition : MonoBehaviour
         anim.SetBool("isStop",false);
         timerT = 2f;
         toStop = false;
-
     }
 
 
