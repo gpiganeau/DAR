@@ -42,6 +42,7 @@ public class EndDay : MonoBehaviour
         currentDayText.gameObject.GetComponent<Animator>().SetBool("StartFadeToBlack", true);
         sun.GetComponent<CycleJourNuit>().PlayOneDay();
         if (dayTextPause) { dayTextPause.text = currentDay; }
+        if (Cursor.visible) { Cursor.visible = false; }
     }
 
 
