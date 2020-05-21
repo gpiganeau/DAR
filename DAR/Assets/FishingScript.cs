@@ -111,6 +111,7 @@ public class FishingScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 success = fish;
                 isCatch = true;
+                infoManager.ShowInfo("Poisson ajouté");
                 break; 
             }
             else

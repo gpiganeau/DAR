@@ -19,9 +19,7 @@ public class HungerSystem : MonoBehaviour
     
     [SerializeField] private string foodTag = "Food";
     [SerializeField] private string interactiveTag = "interactible";
-    [SerializeField] private PlayerStatus playerStatus;
     public Camera player_camera;
-    
 
 
     public Hunger mFoodBar;
@@ -33,7 +31,8 @@ public class HungerSystem : MonoBehaviour
     float x;
     float y;
 
-
+    public GameObject areaFishing;
+    
     void Start()
     {
         x = Screen.width / 2;
@@ -43,13 +42,10 @@ public class HungerSystem : MonoBehaviour
         startFood = food;
 
         mText.SetActive(false);
-        mText2.SetActive(true);        
-    }
+        mText2.SetActive(true);
 
-    public void StartInvoking() {
-        InvokeRepeating("IncreaserHunger", 0, rateHunger);
+        InvokeRepeating("IncreaserHunger",0, rateHunger);
     }
-
 
     public void IncreaserHunger()
     {
@@ -61,14 +57,17 @@ public class HungerSystem : MonoBehaviour
 
         mFoodBar.SetValue(food);
 
-        if (food == 0) {
-            //playerStatus.SetDeadByHunger(true);
-            GetComponent<template>().Famine();
-        }
-
-        if (playerStatus.GetDeadByHunger() || playerStatus.GetIsRestingStatus())
+        if (IsDead)
         {
             CancelInvoke();
+        }
+    }
+
+    public bool IsDead
+    {
+        get
+        {
+            return food == 0;
         }
     }
 
@@ -92,7 +91,8 @@ public class HungerSystem : MonoBehaviour
         }
         var ray = player_camera.ScreenPointToRay(new Vector2(x, y));
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 5, ~(1 << 11))) {
+        if (Physics.Raycast(ray, out hit, 5, ~(1 << 11)))
+        {
             /*var selection = hit.transform;
             if (selection.CompareTag(foodTag)) {
                 ///var selectionRenderer = selection.GetComponent<Renderer>();
@@ -102,7 +102,7 @@ public class HungerSystem : MonoBehaviour
                     Destroy(selection.gameObject);
                 }*/
             var selection = hit.transform;
-            if (selection.CompareTag(interactiveTag))
+            if (selection.CompareTag(interactiveTag) && areaFishing.GetComponent<FishingScript>().beingCatch == false)
             {
                 var itemInteraction = selection.GetComponent<ItemInteraction>();
                 mText2.SetActive(true);
@@ -112,7 +112,7 @@ public class HungerSystem : MonoBehaviour
                 else {
                     mTextName2.text = itemInteraction.GetName();
                 }
-                
+
                 if (itemInteraction.notInventory == false)
                 {
                     mTextInteraction2.text =  GameManager.GM.interaction + "\n Pour mettre dans l'inventaire";
@@ -121,6 +121,7 @@ public class HungerSystem : MonoBehaviour
                 {
                     mTextInteraction2.text =  GameManager.GM.interaction + "\n Pour utiliser";
                 }
+
             }
             else if (selection.CompareTag(foodTag))
             {

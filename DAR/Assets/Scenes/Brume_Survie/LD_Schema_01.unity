@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.4886127, g: 0.6626016, b: 1.0911267, a: 1}
+  m_IndirectSpecularColor: {r: 0.48866624, g: 0.66264987, b: 1.0911198, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1931,6 +1931,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baie_Prefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1425842018835206348, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 1425842018835206337, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2870,6 +2875,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baie_Prefab (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1425842018835206348, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 1425842018835206337, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3485,6 +3495,11 @@ PrefabInstance:
         type: 3}
       propertyPath: numberOfUses
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839544065797694091, guid: 844a9e35277e58349be729bcaa4f84fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844a9e35277e58349be729bcaa4f84fb, type: 3}
@@ -4681,11 +4696,11 @@ MonoBehaviour:
   mText2: {fileID: 2075337630}
   foodTag: Food
   interactiveTag: interactible
-  playerStatus: {fileID: 628572748}
   player_camera: {fileID: 1767658220}
   mFoodBar: {fileID: 1762031672}
   rateHunger: 1
   food: 100
+  areaFishing: {fileID: 1309913120}
 --- !u!4 &628572741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
@@ -4704,7 +4719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260ace06349614545bb24f1af2f8089b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despoMouseLook: {fileID: 0}
+  despoMouseLook: {fileID: 1767658228}
   over: {fileID: 837583080}
   cause: {fileID: 246509333}
   description: {fileID: 1744682574}
@@ -4754,18 +4769,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ef2056b3ea6fdd429516aed40c46357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &628572748 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1767658219}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628572739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ab1170892028d49aeefae764dad3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &631835977
@@ -7560,6 +7563,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baie_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1425842018835206348, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 1425842018835206337, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7703,6 +7711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baie_Prefab (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425842018835206348, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
       objectReference: {fileID: 0}
     - target: {fileID: 1425842018835206337, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
         type: 3}
@@ -8430,6 +8443,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameOverCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418370702669569086, guid: a91785dbb761d844c828849e739365bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3771136158489433024, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
@@ -9671,6 +9689,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baie_Prefab (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1425842018835206348, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 1425842018835206337, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9896,6 +9919,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3505376222059677628, guid: 16eeefcda582ecf4eac409f1a022180f,
     type: 3}
   m_PrefabInstance: {fileID: 2051876664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1309913120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4128650150482052641, guid: 465ccff0660e4b747800b871c88a1f15,
+    type: 3}
+  m_PrefabInstance: {fileID: 285165359}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1312301523 stripped
 Transform:
@@ -10600,6 +10629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baie_Prefab (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425842018835206348, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
       objectReference: {fileID: 0}
     - target: {fileID: 1425842018835206337, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
         type: 3}
@@ -12738,6 +12772,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baie_Prefab (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1425842018835206348, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 1425842018835206337, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13201,6 +13240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baie_Prefab (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1425842018835206348, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 1425842018835206337, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13481,6 +13525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baie_Prefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425842018835206348, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
       objectReference: {fileID: 0}
     - target: {fileID: 1425842018835206337, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
         type: 3}
@@ -13796,6 +13845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AffichageCatch
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407880864466804467, guid: 638e15d243995fe49b478ec45c75463c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6407880864466804466, guid: 638e15d243995fe49b478ec45c75463c,
         type: 3}
@@ -14790,17 +14844,32 @@ PrefabInstance:
     - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 6.294
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -541.526
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.674
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
@@ -15059,6 +15128,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1767658219}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1767658228 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3419594583309912776, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1767658219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767658222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ba4503d64847e4c80016e313b9c2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1769186264 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6319953076943843106, guid: b2d3f160a9bcf914495242ef445f7e27,
@@ -17386,6 +17467,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baie_Prefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1425842018835206348, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 1425842018835206337, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17440,6 +17526,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388918036296947112, guid: b7f31870ea6f5a8478f7b42c41c7e37d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f31870ea6f5a8478f7b42c41c7e37d, type: 3}
