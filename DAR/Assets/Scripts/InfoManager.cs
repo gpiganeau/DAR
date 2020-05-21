@@ -8,7 +8,7 @@ public class InfoManager : MonoBehaviour
     public GameObject infoPanel;
     public Text infoText;
     Coroutine showInfoCoroutineReference;
-    Color originalColor = Color.white;
+    public Color originalColor;
 
     void Start()
     {

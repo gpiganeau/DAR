@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.48867172, g: 0.66265434, b: 1.0911181, a: 1}
+  m_IndirectSpecularColor: {r: 0.4886127, g: 0.6626016, b: 1.0911267, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14912,6 +14912,21 @@ PrefabInstance:
       propertyPath: infoText
       value: 
       objectReference: {fileID: 1849366127}
+    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: originalColor.g
+      value: 0.6431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: originalColor.r
+      value: 0.854902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: originalColor.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
     - target: {fileID: 924330457, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: UIElements.Array.size
       value: 5
@@ -15700,15 +15715,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 0.854902, g: 0.6431373, b: 0.21960786, a: 1}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 330cdd65f8d7b9b4b88e3db4881759ab, type: 3}
     m_FontSize: 60
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 6
     m_MaxSize: 255
