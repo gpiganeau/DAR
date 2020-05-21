@@ -39,7 +39,8 @@ public class EndDay : MonoBehaviour
         firePlace.GetComponent<FireplaceScript>().fireplaceOn.SetActive(false);
         string currentDay = "Jour " + loadedDay.day.ToString();
         currentDayText.text = currentDay;
-        currentDayText.gameObject.GetComponent<Animator>().SetBool("StartFadeToBlack", true);
+        blackFadeMachine.GetComponent<Animator>().SetBool("Fade", false);
+        currentDayText.gameObject.GetComponent<Animator>().SetBool("StartFadeToBlack", false);
         sun.GetComponent<CycleJourNuit>().PlayOneDay();
         if (dayTextPause) { dayTextPause.text = currentDay; }
     }
@@ -73,10 +74,11 @@ public class EndDay : MonoBehaviour
         loadedDay.day = dayData.day;
     }
 
-    IEnumerator EndDayCoroutine(bool isInsideAndWarm) {
+    IEnumerator EndDayCoroutine(bool isInside) {
 
-        if (isInsideAndWarm) {
+        if (isInside) {
             blackFadeMachine.GetComponent<Animator>().SetBool("Fade", true);
+            currentDayText.gameObject.GetComponent<Animator>().SetBool("StartFadeToBlack", true);
             yield return new WaitForSeconds(3.5f);
 
             resetTerrainOnDestroyObject.ResetTracks();
