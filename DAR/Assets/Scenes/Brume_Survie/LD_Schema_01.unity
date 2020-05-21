@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.4886127, g: 0.6626016, b: 1.0911267, a: 1}
+  m_IndirectSpecularColor: {r: 0.4886669, g: 0.6626503, b: 1.09112, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14837,51 +14837,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: infoPanel
-      value: 
-      objectReference: {fileID: 2134525480}
-    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: infoText
-      value: 
-      objectReference: {fileID: 1849366127}
     - target: {fileID: 924330457, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: UIElements.Array.size
       value: 5
@@ -15037,18 +14992,6 @@ PrefabInstance:
       propertyPath: m_Hunger
       value: 
       objectReference: {fileID: 628572740}
-    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: pausePanel
-      value: 
-      objectReference: {fileID: 446904812}
-    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: dayText
-      value: 
-      objectReference: {fileID: 284837684}
-    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: pauseCanvasGroup
-      value: 
-      objectReference: {fileID: 1862612117}
     - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: fireplace
       value: 
@@ -15061,6 +15004,63 @@ PrefabInstance:
       propertyPath: hut
       value: 
       objectReference: {fileID: 1917468782}
+    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: pausePanel
+      value: 
+      objectReference: {fileID: 446904812}
+    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: dayText
+      value: 
+      objectReference: {fileID: 284837684}
+    - target: {fileID: 924330459, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: pauseCanvasGroup
+      value: 
+      objectReference: {fileID: 1862612117}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 864
+      objectReference: {fileID: 0}
+    - target: {fileID: 3700134211258645072, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 843
+      objectReference: {fileID: 0}
     - target: {fileID: 3700134211258645079, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: m_Enabled
@@ -15098,6 +15098,16 @@ PrefabInstance:
       propertyPath: hungerSystem
       value: 
       objectReference: {fileID: 628572740}
+    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: infoPanel
+      value: 
+      objectReference: {fileID: 2134525480}
+    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: infoText
+      value: 
+      objectReference: {fileID: 1849366127}
     - target: {fileID: 2689300741216309486, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: frustumSettings.qualitySettings
