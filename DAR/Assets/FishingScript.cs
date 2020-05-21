@@ -42,10 +42,9 @@ public class FishingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isCatch == true)
-        {
+        if (isCatch == true) {
             infoManager.ShowInfo("Poisson ajouté");
-            isCatch =false;
+            isCatch = false;
         }
         anim.SetBool("isWin", false);
 
@@ -72,20 +71,25 @@ public class FishingScript : MonoBehaviour
         anim.SetBool("isWin", true);
         anim.SetBool("isStart",false);
         randomOffsetTime = -1f;
-        if (success == 1) {
-            iBool = PlayerInventoryManager.AddItem(Instantiate(fish1));
-        }
-        else if (success == 2) {
-            iBool = PlayerInventoryManager.AddItem(Instantiate(fish2));
-        }
-        else if (success == 3) {
-            iBool = PlayerInventoryManager.AddItem(Instantiate(fish3));
-        }
-        if (iBool) {
-            infoManager.ShowInfo("Poisson ajouté");
+        if(success == 0) {
+            infoManager.ShowInfo("Vous n'avez pas attrapé de poisson");
         }
         else {
-            infoManager.ShowInfo("Inventaire plein");
+            if (success == 1) {
+                iBool = PlayerInventoryManager.AddItem(Instantiate(fish1));
+            }
+            else if (success == 2) {
+                iBool = PlayerInventoryManager.AddItem(Instantiate(fish2));
+            }
+            else if (success == 3) {
+                iBool = PlayerInventoryManager.AddItem(Instantiate(fish3));
+            }
+            if (iBool) {
+                infoManager.ShowInfo("Poisson ajouté");
+            }
+            else {
+                infoManager.ShowInfo("Inventaire plein");
+            }
         }
         
         StopCoroutine(fishingCoroutine);
@@ -93,59 +97,80 @@ public class FishingScript : MonoBehaviour
         fishingCoroutine = null;
     }
 
-    IEnumerator CatchFish() {
+    IEnumerator CatchFish(bool fail = false) {
         int success = 0;
         int fish;
         float pickUpTimer = 0f;
         float timeLimit = -1f;
         float randomFish = Random.value;
-        if (randomFish < 0.75) {
-            timeLimit = 3f;
-            fish = 1;
-        }
-        else if(randomFish < 0.97) {
-            timeLimit = 1.5f;
-            fish = 2;
+        if (fail) {
+            Debug.Log("Je suis passé par ici");
+            isCatch = false;
+            StopFishing(success);
         }
         else {
-            timeLimit = 0.7f;
-            fish = 3;
-        }
-        while (pickUpTimer < timeLimit) {
-            pickUpTimer += Time.deltaTime;
-            anim.SetBool("isBite",true);
-            mText.SetActive(true);
-            mTextCatch.text = KeyCode.Mouse0 + "\n Pour attraper";
-            if (Input.GetKeyDown(KeyCode.Mouse0)) {
-                success = fish;
-                isCatch = true;
-                break; 
+            if (randomFish < 0.75) {
+                timeLimit = 3f;
+                fish = 1;
+            }
+            else if (randomFish < 0.97) {
+                timeLimit = 1.5f;
+                fish = 2;
             }
             else {
-                isCatch = false;
+                timeLimit = 0.8f;
+                fish = 3;
+            }
+            while (pickUpTimer < timeLimit) {
+                pickUpTimer += Time.deltaTime;
+                anim.SetBool("isBite", true);
+                mText.SetActive(true);
+                mTextCatch.text = "Clic Gauche \n Pour attraper";
+                if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                    Debug.Log("Je repasserai par là");
+                    success = fish;
+                    isCatch = true;
+                    break;
+                }
+                else {
+                    isCatch = false;
+                    yield return null;
+                }
                 yield return null;
             }
+            anim.SetBool("isBite", false);
+            mText.SetActive(false);
             yield return null;
+            StopFishing(success);
+            //hide indicateur
         }
-        anim.SetBool("isBite",false);
-        mText.SetActive(false);
-        //hide indicateur
-        StopFishing(success);
+        
+
     }
 
     IEnumerator FishingCoroutine() {
+        bool missed = false;
         float timer = 0f;
         while (timer < 9f) {
             timer += Time.deltaTime;
+            
             if (randomOffsetTime < 0) {
                 randomOffsetTime = Random.value * 5f;
                 yield return null;
+            }
+            else if((timer < (3f + randomOffsetTime)) && Input.GetKeyDown(KeyCode.Mouse0)) {
+                missed = true;
             }
             else if (timer > (3f + randomOffsetTime)) {
                 Debug.Log("Now");
                 yield return CatchFish();
             }
-            yield return null;
+            if (missed) {
+                yield return CatchFish(true);
+            }
+            else {
+                yield return null;
+            }
         }
     }
 }
