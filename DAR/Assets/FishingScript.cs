@@ -67,19 +67,27 @@ public class FishingScript : MonoBehaviour
     }
 
     public void StopFishing(int success) {
+        bool iBool = false;
         timer = 0f;
         anim.SetBool("isWin", true);
         anim.SetBool("isStart",false);
         randomOffsetTime = -1f;
         if (success == 1) {
-            PlayerInventoryManager.AddItem(Instantiate(fish1));
+            iBool = PlayerInventoryManager.AddItem(Instantiate(fish1));
         }
         else if (success == 2) {
-            PlayerInventoryManager.AddItem(Instantiate(fish2));
+            iBool = PlayerInventoryManager.AddItem(Instantiate(fish2));
         }
         else if (success == 3) {
-            PlayerInventoryManager.AddItem(Instantiate(fish3));
+            iBool = PlayerInventoryManager.AddItem(Instantiate(fish3));
         }
+        if (iBool) {
+            infoManager.ShowInfo("Poisson ajouté");
+        }
+        else {
+            infoManager.ShowInfo("Inventaire plein");
+        }
+        
         StopCoroutine(fishingCoroutine);
         beingCatch = false;
         fishingCoroutine = null;
@@ -105,17 +113,15 @@ public class FishingScript : MonoBehaviour
         }
         while (pickUpTimer < timeLimit) {
             pickUpTimer += Time.deltaTime;
-                anim.SetBool("isBite",true);
-                mText.SetActive(true);
-                mTextCatch.text = KeyCode.Mouse0 + "\n Pour attraper";
+            anim.SetBool("isBite",true);
+            mText.SetActive(true);
+            mTextCatch.text = KeyCode.Mouse0 + "\n Pour attraper";
             if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 success = fish;
                 isCatch = true;
-                infoManager.ShowInfo("Poisson ajouté");
                 break; 
             }
-            else
-            {
+            else {
                 isCatch = false;
                 yield return null;
             }
