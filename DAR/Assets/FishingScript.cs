@@ -104,7 +104,6 @@ public class FishingScript : MonoBehaviour
         float timeLimit = -1f;
         float randomFish = Random.value;
         if (fail) {
-            Debug.Log("Je suis passé par ici");
             isCatch = false;
             StopFishing(success);
         }
@@ -127,7 +126,6 @@ public class FishingScript : MonoBehaviour
                 mText.SetActive(true);
                 mTextCatch.text = "Clic Gauche \n Pour attraper";
                 if (Input.GetKeyDown(KeyCode.Mouse0)) {
-                    Debug.Log("Je repasserai par là");
                     success = fish;
                     isCatch = true;
                     break;
@@ -162,7 +160,6 @@ public class FishingScript : MonoBehaviour
                 missed = true;
             }
             else if (timer > (3f + randomOffsetTime)) {
-                Debug.Log("Now");
                 yield return CatchFish();
             }
             if (missed) {

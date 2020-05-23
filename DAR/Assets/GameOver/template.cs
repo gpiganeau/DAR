@@ -57,7 +57,7 @@ public class template : MonoBehaviour
         over.SetActive(true);
         cause.text = "Hypothermie";
         cause.color = new Color(0,255,234);
-        description.text ="Sans moyen de réchauffement, un grand froid provoque un trouble du rythme cardiaque, il ralentit puis arrête une à une toutes les fonctions vitales jusqu'à introduire un état de mort apparente, puis une mort réelle.";
+        description.text ="Sans moyen de se réchauffer, un grand froid provoque un trouble du rythme cardiaque, il ralentit puis arrête une à une toutes les fonctions vitales jusqu'à introduire un état de mort apparente, puis une mort réelle.";
         Cursor.lockState = CursorLockMode.None;
         despoMouseLook.ignore = true;
         Time.timeScale = 0;
