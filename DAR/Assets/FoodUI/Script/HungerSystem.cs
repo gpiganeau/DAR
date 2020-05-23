@@ -147,8 +147,12 @@ public class HungerSystem : MonoBehaviour
                 var selectionEat = selection.GetComponent<Food>();
                 if(selectionRenderer != null)
                 {
-                    if(Input.GetMouseButtonDown(1))
+                    if(Input.GetKeyDown(GameManager.GM.eating))
                     {
+                        Eat(selectionEat.m_food.eatInfo);
+                        Destroy(selection.gameObject);
+                    }
+                    else if (Input.GetKeyDown("Eating")) {
                         Eat(selectionEat.m_food.eatInfo);
                         Destroy(selection.gameObject);
                     }

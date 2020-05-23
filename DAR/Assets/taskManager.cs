@@ -17,7 +17,7 @@ public class taskManager : MonoBehaviour
    
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         taskSlots = new List<GameObject>(transform.childCount);
         foreach (Transform child in taskSlotInHierarchy.transform)
