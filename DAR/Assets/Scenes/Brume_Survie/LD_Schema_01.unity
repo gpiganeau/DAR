@@ -12225,6 +12225,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550304564}
   m_CullTransparentMesh: 0
+--- !u!1 &1564687157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2202060562690029861, guid: d77481190fd9f2e4aa4ce77803e111d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1662845565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1569213650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13150,7 +13156,7 @@ PrefabInstance:
     - target: {fileID: 54518748545885192, guid: d77481190fd9f2e4aa4ce77803e111d7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 54518748545885195, guid: d77481190fd9f2e4aa4ce77803e111d7,
         type: 3}
@@ -13583,12 +13589,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1693230794 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7998609490816248715, guid: d77481190fd9f2e4aa4ce77803e111d7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1662845565}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1695107264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1006814718399061536, guid: 8fcc219cf00737c46882eaf6d41159e6,
@@ -16366,7 +16366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventoryManager: {fileID: 628572744}
-  detail: {fileID: 1693230794}
+  detail: {fileID: 1564687157}
   taskPrefab: {fileID: 5131517899188808413, guid: fde80d70bff05034a90e028412c84bd5,
     type: 3}
   taskSlotInHierarchy: {fileID: 309903654}
@@ -16375,6 +16375,7 @@ MonoBehaviour:
   AllTasks:
   - {fileID: 11400000, guid: 5938b76635f4c6747b9e95be87e10c48, type: 2}
   - {fileID: 11400000, guid: f77d30d641f5db34ba73f816837c1e2e, type: 2}
+  - {fileID: 11400000, guid: 0a49caedbb1414e48bc22d74e4b67b6b, type: 2}
 --- !u!4 &1862685915
 Transform:
   m_ObjectHideFlags: 0

@@ -19,10 +19,17 @@ public class EndDay : MonoBehaviour
     [SerializeField] private GameObject firePlace;
     private Text dayTextPause;
     [SerializeField] private HungerSystem hungerSystem;
+    private taskManager taskMng;
 
 
 
     // Start is called before the first frame update
+    
+    void Awake()
+    {
+        taskMng = GameObject.Find("TaskManagerObject").GetComponent<taskManager>();
+    }
+
     void Start()
     {
         string jsonDay = File.ReadAllText(Application.streamingAssetsPath + "/JSONFiles/CurrentDay.json");
@@ -44,8 +51,16 @@ public class EndDay : MonoBehaviour
         sun.GetComponent<CycleJourNuit>().PlayOneDay();
         if (dayTextPause) { dayTextPause.text = currentDay; }
         if (Cursor.visible) { Cursor.visible = false; }
+        AddDayTasks();
     }
 
+    void AddDayTasks()
+    {
+        if (taskMng)
+        {
+            taskMng.AddTask(taskMng.AllTasksDictionary["GSW"]);
+        }
+    }
 
     public void EndOfDayLastMoments() {
         sun.GetComponent<CycleJourNuit>().NightScene();
