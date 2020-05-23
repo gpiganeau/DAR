@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
-
     public KeyCode interaction {get; set;}
     public KeyCode inventory {get; set;}
     public KeyCode forward {get; set;}
@@ -15,6 +14,7 @@ public class GameManager : MonoBehaviour
     public KeyCode eating{get;set;}
     public KeyCode check{get;set;}
     public KeyCode put{get;set;}
+    public KeyCode quitArea{get;set;}
 
     void Start()
     {
@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         eating = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("eatKey","Mouse1"));
         check = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("checkKey","I"));
         put = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("putKey","Mouse0"));
+        quitArea = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("quitAreaKey","R"));
     }
 
 }

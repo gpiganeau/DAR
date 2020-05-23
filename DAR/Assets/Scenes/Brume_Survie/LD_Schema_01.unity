@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.4886127, g: 0.6626016, b: 1.0911267, a: 1}
+  m_IndirectSpecularColor: {r: 0.48866624, g: 0.66264987, b: 1.0911198, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1348,6 +1348,16 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1034212062}
+    - target: {fileID: 4128650149750572088, guid: 465ccff0660e4b747800b871c88a1f15,
+        type: 3}
+      propertyPath: mText3
+      value: 
+      objectReference: {fileID: 2045058365}
+    - target: {fileID: 4128650149750572088, guid: 465ccff0660e4b747800b871c88a1f15,
+        type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 1067631156}
     - target: {fileID: 4128650150482052642, guid: 465ccff0660e4b747800b871c88a1f15,
         type: 3}
       propertyPath: m_Enabled
@@ -1428,6 +1438,16 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1034212062}
+    - target: {fileID: 4128650150482052632, guid: 465ccff0660e4b747800b871c88a1f15,
+        type: 3}
+      propertyPath: mText3
+      value: 
+      objectReference: {fileID: 2045058365}
+    - target: {fileID: 4128650150482052632, guid: 465ccff0660e4b747800b871c88a1f15,
+        type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 1067631156}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 465ccff0660e4b747800b871c88a1f15, type: 3}
 --- !u!1 &288069062
@@ -4699,7 +4719,7 @@ MonoBehaviour:
   playerStatus: {fileID: 628572748}
   player_camera: {fileID: 1767658220}
   mFoodBar: {fileID: 1762031672}
-  rateHunger: 1
+  rateHunger: 0.1
   food: 100
   areaFishing: {fileID: 1309913120}
 --- !u!4 &628572741 stripped
@@ -8460,7 +8480,7 @@ PrefabInstance:
     - target: {fileID: 7418370702669569086, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3771136158489433024, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
@@ -8570,22 +8590,22 @@ PrefabInstance:
     - target: {fileID: 3165323812316941716, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3165323812316941716, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3165323812316941716, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 960
       objectReference: {fileID: 0}
     - target: {fileID: 3165323812316941716, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -540
       objectReference: {fileID: 0}
     - target: {fileID: 3131238833755964333, guid: a91785dbb761d844c828849e739365bb,
         type: 3}
@@ -8933,6 +8953,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4089466517933678755, guid: b72cce7dc7f323545a58621a4a4ac45b,
     type: 3}
   m_PrefabInstance: {fileID: 33551258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1130643419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4128650149750572097, guid: 465ccff0660e4b747800b871c88a1f15,
+    type: 3}
+  m_PrefabInstance: {fileID: 285165359}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1134664747
 PrefabInstance:
@@ -10086,6 +10112,28 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009108341783568653, guid: 458f0a498a7413d43803e299fca0284d,
+        type: 3}
+      propertyPath: m_Text
+      value: 'E
+
+        Pour interagir'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6247781985261341242, guid: 458f0a498a7413d43803e299fca0284d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890438547466730820, guid: 458f0a498a7413d43803e299fca0284d,
+        type: 3}
+      propertyPath: m_Text
+      value: "Ou T\nPour quitter la zone de p\xEAche"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580596443475456849, guid: 458f0a498a7413d43803e299fca0284d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 458f0a498a7413d43803e299fca0284d, type: 3}
@@ -15031,6 +15079,14 @@ PrefabInstance:
       propertyPath: taskManagerObject
       value: 
       objectReference: {fileID: 1862685914}
+    - target: {fileID: 924330457, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: areaFishing
+      value: 
+      objectReference: {fileID: 1130643419}
+    - target: {fileID: 924330457, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 837583080}
     - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: hubInventoryManager
       value: 
@@ -17665,6 +17721,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f31870ea6f5a8478f7b42c41c7e37d, type: 3}
+--- !u!1 &2045058365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4580596443475456849, guid: 458f0a498a7413d43803e299fca0284d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1313746651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2051876664
 PrefabInstance:
   m_ObjectHideFlags: 0

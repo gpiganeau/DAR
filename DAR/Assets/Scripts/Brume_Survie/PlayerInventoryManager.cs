@@ -19,9 +19,9 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public GameObject[] inventorySlots;
 
-    
-
     private bool m_isAxisInUse = false;
+    public GameObject areaFishing;
+    public GameObject gameOver;
 
     [FMODUnity.EventRef]
     public string inventoryEvent = "";
@@ -51,7 +51,8 @@ public class PlayerInventoryManager : MonoBehaviour
 
     void Update()
     {
-
+        if (areaFishing.activeSelf )
+        {
         if( Input.GetAxisRaw("UISelect") != 0)
         {
             if(m_isAxisInUse == false)
@@ -61,9 +62,11 @@ public class PlayerInventoryManager : MonoBehaviour
                 m_isAxisInUse = true;
             }
         }
+
         if( Input.GetAxisRaw("UISelect") == 0)
         {
             m_isAxisInUse = false;
+        }
         }    
     }
 
@@ -210,7 +213,7 @@ public class PlayerInventoryManager : MonoBehaviour
             { EnableMovement(false); }
             ShowUI();
         }
-        else {
+        else{
             EnableMovement(true);
             ShowUI();
         }

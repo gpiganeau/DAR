@@ -26,30 +26,33 @@ public class Pause : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetAxisRaw("Pause") != 0) 
+        if(isDead == false)
         {
-            if(m_isAxisInUse == false)
+            if(Input.GetAxisRaw("Pause") != 0) 
             {
-                m_isAxisInUse = true;
-                if (!pausePanel.activeInHierarchy && isDead == false) 
+                if(m_isAxisInUse == false)
                 {
-                    PauseGame();
-                }
-                else
-                {
-                    ContinueGame();
+                    m_isAxisInUse = true;
+                    if (!pausePanel.activeInHierarchy) 
+                    {
+                        PauseGame();
+                    }
+                    else
+                    {
+                        ContinueGame();
+                    }
                 }
             }
-        }
-        if( Input.GetAxisRaw("Pause") == 0)
-        {
-            m_isAxisInUse = false;
-        }
+            if( Input.GetAxisRaw("Pause") == 0)
+            {
+                m_isAxisInUse = false;
+            }   
 
         //Debug Save
-        if (gamePaused && Input.GetKeyDown("s") == true)
-        {
-            SaveDay();
+            if (gamePaused && Input.GetKeyDown("s") == true)
+            {
+                SaveDay();
+            }
         }
      }
     private void PauseGame()
@@ -68,6 +71,7 @@ public class Pause : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<CameraController>().enabled = false;
         GetComponentInChildren<Headbobber>().enabled = false;
+        GetComponent<PlayerInventoryManager>().enabled = false;
     } 
     private void ContinueGame()
     {
@@ -82,6 +86,7 @@ public class Pause : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = true;
         GetComponent<CameraController>().enabled = true;
         GetComponentInChildren<Headbobber>().enabled = true;
+        GetComponent<PlayerInventoryManager>().enabled = true;
     }
 
     public void TurnBackTimeOnly()

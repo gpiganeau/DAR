@@ -49,6 +49,7 @@ public class template : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<CameraController>().enabled = false;
         GetComponentInChildren<Headbobber>().enabled = false;
+        GetComponent<PlayerInventoryManager>().enabled = false;
     }
 
     public void Hypothermie()
@@ -65,6 +66,7 @@ public class template : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<CameraController>().enabled = false;
         GetComponentInChildren<Headbobber>().enabled = false;
+        GetComponent<PlayerInventoryManager>().enabled = false;
     }
 
 

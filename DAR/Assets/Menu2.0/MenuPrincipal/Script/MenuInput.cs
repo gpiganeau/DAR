@@ -43,6 +43,8 @@ public class MenuInput : MonoBehaviour
                 {menuPanel2.GetChild(j).GetComponentInChildren<Text>().text = GameManager.GM.check.ToString();}
             else if(menuPanel2.GetChild(j).name == "PutKey")
                 {menuPanel2.GetChild(j).GetComponentInChildren<Text>().text = GameManager.GM.put.ToString();}
+            /*else if(menuPanel2.GetChild(j).name == "quitAreaKey")
+                {menuPanel2.GetChild(j).GetComponentInChildren<Text>().text = GameManager.GM.quitArea.ToString();}*/
         }
     }
 
@@ -126,7 +128,11 @@ public class MenuInput : MonoBehaviour
                 buttonText.text = GameManager.GM.check.ToString();
                 PlayerPrefs.SetString("checkKey", GameManager.GM.check.ToString());
                 break;
-
+            /*case "quitArea" :
+                GameManager.GM.quitArea = newKey;
+                buttonText.text = GameManager.GM.quitArea.ToString();
+                PlayerPrefs.SetString("quiAreaKey", GameManager.GM.quitArea.ToString());
+                break;*/
         }
         yield return null;
     }
