@@ -171,7 +171,7 @@ public class InteractWithItems : MonoBehaviour
                 if (playerInventoryManager.AddItem(newItem10))
                 {
                     collectible.GetComponent<ItemInteraction>().RemoveOneUse();
-                    infoManager.ShowInfo("Balise ajouté");
+                    infoManager.ShowInfo("Balise ajoutée");
                 }
                 break;
         }
