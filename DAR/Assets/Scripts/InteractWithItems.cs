@@ -56,7 +56,26 @@ public class InteractWithItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Interact") != 0)
+
+        if (Input.GetKeyDown(GameManager.GM.interaction)) {
+            RaycastHit hit;
+            Ray ray = player_camera.ScreenPointToRay(new Vector2(x, y));
+            if (Physics.Raycast(ray, out hit, 5, ~(1 << 11))) {
+                GameObject objectHit = hit.collider.gameObject;
+                if (objectHit.tag == "interactible" || objectHit.tag == "Food") {
+                    Item collectible = objectHit.gameObject.GetComponent<ItemInteraction>().GetCollectible();
+                    if (collectible != null) {
+                        Collect(collectible, objectHit);
+                    }
+                    else {
+                        objectName = objectHit.gameObject.GetComponent<ItemInteraction>().GetName();
+                        Action(objectName, objectHit);
+                    }
+                }
+            }
+        }
+
+        else if (Input.GetAxisRaw("Interact") != 0)
         {
             if(m_isAxisInUse == false)
             {
@@ -81,7 +100,7 @@ public class InteractWithItems : MonoBehaviour
             }
         }
         
-        if( Input.GetAxisRaw("Interact") == 0)
+        else if( Input.GetAxisRaw("Interact") == 0)
         {
             //mText.SetActive(false);
             m_isAxisInUse = false;

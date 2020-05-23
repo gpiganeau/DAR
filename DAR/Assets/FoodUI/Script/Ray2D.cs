@@ -37,11 +37,11 @@ public class Ray2D : MonoBehaviour
         {
             var buttonInfo = result.gameObject.GetComponent<PlayerButtonInfo>();
             if (buttonInfo) {
-                if (Input.GetKeyUp(KeyCode.Mouse0)) {
+                if (Input.GetKeyUp(GameManager.GM.put) || (Input.GetAxis("Put") > 0.1)) {
                     buttonInfo.Select();
                 }
 
-                else if (Input.GetKeyUp(KeyCode.Mouse1)) {
+                else if (Input.GetKeyUp(GameManager.GM.eating) || Input.GetButtonDown("Eating")) {
                     buttonInfo.Eat();
                 }
             }

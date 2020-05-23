@@ -64,10 +64,10 @@ public class ItemSetInEnvironment : MonoBehaviour
     private void Update() {
         hand.rotation.SetLookRotation(Vector3.up, new Vector3(0,1,0));
         if (itemInHand) {
-            if (Input.GetButtonDown("Fire") && !playerInventoryManager.IsUIOpen()) {
+            if ((Input.GetKeyDown(GameManager.GM.put) || (Input.GetAxis("Put") > 0.1)) && !playerInventoryManager.IsUIOpen()) {
                 HandToWorld();
             }
-            if (Input.GetButton("Recharge") && !playerInventoryManager.IsUIOpen()) {
+            if ((Input.GetKeyDown(GameManager.GM.eating) || (Input.GetAxis("Recharge") > 0.1)) && !playerInventoryManager.IsUIOpen()) {
                 hand.Rotate(Vector3.up, rotSpeed * Time.deltaTime);
             }
             RaycastHit hit;

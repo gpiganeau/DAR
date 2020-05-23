@@ -53,20 +53,27 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         if (areaFishing.activeSelf )
         {
-        if( Input.GetAxisRaw("UISelect") != 0)
-        {
-            if(m_isAxisInUse == false)
-            {
-                ShowUI();
-                EnableMovement(true);
-                m_isAxisInUse = true;
+            if (Input.GetKeyDown(GameManager.GM.inventory)) {
+                if (m_isAxisInUse == false) {
+                    ShowUI();
+                    EnableMovement(true);
+                    m_isAxisInUse = true;
+                }
             }
-        }
 
-        if( Input.GetAxisRaw("UISelect") == 0)
-        {
-            m_isAxisInUse = false;
-        }
+            else if(Input.GetAxisRaw("UISelect") != 0)
+            {
+                if (m_isAxisInUse == false) {
+                    ShowUI();
+                    EnableMovement(true);
+                    m_isAxisInUse = true;
+                }
+            }
+
+            else if(Input.GetAxisRaw("UISelect") == 0)
+            {
+                m_isAxisInUse = false;
+            }
         }    
     }
 
