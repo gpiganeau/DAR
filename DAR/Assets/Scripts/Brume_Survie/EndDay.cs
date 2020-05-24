@@ -19,7 +19,7 @@ public class EndDay : MonoBehaviour
     [SerializeField] private GameObject firePlace;
     private Text dayTextPause;
     [SerializeField] private HungerSystem hungerSystem;
-    private taskManager taskMng;
+    [SerializeField] private taskManager taskMng;
 
 
 
@@ -58,7 +58,8 @@ public class EndDay : MonoBehaviour
     {
         if (taskMng)
         {
-            taskMng.AddTask(taskMng.AllTasksDictionary["GSW"]);
+            taskMng.AddTask("GSW");
+            taskMng.AddTask("GSF");
         }
     }
 

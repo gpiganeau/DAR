@@ -190,6 +190,7 @@ public class PlayerInventoryManager : MonoBehaviour
         mouseLook despoMouseLook = GetComponentInChildren<mouseLook>();  
         if (currentInventoryPanel.activeSelf) {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             despoMouseLook.ignore = false;
             pointerUI.SetActive(true);
             currentInventoryPanel.SetActive(false);
@@ -200,6 +201,7 @@ public class PlayerInventoryManager : MonoBehaviour
         }
         else {
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             despoMouseLook.ignore = true;
             pointerUI.SetActive(false);
             currentInventoryPanel.SetActive(true);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.4886669, g: 0.6626503, b: 1.09112, a: 1}
+  m_IndirectSpecularColor: {r: 0.4886127, g: 0.6626016, b: 1.0911267, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7838,11 +7838,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5714898754307723454, guid: c623564649310eb42bc5c037def6f84b,
-        type: 3}
-      propertyPath: m_Name
-      value: RadioPiece1
-      objectReference: {fileID: 0}
     - target: {fileID: 5714898754307723451, guid: c623564649310eb42bc5c037def6f84b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7897,6 +7892,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714898754307723454, guid: c623564649310eb42bc5c037def6f84b,
+        type: 3}
+      propertyPath: m_Name
+      value: RadioPiece1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c623564649310eb42bc5c037def6f84b, type: 3}
@@ -34424,6 +34424,14 @@ MonoBehaviour:
   AllTasks:
   - {fileID: 11400000, guid: 5938b76635f4c6747b9e95be87e10c48, type: 2}
   - {fileID: 11400000, guid: f77d30d641f5db34ba73f816837c1e2e, type: 2}
+  - {fileID: 11400000, guid: 92cbe1fd7a957bc45837802ed9e5fbc2, type: 2}
+  - {fileID: 11400000, guid: 7158a3b66f61faf42b2f64a797e44b3f, type: 2}
+  - {fileID: 11400000, guid: 0a49caedbb1414e48bc22d74e4b67b6b, type: 2}
+  - {fileID: 11400000, guid: 827b201a17c9ad24294dbaebac08a1eb, type: 2}
+  - {fileID: 11400000, guid: 9da2127d6db90d846bd008fcc329971e, type: 2}
+  - {fileID: 11400000, guid: 5b0673edeb52347489e0fa2818ce15fd, type: 2}
+  - {fileID: 11400000, guid: 172393d8f0884794f855ab64bd5a924a, type: 2}
+  - {fileID: 11400000, guid: b68fcc607fa2cbe478696401c37a99e5, type: 2}
 --- !u!4 &1862685915
 Transform:
   m_ObjectHideFlags: 0

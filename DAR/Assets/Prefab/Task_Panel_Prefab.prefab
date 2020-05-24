@@ -75,7 +75,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294935552
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6902585e89afd488ead05c20f32036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTask: {fileID: 0}
+  assignedTask: {fileID: 0}
   taskManagerObject: {fileID: 0}
   detail: {fileID: 0}
 --- !u!114 &114902299409575542
@@ -292,7 +292,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8854660596590987217}
-        m_MethodName: SelectTask
+        m_MethodName: ClickOnTask
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -312,7 +312,7 @@ Animator:
   m_GameObject: {fileID: 5131517899188808413}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed7e48859912cbb4fb89a950b5db2fc4, type: 2}
+  m_Controller: {fileID: 9100000, guid: d2a1b85ba82448e43b3b384ce03ec7d2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

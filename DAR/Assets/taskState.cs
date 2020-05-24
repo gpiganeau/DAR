@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class taskState : MonoBehaviour
 {
-    public Tasks currentTask;
+    public Tasks assignedTask;
     public taskManager taskManagerObject;
     private GameObject title;
     private GameObject checkmark;
@@ -14,15 +14,15 @@ public class taskState : MonoBehaviour
 
     
 
-    public void SelectTask()
+    public void ClickOnTask()
     {
-        taskManagerObject.SelectTask(currentTask);
+        taskManagerObject.SelectTask(assignedTask);
     }
 
     // Start is called before the first frame update
     public void Initiate(Tasks task1,taskManager _taskManagerObject)
     {
-        currentTask = task1;
+        assignedTask = task1;
         title = transform.GetChild(0).gameObject;
         checkmark = transform.GetChild(2).gameObject;
         taskManagerObject = _taskManagerObject;
@@ -32,10 +32,10 @@ public class taskState : MonoBehaviour
     void Update()
     {
         
-        title.GetComponent<TMPro.TextMeshProUGUI>().text = currentTask._name;
+        title.GetComponent<TMPro.TextMeshProUGUI>().text = assignedTask._name;
 
         
-        isCompleted = currentTask._isCompleted;
+        isCompleted = assignedTask._isCompleted;
         if (isCompleted)
         {
             checkmark.SetActive(true);
