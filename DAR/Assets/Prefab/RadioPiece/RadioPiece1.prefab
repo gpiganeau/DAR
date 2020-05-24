@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: radioPiece1
+  collectible: {fileID: 11400000, guid: 6e4f2bcadc08ed44e820a452d4ab73e3, type: 2}
   numberOfUses: 1
+  notInventory: 0
 --- !u!65 &5714898754307723452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84,10 +86,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5714898754307723451}
     m_Modifications:
-    - target: {fileID: 100000, guid: 679d9030e0063ba4f97d7d4ff0bde595, type: 3}
-      propertyPath: m_Name
-      value: antenna
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 679d9030e0063ba4f97d7d4ff0bde595, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -131,6 +129,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 679d9030e0063ba4f97d7d4ff0bde595, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 679d9030e0063ba4f97d7d4ff0bde595, type: 3}
+      propertyPath: m_Name
+      value: antenna
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 679d9030e0063ba4f97d7d4ff0bde595, type: 3}
       propertyPath: m_Materials.Array.data[0]
