@@ -37,9 +37,22 @@ public class taskManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if (Input.GetKeyDown(KeyCode.CapsLock))
+        {
+            playerInventoryManager.ShowAlternateUI(4);            
+        }*/
+
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            
+            AddTask(AllTasksDictionary["GSW"]);   
+        }
+
         if (Input.GetKeyDown(KeyCode.N))
         {
-            CompleteTask("GSW");
+
+            CompleteTask(currentTask);
         }
 
         if (Input.GetKeyDown(KeyCode.Comma))
@@ -77,17 +90,16 @@ public class taskManager : MonoBehaviour
         testTaskGO.GetComponent<taskState>().Initiate(testTask,this);
         currentTask = testTask;
         currentTask._isCompleted = false;
-        UpdateDetail();
+        UpdateDetail(currentTask);
 
         return currentTask;
         
     }
 
-    public void CompleteTask(string taskKeyCode)
+    public void CompleteTask(Tasks task)
     {
-        Tasks targetTask = AllCurrentTasks.Find( x => x.key == taskKeyCode);
-        targetTask._isCompleted = true;
-        UpdateDetail();
+        detail.GetComponent<TMPro.TextMeshProUGUI>().text = task._detailFinish;
+        currentTask._isCompleted = true;
     }
 
     public void DeleteTask(Tasks task)
@@ -95,13 +107,13 @@ public class taskManager : MonoBehaviour
         
     }
 
-    public void UpdateDetail ()
+    public void UpdateDetail (Tasks task)
     {
         if (currentTask._isCompleted) {
-            detail.GetComponent<TMPro.TextMeshProUGUI>().text = currentTask._detailFinish;
+            detail.GetComponent<TMPro.TextMeshProUGUI>().text = task._detailFinish;
         }
         else {
-            detail.GetComponent<TMPro.TextMeshProUGUI>().text = currentTask._detail;
+            detail.GetComponent<TMPro.TextMeshProUGUI>().text = task._detail;
         }
         
     }
@@ -109,14 +121,14 @@ public class taskManager : MonoBehaviour
     public void SelectTask(Tasks task)
     {
         currentTask = task;
-        UpdateDetail();
+        UpdateDetail(currentTask);
         currentTask._isSelected = true;
 
         if (currentTask != task)
         {
             currentTask._isSelected = false;
             currentTask = task;
-            UpdateDetail();
+            UpdateDetail(currentTask);
             currentTask._isSelected = true;
         }
     }
