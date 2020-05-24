@@ -19,16 +19,16 @@ public class EndDay : MonoBehaviour
     [SerializeField] private GameObject firePlace;
     private Text dayTextPause;
     [SerializeField] private HungerSystem hungerSystem;
-    private taskManager taskMng;
+    [SerializeField] private taskManager taskMng;
 
 
 
     // Start is called before the first frame update
     
-    void Awake()
+    /*void Awake()
     {
         taskMng = GameObject.Find("TaskManagerObject").GetComponent<taskManager>();
-    }
+    }*/
 
     void Start()
     {
