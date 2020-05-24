@@ -81,8 +81,11 @@ public class taskManager : MonoBehaviour
     public void CompleteTask(string taskKeyCode)
     {
         Tasks targetTask = AllCurrentTasks.Find( x => x.key == taskKeyCode);
-        targetTask._isCompleted = true;
-        UpdateDetail();
+        if (targetTask)
+        {
+            targetTask._isCompleted = true;
+            UpdateDetail();
+        }
     }
 
     public void DeleteTask(string taskKeyCode)
@@ -116,5 +119,8 @@ public class taskManager : MonoBehaviour
         }
     }
 
-
+    public Tasks FindTask(string taskKeyCode)
+    {
+        return AllCurrentTasks.Find( x => x.key == taskKeyCode);
+    }
 }
