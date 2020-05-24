@@ -8139,12 +8139,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 546b55c1cda28104f9947f90a6339a45, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e58fc2c8a2be57d48ad00d67a11ff0d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11401,7 +11401,7 @@ MonoBehaviour:
   playerStatus: {fileID: 628572748}
   player_camera: {fileID: 1767658220}
   mFoodBar: {fileID: 1762031672}
-  rateHunger: 1
+  rateHunger: 5
   food: 100
   areaFishing: {fileID: 1309913120}
 --- !u!4 &628572741 stripped
@@ -31806,106 +31806,31 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3700134211258645079, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: infoPanel
+      value: 
+      objectReference: {fileID: 2134525480}
+    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: infoText
+      value: 
+      objectReference: {fileID: 1849366127}
+    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: originalColor.g
+      value: 0.6431373
       objectReference: {fileID: 0}
-    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: sun
-      value: 
-      objectReference: {fileID: 360152123}
-    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 284301914}
-    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: firePlace
-      value: 
-      objectReference: {fileID: 113546410}
-    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: resetTerrainOnDestroyObject
-      value: 
-      objectReference: {fileID: 1454798106}
-    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: blackFadeMachine
-      value: 
-      objectReference: {fileID: 434704307}
-    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: PlayerView
-      value: 
-      objectReference: {fileID: 284301910}
-    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: currentDayText
-      value: 
-      objectReference: {fileID: 835544117}
-    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: hungerSystem
-      value: 
-      objectReference: {fileID: 628572740}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: hubInventoryManager
-      value: 
-      objectReference: {fileID: 243341726}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: baie
-      value: 
-      objectReference: {fileID: 11400000, guid: 3fbb439a9deca7a4baa284da3b45d391,
-        type: 2}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: poissonCru
-      value: 
-      objectReference: {fileID: 11400000, guid: 12c3b1ca94c77434a918dbfd88ab9ac0,
-        type: 2}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: poissonCuit
-      value: 
-      objectReference: {fileID: 11400000, guid: d157f817a1704074ab5ae31e80c0aca8,
-        type: 2}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: mTextName
-      value: 
-      objectReference: {fileID: 1441707852}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: mTextInteraction
-      value: 
-      objectReference: {fileID: 2129976498}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: mText
-      value: 
-      objectReference: {fileID: 2075337630}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: hubInventoryManager
-      value: 
-      objectReference: {fileID: 243341726}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: baie
-      value: 
-      objectReference: {fileID: 11400000, guid: 3fbb439a9deca7a4baa284da3b45d391,
-        type: 2}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: poissonCru
-      value: 
-      objectReference: {fileID: 11400000, guid: 12c3b1ca94c77434a918dbfd88ab9ac0,
-        type: 2}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: poissonCuit
-      value: 
-      objectReference: {fileID: 11400000, guid: d157f817a1704074ab5ae31e80c0aca8,
-        type: 2}
-    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: balise
-      value: 
-      objectReference: {fileID: 11400000, guid: 092878a9e75501b4d9b7d60894571ae7,
-        type: 2}
-    - target: {fileID: 924330448, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: m_Hunger
-      value: 
-      objectReference: {fileID: 628572740}
-    - target: {fileID: 924330448, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
-      propertyPath: m_Hunger
-      value: 
-      objectReference: {fileID: 628572740}
+    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: originalColor.r
+      value: 0.854902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: originalColor.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
     - target: {fileID: 924330457, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: UIElements.Array.size
       value: 5
@@ -32006,6 +31931,69 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 837583080}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: hubInventoryManager
+      value: 
+      objectReference: {fileID: 243341726}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: baie
+      value: 
+      objectReference: {fileID: 11400000, guid: 3fbb439a9deca7a4baa284da3b45d391,
+        type: 2}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: poissonCru
+      value: 
+      objectReference: {fileID: 11400000, guid: 12c3b1ca94c77434a918dbfd88ab9ac0,
+        type: 2}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: poissonCuit
+      value: 
+      objectReference: {fileID: 11400000, guid: d157f817a1704074ab5ae31e80c0aca8,
+        type: 2}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: mTextName
+      value: 
+      objectReference: {fileID: 1441707852}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: mTextInteraction
+      value: 
+      objectReference: {fileID: 2129976498}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: mText
+      value: 
+      objectReference: {fileID: 2075337630}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: hubInventoryManager
+      value: 
+      objectReference: {fileID: 243341726}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: baie
+      value: 
+      objectReference: {fileID: 11400000, guid: 3fbb439a9deca7a4baa284da3b45d391,
+        type: 2}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: poissonCru
+      value: 
+      objectReference: {fileID: 11400000, guid: 12c3b1ca94c77434a918dbfd88ab9ac0,
+        type: 2}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: poissonCuit
+      value: 
+      objectReference: {fileID: 11400000, guid: d157f817a1704074ab5ae31e80c0aca8,
+        type: 2}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: balise
+      value: 
+      objectReference: {fileID: 11400000, guid: 092878a9e75501b4d9b7d60894571ae7,
+        type: 2}
+    - target: {fileID: 924330448, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: m_Hunger
+      value: 
+      objectReference: {fileID: 628572740}
+    - target: {fileID: 924330448, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: m_Hunger
+      value: 
+      objectReference: {fileID: 628572740}
     - target: {fileID: 924330458, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: fireplace
       value: 
@@ -32030,31 +32018,43 @@ PrefabInstance:
       propertyPath: pauseCanvasGroup
       value: 
       objectReference: {fileID: 1862612117}
-    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+    - target: {fileID: 3700134211258645079, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
-      propertyPath: infoPanel
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: sun
       value: 
-      objectReference: {fileID: 2134525480}
-    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: infoText
+      objectReference: {fileID: 360152123}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: canvas
       value: 
-      objectReference: {fileID: 1849366127}
-    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: originalColor.g
-      value: 0.6431373
-      objectReference: {fileID: 0}
-    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: originalColor.r
-      value: 0.854902
-      objectReference: {fileID: 0}
-    - target: {fileID: 8895370325545244772, guid: 43dd9d03438f9454f9cf6328b64b32c3,
-        type: 3}
-      propertyPath: originalColor.b
-      value: 0.21960786
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 284301914}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: firePlace
+      value: 
+      objectReference: {fileID: 113546410}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: resetTerrainOnDestroyObject
+      value: 
+      objectReference: {fileID: 1454798106}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: blackFadeMachine
+      value: 
+      objectReference: {fileID: 434704307}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: PlayerView
+      value: 
+      objectReference: {fileID: 284301910}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: currentDayText
+      value: 
+      objectReference: {fileID: 835544117}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: hungerSystem
+      value: 
+      objectReference: {fileID: 628572740}
     - target: {fileID: 2689300741216309486, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: frustumSettings.qualitySettings
@@ -33176,6 +33176,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: stove
       objectReference: {fileID: 0}
+    - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.29
+      objectReference: {fileID: 0}
     - target: {fileID: 396010270113842227, guid: b21f75b6949788e4c8d1fb5f25080b6b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33260,31 +33285,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329844843553535448, guid: b21f75b6949788e4c8d1fb5f25080b6b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 2487534953260843856, guid: b21f75b6949788e4c8d1fb5f25080b6b,
         type: 3}
@@ -38916,14 +38916,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140401656}
-  m_LocalRotation: {x: -0.000000052154057, y: -0.000000014901159, z: 0.0000000372529,
-    w: 1}
-  m_LocalPosition: {x: 0.683, y: 0.098, z: -0.052}
+  m_LocalRotation: {x: -0.16833268, y: -0.18487851, z: -0.33178788, w: 0.9096158}
+  m_LocalPosition: {x: 2.89, y: 0.3, z: -1.27}
   m_LocalScale: {x: 0.7000008, y: 0.70000017, z: 0.7000007}
   m_Children: []
   m_Father: {fileID: 85277632}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -25.399002, y: -14.399001, z: -36.818}
 --- !u!108 &2140401658
 Light:
   m_ObjectHideFlags: 0

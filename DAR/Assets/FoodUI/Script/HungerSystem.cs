@@ -36,6 +36,7 @@ public class HungerSystem : MonoBehaviour
     
     void Start()
     {
+        Debug.Log(GameManager.GM.eating);
         x = Screen.width / 2;
         y = Screen.height / 2;
         mFoodBar.minHunger = 0;
@@ -145,18 +146,18 @@ public class HungerSystem : MonoBehaviour
                 mTextInteraction.text =  GameManager.GM.interaction + "\n Pour mettre dans l'inventaire";
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 var selectionEat = selection.GetComponent<Food>();
-                if(selectionRenderer != null)
-                {
+                /*if(selectionRenderer != null)
+                {*/
                     if(Input.GetKeyDown(GameManager.GM.eating))
                     {
                         Eat(selectionEat.m_food.eatInfo);
                         Destroy(selection.gameObject);
                     }
-                    else if (Input.GetKeyDown("Eating")) {
+                    /*else if (Input.GetKeyDown("Eating")) {
                         Eat(selectionEat.m_food.eatInfo);
                         Destroy(selection.gameObject);
-                    }
-                }
+                    }*/
+                /*}*/
             }
             else
             {

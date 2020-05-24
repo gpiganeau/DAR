@@ -774,6 +774,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: StartAssignment
       objectReference: {fileID: 0}
+    - target: {fileID: 2597894648029994441, guid: 3b6abe7777a93064fa789a781d2c8b10,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7101039404157052674}
+    - target: {fileID: 2597894648029994441, guid: 3b6abe7777a93064fa789a781d2c8b10,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendText
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597894648029994441, guid: 3b6abe7777a93064fa789a781d2c8b10,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7101039404157052674}
+    - target: {fileID: 2597894648029994441, guid: 3b6abe7777a93064fa789a781d2c8b10,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartAssignment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b6abe7777a93064fa789a781d2c8b10, type: 3}
 --- !u!114 &2116185113 stripped
@@ -3584,6 +3604,7 @@ GameObject:
   - component: {fileID: 3460122554549641339}
   - component: {fileID: 6521584419006669616}
   - component: {fileID: 3608617746516696901}
+  - component: {fileID: 4331013227764519189}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -3591,6 +3612,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &4331013227764519189
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331013227764519188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2bf98e2dd7739d44cb818ff236ee73d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!224 &4435641501659295757
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5452,6 +5492,7 @@ MonoBehaviour:
   changingText: {fileID: 79254914043219374}
   loadButton: {fileID: 6680342632878204944}
   isNew: 0
+  animTitle: {fileID: 4331013227764519189}
   loadScenePath: {fileID: 1563116703}
 --- !u!222 &7528596859957756191
 CanvasRenderer:

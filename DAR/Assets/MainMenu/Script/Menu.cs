@@ -26,6 +26,7 @@ public class Menu : MonoBehaviour
     public bool isNew;
 
     Animator anim;
+    public Animator animTitle;
 
     public MainMenuToLoadScene loadScenePath;
     
@@ -84,6 +85,7 @@ public class Menu : MonoBehaviour
         choose.SetActive(true);
         changingText.text = " Nouvelle Partie ";
         anim.SetBool("EstSlide",true);
+        animTitle.SetBool("isDisable", true);
         anim.SetBool("EstVisible", false);
         isNew = true;
         EventSystem.current.SetSelectedGameObject(choose.GetComponentInChildren<Button>().gameObject);
@@ -101,6 +103,7 @@ public class Menu : MonoBehaviour
         anim.SetBool("EstSlide",true);
         anim.SetBool("EstVisible", false);
         isNew = false;
+        animTitle.SetBool("isDisable", true);
         EventSystem.current.SetSelectedGameObject(choose.GetComponentInChildren<Button>().gameObject);
         //anim.SetBool("EstVisiblePartie",true);
 
@@ -163,6 +166,7 @@ public class Menu : MonoBehaviour
         parametreControls.SetActive(false);
         team.SetActive(false);
         anim.SetBool("EstSlide",true);
+        animTitle.SetBool("isDisable", true);
         anim.SetBool("EstVisible", false);
         EventSystem.current.SetSelectedGameObject(parametreGraphism.GetComponentInChildren<Button>().gameObject);
     }
@@ -178,6 +182,7 @@ public class Menu : MonoBehaviour
         team.SetActive(false);
         anim.SetBool("EstSlide",true);
         anim.SetBool("EstVisible", false);
+        animTitle.SetBool("isDisable", true);
         EventSystem.current.SetSelectedGameObject(parametreControls.GetComponentInChildren<Button>().gameObject);
     }
 
@@ -199,6 +204,7 @@ public class Menu : MonoBehaviour
         parametreControls.SetActive(false);
         team.SetActive(false);
         anim.SetBool("EstSlide",true);
+        animTitle.SetBool("isDisable", true);
         anim.SetBool("EstVisible", false);
         EventSystem.current.SetSelectedGameObject(parametreSound.GetComponentInChildren<Button>().gameObject);
     }
@@ -220,6 +226,7 @@ public class Menu : MonoBehaviour
         parametreControls.SetActive(false);
         team.SetActive(true);
         anim.SetBool("EstSlide",true);
+        animTitle.SetBool("isDisable", true);
         anim.SetBool("EstVisible", true);
         EventSystem.current.SetSelectedGameObject(null);
     }
