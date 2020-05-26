@@ -62,6 +62,7 @@ public class Pause : MonoBehaviour
         
         gamePaused = true;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         despoMouseLook.ignore = true;
         Time.timeScale = 0;
         pausePanel.SetActive(true);
@@ -77,6 +78,7 @@ public class Pause : MonoBehaviour
     {
         gamePaused = false;
         Cursor.lockState = lockModeState;
+        Cursor.visible = false;
         despoMouseLook.ignore = mouseLookState;
         Time.timeScale = 1;
         pausePanel.SetActive(false);
