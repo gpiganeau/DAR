@@ -11652,6 +11652,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f87196992bdfb849921f69a045625d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &628572745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628572739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da268e364a8cfe47aebe7bee5ccb9d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foggyAreas: []
+  dayTimeManager: {fileID: 0}
 --- !u!114 &628572746 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3,
@@ -11686,6 +11700,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41ab1170892028d49aeefae764dad3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &628572756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628572739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0590f00da374e4d47bfc61826daec879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &629554120
@@ -32813,20 +32839,50 @@ PrefabInstance:
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 1744508641}
-    - target: {fileID: 8696873966379164852, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+    - target: {fileID: 3700134211258645077, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8696873966379164852, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
-      propertyPath: MaterialParameterName
-      value: Snow_Walk_medium
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8696873966379164852, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: JumpInputName
-      value: 
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696873966379164852, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: MaterialTypes.Array.data[1]
+      value: Small Snow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696873966379164852, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: MaterialTypes.Array.data[2]
+      value: Deep Snow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696873966379164852, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: JumpingEventPath
+      value: event:/Character/Footsteps
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696873966379164852, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: JumpOrLandParameterName
+      value: Material
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696873966379164852, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: StepDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696873966379164852, guid: 43dd9d03438f9454f9cf6328b64b32c3,
+        type: 3}
+      propertyPath: RayDistance
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
@@ -35191,6 +35247,39 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1882922768}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1892495363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1006814718398562828, guid: 8fcc219cf00737c46882eaf6d41159e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 333650474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1892495367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892495363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b489a3c6bc88f546b796e20bf4bbc79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 3
+--- !u!64 &1892495368
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892495363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300012, guid: bc0a81d5dbbdbd3448eb9779939075cb, type: 3}
 --- !u!1001 &1895521007
 PrefabInstance:
   m_ObjectHideFlags: 0

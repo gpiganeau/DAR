@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{9010c2fe-31ff-4596-8aff-ae81a871c5b7}">
+		<property name="name">
+			<value>Material</value>
+		</property>
+		<relationship name="folder">
+			<destination>{2055ee99-573c-43c6-94e2-c9c1b6b41094}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{5a2d5b4d-489c-4e3c-b450-d380f4db5fb0}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{5a2d5b4d-489c-4e3c-b450-d380f4db5fb0}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>4</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Snow</value>
+			<value>Small Snow</value>
+			<value>Deep Snow</value>
+			<value>Wood</value>
+		</property>
+		<property name="isHeld">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

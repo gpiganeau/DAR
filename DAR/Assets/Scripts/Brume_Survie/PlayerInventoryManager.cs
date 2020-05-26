@@ -23,10 +23,6 @@ public class PlayerInventoryManager : MonoBehaviour
     public GameObject areaFishing;
     public GameObject gameOver;
 
-    [FMODUnity.EventRef]
-    public string inventoryEvent = "";
-    public FMOD.Studio.EventInstance inventorySound;
-
     void Start()
     {
         //Set un nouvel inventaire ou lit les données d'inventaire sauvegardées
@@ -45,9 +41,6 @@ public class PlayerInventoryManager : MonoBehaviour
             UIElement.SetActive(false);
         }
         UpdateAll();
-
-        inventorySound = FMODUnity.RuntimeManager.CreateInstance(inventoryEvent);
-        inventorySound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
     }
 
     void Update()
@@ -198,8 +191,10 @@ public class PlayerInventoryManager : MonoBehaviour
             currentInventoryPanel.SetActive(false);
             currentInventoryPanel = UIElements[0];
 
+            FMOD.Studio.EventInstance inventorySound = FMODUnity.RuntimeManager.CreateInstance("event:/IU/Inventory");
             inventorySound.setParameterByName("Inventory_Open", 0);
             inventorySound.start();
+            inventorySound.release();
         }
         else {
             Cursor.lockState = CursorLockMode.None;
@@ -208,8 +203,10 @@ public class PlayerInventoryManager : MonoBehaviour
             pointerUI.SetActive(false);
             currentInventoryPanel.SetActive(true);
 
+            FMOD.Studio.EventInstance inventorySound = FMODUnity.RuntimeManager.CreateInstance("event:/IU/Inventory");
             inventorySound.setParameterByName("Inventory_Open", 1);
             inventorySound.start();
+            inventorySound.release();
         }
     }
 
