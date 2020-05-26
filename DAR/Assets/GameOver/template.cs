@@ -69,6 +69,12 @@ public class template : MonoBehaviour
         GetComponent<PlayerInventoryManager>().enabled = false;
     }
 
+    public void Victoire() {
+        Cursor.lockState = CursorLockMode.None;
+
+        SceneManager.LoadScene("OutroScene");
+    }
+
 
         public void Play()
     {

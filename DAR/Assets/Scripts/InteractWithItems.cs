@@ -194,6 +194,9 @@ public class InteractWithItems : MonoBehaviour
                     infoManager.ShowInfo("Balise ajoutée");
                 }
                 break;
+            case "Radio":
+                gameObject.GetComponent<template>().Victoire();
+                break;
         }
         return;
     }
@@ -208,6 +211,25 @@ public class InteractWithItems : MonoBehaviour
         }
         else if (itemName == mushroom._name) {
             return mushroom;
+        }
+        else if (itemName == balise._name) {
+            return balise;
+        }
+        else if (itemName == baie._name) {
+            return baie;
+        }
+        else if (itemName == radioPiece1._name) {
+            Debug.Log("fail");
+            return radioPiece1;
+        }
+        else if (itemName == radioPiece2._name) {
+            return radioPiece2;
+        }
+        else if (itemName == radioPiece3._name) {
+            return radioPiece3;
+        }
+        else if (itemName == radioPiece4._name) {
+            return radioPiece4;
         }
         return new Item();
     }

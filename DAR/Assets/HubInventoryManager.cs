@@ -52,6 +52,7 @@ public class HubInventoryManager : MonoBehaviour
             }
         }
         if (!found) {
+            Debug.Log(item._name);
             hubInventory.content.Add(item);
             hubInventory.amount.Add(itemValue);
         }

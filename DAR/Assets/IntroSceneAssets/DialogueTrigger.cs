@@ -27,7 +27,7 @@ public class DialogueTrigger : MonoBehaviour {
 
 	void Update()
 	{
-		if(noButton && Input.GetAxisRaw("Submit") != 0)
+		if(noButton && (Input.GetAxisRaw("Submit") != 0) || Input.GetKeyDown(GameManager.GM.put))
 		{
 			if(m_isAxisInUse == false)
 			{
