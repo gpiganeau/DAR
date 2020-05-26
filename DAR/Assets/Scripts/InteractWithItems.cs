@@ -12,6 +12,7 @@ public class InteractWithItems : MonoBehaviour
 
     public HubInventoryManager hubInventoryManager;
     public PlayerInventoryManager playerInventoryManager;
+    [SerializeField] private taskManager taskManagerObject;
 
     Vector2 center;
     float x;
@@ -110,15 +111,14 @@ public class InteractWithItems : MonoBehaviour
     void Collect(Item collectible, GameObject objectHit) {
         if (playerInventoryManager.AddItem(Instantiate(collectible))) {
             objectHit.GetComponent<ItemInteraction>().RemoveOneUse();
-            string display = collectible._name + " ajouté";
+            string display = collectible._name + " collecté";
+            CheckForTasks(collectible);
             infoManager.ShowInfo(display);
         }
         else {
             infoManager.ShowInfo("Inventaire plein");
         }
     }
-
-
 
     void Action(string objectName, GameObject collectible) {
         
@@ -132,6 +132,7 @@ public class InteractWithItems : MonoBehaviour
             case "Lit":
                 if (gameObject.GetComponent<PlayerStatus>().GetShelteredStatus() && gameObject.GetComponent<PlayerStatus>().GetWarmStatus()) {
                     gameObject.GetComponent<EndDay>().EndThisDayInside();
+                    taskManagerObject.CompleteTask("GTS");
                     infoManager.ShowInfo("Journée finie !");
                 }
                 break;
@@ -144,11 +145,14 @@ public class InteractWithItems : MonoBehaviour
             case "Sac à dos":
                 playerInventoryManager.ChangeInventory(9);
                 collectible.GetComponent<ItemInteraction>().RemoveOneUse();
+                taskManagerObject.CompleteTask("FTB");
                 infoManager.ShowInfo("Vous avez trouvé le sac");
                 break;
             case "Poêle":
                 if (playerInventoryManager.GetInventory().CountItem("Bûche") + hubInventoryManager.GetHubInventory().Count("Bûche") >= 3) {
                     collectible.GetComponent<FireplaceScript>().Light();
+                    taskManagerObject.CompleteTask("LTF");
+                    taskManagerObject.AddTask("GTS");
                     infoManager.ShowInfo("Feu allumé !");
                 }
                 break;
@@ -201,6 +205,112 @@ public class InteractWithItems : MonoBehaviour
         return;
     }
 
+    void CheckForTasks(Item collectible) //Activation des tâches liées à la collecte d'objet
+    {   
+        switch (collectible._name) {
+            case "Bûche":
+                if (taskManagerObject.FindTask("GSW") != null)
+                {
+                    Tasks woodTask = taskManagerObject.FindTask("GSW");
+                    if (woodTask._isCompleted == false)
+                    {
+                        taskManagerObject.CompleteTask("GSW");
+                        taskManagerObject.AddTask("LTF");
+                    }
+                }
+                break;
+            case "Baie":
+                if (taskManagerObject.FindTask("GSF") != null)
+                {
+                    Tasks woodTask = taskManagerObject.FindTask("GSF");
+                    if (woodTask._isCompleted == false)
+                    {
+                        taskManagerObject.CompleteTask("GSF");
+                    }
+                }
+                break;
+            case "Antenne":
+                if (taskManagerObject.FindTask("GSH") != null)
+                {
+                    Tasks woodTask = taskManagerObject.FindTask("GSH");
+                    if (woodTask._isCompleted == false)
+                    {
+                        taskManagerObject.CompleteTask("GSH");
+                        taskManagerObject.AddTask("GRP");
+                    }
+                }
+                else if (taskManagerObject.FindTask("GRP") != null)
+                {
+                    Tasks woodTask = taskManagerObject.FindTask("GRP");
+                    // Il manque la condition "avoir les 4 pieces radio"...
+                    /*if (woodTask._isCompleted == false)
+                    {
+                        taskManagerObject.CompleteTask("GRP");
+                    }*/
+                }
+                break;
+            case "Générateur":
+                if (taskManagerObject.FindTask("GSH") != null)
+                {
+                    Tasks woodTask = taskManagerObject.FindTask("GSH");
+                    if (woodTask._isCompleted == false)
+                    {
+                        taskManagerObject.CompleteTask("GSH");
+                        taskManagerObject.AddTask("GRP");
+                    }
+                }
+                else if (taskManagerObject.FindTask("GRP") != null)
+                {
+                    Tasks woodTask = taskManagerObject.FindTask("GRP");
+                    // Il manque la condition "avoir les 4 pieces radio"...
+                    /*if (woodTask._isCompleted == false)
+                    {
+                        taskManagerObject.CompleteTask("GRP");
+                    }*/
+                }
+                break;
+            case "Haut-Parleur":
+                if (taskManagerObject.FindTask("GSH") != null)
+                {
+                    Tasks woodTask = taskManagerObject.FindTask("GSH");
+                    if (woodTask._isCompleted == false)
+                    {
+                        taskManagerObject.CompleteTask("GSH");
+                        taskManagerObject.AddTask("GRP");
+                    }
+                }
+                else if (taskManagerObject.FindTask("GRP") != null)
+                {
+                    Tasks woodTask = taskManagerObject.FindTask("GRP");
+                    // Il manque la condition "avoir les 4 pieces radio"...
+                    /*if (woodTask._isCompleted == false)
+                    {
+                        taskManagerObject.CompleteTask("GRP");
+                    }*/
+                }
+                break;
+            case "Potentiomètre":
+                if (taskManagerObject.FindTask("GSH") != null)
+                {
+                    Tasks woodTask = taskManagerObject.FindTask("GSH");
+                    if (woodTask._isCompleted == false)
+                    {
+                        taskManagerObject.CompleteTask("GSH");
+                        taskManagerObject.AddTask("GRP");
+                    }
+                }
+                else if (taskManagerObject.FindTask("GRP") != null)
+                {
+                    Tasks woodTask = taskManagerObject.FindTask("GRP");
+                    // Il manque la condition "avoir les 4 pieces radio"...
+                    /*if (woodTask._isCompleted == false)
+                    {
+                        taskManagerObject.CompleteTask("GRP");
+                    }*/
+                }
+                break;
+        }
+    }
 
     public Item GetItem(string itemName) {
         if (itemName == wood._name) {

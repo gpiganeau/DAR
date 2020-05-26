@@ -56,10 +56,12 @@ public class EndDay : MonoBehaviour
 
     void AddDayTasks()
     {
-        if (taskMng)
+        if (taskMng && loadedDay.day == 1)
         {
             taskMng.AddTask("GSW");
             taskMng.AddTask("GSF");
+            taskMng.AddTask("GSH");
+            taskMng.AddTask("FTB");
         }
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.48866624, g: 0.66264987, b: 1.0911198, a: 1}
+  m_IndirectSpecularColor: {r: 0.4886669, g: 0.6626503, b: 1.09112, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -32460,6 +32460,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 092878a9e75501b4d9b7d60894571ae7,
         type: 2}
+    - target: {fileID: 924330447, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: taskManagerObject
+      value: 
+      objectReference: {fileID: 1862685914}
     - target: {fileID: 924330448, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
       propertyPath: m_Hunger
       value: 
@@ -32533,6 +32537,10 @@ PrefabInstance:
       propertyPath: hungerSystem
       value: 
       objectReference: {fileID: 628572740}
+    - target: {fileID: 149913946, guid: 43dd9d03438f9454f9cf6328b64b32c3, type: 3}
+      propertyPath: taskMng
+      value: 
+      objectReference: {fileID: 1862685914}
     - target: {fileID: 2689300741216309486, guid: 43dd9d03438f9454f9cf6328b64b32c3,
         type: 3}
       propertyPath: frustumSettings.qualitySettings
@@ -39627,21 +39635,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: hut_single
       objectReference: {fileID: 0}
-    - target: {fileID: 3764888712791100327, guid: 76dbbb5895fc4ea43a3e1ad7587324c9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0502
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764888712791100327, guid: 76dbbb5895fc4ea43a3e1ad7587324c9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.00076
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764888712791100327, guid: 76dbbb5895fc4ea43a3e1ad7587324c9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0628
-      objectReference: {fileID: 0}
     - target: {fileID: 3764888713017788455, guid: 76dbbb5895fc4ea43a3e1ad7587324c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39696,6 +39689,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -14.268001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764888712791100327, guid: 76dbbb5895fc4ea43a3e1ad7587324c9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0502
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764888712791100327, guid: 76dbbb5895fc4ea43a3e1ad7587324c9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00076
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764888712791100327, guid: 76dbbb5895fc4ea43a3e1ad7587324c9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0628
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76dbbb5895fc4ea43a3e1ad7587324c9, type: 3}

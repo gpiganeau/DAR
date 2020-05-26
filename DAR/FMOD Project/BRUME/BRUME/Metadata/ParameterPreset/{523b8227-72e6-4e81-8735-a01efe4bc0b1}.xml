@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{523b8227-72e6-4e81-8735-a01efe4bc0b1}">
+		<property name="name">
+			<value>Inventory_Close</value>
+		</property>
+		<relationship name="folder">
+			<destination>{2055ee99-573c-43c6-94e2-c9c1b6b41094}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{b043624b-1aff-480e-b90a-39cdcce39495}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{b043624b-1aff-480e-b90a-39cdcce39495}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
