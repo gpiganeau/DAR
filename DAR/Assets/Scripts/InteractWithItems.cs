@@ -134,6 +134,7 @@ public class InteractWithItems : MonoBehaviour
                 if (gameObject.GetComponent<PlayerStatus>().GetShelteredStatus() && gameObject.GetComponent<PlayerStatus>().GetWarmStatus()) {
                     gameObject.GetComponent<EndDay>().EndThisDayInside();
                     taskManagerObject.CompleteTask("GTS");
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/IU/Bed", transform.position);
                     infoManager.ShowInfo("Journée finie !");
                 }
                 break;

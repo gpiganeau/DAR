@@ -66,6 +66,7 @@ public class CycleJourNuit : MonoBehaviour {
 
         if ((freezingLevel > 1) || !player.GetComponent<PlayerStatus>().GetShelteredStatus()) {
             //SceneManager.LoadScene(3);
+            StopAllPlayerEvents();
             player.GetComponent<template>().Hypothermie();
         }
         else {
@@ -130,6 +131,10 @@ public class CycleJourNuit : MonoBehaviour {
         bool worseConditions = true;
         timer = 30f;
         GetComponent<Light>().intensity = 0;
+
+        FMOD.Studio.EventInstance heartbeatSound = FMODUnity.RuntimeManager.CreateInstance("event:/Character/heartbeat");
+        heartbeatSound.start();
+        heartbeatSound.release();
         while (timer > 0) {
             timerText.GetComponent<TextMeshProUGUI>().text = timer.ToString("#.0");
             if (!(player.GetComponent<PlayerStatus>().GetShelteredStatus() && player.GetComponent<PlayerStatus>().GetWarmStatus())) {
@@ -138,6 +143,7 @@ public class CycleJourNuit : MonoBehaviour {
             }
             else {
                 worseConditions = false;
+                heartbeatSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 break;
             }
         }
@@ -145,14 +151,14 @@ public class CycleJourNuit : MonoBehaviour {
     }
     void OnDestroy()
     {
-        //StopAllPlayerEvents();
-        dayMusic.release();
+        StopAllPlayerEvents();
     }
 
     void StopAllPlayerEvents()
     {
+        dayMusic.release();
         FMOD.Studio.Bus playerBus = FMODUnity.RuntimeManager.GetBus("bus:/");
-        playerBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        playerBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }
 
