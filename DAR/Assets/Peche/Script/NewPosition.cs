@@ -38,7 +38,7 @@ public class NewPosition : MonoBehaviour
             mText3.SetActive(true);
         }
 
-        else if (Input.GetKeyDown(KeyCode.T))
+        else if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Restart");
             ItsTimeToStop();
