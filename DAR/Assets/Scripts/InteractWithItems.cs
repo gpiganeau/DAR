@@ -128,6 +128,7 @@ public class InteractWithItems : MonoBehaviour
                 //playerInventoryManager.DepositInventory();
                 //collectible.GetComponent<ChestScript>().Open();
                 gameObject.GetComponent<PlayerInventoryManager>().ShowAlternateUI(2);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/IU/Coffre/Ouverture", transform.position);
                 break;
             case "Lit":
                 if (gameObject.GetComponent<PlayerStatus>().GetShelteredStatus() && gameObject.GetComponent<PlayerStatus>().GetWarmStatus()) {
@@ -209,6 +210,7 @@ public class InteractWithItems : MonoBehaviour
     {   
         switch (collectible._name) {
             case "Bûche":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/IU/Collecte de Ressources/Bois", transform.position);
                 if (taskManagerObject.FindTask("GSW") != null)
                 {
                     Tasks woodTask = taskManagerObject.FindTask("GSW");
@@ -220,6 +222,7 @@ public class InteractWithItems : MonoBehaviour
                 }
                 break;
             case "Baie":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/IU/Collecte de Ressources/Nourriture", transform.position);
                 if (taskManagerObject.FindTask("GSF") != null)
                 {
                     Tasks woodTask = taskManagerObject.FindTask("GSF");
@@ -230,6 +233,7 @@ public class InteractWithItems : MonoBehaviour
                 }
                 break;
             case "Antenne":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/IU/Collecte de Ressources/Pièce de Radio", transform.position);
                 if (taskManagerObject.FindTask("GSH") != null)
                 {
                     Tasks woodTask = taskManagerObject.FindTask("GSH");
@@ -250,6 +254,7 @@ public class InteractWithItems : MonoBehaviour
                 }
                 break;
             case "Générateur":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/IU/Collecte de Ressources/Pièce de Radio", transform.position);
                 if (taskManagerObject.FindTask("GSH") != null)
                 {
                     Tasks woodTask = taskManagerObject.FindTask("GSH");
@@ -270,6 +275,7 @@ public class InteractWithItems : MonoBehaviour
                 }
                 break;
             case "Haut-Parleur":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/IU/Collecte de Ressources/Pièce de Radio", transform.position);
                 if (taskManagerObject.FindTask("GSH") != null)
                 {
                     Tasks woodTask = taskManagerObject.FindTask("GSH");
@@ -290,6 +296,7 @@ public class InteractWithItems : MonoBehaviour
                 }
                 break;
             case "Potentiomètre":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/IU/Collecte de Ressources/Pièce de Radio", transform.position);
                 if (taskManagerObject.FindTask("GSH") != null)
                 {
                     Tasks woodTask = taskManagerObject.FindTask("GSH");

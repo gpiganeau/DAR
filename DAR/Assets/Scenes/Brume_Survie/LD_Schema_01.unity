@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 360152123}
-  m_IndirectSpecularColor: {r: 0.4886127, g: 0.6626016, b: 1.0911267, a: 1}
+  m_IndirectSpecularColor: {r: 0.4886669, g: 0.6626503, b: 1.09112, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15914,6 +15914,11 @@ PrefabInstance:
       propertyPath: chestPanel
       value: 
       objectReference: {fileID: 777105122}
+    - target: {fileID: 2555290340019341764, guid: 63bb2f0728c8f1742ba6de27c5f308f5,
+        type: 3}
+      propertyPath: chestEvent
+      value: event:/IU/Coffre/Ouverture
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63bb2f0728c8f1742ba6de27c5f308f5, type: 3}
 --- !u!1 &872281043
@@ -39383,7 +39388,7 @@ PrefabInstance:
     - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
         type: 3}
       propertyPath: dayLength
-      value: 5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5852790252072147013, guid: 752e0225b3bf1d945aa0b3d0843d25a6,
         type: 3}
