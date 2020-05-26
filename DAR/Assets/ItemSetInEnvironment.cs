@@ -39,6 +39,7 @@ public class ItemSetInEnvironment : MonoBehaviour
             Debug.Log(offset.ToString());
             itemInHand = item;
             playerInventoryManager.RemoveItemAt(index);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/IU/Depôt au sol", transform.position);
         }
         else {
             Destroy(instanciatedItem);

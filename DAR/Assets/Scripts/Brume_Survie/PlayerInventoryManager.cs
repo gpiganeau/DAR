@@ -92,6 +92,7 @@ public class PlayerInventoryManager : MonoBehaviour
                 }
             }
         }
+        FMODUnity.RuntimeManager.PlayOneShot("event:/IU/Coffre/Depôt dans le coffre", transform.position);
         UpdateAll();
     }
 
@@ -197,8 +198,8 @@ public class PlayerInventoryManager : MonoBehaviour
             currentInventoryPanel.SetActive(false);
             currentInventoryPanel = UIElements[0];
 
-            //inventorySound.setParameterByName("Inventory_Open", 0);
-            //inventorySound.start();
+            inventorySound.setParameterByName("Inventory_Open", 0);
+            inventorySound.start();
         }
         else {
             Cursor.lockState = CursorLockMode.None;
@@ -207,8 +208,8 @@ public class PlayerInventoryManager : MonoBehaviour
             pointerUI.SetActive(false);
             currentInventoryPanel.SetActive(true);
 
-            //inventorySound.setParameterByName("Inventory_Open", 1);
-            //inventorySound.start();
+            inventorySound.setParameterByName("Inventory_Open", 1);
+            inventorySound.start();
         }
     }
 
@@ -220,7 +221,9 @@ public class PlayerInventoryManager : MonoBehaviour
         if (!currentInventoryPanel.activeSelf) {
             currentInventoryPanel = UIElements[UIIndex];
             if (UIIndex >= 2)
-            { EnableMovement(false); }
+            {
+                EnableMovement(false);
+            }
             ShowUI();
         }
         else{

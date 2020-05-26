@@ -36,7 +36,6 @@ public class HungerSystem : MonoBehaviour
     
     void Start()
     {
-        Debug.Log(GameManager.GM.eating);
         x = Screen.width / 2;
         y = Screen.height / 2;
         mFoodBar.minHunger = 0;

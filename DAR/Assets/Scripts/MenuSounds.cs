@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MenuSounds : MonoBehaviour
 {
-    [FMODUnity.EventRef]
-    public string ClickEvent = "";
+    private string ClickEvent = "event:/Menu/Boutons menu";
     public void PlayClickSound()
     {
         FMODUnity.RuntimeManager.PlayOneShot(ClickEvent);
