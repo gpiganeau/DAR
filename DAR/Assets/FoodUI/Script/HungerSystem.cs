@@ -63,6 +63,8 @@ public class HungerSystem : MonoBehaviour
 
         if (food == 0) {
             //playerStatus.SetDeadByHunger(true);
+            CycleJourNuit.StopAllPlayerEvents();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Death", transform.position);
             GetComponent<template>().Famine();
         }
 

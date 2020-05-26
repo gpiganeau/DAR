@@ -37,6 +37,7 @@ public class template : MonoBehaviour
     public void Famine()
     {
         GetComponent<Pause>().isDead =true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Death", transform.position);
         over.SetActive(true);
         cause.text = "Famine";
         cause.color = new Color(219,164,57);
@@ -55,6 +56,7 @@ public class template : MonoBehaviour
     public void Hypothermie()
     {
         GetComponent<Pause>().isDead =true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Death", transform.position);
         over.SetActive(true);
         cause.text = "Hypothermie";
         cause.color = new Color(0,255,234);

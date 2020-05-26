@@ -135,6 +135,7 @@ public class CycleJourNuit : MonoBehaviour {
         FMOD.Studio.EventInstance heartbeatSound = FMODUnity.RuntimeManager.CreateInstance("event:/Character/heartbeat");
         heartbeatSound.start();
         heartbeatSound.release();
+
         while (timer > 0) {
             timerText.GetComponent<TextMeshProUGUI>().text = timer.ToString("#.0");
             if (!(player.GetComponent<PlayerStatus>().GetShelteredStatus() && player.GetComponent<PlayerStatus>().GetWarmStatus())) {
@@ -144,6 +145,7 @@ public class CycleJourNuit : MonoBehaviour {
             else {
                 worseConditions = false;
                 heartbeatSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Back Home", transform.position);
                 break;
             }
         }
@@ -151,12 +153,12 @@ public class CycleJourNuit : MonoBehaviour {
     }
     void OnDestroy()
     {
+        dayMusic.release();
         StopAllPlayerEvents();
     }
 
-    void StopAllPlayerEvents()
+    public static void StopAllPlayerEvents()
     {
-        dayMusic.release();
         FMOD.Studio.Bus playerBus = FMODUnity.RuntimeManager.GetBus("bus:/");
         playerBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
