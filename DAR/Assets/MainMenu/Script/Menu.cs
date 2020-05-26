@@ -30,8 +30,15 @@ public class Menu : MonoBehaviour
 
     public MainMenuToLoadScene loadScenePath;
     
+    void Awake()
+    {
+        FMOD.Studio.Bus playerBus = FMODUnity.RuntimeManager.GetBus("bus:/");
+        playerBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+    
     void Start()
     {
+        
         anim = gameObject.GetComponent<Animator>();
         if (checkForPreviousData() == true)
         {

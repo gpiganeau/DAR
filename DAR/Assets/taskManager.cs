@@ -14,6 +14,10 @@ public class taskManager : MonoBehaviour
     public List<Tasks> AllTasks;
     public Dictionary<string,Tasks> AllTasksDictionary;
     private bool m_isAxisInUse = false;
+    
+    [FMODUnity.EventRef]
+    public string checklistEvent = "";
+    public FMOD.Studio.EventInstance checklistSound;
    
 
     // Start is called before the first frame update
@@ -32,6 +36,12 @@ public class taskManager : MonoBehaviour
             Tasks newTask = Instantiate(task);
             AllTasksDictionary.Add(newTask.key, newTask);
         }
+    }
+
+    void Start()
+    {
+        checklistSound = FMODUnity.RuntimeManager.CreateInstance(checklistEvent);
+        checklistSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
     }
 
     // Update is called once per frame
@@ -95,6 +105,7 @@ public class taskManager : MonoBehaviour
 
     public void UpdateDetail()
     {
+        checklistSound.start();
         if (currentTask._isCompleted) {
             detail.GetComponent<TMPro.TextMeshProUGUI>().text = currentTask._detailFinish;
         }
