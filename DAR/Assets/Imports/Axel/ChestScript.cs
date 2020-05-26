@@ -30,7 +30,6 @@ public class ChestScript : MonoBehaviour
         else {
             animatorChest.SetBool("isOpen", false);
         }
-        
     }
 
 
