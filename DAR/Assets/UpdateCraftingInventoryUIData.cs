@@ -9,6 +9,7 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
     private Text _nb_Mushroom;
     private int woodValue;
     private int mushroomValue;
+    private int radioValue;
 
     
 
@@ -28,15 +29,17 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
     public void UpdateNumbers(HubInventoryManager.Inventory _hubInventory) {
         woodValue = _hubInventory.Count("Bûche") + playerInventoryManager.GetInventory().CountItem("Bûche");
         mushroomValue = _hubInventory.Count("Champignon") + playerInventoryManager.GetInventory().CountItem("Champignon");
+        radioValue = _hubInventory.Count("Antenne") + _hubInventory.Count("Générateur") + _hubInventory.Count("Haut-Parleur") + _hubInventory.Count("Potentiomètre");
         _nb_Wood.text = "x " + (woodValue);
         _nb_Mushroom.text = "x " + (mushroomValue);
     }
 
     public int[] GetValues()
     {
-        int [] ReturnArray = new int[2];
+        int [] ReturnArray = new int[3];
         ReturnArray[0] = woodValue;
         ReturnArray[1] = mushroomValue;
+        ReturnArray[2] = radioValue;
         return ReturnArray;
     }
 
@@ -53,11 +56,11 @@ public class UpdateCraftingInventoryUIData : MonoBehaviour {
             /*case "echelle":
                 playerInventoryManager.Consume("Bûche", 6);
                 break;*/
-            case "Radio":
-                playerInventoryManager.Consume("radioPiece1Item", 1);
-                playerInventoryManager.Consume("radioPiece2Item", 1);
-                playerInventoryManager.Consume("radioPiece3Item", 1);
-                playerInventoryManager.Consume("radioPiece4Item", 1);
+            case "Radio Complete":
+                playerInventoryManager.Consume("Antenne", 1);
+                playerInventoryManager.Consume("Générateur", 1);
+                playerInventoryManager.Consume("Haut-Parleur", 1);
+                playerInventoryManager.Consume("Potentiomètre", 1);
                 workBench.GetComponent<SpawningCraftedItem>().SpawnCraft(item);
                 break;
         }        
