@@ -151,7 +151,7 @@ public class CycleJourNuit : MonoBehaviour {
 
     void StopAllPlayerEvents()
     {
-        FMOD.Studio.Bus playerBus = FMODUnity.RuntimeManager.GetBus("bus:");
+        FMOD.Studio.Bus playerBus = FMODUnity.RuntimeManager.GetBus("bus:/");
         playerBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 }

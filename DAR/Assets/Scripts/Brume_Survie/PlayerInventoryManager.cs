@@ -47,6 +47,7 @@ public class PlayerInventoryManager : MonoBehaviour
         UpdateAll();
 
         inventorySound = FMODUnity.RuntimeManager.CreateInstance(inventoryEvent);
+        inventorySound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
     }
 
     void Update()
@@ -196,8 +197,8 @@ public class PlayerInventoryManager : MonoBehaviour
             currentInventoryPanel.SetActive(false);
             currentInventoryPanel = UIElements[0];
 
-            inventorySound.setParameterByName("Inventory_Open", 0);
-            inventorySound.start();
+            //inventorySound.setParameterByName("Inventory_Open", 0);
+            //inventorySound.start();
         }
         else {
             Cursor.lockState = CursorLockMode.None;
@@ -206,8 +207,8 @@ public class PlayerInventoryManager : MonoBehaviour
             pointerUI.SetActive(false);
             currentInventoryPanel.SetActive(true);
 
-            inventorySound.setParameterByName("Inventory_Open", 1);
-            inventorySound.start();
+            //inventorySound.setParameterByName("Inventory_Open", 1);
+            //inventorySound.start();
         }
     }
 
