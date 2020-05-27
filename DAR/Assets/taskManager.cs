@@ -57,7 +57,7 @@ public class taskManager : MonoBehaviour
             DeleteTask(currentTask);
         }*/
 
-        if(Input.GetAxisRaw("Checklist") != 0) 
+        if((Input.GetAxisRaw("Checklist") != 0) || Input.GetKeyDown(GameManager.GM.check)) 
         {
             if(m_isAxisInUse == false)
             {
@@ -75,6 +75,7 @@ public class taskManager : MonoBehaviour
 
     public Tasks AddTask(string taskKeyCode)
     {
+        Debug.Log("Hop on ajoute une tâche");
         GameObject gO = taskSlots[AllCurrentTasks.Count];
         Tasks testTask = Instantiate(AllTasksDictionary[taskKeyCode], gO.transform);
         AllCurrentTasks.Add(testTask);

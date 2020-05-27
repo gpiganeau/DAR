@@ -111,7 +111,7 @@ public class InteractWithItems : MonoBehaviour
     void Collect(Item collectible, GameObject objectHit) {
         if (playerInventoryManager.AddItem(Instantiate(collectible))) {
             objectHit.GetComponent<ItemInteraction>().RemoveOneUse();
-            string display = collectible._name + " collecté";
+            string display = collectible._name + " collecté(e)";
             CheckForTasks(collectible);
             infoManager.ShowInfo(display);
         }

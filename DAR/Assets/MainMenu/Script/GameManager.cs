@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         left = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("leftKey","Q"));
         right = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("rightKey","D"));
         eating = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("eatKey","Mouse1"));
-        check = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("checkKey","I"));
+        check = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("checkKey","A"));
         put = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("putKey","Mouse0"));
         quitArea = (KeyCode)System.Enum.Parse(typeof(KeyCode),PlayerPrefs.GetString("quitAreaKey","R"));
     }
