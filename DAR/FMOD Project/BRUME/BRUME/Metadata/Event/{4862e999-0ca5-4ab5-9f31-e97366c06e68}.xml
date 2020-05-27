@@ -67,6 +67,9 @@
 		<relationship name="modules">
 			<destination>{55f857d3-ae26-4956-9d8c-18a412f5c7ca}</destination>
 		</relationship>
+		<relationship name="markers">
+			<destination>{aba08ffd-64b7-4535-a3ff-56c52479df75}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{3dbb2d98-aad5-4571-8187-64096f438302}">
 		<relationship name="modulators">
@@ -117,6 +120,20 @@
 		</relationship>
 		<relationship name="output">
 			<destination>{3dbb2d98-aad5-4571-8187-64096f438302}</destination>
+		</relationship>
+	</object>
+	<object class="LoopRegion" id="{aba08ffd-64b7-4535-a3ff-56c52479df75}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="length">
+			<value>42.666666666666664</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{9c21886c-58bb-4861-8aa0-3cc7036b171e}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{3450d2ec-146e-4ec0-8812-94919a17f1dd}</destination>
 		</relationship>
 	</object>
 	<object class="ADSRModulator" id="{131e454d-fded-47a3-bf10-8da40fc7e4bc}">
